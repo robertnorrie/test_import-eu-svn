@@ -1,0 +1,14 @@
+Add POSTGIS support
+===================
+
+export POSTGIS_HOME=/usr/share/postgresql/8.4/contrib/postgis-1.5
+
+createlang -U www-data -W -h localhost plpgsql test
+psql -U www-data -W -h localhost test -f $POSTGIS_HOME/postgis.sql
+psql -U www-data -W -h localhost test -f $POSTGIS_HOME/spatial_ref_sys.sql
+psql -U www-data -W -h localhost test -f db-add-postgis.sql
+
+
+Migrate DB
+==========
+psql -U www-data -W -h localhost test -f db-migrate.sql

@@ -1,0 +1,77 @@
+Migration
+=========
+See README
+
+
+
+Installation
+============
+
+Is an official 2.7.0 release to be done ? 1days of work ?
+
+
+Open Question
+=============
+
+* Search form fields
+* Map
+** background : WMS ?
+<layer server="http://swordfish/cgi-bin/mapserv?map=/var/www/paul/natural_earth/10m_physical/base_hydro_admin.map" tocName="World coverage" params="{layers: 'ne_background', format: 'image/jpeg'}" options="{isBaseLayer: true}"/>
+** Projection and init extent
+* i18n :
+** Where to put language selector ?
+** Add missing EU language for JS UI ?
+* Minimizing popup : Could be relevant to have a "desktop" for minimized popup ?
+* DQ
+** Use @uuiref in gmd:LI_ProcessStep/gmd:source
+** Add to metadata relation ?
+
+
+All
+---
+User Interface
+~~~~~~~~~~~~~~
+* Which map viewer ?
+** http://swordfish/paul/databrowser/map_default.phtml?uuid=d862a711-94a1-41cc-ace9-d01729ac4c33&resetsession=ALL
+* 
+
+Harvesting
+~~~~~~~~~~
+
+
+Public catalogue
+----------------
+* User could login ? or all records are public ?
+
+
+Master catalogue
+----------------
+* 
+
+Public to master: filter definition 
+-----------------------------------
+
+Public catalogue harvest master catalogue using GeoNetwork protocol (suggestion).
+A filter is applied to harvested metadata.
+What to filter ?
+* Contact details : ...
+How ?
+* XSL
+* 
+
+
+Bugs & TODO
+-----------
+
+* metadata selection popup / Fix when no results found ?
+* Thesaurus admin header and footer
+* Subtemplate admin header and footer
+* Minified JS
+
+Template service
+----------------
+
+Only getHeader and getFooter use for the time being
+view-source:http://webservices.eea.europa.eu/templates/getRequiredHead?jsdisable=jquery
+Uncaught ReferenceError: cssQuery is not defined
+DOMContentLoadedInit
