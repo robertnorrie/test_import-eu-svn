@@ -1,0 +1,237 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<head>
+<title>Metadata catalogue - EEA/Eionet</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!-- TODO EEA http://webservices.eea.europa.eu/templates/getRequiredHead?jsdisable=jquery -->
+
+<script type="text/javascript"
+	src="http://www.eea.europa.eu/portal_javascripts/EEADesign2006/ploneScripts1316531574717828035.js">
+	
+</script>
+
+
+
+<script type="text/javascript"
+	src="http://www.eea.europa.eu/portal_javascripts/EEADesign2006/ploneScripts1316531574717891932.js">
+	
+</script>
+
+
+
+<script type="text/javascript"
+	src="http://www.eea.europa.eu/portal_javascripts/EEADesign2006/ploneScripts1316531574718199015.js">
+	
+</script>
+
+
+
+<script type="text/javascript"
+	src="http://www.eea.europa.eu/portal_javascripts/EEADesign2006/ploneScripts1316531574718832016.js">
+	
+</script>
+
+
+
+<script type="text/javascript"
+	src="http://www.eea.europa.eu/portal_javascripts/EEADesign2006/ploneScripts1316531574719084024.js">
+	
+</script>
+
+
+
+<script type="text/javascript"
+	src="http://www.eea.europa.eu/portal_javascripts/EEADesign2006/ploneScripts1316531574719477892.js">
+	
+</script>
+
+<style type="text/css" media="all">
+<!--
+@import
+	url(http://www.eea.europa.eu/portal_css/EEADesign2006/ploneStyles1316591285810762882.css)
+	;
+-->
+</style>
+<style type="text/css">
+<!--
+@import
+	url(http://www.eea.europa.eu/portal_css/EEADesign2006/ploneStyles1316591285810867071.css)
+	;
+-->
+</style>
+<!-- Internet Explorer CSS Fixes -->
+<!--[if lt IE 7]>
+        <style type="text/css" media="all">@import url(http://www.eea.europa.eu/IEFixes.css);</style>
+    <![endif]-->
+
+<!--[if IE 7]>
+        <style type="text/css" media="all">@import url(http://www.eea.europa.eu/IE7Fixes.css);</style>
+    <![endif]-->
+<link rel="shortcut icon" type="image/x-icon"
+	href="http://www.eea.europa.eu/favicon.ico" />
+<link rel="home" href="http://www.eea.europa.eu" title="Front page" />
+<link rel="search" title="Search this site"
+	href="http://www.eea.europa.eu/search_form" />
+<link rel="contents" href="http://www.eea.europa.eu/sitemap"
+	title="Site Map" />
+<link rel="up" href="http://www.eea.europa.eu" title="Up one level" />
+<!-- Disable IE6 image toolbar -->
+<meta http-equiv="imagetoolbar" content="no" />
+
+<style type="text/css" media="all">
+<!--
+@import
+	url(http://www.eea.europa.eu/portal_css/EEADesign2006/ploneStyles1316591285812975883.css)
+	;
+-->
+</style>
+
+<!-- end of EEA header to be loaded dynamically -->
+
+
+
+<link href="../../srv/en/rss.latest?georss=gml" rel="alternate"
+	type="application/rss+xml"
+	title="GeoNetwork opensource GeoRSS | Recent Changes" />
+<link href="../../srv/en/portal.opensearch" rel="search"
+	type="application/opensearchdescription+xml" title="GeoNetwork" />
+
+<link rel="stylesheet" type="text/css" href="css/eea.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../apps/js/ext/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../apps/js/ext/resources/css/xtheme-gray.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../apps/js/ext-ux/LightBox/lightbox.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../apps/js/ext-ux/FileUploadField/file-upload.css" />
+<link rel="stylesheet" type="text/css" href="../../apps/js/ext-ux/SuperBoxSelect/superboxselect.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../apps/js/ext-ux/MultiselectItemSelector-3.0/Multiselect.css" />
+<link rel="stylesheet" type="text/css" href="css/gndefault.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../apps/css/gnmapdefault.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../apps/css/gnmetadatadefault.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../apps/js/GeoNetwork/resources/css/metadata-view.css" />
+
+
+</head>
+<body>
+	<div id="visual-portal-wrapper">
+
+		<div id="loading-mask"></div>
+		<div id="loading">
+			<div class="loading-indicator">Loading ...</div>
+		</div>
+		<div id="header"></div>
+
+		<div id="portal-columns" class="visualColumnHideTwo">
+
+			<!-- start of the main and left columns -->
+			<div id="visual-column-wrapper">
+
+				<!-- start of main content block -->
+				<div id="portal-column-content">
+					<div id="content" class="" style="margin-left: 300px">
+
+						<div class="documentContent panels" id="region-content"></div>
+						<div class="visualClear"></div>
+					</div>
+				</div>
+				<div id="portal-column-one">
+					<div class="visualPadding">
+						<div id="slide-menu">
+
+							<div class="visualClear">
+								<!-- &nbsp;-->
+							</div>
+							<dl class="portlet" id="portlet-navigation-tree">
+								<dt class="portletHeader" id="firstHeader">
+									<span class="portletTopLeft"></span><span id="searchLb">Search</span> <span
+										class="portletTopRight"></span>
+								</dt>
+								<dd>
+                                    <div id="search-form"></div>
+                                    
+                                    <div id="tag-cloud"></div>
+                                </dd>
+                                <dt class="portletHeader" id="firstHeader">
+                                    <span class="portletTopLeft"></span><span id="loginLb">Login</span> <span
+                                        class="portletTopRight"></span>
+                                </dt>
+                                <dd>
+                                    <div id="login-form"></div>
+                                    <br/>
+                                    <div id="lang-form"></div>
+                                    <br/>
+                                    <br/>
+                                </dd>
+                                <div class="visualClear"></div>
+						</div>
+						<div id="slide-button"></div>
+						<div class="visualClear"></div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+		<!-- end of main content block -->
+
+		<div class="visualClear"></div>
+
+		<!-- end column wrapper -->
+
+
+		<div id="footer"></div>
+	</div>
+	<script type="text/javascript"
+		src="../../apps/js/ext/adapter/jquery/ext-jquery-adapter.js"></script>
+	
+	<script type="text/javascript"
+		src="../../apps/js/ext/adapter/ext/ext-base.js"></script>
+	<script type="text/javascript" src="../../apps/js/ext/ext-all-debug.js"></script>
+	<script type="text/javascript"
+		src="../../apps/js/ext-ux/FileUploadField/FileUploadField.js"></script>
+	<script type="text/javascript"
+		src="../../apps/js/ext-ux/TwinTriggerComboBox/TwinTriggerComboBox.js"></script>
+	<script type="text/javascript"
+		src="../../apps/js/ext-ux/DateTime/DateTime.js"></script>
+	<script type="text/javascript"
+		src="../../apps/js/ext-ux/RowExpander/RowExpander.js"></script>
+	<script type="text/javascript"
+		src="../../apps/js/ext-ux/MultiselectItemSelector-3.0/DDView.js"></script>
+	<script type="text/javascript"
+		src="../../apps/js/ext-ux/MultiselectItemSelector-3.0/Multiselect.js"></script>
+	<script type="text/javascript"
+		src="../../apps/js/ext-ux/LightBox/lightbox.js"></script>
+    <script type="text/javascript" src="../../apps/js/ext-ux/SuperBoxSelect/SuperBoxSelect.js"></script>
+
+	<script type="text/javascript"
+		src="../../apps/js/proj4js-compressed.js"></script>
+	<script type="text/javascript"
+		src="../../apps/js/OpenLayers/lib/OpenLayers.js"></script>
+	<script type="text/javascript"
+		src="../../apps/js/GeoExt/lib/overrides/override-ext-ajax.js"></script>
+	<script type="text/javascript" src="../../apps/js/GeoExt/lib/GeoExt.js"></script>
+	<script type="text/javascript"
+		src="../../apps/js/GeoExt-ux/LayerOpacitySliderPlugin/LayerOpacitySliderPlugin.js"></script>
+
+	<script type="text/javascript"
+		src="../../apps/js/GeoNetwork/lib/GeoNetwork.js"></script>
+
+	<script type="text/javascript" src="js/Settings.js"></script>
+	<script type="text/javascript" src="../../apps/search/js/Shortcuts.js"></script>
+	<script type="text/javascript" src="js/map/Settings.js"></script>
+	<script type="text/javascript" src="js/map/MapApp.js"></script>
+	<script type="text/javascript" src="js/Templates.js"></script>
+	<script type="text/javascript" src="js/App.js"></script>
+
+
+</body>
+</html>

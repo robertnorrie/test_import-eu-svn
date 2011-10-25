@@ -1,0 +1,29 @@
+#portal-column-one {
+    width: 300px !important;
+}
+#portal-column-content {
+/*   width: 90% !important;*/
+   margin-left: -300px !important; 
+}
+/*body.longwordlanguage .visualColumnHideTwo #portal-column-content #content, .visualColumnHideTwo #portal-column-content #content {
+    margin-left: 300px !important;
+}*/
+/*body.longwordlanguage .visualColumnHideTwo #portal-column-content #content, .visualColumnHideTwo #portal-column-content #content, #portal-column-content #content {
+   margin-left: 300px !important; 
+}*/
+#slide-menu {
+    width: 292px !important;    
+}
+#lang-form {
+    display: none;
+}
+.metadata * table.gn {
+    font-size: inherit !important;
+}
+ul li.tag-cloud {
+    text-align: left !important;
+    float: none !important;
+}
+.x-superboxselect-item-close {
+    background: url(../../../apps/js/ext-ux/SuperBoxSelect/close.png) no-repeat scroll left 0px !important;
+} 
