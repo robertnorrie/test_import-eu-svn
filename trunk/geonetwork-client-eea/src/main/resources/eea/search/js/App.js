@@ -355,7 +355,27 @@ GeoNetwork.app = function () {
             }]
         });
     }
-    
+    /** private: methode[createHelpPanel]
+     *  Help panel displayed on load
+     *
+     *  :return:
+     */
+    function createHelpPanel(){
+        return new Ext.Panel({
+            border: false,
+            frame: false,
+            baseCls: 'none',
+            id: 'helpPanel',
+            autoWidth: true,
+            renderTo: 'shortcut',
+            autoLoad: {
+                url: 'help_' + catalogue.LANG + '.html',
+                callback: initShortcut,
+                scope: this,
+                loadScripts: false
+            }
+        });
+    }
     function search(){
         searching = true;
         catalogue.search('searchForm', app.loadResults, null, catalogue.startRecord, true);
@@ -610,6 +630,8 @@ GeoNetwork.app = function () {
             
             // Search result
             resultsPanel = createResultsPanel();
+
+            createHelpPanel();
             
             /* Init form field URL according to URL parameters */
             GeoNetwork.util.SearchTools.populateFormFromParams(searchForm, urlParameters);
@@ -650,8 +672,6 @@ GeoNetwork.app = function () {
                     }
                 });
             });
-            
-            initShortcut();
         },
         getCatalogue: function (){
             return catalogue;
