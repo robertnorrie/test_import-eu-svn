@@ -284,7 +284,8 @@ EEA.Templates.FULL = new Ext.XTemplate(
         hasEEALinks: function(values) {
             var i;
             for (i = 0; i < values.length; i ++) {
-                if (values[i].type === 'EEA:FILEPATH') {
+                if (values[i].type === 'EEA:FILEPATH' && 
+                        (values[i].href.indexOf('.mdb') == -1 && values[i].href.indexOf('.gdb') == -1)) {
                     return true;
                 }
             }
