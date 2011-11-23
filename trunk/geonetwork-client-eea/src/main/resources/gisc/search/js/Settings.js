@@ -1,11 +1,4 @@
 GeoNetwork.Settings = {};
-EEA = {};
-EEA.MAPVIEWER_URL = 'http://swordfish/paul/databrowser/map_default.phtml?resetsession=ALL&uuid=';
-EEA.WEBDAV_URL = 'https://gisdata.eea.europa.eu/data/gis_sdi';
-EEA.CIFS_URL = 'file:////sandfish/gis_sdi';
-
-// Turn off rating
-Ext.ux.RatingItem = undefined;
 
 // Default to absolute path without apps/search
 // GeoNetwork.URL = '../..';
@@ -38,16 +31,24 @@ GeoNetwork.searchDefault = {
 GeoNetwork.advancedFormButton = true;
 
 GeoNetwork.Settings.editor = {
-    defaultViewMode : 'metadata'
+    defaultViewMode : 'simple',
+    editHarvested: false
 //    defaultViewMode : 'inspire'
 };
+
+// Define if default mode should be used for HTML print output instead of tabs only
+GeoNetwork.printDefaultForTabs = false;
+
+// Define if label needs to be displayed for login form next to username/password fields
+GeoNetwork.hideLoginLabels = true;
+
 
 // Define which type of search to use
 // Default mode
 GeoNetwork.Settings.mdStore = GeoNetwork.data.MetadataResultsStore;
 GeoNetwork.Settings.searchService='xml.search';
 // IndexOnly mode : this mode using MetadataResultsFastStore is **experimental**
-//GeoNetwork.Settings.mdStore = GeoNetwork.data.MetadataResultsFastStore();
+//GeoNetwork.Settings.mdStore = GeoNetwork.data.MetadataResultsFastStore;
 //GeoNetwork.Settings.searchService='q';
 
 

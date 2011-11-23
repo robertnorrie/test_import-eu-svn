@@ -9797,7 +9797,7 @@ if(!message){message=key
 }if(context){message=OpenLayers.String.format(message,context)
 }return message
 }};
-OpenLayers.i18n=OpenLayers.Lang.translate;OpenLayers.Lang.en={unhandledRequest:"Unhandled request return ${statusText}",permalink:"Permalink",overlays:"Overlays",baseLayer:"Base Layer",sameProjection:"The overview map only works when it is in the same projection as the main map",readNotImplemented:"Read not implemented.",writeNotImplemented:"Write not implemented.",noFID:"Can't update a feature for which there is no FID.",errorLoadingGML:"Error in loading GML file http://geonetwork-opensource.org/geonetwork-client",browserNotSupported:"Your browser does not support vector rendering. Currently supported renderers are:\n${renderers}",componentShouldBe:"addFeatures : component should be an ${geomType}",getFeatureError:"getFeatureFromEvent called on layer with no renderer. This usually means you destroyed a layer, but not some handler which is associated with it.",minZoomLevelError:"The minZoomLevel property is only intended for use with the FixedZoomLevels-descendent layers. That this wfs layer checks for minZoomLevel is a relic of thepast. We cannot, however, remove it without possibly breaking OL based applications that may depend on it. Therefore we are deprecating it -- the minZoomLevel check below will be removed at 3.0. Please instead use min/max resolution setting as described here: http://trac.openlayers.org/wiki/SettingZoomLevels",commitSuccess:"WFS Transaction: SUCCESS ${response}",commitFailed:"WFS Transaction: FAILED ${response}",googleWarning:"The Google Layer was unable to load correctly.<br><br>To get rid of this message, select a new BaseLayer in the layer switcher in the upper-right corner.<br><br>Most likely, this is because the Google Maps library script was either not included, or does not contain the correct API key for your site.<br><br>Developers: For help getting this working correctly, <a href='http://trac.openlayers.org/wiki/Google' target='_blank'>click here</a>",getLayerWarning:"The ${layerType} Layer was unable to load correctly.<br><br>To get rid of this message, select a new BaseLayer in the layer switcher in the upper-right corner.<br><br>Most likely, this is because the ${layerLib} library script was not correctly included.<br><br>Developers: For help getting this working correctly, <a href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'>click here</a>",scale:"Scale = 1 : ${scaleDenom}",W:"W",E:"E",N:"N",S:"S",graticule:"Graticule",layerAlreadyAdded:"You tried to add the layer: ${layerName} to the map, but it has already been added",reprojectDeprecated:"You are using the 'reproject' option on the ${layerName} layer. This option is deprecated: its use was designed to support displaying data over commercial basemaps, but that functionality should now be achieved by using Spherical Mercator support. More information is available from http://trac.openlayers.org/wiki/SphericalMercator.",methodDeprecated:"This method has been deprecated and will be removed in 3.0. Please use ${newMethod} instead.",boundsAddError:"You must pass both x and y values to the add function.",lonlatAddError:"You must pass both lon and lat values to the add function.",pixelAddError:"You must pass both x and y values to the add function.",unsupportedGeometryType:"Unsupported geometry type: ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition failed: element with id ${elemId} may be misplaced.",filterEvaluateNotImplemented:"evaluate is not implemented for this filter type.",end:""};OpenLayers.Lang.fr=OpenLayers.Util.applyDefaults({unhandledRequest:"Requête non gérée, retournant ${statusText}",permalink:"Permalien",overlays:"Calques",baseLayer:"Calque de base",sameProjection:"La carte de situation ne fonctionne que lorsque sa projection est la même que celle de la carte principale",readNotImplemented:"Lecture non implémentée.",writeNotImplemented:"Ecriture non implémentée.",noFID:"Impossible de mettre à jour un objet sans identifiant (fid).",errorLoadingGML:"Erreur au chargement du fichier GML http://geonetwork-opensource.org/geonetwork-client",browserNotSupported:"Votre navigateur ne supporte pas le rendu vectoriel. Les renderers actuellement supportés sont : \n${renderers}",componentShouldBe:"addFeatures : le composant devrait être de type ${geomType}",getFeatureError:"getFeatureFromEvent a été appelé sur un calque sans renderer. Cela signifie généralement que vous avez détruit cette couche, mais que vous avez conservé un handler qui lui était associé.",minZoomLevelError:"La propriété minZoomLevel doit seulement être utilisée pour des couches FixedZoomLevels-descendent. Le fait que cette couche WFS vérifie la présence de minZoomLevel est une relique du passé. Nous ne pouvons toutefois la supprimer sans casser des applications qui pourraient en dépendre. C'est pourquoi nous la déprécions -- la vérification du minZoomLevel sera supprimée en version 3.0. A la place, merci d'utiliser les paramètres de résolutions min/max tel que décrit sur : http://trac.openlayers.org/wiki/SettingZoomLevels",commitSuccess:"Transaction WFS : SUCCES ${response}",commitFailed:"Transaction WFS : ECHEC ${response}",googleWarning:"La couche Google n'a pas été en mesure de se charger correctement.\x3cbr\x3e\x3cbr\x3ePour supprimer ce message, choisissez une nouvelle BaseLayer dans le sélecteur de couche en haut à droite.\x3cbr\x3e\x3cbr\x3eCela est possiblement causé par la non-inclusion de la librairie Google Maps, ou alors parce que la clé de l'API ne correspond pas à votre site.\x3cbr\x3e\x3cbr\x3eDéveloppeurs : pour savoir comment corriger ceci, \x3ca href='http://trac.openlayers.org/wiki/Google' target='_blank'\x3ecliquez ici\x3c/a\x3e",getLayerWarning:"La couche ${layerType} n'est pas en mesure de se charger correctement.\x3cbr\x3e\x3cbr\x3ePour supprimer ce message, choisissez une nouvelle BaseLayer dans le sélecteur de couche en haut à droite.\x3cbr\x3e\x3cbr\x3eCela est possiblement causé par la non-inclusion de la librairie ${layerLib}.\x3cbr\x3e\x3cbr\x3eDéveloppeurs : pour savoir comment corriger ceci, \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3ecliquez ici\x3c/a\x3e",scale:"Echelle ~ 1 : ${scaleDenom}",W:"O",E:"E",N:"N",S:"S",layerAlreadyAdded:"Vous avez essayé d'ajouter à la carte le calque : ${layerName}, mais il est déjà présent",reprojectDeprecated:"Vous utilisez l'option 'reproject' sur la couche ${layerName}. Cette option est dépréciée : Son usage permettait d'afficher des données au dessus de couches raster commerciales.Cette fonctionalité est maintenant supportée en utilisant le support de la projection Mercator Sphérique. Plus d'information est disponible sur http://trac.openlayers.org/wiki/SphericalMercator.",methodDeprecated:"Cette méthode est dépréciée, et sera supprimée à la version 3.0. Merci d'utiliser ${newMethod} à la place.",boundsAddError:"Vous devez passer les deux valeurs x et y à la fonction add.",lonlatAddError:"Vous devez passer les deux valeurs lon et lat à la fonction add.",pixelAddError:"Vous devez passer les deux valeurs x et y à la fonction add.",unsupportedGeometryType:"Type de géométrie non supporté : ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition a échoué: l'élément d'id ${elemId} pourrait être mal positionné.",filterEvaluateNotImplemented:"évaluer n'a pas encore été implémenté pour ce type de filtre."});OpenLayers.Lang.de=OpenLayers.Util.applyDefaults({unhandledRequest:"Unbehandelte Anfragerückmeldung ${statusText}",permalink:"Permalink",overlays:"Overlays",baseLayer:"Grundkarte",sameProjection:"Die Übersichtskarte funktioniert nur, wenn sie dieselbe Projektion wie die Hauptkarte verwendet",readNotImplemented:"Lesen nicht implementiert.",writeNotImplemented:"Schreiben nicht implementiert.",noFID:"Ein Feature, für das keine FID existiert, kann nicht aktualisiert werden.",errorLoadingGML:"Fehler beim Laden der GML-Datei http://geonetwork-opensource.org/geonetwork-client",browserNotSupported:"Ihr Browser unterstützt keine Vektordarstellung. Aktuell unterstützte Renderer:\n${renderers}",componentShouldBe:"addFeatures: Komponente muss vom Typ ${geomType} sein",getFeatureError:"getFeatureFromEvent wurde vom einem Layer ohne Renderer aufgerufen. Dies bedeutet normalerweise, dass ein Layer entfernt wurde, aber nicht Handler, die auf ihn verweisen.",minZoomLevelError:"Die \x3ccode\x3eminZoomLevel\x3c/code\x3e-Eigenschaft ist nur für die Verwendung mit \x3ccode\x3eFixedZoomLevels\x3c/code\x3e-untergeordneten Layers vorgesehen. Das dieser \x3ctt\x3ewfs\x3c/tt\x3e-Layer die \x3ccode\x3eminZoomLevel\x3c/code\x3e-Eigenschaft überprüft ist ein Relikt der Vergangenheit. Wir können diese Überprüfung nicht entfernen, ohne das OL basierende Applikationen nicht mehr funktionieren. Daher markieren wir es als veraltet - die \x3ccode\x3eminZoomLevel\x3c/code\x3e-Überprüfung wird in Version 3.0 entfernt werden. Bitte verwenden Sie stattdessen die Min-/Max-Lösung, wie sie unter http://trac.openlayers.org/wiki/SettingZoomLevels beschrieben ist.",commitSuccess:"WFS-Transaktion: Erfolgreich ${response}",commitFailed:"WFS-Transaktion: Fehlgeschlagen ${response}",googleWarning:"Der Google-Layer konnte nicht korrekt geladen werden.\x3cbr\x3e\x3cbr\x3eUm diese Meldung nicht mehr zu erhalten, wählen Sie einen anderen Hintergrundlayer aus dem LayerSwitcher in der rechten oberen Ecke.\x3cbr\x3e\x3cbr\x3eSehr wahrscheinlich tritt dieser Fehler auf, weil das Skript der Google-Maps-Bibliothek nicht eingebunden wurde oder keinen gültigen API-Schlüssel für Ihre URL enthält.\x3cbr\x3e\x3cbr\x3eEntwickler: Besuche \x3ca href='http://trac.openlayers.org/wiki/Google' target='_blank'\x3edas Wiki\x3c/a\x3e für Hilfe zum korrekten Einbinden des Google-Layers",getLayerWarning:"Der ${layerType}-Layer konnte nicht korrekt geladen werden.\x3cbr\x3e\x3cbr\x3eUm diese Meldung nicht mehr zu erhalten, wählen Sie einen anderen Hintergrundlayer aus dem LayerSwitcher in der rechten oberen Ecke.\x3cbr\x3e\x3cbr\x3eSehr wahrscheinlich tritt dieser Fehler auf, weil das Skript der '${layerLib}'-Bibliothek nicht eingebunden wurde.\x3cbr\x3e\x3cbr\x3eEntwickler: Besuche \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3edas Wiki\x3c/a\x3e für Hilfe zum korrekten Einbinden von Layern",scale:"Maßstab = 1 : ${scaleDenom}",W:"W",E:"O",N:"N",S:"S",layerAlreadyAdded:"Sie versuchen den Layer „${layerName}“ zur Karte hinzuzufügen, er wurde aber bereits hinzugefügt",reprojectDeprecated:"Sie verwenden die „Reproject“-Option des Layers ${layerName}. Diese Option ist veraltet: Sie wurde entwickelt um die Anzeige von Daten auf kommerziellen Basiskarten zu unterstützen, aber diese Funktion sollte jetzt durch Unterstützung der „Spherical Mercator“ erreicht werden. Weitere Informationen sind unter http://trac.openlayers.org/wiki/SphericalMercator verfügbar.",methodDeprecated:"Die Methode ist veraltet und wird in 3.0 entfernt. Bitte verwende stattdessen ${newMethod}.",boundsAddError:"Beide Werte (x und y) müssen der add-Funktion übergeben werden.",lonlatAddError:"Beide Werte (lon und lat) müssen der add-Funktion übergeben werden.",pixelAddError:"Beide Werte (x und y) müssen der add-Funktion übergeben werden.",unsupportedGeometryType:"Nicht unterstützter Geometrie-Typ: ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition fehlgeschlagen: Element mit Id ${elemId} möglicherweise falsch platziert.",filterEvaluateNotImplemented:"„evaluate“ ist für diesen Filter-Typ nicht implementiert."});OpenLayers.Lang.nl=OpenLayers.Util.applyDefaults({unhandledRequest:"Het verzoek is niet afgehandeld met de volgende melding: ${statusText}",permalink:"Permanente verwijzing",overlays:"Overlays",baseLayer:"Achtergrondkaart",sameProjection:"De overzichtskaart werkt alleen als de projectie gelijk is aan de projectie van de hoofdkaart",readNotImplemented:"Lezen is niet geïmplementeerd.",writeNotImplemented:"Schrijven is niet geïmplementeerd.",noFID:"Een optie die geen FID heeft kan niet bijgewerkt worden.",errorLoadingGML:"Er is een fout opgetreden bij het laden van het GML bestand van http://geonetwork-opensource.org/geonetwork-client",browserNotSupported:"Uw browser ondersteunt het weergeven van vectoren niet.\nMomenteel ondersteunde weergavemogelijkheden:\n${renderers}",componentShouldBe:"addFeatures : component moet van het type ${geomType} zijn",getFeatureError:"getFeatureFromEvent is aangeroepen op een laag zonder rederer.\nDit betekent meestal dat u een laag hebt verwijderd, maar niet een handler die ermee geassocieerd was.",minZoomLevelError:"De eigenschap minZoomLevel is alleen bedoeld voor gebruik lagen met die afstammen van FixedZoomLevels-lagen.\nDat deze WFS-laag minZoomLevel controleert, is een overblijfsel uit het verleden.\nWe kunnen deze controle echter niet verwijderen zonder op OL gebaseerde applicaties die hervan afhankelijk zijn stuk te maken.\nDaarom heeft deze functionaliteit de eigenschap 'deprecated' gekregen - de minZoomLevel wordt verwijderd in versie 3.0.\nGebruik in plaats van deze functie de mogelijkheid om min/max voor resolutie in te stellen zoals op de volgende pagina wordt beschreven:\nhttp://trac.openlayers.org/wiki/SettingZoomLevels",commitSuccess:"WFS-transactie: succesvol ${response}",commitFailed:"WFS-transactie: mislukt ${response}",googleWarning:"De Google-Layer kon niet correct geladen worden.\x3cbr /\x3e\x3cbr /\x3e\nOm deze melding niet meer te krijgen, moet u een andere achtergrondkaart kiezen in de laagwisselaar in de rechterbovenhoek.\x3cbr /\x3e\x3cbr /\x3e\nDit komt waarschijnlijk doordat de bibliotheek ${layerLib} niet correct ingevoegd is.\x3cbr /\x3e\x3cbr /\x3e\nOntwikkelaars: \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3eklik hier\x3c/a\x3e om dit werkend te krijgen.",getLayerWarning:"De laag ${layerType} kon niet goed geladen worden.\x3cbr /\x3e\x3cbr /\x3e\nOm deze melding niet meer te krijgen, moet u een andere achtergrondkaart kiezen in de laagwisselaar in de rechterbovenhoek.\x3cbr /\x3e\x3cbr /\x3e\nDit komt waarschijnlijk doordat de bibliotheek ${layerLib} niet correct is ingevoegd.\x3cbr /\x3e\x3cbr /\x3e\nOntwikkelaars: \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3eklik hier\x3c/a\x3e om dit werkend te krijgen.",scale:"Schaal = 1 : ${scaleDenom}",W:"W",E:"O",N:"N",S:"Z",layerAlreadyAdded:"U hebt geprobeerd om de laag  ${layerName} aan de kaart toe te voegen, maar deze is al toegevoegd",reprojectDeprecated:"U gebruikt de optie 'reproject' op de laag ${layerName}.\nDeze optie is vervallen: deze optie was ontwikkeld om gegevens over commerciële basiskaarten weer te geven, maar deze functionaliteit wordt nu bereikt door ondersteuning van Spherical Mercator.\nMeer informatie is beschikbaar op http://trac.openlayers.org/wiki/SphericalMercator.",methodDeprecated:"Deze methode is verouderd en wordt verwijderd in versie 3.0.\nGebruik ${newMethod}.",boundsAddError:"U moet zowel de x- als de y-waarde doorgeven aan de toevoegfunctie.",lonlatAddError:"U moet zowel de lengte- als de breedtewaarde doorgeven aan de toevoegfunctie.",pixelAddError:"U moet zowel de x- als de y-waarde doorgeven aan de toevoegfunctie.",unsupportedGeometryType:"Dit geometrietype wordt niet ondersteund: ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition is mislukt: het element met id ${elemId} is wellicht onjuist geplaatst.",filterEvaluateNotImplemented:"evalueren is niet geïmplementeerd voor dit filtertype."});OpenLayers.Handler.Drag=OpenLayers.Class(OpenLayers.Handler,{started:false,stopDown:true,dragging:false,last:null,start:null,oldOnselectstart:null,interval:0,timeoutId:null,documentDrag:false,documentEvents:null,initialize:function(control,callbacks,options){OpenLayers.Handler.prototype.initialize.apply(this,arguments)
+OpenLayers.i18n=OpenLayers.Lang.translate;OpenLayers.Lang.en={unhandledRequest:"Unhandled request return ${statusText}",permalink:"Permalink",overlays:"Overlays",baseLayer:"Base Layer",sameProjection:"The overview map only works when it is in the same projection as the main map",readNotImplemented:"Read not implemented.",writeNotImplemented:"Write not implemented.",noFID:"Can't update a feature for which there is no FID.",errorLoadingGML:"Error in loading GML file ${url}",browserNotSupported:"Your browser does not support vector rendering. Currently supported renderers are:\n${renderers}",componentShouldBe:"addFeatures : component should be an ${geomType}",getFeatureError:"getFeatureFromEvent called on layer with no renderer. This usually means you destroyed a layer, but not some handler which is associated with it.",minZoomLevelError:"The minZoomLevel property is only intended for use with the FixedZoomLevels-descendent layers. That this wfs layer checks for minZoomLevel is a relic of thepast. We cannot, however, remove it without possibly breaking OL based applications that may depend on it. Therefore we are deprecating it -- the minZoomLevel check below will be removed at 3.0. Please instead use min/max resolution setting as described here: http://trac.openlayers.org/wiki/SettingZoomLevels",commitSuccess:"WFS Transaction: SUCCESS ${response}",commitFailed:"WFS Transaction: FAILED ${response}",googleWarning:"The Google Layer was unable to load correctly.<br><br>To get rid of this message, select a new BaseLayer in the layer switcher in the upper-right corner.<br><br>Most likely, this is because the Google Maps library script was either not included, or does not contain the correct API key for your site.<br><br>Developers: For help getting this working correctly, <a href='http://trac.openlayers.org/wiki/Google' target='_blank'>click here</a>",getLayerWarning:"The ${layerType} Layer was unable to load correctly.<br><br>To get rid of this message, select a new BaseLayer in the layer switcher in the upper-right corner.<br><br>Most likely, this is because the ${layerLib} library script was not correctly included.<br><br>Developers: For help getting this working correctly, <a href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'>click here</a>",scale:"Scale = 1 : ${scaleDenom}",W:"W",E:"E",N:"N",S:"S",graticule:"Graticule",layerAlreadyAdded:"You tried to add the layer: ${layerName} to the map, but it has already been added",reprojectDeprecated:"You are using the 'reproject' option on the ${layerName} layer. This option is deprecated: its use was designed to support displaying data over commercial basemaps, but that functionality should now be achieved by using Spherical Mercator support. More information is available from http://trac.openlayers.org/wiki/SphericalMercator.",methodDeprecated:"This method has been deprecated and will be removed in 3.0. Please use ${newMethod} instead.",boundsAddError:"You must pass both x and y values to the add function.",lonlatAddError:"You must pass both lon and lat values to the add function.",pixelAddError:"You must pass both x and y values to the add function.",unsupportedGeometryType:"Unsupported geometry type: ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition failed: element with id ${elemId} may be misplaced.",filterEvaluateNotImplemented:"evaluate is not implemented for this filter type.",end:""};OpenLayers.Lang.fr=OpenLayers.Util.applyDefaults({unhandledRequest:"Requête non gérée, retournant ${statusText}",permalink:"Permalien",overlays:"Calques",baseLayer:"Calque de base",sameProjection:"La carte de situation ne fonctionne que lorsque sa projection est la même que celle de la carte principale",readNotImplemented:"Lecture non implémentée.",writeNotImplemented:"Ecriture non implémentée.",noFID:"Impossible de mettre à jour un objet sans identifiant (fid).",errorLoadingGML:"Erreur au chargement du fichier GML ${url}",browserNotSupported:"Votre navigateur ne supporte pas le rendu vectoriel. Les renderers actuellement supportés sont : \n${renderers}",componentShouldBe:"addFeatures : le composant devrait être de type ${geomType}",getFeatureError:"getFeatureFromEvent a été appelé sur un calque sans renderer. Cela signifie généralement que vous avez détruit cette couche, mais que vous avez conservé un handler qui lui était associé.",minZoomLevelError:"La propriété minZoomLevel doit seulement être utilisée pour des couches FixedZoomLevels-descendent. Le fait que cette couche WFS vérifie la présence de minZoomLevel est une relique du passé. Nous ne pouvons toutefois la supprimer sans casser des applications qui pourraient en dépendre. C'est pourquoi nous la déprécions -- la vérification du minZoomLevel sera supprimée en version 3.0. A la place, merci d'utiliser les paramètres de résolutions min/max tel que décrit sur : http://trac.openlayers.org/wiki/SettingZoomLevels",commitSuccess:"Transaction WFS : SUCCES ${response}",commitFailed:"Transaction WFS : ECHEC ${response}",googleWarning:"La couche Google n'a pas été en mesure de se charger correctement.\x3cbr\x3e\x3cbr\x3ePour supprimer ce message, choisissez une nouvelle BaseLayer dans le sélecteur de couche en haut à droite.\x3cbr\x3e\x3cbr\x3eCela est possiblement causé par la non-inclusion de la librairie Google Maps, ou alors parce que la clé de l'API ne correspond pas à votre site.\x3cbr\x3e\x3cbr\x3eDéveloppeurs : pour savoir comment corriger ceci, \x3ca href='http://trac.openlayers.org/wiki/Google' target='_blank'\x3ecliquez ici\x3c/a\x3e",getLayerWarning:"La couche ${layerType} n'est pas en mesure de se charger correctement.\x3cbr\x3e\x3cbr\x3ePour supprimer ce message, choisissez une nouvelle BaseLayer dans le sélecteur de couche en haut à droite.\x3cbr\x3e\x3cbr\x3eCela est possiblement causé par la non-inclusion de la librairie ${layerLib}.\x3cbr\x3e\x3cbr\x3eDéveloppeurs : pour savoir comment corriger ceci, \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3ecliquez ici\x3c/a\x3e",scale:"Echelle ~ 1 : ${scaleDenom}",W:"O",E:"E",N:"N",S:"S",layerAlreadyAdded:"Vous avez essayé d'ajouter à la carte le calque : ${layerName}, mais il est déjà présent",reprojectDeprecated:"Vous utilisez l'option 'reproject' sur la couche ${layerName}. Cette option est dépréciée : Son usage permettait d'afficher des données au dessus de couches raster commerciales.Cette fonctionalité est maintenant supportée en utilisant le support de la projection Mercator Sphérique. Plus d'information est disponible sur http://trac.openlayers.org/wiki/SphericalMercator.",methodDeprecated:"Cette méthode est dépréciée, et sera supprimée à la version 3.0. Merci d'utiliser ${newMethod} à la place.",boundsAddError:"Vous devez passer les deux valeurs x et y à la fonction add.",lonlatAddError:"Vous devez passer les deux valeurs lon et lat à la fonction add.",pixelAddError:"Vous devez passer les deux valeurs x et y à la fonction add.",unsupportedGeometryType:"Type de géométrie non supporté : ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition a échoué: l'élément d'id ${elemId} pourrait être mal positionné.",filterEvaluateNotImplemented:"évaluer n'a pas encore été implémenté pour ce type de filtre."});OpenLayers.Lang.de=OpenLayers.Util.applyDefaults({unhandledRequest:"Unbehandelte Anfragerückmeldung ${statusText}",permalink:"Permalink",overlays:"Overlays",baseLayer:"Grundkarte",sameProjection:"Die Übersichtskarte funktioniert nur, wenn sie dieselbe Projektion wie die Hauptkarte verwendet",readNotImplemented:"Lesen nicht implementiert.",writeNotImplemented:"Schreiben nicht implementiert.",noFID:"Ein Feature, für das keine FID existiert, kann nicht aktualisiert werden.",errorLoadingGML:"Fehler beim Laden der GML-Datei ${url}",browserNotSupported:"Ihr Browser unterstützt keine Vektordarstellung. Aktuell unterstützte Renderer:\n${renderers}",componentShouldBe:"addFeatures: Komponente muss vom Typ ${geomType} sein",getFeatureError:"getFeatureFromEvent wurde vom einem Layer ohne Renderer aufgerufen. Dies bedeutet normalerweise, dass ein Layer entfernt wurde, aber nicht Handler, die auf ihn verweisen.",minZoomLevelError:"Die \x3ccode\x3eminZoomLevel\x3c/code\x3e-Eigenschaft ist nur für die Verwendung mit \x3ccode\x3eFixedZoomLevels\x3c/code\x3e-untergeordneten Layers vorgesehen. Das dieser \x3ctt\x3ewfs\x3c/tt\x3e-Layer die \x3ccode\x3eminZoomLevel\x3c/code\x3e-Eigenschaft überprüft ist ein Relikt der Vergangenheit. Wir können diese Überprüfung nicht entfernen, ohne das OL basierende Applikationen nicht mehr funktionieren. Daher markieren wir es als veraltet - die \x3ccode\x3eminZoomLevel\x3c/code\x3e-Überprüfung wird in Version 3.0 entfernt werden. Bitte verwenden Sie stattdessen die Min-/Max-Lösung, wie sie unter http://trac.openlayers.org/wiki/SettingZoomLevels beschrieben ist.",commitSuccess:"WFS-Transaktion: Erfolgreich ${response}",commitFailed:"WFS-Transaktion: Fehlgeschlagen ${response}",googleWarning:"Der Google-Layer konnte nicht korrekt geladen werden.\x3cbr\x3e\x3cbr\x3eUm diese Meldung nicht mehr zu erhalten, wählen Sie einen anderen Hintergrundlayer aus dem LayerSwitcher in der rechten oberen Ecke.\x3cbr\x3e\x3cbr\x3eSehr wahrscheinlich tritt dieser Fehler auf, weil das Skript der Google-Maps-Bibliothek nicht eingebunden wurde oder keinen gültigen API-Schlüssel für Ihre URL enthält.\x3cbr\x3e\x3cbr\x3eEntwickler: Besuche \x3ca href='http://trac.openlayers.org/wiki/Google' target='_blank'\x3edas Wiki\x3c/a\x3e für Hilfe zum korrekten Einbinden des Google-Layers",getLayerWarning:"Der ${layerType}-Layer konnte nicht korrekt geladen werden.\x3cbr\x3e\x3cbr\x3eUm diese Meldung nicht mehr zu erhalten, wählen Sie einen anderen Hintergrundlayer aus dem LayerSwitcher in der rechten oberen Ecke.\x3cbr\x3e\x3cbr\x3eSehr wahrscheinlich tritt dieser Fehler auf, weil das Skript der '${layerLib}'-Bibliothek nicht eingebunden wurde.\x3cbr\x3e\x3cbr\x3eEntwickler: Besuche \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3edas Wiki\x3c/a\x3e für Hilfe zum korrekten Einbinden von Layern",scale:"Maßstab = 1 : ${scaleDenom}",W:"W",E:"O",N:"N",S:"S",layerAlreadyAdded:"Sie versuchen den Layer „${layerName}“ zur Karte hinzuzufügen, er wurde aber bereits hinzugefügt",reprojectDeprecated:"Sie verwenden die „Reproject“-Option des Layers ${layerName}. Diese Option ist veraltet: Sie wurde entwickelt um die Anzeige von Daten auf kommerziellen Basiskarten zu unterstützen, aber diese Funktion sollte jetzt durch Unterstützung der „Spherical Mercator“ erreicht werden. Weitere Informationen sind unter http://trac.openlayers.org/wiki/SphericalMercator verfügbar.",methodDeprecated:"Die Methode ist veraltet und wird in 3.0 entfernt. Bitte verwende stattdessen ${newMethod}.",boundsAddError:"Beide Werte (x und y) müssen der add-Funktion übergeben werden.",lonlatAddError:"Beide Werte (lon und lat) müssen der add-Funktion übergeben werden.",pixelAddError:"Beide Werte (x und y) müssen der add-Funktion übergeben werden.",unsupportedGeometryType:"Nicht unterstützter Geometrie-Typ: ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition fehlgeschlagen: Element mit Id ${elemId} möglicherweise falsch platziert.",filterEvaluateNotImplemented:"„evaluate“ ist für diesen Filter-Typ nicht implementiert."});OpenLayers.Lang.nl=OpenLayers.Util.applyDefaults({unhandledRequest:"Het verzoek is niet afgehandeld met de volgende melding: ${statusText}",permalink:"Permanente verwijzing",overlays:"Overlays",baseLayer:"Achtergrondkaart",sameProjection:"De overzichtskaart werkt alleen als de projectie gelijk is aan de projectie van de hoofdkaart",readNotImplemented:"Lezen is niet geïmplementeerd.",writeNotImplemented:"Schrijven is niet geïmplementeerd.",noFID:"Een optie die geen FID heeft kan niet bijgewerkt worden.",errorLoadingGML:"Er is een fout opgetreden bij het laden van het GML bestand van ${url}",browserNotSupported:"Uw browser ondersteunt het weergeven van vectoren niet.\nMomenteel ondersteunde weergavemogelijkheden:\n${renderers}",componentShouldBe:"addFeatures : component moet van het type ${geomType} zijn",getFeatureError:"getFeatureFromEvent is aangeroepen op een laag zonder rederer.\nDit betekent meestal dat u een laag hebt verwijderd, maar niet een handler die ermee geassocieerd was.",minZoomLevelError:"De eigenschap minZoomLevel is alleen bedoeld voor gebruik lagen met die afstammen van FixedZoomLevels-lagen.\nDat deze WFS-laag minZoomLevel controleert, is een overblijfsel uit het verleden.\nWe kunnen deze controle echter niet verwijderen zonder op OL gebaseerde applicaties die hervan afhankelijk zijn stuk te maken.\nDaarom heeft deze functionaliteit de eigenschap 'deprecated' gekregen - de minZoomLevel wordt verwijderd in versie 3.0.\nGebruik in plaats van deze functie de mogelijkheid om min/max voor resolutie in te stellen zoals op de volgende pagina wordt beschreven:\nhttp://trac.openlayers.org/wiki/SettingZoomLevels",commitSuccess:"WFS-transactie: succesvol ${response}",commitFailed:"WFS-transactie: mislukt ${response}",googleWarning:"De Google-Layer kon niet correct geladen worden.\x3cbr /\x3e\x3cbr /\x3e\nOm deze melding niet meer te krijgen, moet u een andere achtergrondkaart kiezen in de laagwisselaar in de rechterbovenhoek.\x3cbr /\x3e\x3cbr /\x3e\nDit komt waarschijnlijk doordat de bibliotheek ${layerLib} niet correct ingevoegd is.\x3cbr /\x3e\x3cbr /\x3e\nOntwikkelaars: \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3eklik hier\x3c/a\x3e om dit werkend te krijgen.",getLayerWarning:"De laag ${layerType} kon niet goed geladen worden.\x3cbr /\x3e\x3cbr /\x3e\nOm deze melding niet meer te krijgen, moet u een andere achtergrondkaart kiezen in de laagwisselaar in de rechterbovenhoek.\x3cbr /\x3e\x3cbr /\x3e\nDit komt waarschijnlijk doordat de bibliotheek ${layerLib} niet correct is ingevoegd.\x3cbr /\x3e\x3cbr /\x3e\nOntwikkelaars: \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3eklik hier\x3c/a\x3e om dit werkend te krijgen.",scale:"Schaal = 1 : ${scaleDenom}",W:"W",E:"O",N:"N",S:"Z",layerAlreadyAdded:"U hebt geprobeerd om de laag  ${layerName} aan de kaart toe te voegen, maar deze is al toegevoegd",reprojectDeprecated:"U gebruikt de optie 'reproject' op de laag ${layerName}.\nDeze optie is vervallen: deze optie was ontwikkeld om gegevens over commerciële basiskaarten weer te geven, maar deze functionaliteit wordt nu bereikt door ondersteuning van Spherical Mercator.\nMeer informatie is beschikbaar op http://trac.openlayers.org/wiki/SphericalMercator.",methodDeprecated:"Deze methode is verouderd en wordt verwijderd in versie 3.0.\nGebruik ${newMethod}.",boundsAddError:"U moet zowel de x- als de y-waarde doorgeven aan de toevoegfunctie.",lonlatAddError:"U moet zowel de lengte- als de breedtewaarde doorgeven aan de toevoegfunctie.",pixelAddError:"U moet zowel de x- als de y-waarde doorgeven aan de toevoegfunctie.",unsupportedGeometryType:"Dit geometrietype wordt niet ondersteund: ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition is mislukt: het element met id ${elemId} is wellicht onjuist geplaatst.",filterEvaluateNotImplemented:"evalueren is niet geïmplementeerd voor dit filtertype."});OpenLayers.Handler.Drag=OpenLayers.Class(OpenLayers.Handler,{started:false,stopDown:true,dragging:false,last:null,start:null,oldOnselectstart:null,interval:0,timeoutId:null,documentDrag:false,documentEvents:null,initialize:function(control,callbacks,options){OpenLayers.Handler.prototype.initialize.apply(this,arguments)
 },down:function(evt){},move:function(evt){},up:function(evt){},out:function(evt){},mousedown:function(evt){var propagate=true;
 this.dragging=false;
 if(this.checkModifiers(evt)&&OpenLayers.Event.isLeftClick(evt)){this.started=true;
@@ -16977,12 +16977,692 @@ var bounds=new OpenLayers.Bounds();
 bounds.extend(minxy);
 bounds.extend(maxxy);
 this.map.zoomToExtent(bounds)
-},CLASS_NAME:"GeoNetwork.Control.ExtentBox"});GeoNetwork.Settings={};
-EEA={};
-EEA.MAPVIEWER_URL="http://swordfish/paul/databrowser/map_default.phtml?resetsession=ALL&uuid=";
-EEA.WEBDAV_URL="https://gisdata.eea.europa.eu/data/gis_sdi";
-EEA.CIFS_URL="file:////sandfish/gis_sdi";
-Ext.ux.RatingItem=undefined;
+},CLASS_NAME:"GeoNetwork.Control.ExtentBox"});Ext.namespace("GeoNetwork","GeoNetwork.OGCUtil");
+GeoNetwork.OGCUtil.getProtocolVersion=function(){return"1.3.0"
+};
+GeoNetwork.OGCUtil.getLanguage=function(){return GeoNetwork.Util.getISO3LangCode(catalogue.lang)
+};
+GeoNetwork.OGCUtil.ensureProperUrlEnd=function(url){if(url.indexOf("?")==-1){url+="?"
+}else{var lastChar=url.substring(url.length-1);
+if(lastChar!="&"&&lastChar!="?"){url+="&"
+}}return url
+};
+GeoNetwork.OGCUtil.reprojectMap=function(map,newProjection,noZoom){if(map.projection!=newProjection.projCode){map.baseLayer.options.scales=map.scales;
+var oldProjection=map.getProjectionObject();
+map.projection=newProjection.projCode;
+if(newProjection.getUnits()===null){map.units="degrees"
+}else{map.units=newProjection.getUnits()
+}var cursorPos=null;
+if(map.getControlsByClass("GeoNetwork.Control.CursorPos").length>0){cursorPos=map.getControlsByClass("GeoNetwork.Control.CursorPos")[0]
+}if(map.units=="m"&&cursorPos!==null){cursorPos.numdigits=0
+}else{if(map.units=="degrees"&&cursorPos!==null){cursorPos.numdigits=4
+}}map.maxExtent=map.maxExtent.transform(oldProjection,newProjection);
+map.baseLayer.extent=map.maxExtent;
+var bounds=map.getExtent().transform(oldProjection,newProjection);
+for(var i=0;
+i<map.layers.length;
+i++){var layer=map.layers[i];
+layer.units=map.units;
+layer.projection=newProjection;
+layer.maxExtent=map.maxExtent;
+if(layer.isBaseLayer){layer.initResolutions()
+}else{layer.resolutions=map.baseLayer.resolutions;
+layer.minResolution=map.baseLayer.minResolution;
+layer.maxResolution=map.baseLayer.maxResolution
+}if(layer instanceof OpenLayers.Layer.Vector){for(var j=0;
+j<layer.features.length;
+j++){var feature=layer.features[j];
+if(feature.geometry.projection!=map.projection){feature.geometry.transform(new OpenLayers.Projection(feature.geometry.projection),map.getProjectionObject());
+feature.geometry.projection=map.projection
+}}}}if(!noZoom){map.zoomToExtent(bounds)
+}}};
+GeoNetwork.OGCUtil.layerExistsInMap=function(layer,map){var layerExists=false;
+for(var i=0,len=map.layers.length;
+i<len;
+i++){if(map.layers){var lr=map.layers[i];
+if(lr.params){try{var layers=lr.params.LAYERS.split(",");
+if((layers.indexOf(layer.params.LAYERS)!=-1)&&lr.params.SERVICE==layer.params.SERVICE&&lr.url==layer.url){layerExists=lr;
+break
+}}catch(e){}}}}return layerExists
+};Ext.namespace("GeoNetwork","GeoNetwork.CatalogueInterface");
+GeoNetwork.CatalogueInterface=function(){var map;
+var layerLoadingMask;
+var layers;
+var setMap=function(mapC){map=mapC
+};
+var getLayer=function(caps,caplayers,layer){var findedLayer=null;
+for(var i=0,len=caplayers.length;
+i<len;
+++i){var lr=caplayers[i];
+try{var layerName=lr.name.split(",");
+if(layerName.indexOf(layer.params.LAYERS)!=-1){findedLayer=lr;
+break
+}}catch(e){}if(typeof(lr.nestedLayers)!="undefined"){findedLayer=getLayer(caps,lr.nestedLayers,layer);
+if(findedLayer!==null){break
+}}}return findedLayer
+};
+var processLayersSuccess=function(response){layerLoadingMask.hide();
+var parser=new OpenLayers.Format.WMSCapabilities();
+var caps=parser.read(response.responseXML||response.responseText);
+if(caps.capability){var accessContraints=caps.service.accessContraints;
+if((accessContraints)&&(accessContraints.toLowerCase()!="none")&&(accessContraints!="-")){var disclaimerWindow=new GeoNetwork.DisclaimerWindow({disclaimer:accessContraints});
+disclaimerWindow.show();
+disclaimerWindow=null
+}if(map){for(var i=0,len=layers.length;
+i<len;
+i++){var name=layers[i][0];
+var url=layers[i][1];
+var layer=layers[i][2];
+var metadata_id=layers[i][3];
+var ol_layer=new OpenLayers.Layer.WMS(name,url,{layers:layer,format:"image/png",transparent:"TRUE",version:caps.version,language:GeoNetwork.OGCUtil.getLanguage()},{queryable:true,singleTile:true,ratio:1,buffer:0,transitionEffect:"resize",metadata_id:metadata_id});
+if(!GeoNetwork.OGCUtil.layerExistsInMap(ol_layer,map)){ol_layer.events.on({loadstart:function(){this.isLoading=true
+}});
+ol_layer.events.on({loadend:function(){this.isLoading=false
+}});
+var layerCap=getLayer(caps,caps.capability.layers,ol_layer);
+if(layerCap){ol_layer.queryable=layerCap.queryable;
+ol_layer.name=layerCap.title||ol_layer.name;
+ol_layer.llbbox=layerCap.llbbox;
+ol_layer.styles=layerCap.styles;
+ol_layer.dimensions=layerCap.dimensions
+}map.addLayer(ol_layer)
+}}}}};
+var processLayersFailure=function(response){layerLoadingMask.hide();
+Ext.MessageBox.alert(OpenLayers.i18n("loadLayer.error.title"),OpenLayers.i18n("loadLayer.error.message"))
+};
+return{init:function(map){setMap(map)
+},addLayers:function(layerList){if(layerList.length===0){return
+}var onlineResource=layerList[0][1];
+if(layerList[0][2]===""){GeoNetwork.WindowManager.showWindow("addwms");
+var panel=Ext.getCmp(GeoNetwork.WindowManager.getWindow("addwms").browserPanel.id);
+panel.setURL(onlineResource);
+return
+}layerLoadingMask=new Ext.LoadMask(map.div,{msg:OpenLayers.Lang.translate("loadLayer.loadingMessage")});
+layerLoadingMask.show();
+layers=layerList;
+var params={service:"WMS",request:"GetCapabilities",version:GeoNetwork.OGCUtil.getProtocolVersion(),language:GeoNetwork.OGCUtil.getLanguage()};
+var paramString=OpenLayers.Util.getParameterString(params);
+var separator=(onlineResource.indexOf("?")>-1)?"&":"?";
+onlineResource+=separator+paramString;
+var req=Ext.Ajax.request({url:onlineResource,method:"GET",success:processLayersSuccess,failure:processLayersFailure,timeout:10000})
+}}
+};
+GeoNetwork.CatalogueInterface=new GeoNetwork.CatalogueInterface();Ext.namespace("GeoNetwork","GeoNetwork.WMC");
+GeoNetwork.WMC=function(){return{loadWmc:function(map,xml){try{var layers=map.layers;
+for(var i=layers.length-1;
+i>0;
+i--){if(!layers[i].isBaseLayer){map.removeLayer(layers[i])
+}}Ext.getCmp("toctree").getSelectionModel().clearSelections();
+var format=new OpenLayers.Format.WMC({layerOptions:{buffer:0}});
+map=format.read(xml,{map:map})
+}catch(err){Ext.MessageBox.alert(OpenLayers.i18n("selectWMCFile.errorLoadingWMC"))
+}},mergeWmc:function(map,xml){try{var format=new OpenLayers.Format.WMC({layerOptions:{buffer:0}});
+map=format.read(xml,{map:map})
+}catch(err){Ext.MessageBox.alert(OpenLayers.i18n("selectWMCFile.errorLoadingWMC"))
+}},saveContext:function(map){var wmc=new OpenLayers.Format.WMC();
+OpenLayers.Request.POST({url:"../../wmc/create.wmc",data:wmc.write(map),success:this.onSaveContextSuccess,failure:this.onSaveContextFailure})
+},onSaveContextSuccess:function(response){var json=response.responseText;
+var o=Ext.decode(json);
+if(o.success){window.location=o.url
+}else{this.onSaveContextFailure()
+}},onSaveContextFailure:function(form,action){Ext.MessageBox.show({icon:Ext.MessageBox.ERROR,title:OpenLayers.i18n("saveWMCFile.windowTitle"),msg:OpenLayers.i18n("saveWMCFile.errorSaveWMC"),buttons:Ext.MessageBox.OK})
+}}
+};
+GeoNetwork.WMCManager=new GeoNetwork.WMC();Ext.namespace("GeoNetwork","GeoNetwork.tree");
+GeoNetwork.tree.WMSListGenerator=function(config){Ext.apply(this,config);
+if(this.node&&this.wmsStore){this.createWMSList()
+}};
+GeoNetwork.tree.WMSListGenerator.prototype={node:null,wmsStore:null,click:null,scope:null,createWMSList:function(){this.wmsStore.each(this.appendRecord,this)
+},appendRecord:function(record){var wmsNode=new Ext.tree.TreeNode({url:record.get("url"),text:record.get("title"),cls:"folder",leaf:false});
+wmsNode.appendChild(new Ext.tree.TreeNode({text:"",dummy:true}));
+wmsNode.addListener("beforeexpand",this.addNodesFromWMS,this);
+this.node.appendChild(wmsNode)
+},replaceNode:function(node){this.currentNode.parentNode.replaceChild(node,this.currentNode);
+node.ui.afterLoad();
+node.expand()
+},addNodesFromWMS:function(node){if(node.firstChild&&node.firstChild.attributes.dummy){node.removeChild(node.firstChild);
+node.ui.beforeLoad();
+this.scope.currentNode=node;
+var treeGenerator=new GeoNetwork.tree.WMSTreeGenerator({click:this.click,callback:this.replaceNode,scope:this.scope});
+treeGenerator.loadWMS(node.attributes.url)
+}}};Ext.namespace("GeoNetwork","GeoNetwork.tree");
+GeoNetwork.tree.WMSTreeGenerator=function(config){Ext.apply(this,config)
+};
+GeoNetwork.tree.WMSTreeGenerator.prototype={layerParams:{format:"image/png",transparent:"TRUE"},layerOptions:{ratio:1,singleTile:true,isBaseLayer:false},click:null,callback:null,scope:null,loadWMS:function(onlineResource){var containsVersion=(onlineResource.indexOf("version=")>-1);
+var onlineResourceCheck=onlineResource.toLowerCase();
+var containsVersion=(onlineResourceCheck.indexOf("version=")>-1);
+var containsService=(onlineResourceCheck.indexOf("service=wms")>-1);
+var containsRequest=(onlineResourceCheck.indexOf("request=getcapabilities")>-1);
+var containsLanguage=(onlineResourceCheck.indexOf("language=")>-1);
+var params={};
+if(!containsVersion){params.version=GeoNetwork.OGCUtil.getProtocolVersion()
+}if(!containsService){params.service="WMS"
+}if(!containsRequest){params.request="GetCapabilities"
+}if(!containsLanguage){params.language=GeoNetwork.OGCUtil.getLanguage()
+}var paramString=OpenLayers.Util.getParameterString(params);
+var separator=(onlineResource.indexOf("?")>-1)?"&":"?";
+onlineResource+=separator+paramString;
+var req=Ext.Ajax.request({url:OpenLayers.Util.removeTail(OpenLayers.ProxyHost),method:"GET",params:{url:onlineResource},failure:this.processFailure,success:this.processSuccess,disableCaching:false,scope:this})
+},processSuccess:function(response){if(!this.parser){this.parser=new OpenLayers.Format.WMSCapabilities()
+}var caps=this.parser.read(response.responseXML||response.responseText);
+this.layerParams.VERSION=caps.version;
+var node;
+if(caps.capability){for(var i=0,len=caps.capability.nestedLayers.length;
+i<len;
+++i){var layer=caps.capability.nestedLayers[i];
+node=this.addLayer(layer,caps.capability.request.getmap.href,null);
+this.processLayer(layer,caps.capability.request.getmap.href,node)
+}}Ext.callback(this.callback,this.scope,[node,caps])
+},processFailure:function(response){Ext.callback(this.callback,this.scope,null)
+},createWMSLayer:function(layer,url){return new OpenLayers.Layer.WMS(layer.title,url,OpenLayers.Util.extend({layers:layer.name,language:GeoNetwork.OGCUtil.getLanguage()},this.layerParams),OpenLayers.Util.extend({minScale:layer.minScale,queryable:layer.queryable,maxScale:layer.maxScale,metadataURL:layer.metadataURL,dimensions:layer.dimensions,styles:layer.styles,llbbox:layer.llbbox},this.layerOptions))
+},addLayer:function(layer,url,parentNode){var wmsLayer=null;
+if(layer.name){wmsLayer=this.createWMSLayer(layer,url);
+if(layer.styles&&layer.styles.length>0){var style=layer.styles[0];
+if(style.legend&&style.legend.href){wmsLayer.legendURL=style.legend.href
+}}}var node=new Ext.tree.TreeNode({wmsLayer:wmsLayer,text:layer.title});
+node.addListener("click",this.click,this.scope);
+if(parentNode){parentNode.appendChild(node)
+}return node
+},processLayer:function(layer,url,node){Ext.each(layer.nestedLayers,function(el){var node2=this.addLayer(el,url,node);
+if(el.nestedLayers){this.processLayer(el,url,node2)
+}},this)
+}};Ext.namespace("GeoNetwork","GeoNetwork.wms");
+GeoNetwork.wms.BrowserPanel=function(config){Ext.apply(this,config);
+GeoNetwork.wms.BrowserPanel.superclass.constructor.call(this)
+};
+GeoNetwork.wms.BrowserPanel.ADDWMS=0;
+GeoNetwork.wms.BrowserPanel.WMSLIST=1;
+Ext.extend(GeoNetwork.wms.BrowserPanel,Ext.Panel,{previewPanel:null,treePanel:null,map:null,previewCenterPoint:null,mode:GeoNetwork.wms.BrowserPanel.WMSLIST,wmsStore:null,urlField:null,searchResultsGrid:null,searchField:null,parseBt:null,typeRadio:null,defaultConfig:{border:false,frame:false,layout:"border"},initComponent:function(config){Ext.apply(this,config);
+Ext.applyIf(this,this.defaultConfig);
+GeoNetwork.wms.BrowserPanel.superclass.initComponent.call(this);
+this.previewPanel=new GeoNetwork.wms.PreviewPanel({map:this.map,previewCenterPoint:this.previewCenterPoint});
+var root;
+this.treePanel=new Ext.tree.TreePanel({rootVisible:false,autoScroll:true,autoHeight:true});
+root=new Ext.tree.TreeNode({text:"",draggable:false,cls:"folder"});
+this.treePanel.setRootNode(root);
+var centerItems=[];
+if(this.mode==GeoNetwork.wms.BrowserPanel.ADDWMS){this.createForm();
+centerItems.push(this.form)
+}centerItems.push(this.treePanel);
+var center={autoScroll:true,region:"center",items:centerItems,split:true,width:300,minWidth:300,border:false};
+var east={region:"east",border:false,items:[this.previewPanel],split:true,plain:true,cls:"popup-variant1",width:250,maxSize:250,minSize:250};
+this.add(center);
+this.add(east);
+if(this.mode==GeoNetwork.wms.BrowserPanel.WMSLIST){this.treeGen=new GeoNetwork.tree.WMSListGenerator({click:this.nodeClick,scope:this,node:this.treePanel.getRootNode(),wmsStore:this.wmsStore})
+}else{if(this.mode==GeoNetwork.wms.BrowserPanel.ADDWMS){new GeoNetwork.tree.WMSListGenerator({click:this.nodeClick,scope:this,node:this.treePanel.getRootNode(),wmsStore:this.wmsStore});
+this.treeGen=new GeoNetwork.tree.WMSTreeGenerator({click:this.nodeClick,callback:this.showTree,scope:this})
+}}this.addButton({text:OpenLayers.i18n("WMSBrowserAddButton"),iconCls:"addLayerIcon",width:150},this.addLayerToMap,this);
+this.doLayout()
+},createForm:function(){this.form=new Ext.form.FormPanel({labelWidth:15,id:"serviceSearchForm"});
+this.typeRadio=new Ext.form.RadioGroup({items:[{name:"addWmsType",fieldLabel:"Search WMS",labelSeparator:"",inputValue:0,checked:true},{name:"addWmsType",labelSeparator:"",fieldLabel:" or add by URL",inputValue:1}],listeners:{change:function(rg,checked){var search=(checked.getGroupValue()=="0");
+this.urlField.setVisible(!search);
+this.searchField.setVisible(search);
+this.searchResultsGrid.setVisible(search)
+},scope:this}});
+this.form.add(this.typeRadio);
+this.urlField=new Ext.form.TextField({name:"wmsurl",hideLabel:true,hidden:true,emptyText:"WMS server URL ...",width:250,autoHeight:true});
+this.form.add(this.urlField);
+var mdStore=GeoNetwork.data.MetadataResultsStore();
+var sStore=GeoNetwork.data.MetadataSummaryStore();
+this.searchField=new GeoNetwork.form.SearchField({name:"E_any",hideLabel:true,width:250,minWidth:250,store:mdStore,triggerAction:function(scope){scope.search("serviceSearchForm",null,null,1,true,mdStore,sStore)
+},scope:catalogue});
+var checkboxSM=new Ext.grid.CheckboxSelectionModel({singleSelect:this.singleSelect,header:""});
+this.searchResultsGrid=new Ext.grid.GridPanel({layout:"fit",height:80,border:false,store:mdStore,columns:[checkboxSM,{id:"title",header:"Title",dataIndex:"title"}],sm:checkboxSM,autoExpandColumn:"title",listeners:{rowclick:function(grid,rowIndex,e){var data=grid.getStore().getAt(rowIndex).data;
+this.setValue(data.links[0].href)
+},scope:this.urlField}});
+var wmsServiceField=new Ext.form.TextField({inputType:"hidden",name:"E_serviceType",value:"OGC:WMS"});
+this.form.add(this.searchField,wmsServiceField,this.searchResultsGrid);
+this.parseBt=new Ext.Button({id:"parse",text:OpenLayers.i18n("WMSBrowserConnectButton"),iconCls:"connectIcon",width:150});
+this.form.addButton(this.parseBt,this.getWMSCaps,this)
+},showTree:function(node,capability){if(!node){Ext.MessageBox.alert(OpenLayers.i18n("errorTitle"),OpenLayers.i18n("WMSBrowserConnectError"));
+this.body.dom.style.cursor="default"
+}var accessContraints=capability.service.accessContraints;
+if((accessContraints)&&(accessContraints.toLowerCase()!="none")&&(accessContraints!="-")){var disclaimerWindow=new GeoNetwork.DisclaimerWindow({disclaimer:accessContraints});
+disclaimerWindow.show();
+disclaimerWindow=null
+}var root=this.treePanel.getRootNode();
+if(node){this.treePanel.getRootNode().appendChild(node)
+}this.treePanel.show();
+this.body.dom.style.cursor="default"
+},getWMSCaps:function(btn){var url=this.urlField.getValue();
+url=url.replace(/^\s+|\s+$/g,"");
+if(url!=""){this.body.dom.style.cursor="wait";
+this.treeGen.loadWMS(url)
+}},setURL:function(url){var url=this.urlField.setValue(url);
+this.typeRadio.setValue(1);
+this.getWMSCaps(this.parseBt)
+},nodeClick:function(node){this.previewPanel.showPreview(node.attributes.wmsLayer)
+},addLayerToMap:function(){if(this.previewPanel.currentLayer){var layerExists=GeoNetwork.OGCUtil.layerExistsInMap(this.previewPanel.currentLayer,this.map);
+if(!layerExists){this.previewPanel.currentLayer.events.on({loadstart:function(){this.isLoading=true
+}});
+this.previewPanel.currentLayer.events.on({loadend:function(){this.isLoading=false
+}});
+this.map.addLayers([this.previewPanel.currentLayer])
+}else{Ext.MessageBox.alert(OpenLayers.i18n("infoTitle"),OpenLayers.i18n("WMSBrowserDuplicateMsg"))
+}}}});
+Ext.reg("gn_wmsbrowserpanel",GeoNetwork.wms.BrowserPanel);Ext.namespace("GeoNetwork","GeoNetwork.wms");
+GeoNetwork.wms.LayerInfoPanel=function(config){Ext.apply(this,config);
+GeoNetwork.wms.LayerInfoPanel.superclass.constructor.call(this)
+};
+Ext.extend(GeoNetwork.wms.LayerInfoPanel,Ext.Panel,{previewPanel:null,map:null,previewCenterPoint:null,onlineresource:null,layer:null,initComponent:function(){GeoNetwork.wms.LayerInfoPanel.superclass.initComponent.call(this);
+this.layout="border";
+this.border=false;
+this.previewPanel=new GeoNetwork.wms.PreviewPanel({map:this.map,previewCenterPoint:this.previewCenterPoint});
+this.store=new Ext.data.SimpleStore({reader:new Ext.data.ArrayReader({},[{name:"title",type:"string"},{name:"field",type:"string"}]),fields:["title","field"]});
+this.gridPanel=new Ext.grid.GridPanel({title:"",store:this.store,autoScroll:true,hideHeaders:false,columns:[]});
+this.layerInfo=new GeoNetwork.wms.WMSLayerInfo({callback:this._showLayerInfo,scope:this});
+var center={region:"center",layout:"fit",items:[this.gridPanel],split:true,width:300,minWidth:300};
+var east={region:"east",items:[this.previewPanel],split:true,plain:true,cls:"popup-variant1",width:250,maxSize:250,minSize:250};
+this.add(center);
+this.add(east);
+this.doLayout()
+},showLayerInfo:function(){this.previewPanel.showPreview(this.layer);
+this.layerInfo.loadWMS(this.onlineresource,this.layer)
+},_showLayerInfo:function(layer){if(!layer){Ext.MessageBox.alert(OpenLayers.i18n("errorTitle"),OpenLayers.i18n("WMSBrowserConnectError"));
+this.body.dom.style.cursor="default"
+}else{var info=[[OpenLayers.i18n("layerInfoPanel.titleField"),layer.title||layer.name],[OpenLayers.i18n("layerInfoPanel.descriptionField"),layer.description],[OpenLayers.i18n("layerInfoPanel.queryableField"),layer.queryable]];
+this.gridPanel.reconfigure(this.store,new Ext.grid.ColumnModel([{header:"Field",dataIndex:"title",sortable:true},{id:"value",header:"Value",dataIndex:"field",sortable:true}]));
+this.gridPanel.autoExpandColumn="value";
+this.gridPanel.getStore().loadData(info)
+}this.body.dom.style.cursor="default"
+}});
+Ext.reg("gn_infolayerpanel",GeoNetwork.wms.LayerInfoPanel);Ext.namespace("GeoNetwork","GeoNetwork.wms");
+GeoNetwork.wms.LayerStylesPanel=function(config){Ext.apply(this,config);
+GeoNetwork.wms.LayerStylesPanel.superclass.constructor.call(this)
+};
+Ext.extend(GeoNetwork.wms.LayerStylesPanel,Ext.Panel,{previewPanel:null,map:null,layer:null,selectedStyle:null,initComponent:function(){GeoNetwork.wms.LayerStylesPanel.superclass.initComponent.call(this);
+this.layout="border";
+this.border=false;
+this.previewPanel=new GeoNetwork.wms.PreviewPanel({map:this.map,title:OpenLayers.i18n("layerStylesPreviewTitle")});
+this.store=new Ext.data.SimpleStore({reader:new Ext.data.ArrayReader({},[{name:"name",type:"string"},{name:"title",type:"string"},{name:"legendUrl",type:"string"}]),fields:["name","title","legendUrl"]});
+this.gridPanel=new Ext.grid.GridPanel({title:"",border:false,autoScroll:true,store:this.store,hideHeaders:false,columns:[{header:"Style",width:120,dataIndex:"name",sortable:false},{id:"description",header:"Description",width:180,dataIndex:"title",sortable:false}],autoExpandColumn:"description"});
+this.gridPanel.on("rowclick",this._selectStyle,this);
+var center={region:"center",layout:"fit",items:[this.gridPanel],split:true,width:300,minWidth:300};
+var east={region:"east",items:[this.previewPanel],split:true,plain:true,cls:"popup-variant1",width:250,maxSize:250,minSize:250};
+this.add(center);
+this.add(east);
+this.doLayout()
+},showLayerStyles:function(layer){var info=[];
+for(var i=0;
+i<layer.styles.length;
+i++){var legendUrl="";
+if(layer.styles[i].legend){legendUrl=layer.styles[i].legend.href
+}var style=[layer.styles[i].name,layer.styles[i].title,legendUrl];
+info.push(style)
+}this.gridPanel.getStore().loadData(info)
+},_selectStyle:function(grid,rowIndex,e){var rec=grid.store.getAt(rowIndex);
+this.selectedStyle=rec.get("name");
+grid.getView().focusEl.focus();
+var legendUrl=rec.get("legendUrl");
+if(legendUrl==""){return
+}legendUrl=unescape(legendUrl);
+this.selectedStyleLegendUrl=legendUrl;
+var legendUrlStyle=rec.get("legendUrl")+"&style="+this.selectedStyle;
+this.previewPanel.showPreviewLegend(unescape(legendUrlStyle))
+}});
+Ext.reg("gn_layerstylespanel",GeoNetwork.wms.LayerStylesPanel);Ext.namespace("GeoNetwork","GeoNetwork.wms");
+GeoNetwork.wms.PreviewPanel=function(config){Ext.apply(this,config);
+GeoNetwork.wms.PreviewPanel.superclass.constructor.call(this)
+};
+Ext.extend(GeoNetwork.wms.PreviewPanel,Ext.Panel,{title:OpenLayers.i18n("WMSBrowserPreviewTitle"),baseCls:"x-plain",cls:"x-panel-title-variant1",imgCls:"preview-image",width:250,height:250,currentLayer:null,initComponent:function(){GeoNetwork.wms.PreviewPanel.superclass.initComponent.call(this);
+this.image=new Ext.BoxComponent({autoEl:{tag:"img","class":this.imgCls,src:Ext.BLANK_IMAGE_URL,width:this.width,height:this.height}});
+this.add(this.image)
+},hideMask:function(){if(this.mask){this.mask.hide()
+}},showMask:function(){if(!this.mask){this.mask=new Ext.LoadMask(this.getEl(),{msg:OpenLayers.i18n("WMSBrowserPreviewWaitMsg")});
+Ext.EventManager.addListener(this.image.getEl(),"load",this.hideMask,this);
+Ext.EventManager.addListener(this.image.getEl(),"error",this.hideMask,this)
+}this.mask.show()
+},calculateBBOX:function(layer){var bbox;
+var reverseAxisOrder=(parseFloat(layer.params.VERSION)>=1.3);
+if(layer.llbbox){if(this.map.getProjection()!=="EPSG:4326"){var llbounds=OpenLayers.Bounds.fromArray(layer.llbbox);
+llbounds=llbounds.transform(new OpenLayers.Projection("EPSG:4326"),this.map.getProjectionObject());
+bbox=llbounds.toArray(reverseAxisOrder)
+}else{var llbounds=OpenLayers.Bounds.fromArray(layer.llbbox);
+bbox=llbounds.toArray(reverseAxisOrder)
+}}else{bbox=this.map.maxExtent.toArray(reverseAxisOrder)
+}var center=OpenLayers.Bounds.fromArray(bbox).getCenterLonLat();
+if(layer.minScale>0){var midScale;
+if(layer.maxScale>0){midScale=(parseFloat(layer.maxScale)+parseFloat(layer.minScale))/2
+}else{midScale=0.9*parseFloat(layer.minScale)
+}var res=OpenLayers.Util.getResolutionFromScale(midScale,this.map.units);
+var dX=Math.round(res*this.width);
+var dY=Math.round(res*this.height);
+var cX=center.lon;
+var cY=center.lat;
+if(dX!==0&&dY!==0){if(reverseAxisOrder){bbox=[cY-0.5*dY,cX-0.5*dX,cY+0.5*dY,cX+0.5*dX]
+}else{bbox=[cX-0.5*dX,cY-0.5*dY,cX+0.5*dX,cY+0.5*dY]
+}}}return bbox.join(",")
+},showPreview:function(layer){if(!layer){return
+}this.showMask();
+var previousMap=layer.map;
+if(previousMap===null){layer.map=this.map
+}var url=layer.getFullRequestString({BBOX:this.calculateBBOX(layer),WIDTH:this.width,HEIGHT:this.height});
+if(previousMap===null){layer.map=previousMap
+}this.currentLayer=layer;
+this.image.getEl().dom.src=url
+},showPreviewLegend:function(urlLegend){this.remove(this.image);
+this.image=null;
+this.image=new Ext.BoxComponent({autoEl:{tag:"img","class":this.imgCls,src:urlLegend}});
+this.add(this.image);
+this.doLayout()
+}});
+Ext.reg("gn_wmspreview",GeoNetwork.wms.PreviewPanel);Ext.namespace("GeoNetwork","GeoNetwork.wms");
+GeoNetwork.wms.WMSLayerInfo=function(config){Ext.apply(this,config)
+};
+GeoNetwork.wms.WMSLayerInfo.prototype={layerParams:{format:"image/png",transparent:"TRUE"},layerOptions:{ratio:1,singleTile:true,isBaseLayer:false},callback:null,scope:null,layer:null,loadWMS:function(onlineResource,layer){this.layer=layer;
+var onlineResourceCheck=onlineResource.toLowerCase();
+var containsVersion=(onlineResourceCheck.indexOf("version=")>-1);
+var containsService=(onlineResourceCheck.indexOf("service=wms")>-1);
+var containsRequest=(onlineResourceCheck.indexOf("request=getcapabilities")>-1);
+var containsLanguage=(onlineResourceCheck.indexOf("language=")>-1);
+var params={};
+if(!containsVersion){params.version=GeoNetwork.OGCUtil.getProtocolVersion()
+}if(!containsService){params.service="WMS"
+}if(!containsRequest){params.request="GetCapabilities"
+}if(!containsLanguage){params.language=GeoNetwork.OGCUtil.getLanguage()
+}var paramString=OpenLayers.Util.getParameterString(params);
+var separator=(onlineResource.indexOf("?")>-1)?"&":"?";
+onlineResource+=separator+paramString;
+var req=Ext.Ajax.request({url:OpenLayers.Util.removeTail(OpenLayers.ProxyHost),method:"GET",params:{url:onlineResource},failure:this.processFailure,success:this.processSuccess,timeout:10000,scope:this})
+},processSuccess:function(response){if(!this.parser){this.parser=new OpenLayers.Format.WMSCapabilities()
+}var caps=this.parser.read(response.responseXML||response.responseText);
+var node;
+if(caps.capability){node=this.processLayers(caps,caps.capability.nestedLayers)
+}Ext.callback(this.callback,this.scope,[node,this.layer])
+},processFailure:function(response){Ext.callback(this.callback,this.scope,[null,this.layer])
+},createWMSLayer:function(layer,url){return new OpenLayers.Layer.WMS(layer.title,url,OpenLayers.Util.extend({layers:layer.name},this.layerParams),OpenLayers.Util.extend({minScale:layer.minScale,queryable:layer.queryable,maxScale:layer.maxScale,description:layer.abstrack,metadataURL:layer.metadataURL,llbbox:layer.llbbox},this.layerOptions))
+},processLayers:function(caps,layers){var findedLayer=null;
+for(var i=0,len=layers.length;
+i<len;
+++i){var lr=layers[i];
+try{var layerName=lr.name.split(",");
+if(layerName.indexOf(this.layer.params.LAYERS)!=-1){findedLayer=this.createWMSLayer(lr,caps.service.href);
+break
+}}catch(e){}if(typeof(lr.nestedLayers)!="undefined"){findedLayer=this.processLayers(caps,lr.nestedLayers);
+if(findedLayer!=null){break
+}}}return findedLayer
+}};Ext.namespace("GeoNetwork");
+GeoNetwork.FeatureInfoPanel=function(config){Ext.apply(this,config);
+GeoNetwork.FeatureInfoPanel.superclass.constructor.call(this)
+};
+Ext.extend(GeoNetwork.FeatureInfoPanel,Ext.Panel,{features:null,treePanel:null,infoPanel:null,initComponent:function(){GeoNetwork.FeatureInfoPanel.superclass.initComponent.call(this);
+this.layout="border";
+this.treePanel=new Ext.tree.TreePanel({rootVisible:true,autoScroll:true});
+var root=new Ext.tree.TreeNode({text:OpenLayers.i18n("featureInfoTitle"),draggable:false,expanded:true,cls:"folder"});
+this.treePanel.setRootNode(root);
+var center={region:"center",items:[this.treePanel],split:true,minWidth:100};
+this.infoPanel=new Ext.Panel();
+this.infoPanel.on("render",function(){if(this.features){this.showFeatures(this.features)
+}},this);
+var east={region:"east",items:[this.infoPanel],split:true,plain:true,cls:"popup-variant1",width:400,autoScroll:true};
+this.add(center);
+this.add(east);
+this.doLayout()
+},setMap:function(map){this.map=map
+},featureToHTML:function(feature){var tplstring='<table class="olFeatureInfoTable" cellspacing="1" cellpadding="1"><tbody>';
+for(var attr in feature.attributes){if(attr){tplstring+='<tr class="olFeatureInfoRow"><td width="50%" class="olFeatureInfoColumn">'+attr+'</td><td width="50%" class="olFeatureInfoValue">'+feature.attributes[attr]+"</td></tr>"
+}}tplstring+="</tbody></table>";
+var tpl=new Ext.XTemplate(tplstring);
+tpl.overwrite(this.infoPanel.body,feature)
+},click:function(node){if(node.attributes.features.length===0){var html='<table class="olFeatureInfoTable" cellpadding="1" cellspacing="1"><tbody>';
+html+='<tr class="olFeatureInfoRow"><td colspan="2" class="olFeatureInfoValue">'+OpenLayers.i18n("FeatureInfoNoInfo")+"</td></tr>";
+html+="</tbody></table>";
+Ext.DomHelper.overwrite(this.infoPanel.body,html)
+}for(var i=0,len=node.attributes.features.length;
+i<len;
+i++){var feature=node.attributes.features[i];
+this.featureToHTML(feature)
+}},clearInfoPanel:function(){if(this.infoPanel.body){Ext.DomHelper.overwrite(this.infoPanel.body,"")
+}},getLayerTitle:function(featureType){if(featureType==null){return"&nbsp"
+}var layers=this.map.getLayersByClass("OpenLayers.Layer.WMS");
+for(var i=0,len=layers.length;
+i<len;
+i++){if(layers[i].params.LAYERS instanceof Array){if(OpenLayers.Util.indexOf(layers[i].params.LAYERS,featureType)!==-1){return layers[i].name
+}}else{if(layers[i].params.LAYERS.indexOf(featureType)!==-1){return layers[i].name
+}}}},showFeatures:function(features){this.clearInfoPanel();
+var root=this.treePanel.getRootNode();
+while(root.firstChild){root.removeChild(root.firstChild)
+}var i,len,featureList=[];
+for(i=0,len=features.length;
+i<len;
+i++){var found=false;
+for(var j=0;
+j<featureList.length;
+j++){if(featureList[j].title===features[i].type){featureList[j].features.push(features[i]);
+found=true
+}}if(found===false){featureList.push({title:this.getLayerTitle(features[i].type),features:[features[i]]})
+}}for(i=0,len=featureList.length;
+i<len;
+i++){var node=new Ext.tree.TreeNode({text:featureList[i].title,features:featureList[i].features});
+node.addListener("click",this.click,this);
+root.appendChild(node);
+if(i===0){root.expand();
+this.click(node);
+this.treePanel.getSelectionModel().select(node)
+}}root.expand()
+}});
+Ext.reg("gn_featureinfo",GeoNetwork.FeatureInfoPanel);Ext.namespace("GeoNetwork");
+GeoNetwork.LegendPanel=Ext.extend(GeoExt.LegendPanel,{initComponent:function(){GeoNetwork.LegendPanel.superclass.initComponent.call(this)
+},onStoreAdd:function(store,records,index){GeoNetwork.LegendPanel.superclass.onStoreAdd.apply(this,arguments);
+for(var i=0,len=records.length;
+i<len;
+i++){var record=records[i];
+if(record.get("layer").legendURL!==undefined){record.set("legendURL",record.get("layer").legendURL)
+}}}});
+Ext.reg("gn_legendpanel",GeoNetwork.LegendPanel);Ext.namespace("GeoNetwork");
+GeoNetwork.ProjectionSelector=function(config){Ext.apply(this,config);
+GeoNetwork.ProjectionSelector.superclass.constructor.call(this)
+};
+Ext.extend(GeoNetwork.ProjectionSelector,Ext.form.ComboBox,{projections:null,initComponent:function(){GeoNetwork.ProjectionSelector.superclass.initComponent.call(this);
+this.on("select",this.reproject,this);
+this.valueField="value";
+this.autoWidth=true;
+this.autoHeight=true;
+this.displayField="text";
+this.triggerAction="all";
+this.mode="local";
+this.store=new Ext.data.Store({reader:new Ext.data.ArrayReader({},[{name:"value"},{name:"text"}]),data:this.projections});
+this.value=this.map.getProjection()
+},reproject:function(combo,record){GeoNetwork.OGCUtil.reprojectMap(this.map,new OpenLayers.Projection(record.get("value")),false)
+}});
+Ext.reg("gn_projectionselector",GeoNetwork.ProjectionSelector);Ext.namespace("GeoNetwork");
+GeoNetwork.TimeSelector=function(config){Ext.apply(this,config);
+GeoNetwork.TimeSelector.superclass.constructor.call(this)
+};
+Ext.extend(GeoNetwork.TimeSelector,Ext.form.FormPanel,{layer:null,numberOfSteps:12,border:false,originalFormat:null,initComponent:function(){this.buttons=[new Ext.Button({text:OpenLayers.i18n("wmsTimeUpdateButtonText"),handler:this.updateValue,scope:this})];
+GeoNetwork.TimeSelector.superclass.initComponent.call(this)
+},beforeDestroy:function(){this.updateValue();
+GeoNetwork.TimeSelector.superclass.beforeDestroy.call(this)
+},setLayer:function(layer){this.layer=layer;
+this.originalFormat=this.layer.params.FORMAT||this.layer.params.format;
+if(this.layer.dimensions&&this.layer.dimensions.time){this.add(new Ext.form.Label({text:OpenLayers.i18n("WMSTimePositionTitle")}));
+this.add(new Ext.BoxComponent({height:10}));
+this.add(this.createDateTimeField());
+if(this.layer.dimensions.time.multipleVal){this.add(new Ext.BoxComponent({height:25}));
+this.add(new Ext.form.Label({text:OpenLayers.i18n("WMSTimeMovieTitle")}));
+this.add(new Ext.BoxComponent({height:10}));
+this.add({xtype:"checkbox",listeners:{check:{fn:this.playMovie,scope:this}},hideLabel:true,boxLabel:OpenLayers.i18n("WMSTimeAnimationCheckbox",{steps:this.numberOfSteps})})
+}this.doLayout()
+}},getInterval:function(interval){return parseInt(interval.substring(interval.indexOf("PT")+2,interval.indexOf("M")))
+},playMovie:function(a,checked){if(checked){var max,interval,timeRange;
+if(this.layer.dimensions.time.values&&this.layer.dimensions.time.values.length>0){var values=this.layer.dimensions.time.values[0].split("/");
+max=values[1];
+interval=this.getInterval(values[2]);
+var start=Date.parseDate(max,"c");
+start=start-(1000*60*interval*this.numberOfSteps);
+start=new Date(start);
+timeRange=this.formatTimeAsUTC(start)+"/"+max
+}this.layer.mergeNewParams({TIME:timeRange,FORMAT:"image/gif"})
+}else{this.updateValue()
+}},formatTimeAsUTC:function(dateObj){var dt=dateObj.dateFormat("c");
+var utcHours=""+dateObj.getUTCHours();
+if(utcHours.length<2){utcHours="0"+utcHours
+}dt=dt.replace(dt.substring(dt.indexOf("T"),dt.indexOf("T")+3),"T"+utcHours);
+dt=dt.replace(dt.substring(dt.indexOf("+"),dt.indexOf("+")+6),"Z");
+return dt
+},updateValue:function(){this.layer.mergeNewParams({TIME:this.formatTimeAsUTC(this.getForm().findField("current").getValue()),FORMAT:this.originalFormat})
+},createDateTimeField:function(){var min,max,interval;
+if(this.layer.dimensions.time.values&&this.layer.dimensions.time.values.length>0){var values=this.layer.dimensions.time.values[0].split("/");
+min=values[0];
+max=values[1];
+interval=this.getInterval(values[2])
+}return new Ext.ux.form.DateTime({hiddenFormat:"c",dateFormat:null,hideLabel:true,name:"current",dateConfig:{minValue:Date.parseDate(min,"c"),maxValue:Date.parseDate(max,"c")},timeConfig:{increment:interval},value:(this.layer.params.TIME)?this.layer.params.TIME:this.layer.dimensions.time["default"],width:340})
+}});
+Ext.reg("gn_timeselector",GeoNetwork.TimeSelector);Ext.namespace("GeoNetwork");
+GeoNetwork.BaseWindow=function(config){Ext.apply(this,config);
+GeoNetwork.BaseWindow.superclass.constructor.call(this)
+};
+Ext.extend(GeoNetwork.BaseWindow,Ext.Window,{map:null,initComponent:function(){GeoNetwork.BaseWindow.superclass.initComponent.call(this);
+this.constrainHeader=true;
+this.collapsible=true;
+this.layout="fit";
+this.plain=true;
+this.stateful=false
+}});Ext.namespace("GeoNetwork");
+GeoNetwork.SingletonWindowManager=function(){var windowsList=new Object();
+var hiddenWindows=new Array();
+return{registerWindow:function(id,classz,configz){var window1=new classz(configz);
+windowsList[id]={windowz:window1,classz:classz,configz:configz}
+},getWindow:function(id){if(windowsList[id]){return windowsList[id].windowz
+}else{return null
+}},showWindow:function(id){if(windowsList[id]){if(Ext.isEmpty(Ext.getCmp(id))){var w=windowsList[id];
+var ww=new w.classz(w.configz);
+windowsList[id]={windowz:ww,classz:w.classz,configz:w.configz}
+}windowsList[id].windowz.show();
+return true
+}else{return false
+}},hideAllWindows:function(){for(key in windowsList){if(windowsList[key].windowz.isVisible()){windowsList[key].windowz.setVisible(false);
+hiddenWindows[hiddenWindows.length]=key
+}}},restoreHiddenWindows:function(){for(var index=0,len=hiddenWindows.length;
+index<len;
+++index){windowsList[hiddenWindows[index]].windowz.setVisible(true)
+}hiddenWindows=new Array()
+}}
+};
+GeoNetwork.WindowManager=new GeoNetwork.SingletonWindowManager();Ext.namespace("GeoNetwork");
+GeoNetwork.AddWmsLayerWindow=function(config){Ext.apply(this,config);
+GeoNetwork.AddWmsLayerWindow.superclass.constructor.call(this)
+};
+Ext.extend(GeoNetwork.AddWmsLayerWindow,GeoNetwork.BaseWindow,{iconCls:"addLayerIcon",browserPanel:null,initComponent:function(){GeoNetwork.AddWmsLayerWindow.superclass.initComponent.call(this);
+this.title=this.title||OpenLayers.i18n("addWMSWindowTitle");
+this.width=600;
+this.height=500;
+var ds=new Ext.data.Store({data:GeoNetwork.WMSList,reader:new Ext.data.ArrayReader({},[{name:"title"},{name:"url"}])});
+this.browserPanel={id:this.id+"wmsbrowserpanel",xtype:"gn_wmsbrowserpanel",mode:GeoNetwork.wms.BrowserPanel.ADDWMS,wmsStore:ds,map:this.map};
+var tabs=new Ext.Panel({border:false,deferredRender:false,layout:"fit",items:[this.browserPanel]});
+this.add(tabs);
+this.doLayout()
+}});Ext.namespace("GeoNetwork");
+GeoNetwork.FeatureInfoWindow=function(config){Ext.apply(this,config);
+GeoNetwork.FeatureInfoWindow.superclass.constructor.call(this)
+};
+Ext.extend(GeoNetwork.FeatureInfoWindow,GeoNetwork.BaseWindow,{control:null,initComponent:function(){GeoNetwork.FeatureInfoWindow.superclass.initComponent.call(this);
+this.title=this.title||OpenLayers.i18n("featureInfoWindow.windowTitle");
+this.width=600;
+this.height=250;
+this.cls="popup-variant1";
+var fp=new GeoNetwork.FeatureInfoPanel();
+this.add(fp);
+this.doLayout()
+},setFeatures:function(featureList){this.items.items[0].showFeatures(featureList)
+},setMap:function(map){this.items.items[0].setMap(map)
+}});Ext.namespace("GeoNetwork");
+GeoNetwork.LoadWmcWindow=function(config){Ext.apply(this,config);
+GeoNetwork.LoadWmcWindow.superclass.constructor.call(this)
+};
+Ext.extend(GeoNetwork.LoadWmcWindow,GeoNetwork.BaseWindow,{initComponent:function(){GeoNetwork.LoadWmcWindow.superclass.initComponent.call(this);
+this.width=480;
+this.title=this.title||OpenLayers.i18n("selectWMCFile.windowTitle");
+this.resizable=false;
+this.charset="UTF-8";
+var fp=new Ext.FormPanel({fileUpload:true,height:100,bodyStyle:"padding: 10px 10px 0 10px;",labelWidth:0,plain:true,frame:true,border:false,defaults:{anchor:"90%",msgTarget:"side",allowBlank:false},items:[{xtype:"fileuploadfield",id:"form-file",width:120,emptyText:OpenLayers.i18n("selectWMCFile"),hideLabel:true,buttonText:"",name:"Fileconten",buttonCfg:{text:"",iconCls:"selectfile"}}],buttons:[{text:OpenLayers.i18n("selectWMCFile.loadButtonText"),scope:this,handler:function(){if(fp.getForm().isValid()){fp.getForm().submit({url:"../../wmc/load.wmc",success:this.onSuccessLoad,failure:this.onFailure,scope:this})
+}}},{text:OpenLayers.i18n("selectWMCFile.mergeButtonText"),scope:this,handler:function(){if(fp.getForm().isValid()){fp.getForm().submit({url:"../../wmc/load.wmc",success:this.onSuccessMerge,failure:this.onFailure,scope:this})
+}}}]});
+this.add(fp);
+this.doLayout()
+},onSuccessLoad:function(form,action){var json=action.response.responseText;
+var o=Ext.decode(json);
+if(o.success){var cb=OpenLayers.Function.bind(this.parseWMCLoad,this);
+OpenLayers.loadURL(o.url,null,null,cb)
+}else{this.onAjaxFailure()
+}},onSuccessMerge:function(form,action){var json=action.response.responseText;
+var o=Ext.decode(json);
+if(o.success){var cb=OpenLayers.Function.bind(this.parseWMCMerge,this);
+OpenLayers.loadURL(o.url,null,null,cb)
+}else{this.onAjaxFailure()
+}},onFailure:function(form,action){Ext.MessageBox.show({icon:Ext.MessageBox.ERROR,title:OpenLayers.i18n("errorTitle"),msg:OpenLayers.i18n("InvalidWMC"),buttons:Ext.MessageBox.OK})
+},parseWMCLoad:function(response){GeoNetwork.WMCManager.loadWmc(this.map,response.responseText);
+Ext.WindowMgr.getActive().close()
+},parseWMCMerge:function(response){GeoNetwork.WMCManager.mergeWmc(this.map,response.responseText);
+Ext.WindowMgr.getActive().close()
+}});Ext.namespace("GeoNetwork");
+GeoNetwork.DisclaimerWindow=function(config){Ext.apply(this,config);
+GeoNetwork.DisclaimerWindow.superclass.constructor.call(this)
+};
+Ext.extend(GeoNetwork.DisclaimerWindow,Ext.Window,{disclaimer:null,initComponent:function(){GeoNetwork.BaseWindow.superclass.initComponent.call(this);
+this.id="disclaimerwindow";
+this.constrainHeader=true;
+this.layout="fit";
+this.plain=true;
+this.stateful=false;
+this.title=OpenLayers.i18n("disclaimer.windowTitle");
+this.minWidth=440;
+this.minHeight=280;
+this.width=440;
+this.height=280;
+this.autoScroll=true;
+this.modal=true;
+this.addButton(OpenLayers.i18n("disclaimer.buttonClose"),function(){this.close()
+},this);
+if(this.disclaimer.startsWith("http://")){this.on("show",this.showDisclaimerUrl)
+}else{var textArea=new Ext.form.TextArea({hideLabel:true,name:"msg",value:this.disclaimer,anchor:"100% -53",enableKeyEvents:true,listeners:{keydown:function(field,event){if(!(event.getKey()==67&&event.ctrlKey)){event.stopEvent()
+}}}});
+this.add(textArea)
+}this.doLayout()
+},showDisclaimerUrl:function(){this.load({url:OpenLayers.ProxyHost+this.disclaimer,text:OpenLayers.i18n("disclaimer.loading"),timeout:30,scripts:false})
+}});Ext.namespace("GeoNetwork");
+GeoNetwork.LayerStylesWindow=function(config){Ext.apply(this,config);
+GeoNetwork.LayerStylesWindow.superclass.constructor.call(this)
+};
+Ext.extend(GeoNetwork.LayerStylesWindow,GeoNetwork.BaseWindow,{initComponent:function(){GeoNetwork.LayerStylesWindow.superclass.initComponent.call(this);
+this.title=this.title||OpenLayers.i18n("layerStylesWindowTitle");
+this.width=575;
+this.height=300;
+this.layerStylesPanel=new GeoNetwork.wms.LayerStylesPanel({map:this.map});
+this.add(this.layerStylesPanel);
+this.addButton(OpenLayers.i18n("selectStyleButton"),this._selectStyle,this);
+this.doLayout()
+},showLayerStyles:function(layer){this.layer=layer;
+this.layerStylesPanel.showLayerStyles(layer)
+},_selectStyle:function(){this.layer.mergeNewParams({styles:this.layerStylesPanel.selectedStyle});
+this.layer.legendURL=this.layerStylesPanel.selectedStyleLegendUrl
+}});Ext.namespace("GeoNetwork");
+GeoNetwork.WmsLayerMetadataWindow=function(config){Ext.apply(this,config);
+GeoNetwork.WmsLayerMetadataWindow.superclass.constructor.call(this)
+};
+Ext.extend(GeoNetwork.WmsLayerMetadataWindow,GeoNetwork.BaseWindow,{layer:null,initComponent:function(){GeoNetwork.WmsLayerMetadataWindow.superclass.initComponent.call(this);
+this.title=this.title||OpenLayers.i18n("layerInfoPanel.windowTitle");
+this.width=575;
+this.height=300;
+this.infoLayerPanel=new GeoNetwork.wms.LayerInfoPanel({map:this.map});
+this.add(this.infoLayerPanel);
+this.doLayout()
+},showLayerInfo:function(layer){this.infoLayerPanel.layer=layer;
+this.infoLayerPanel.onlineresource=layer.url;
+this.infoLayerPanel.showLayerInfo()
+}});Ext.namespace("GeoNetwork");
+GeoNetwork.WMSTimeWindow=function(config){Ext.apply(this,config);
+GeoNetwork.WMSTimeWindow.superclass.constructor.call(this)
+};
+Ext.extend(GeoNetwork.WMSTimeWindow,GeoNetwork.BaseWindow,{initComponent:function(){GeoNetwork.WMSTimeWindow.superclass.initComponent.call(this);
+this.title=this.title||OpenLayers.i18n("WMSTimeWindowTitle");
+this.width=450;
+this.height=300;
+this.timeSelector=new GeoNetwork.TimeSelector({bodyStyle:"padding: 10px 10px 0 10px;"});
+this.add(this.timeSelector);
+this.doLayout()
+},setLayer:function(layer){this.timeSelector.setLayer(layer)
+}});GeoNetwork.Settings={};
 OpenLayers.ProxyHostURL="../../proxy?url=";
 OpenLayers.ProxyHost=function(url){if(url&&url.indexOf(window.location.host)!=-1){return url
 }else{return OpenLayers.ProxyHostURL+encodeURIComponent(url)
@@ -16990,15 +17670,17 @@ OpenLayers.ProxyHost=function(url){if(url&&url.indexOf(window.location.host)!=-1
 GeoNetwork.Util.defaultLocale="en";
 GeoNetwork.searchDefault={activeMapControlExtent:false};
 GeoNetwork.advancedFormButton=true;
-GeoNetwork.Settings.editor={defaultViewMode:"metadata"};
+GeoNetwork.Settings.editor={defaultViewMode:"simple",editHarvested:false};
+GeoNetwork.printDefaultForTabs=false;
+GeoNetwork.hideLoginLabels=true;
 GeoNetwork.Settings.mdStore=GeoNetwork.data.MetadataResultsStore;
 GeoNetwork.Settings.searchService="xml.search";
 GeoNetwork.MapModule=true;
 GeoNetwork.ProjectionList=[["EPSG:4326","WGS84 (lat/lon)"]];
 GeoNetwork.WMSList=[["Geoserver","http://localhost/geoserver/wms?"]];
 GeoNetwork.defaultViewMode="view-simple";
-Ext.BLANK_IMAGE_URL="../../apps/js/ext/resources/images/default/s.gif";OpenLayers.DOTS_PER_INCH=90.71;
-OpenLayers.ImgPath="../../apps/js/OpenLayers/img/";
+Ext.BLANK_IMAGE_URL="../js/ext/resources/images/default/s.gif";OpenLayers.DOTS_PER_INCH=90.71;
+OpenLayers.ImgPath="../js/OpenLayers/img/";
 OpenLayers.IMAGE_RELOAD_ATTEMPTS=3;
 OpenLayers.Util.onImageLoadErrorColor="transparent";
 OpenLayers.Lang.setCode(GeoNetwork.defaultLocale);
@@ -17011,7 +17693,7 @@ Proj4js.defs["EPSG:2154"]="+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 +lon_0=3 +x
 GeoNetwork.map.printCapabilities="../../pdf";
 GeoNetwork.map.PROJECTION="EPSG:4326";
 GeoNetwork.map.EXTENT=new OpenLayers.Bounds(-180,-90,180,90);
-GeoNetwork.map.BACKGROUND_LAYERS=[new OpenLayers.Layer.WMS("World coverage","http://gaur.eea.europa.eu/cgi-bin/mapserv?map=/var/www/natural_earth/10m_physical/base_hydro_admin.map",{layers:"ne_background",format:"image/jpeg"},{isBaseLayer:true}),new OpenLayers.Layer.WMS("World coverage","http://gaur.eea.europa.eu/cgi-bin/mapserv?map=/var/www/natural_earth/10m_physical/base_hydro_admin.map",{layers:"NE_Hydrography",format:"image/png",transparent:"true"})];
+GeoNetwork.map.BACKGROUND_LAYERS=[new OpenLayers.Layer.WMS("Background layer","http://www2.demis.nl/mapserver/wms.asp?",{layers:"Countries",format:"image/jpeg"},{isBaseLayer:true})];
 GeoNetwork.map.MAP_OPTIONS={projection:GeoNetwork.map.PROJECTION,maxExtent:GeoNetwork.map.EXTENT,restrictedExtent:GeoNetwork.map.EXTENT,controls:[]};
 GeoNetwork.map.MAIN_MAP_OPTIONS={projection:GeoNetwork.map.PROJECTION,maxExtent:GeoNetwork.map.EXTENT,restrictedExtent:GeoNetwork.map.EXTENT,controls:[]};Ext.namespace("GeoNetwork");
 var mapInit=false;
@@ -17378,8 +18060,7 @@ if(resultsPanel.isVisible()){resultsPanel.hide()
 }if(!infoPanel.isVisible()){infoPanel.show()
 }}},{key:"h",ctrl:true,shift:true,stopEvent:true,label:OpenLayers.i18n("displayHelpPanel"),fn:function(){var ss=Ext.getDom("shortcut").style;
 if(ss.display=="block"){Ext.getDom("shortcut").style.display="none"
-}else{Ext.getDom("shortcut").style.display="block";
-return
+}else{Ext.getDom("shortcut").style.display="block"
 }}}];
 var map=new Ext.KeyMap(document,searchConfig);
 map.enable();
@@ -17395,25 +18076,6 @@ Ext.DomHelper.insertHtml("afterEnd",helpEl,html)
 }}]);
 formMap.enable()
 };Ext.namespace("GeoNetwork");
-EEA.Templates=Ext.extend(Ext.XTemplate,{compiled:false,disableFormats:false,catalogue:null,sortOrder:0,abstractMaxSize:50,xmlTplMarkup:['<?xml version="1.0" encoding="UTF-8"?>','<node id="{id}" type="{type}">',"<site>","<name>{site_name}</name>",'<tpl if="values.site_ogctype">',"<ogctype>{site_ogctype}</ogctype>","</tpl>",'<tpl if="values.site_url">',"<url>{site_url}</url>","</tpl>",'<tpl if="values.site_icon">',"<icon>{site_icon}</icon>","</tpl>",'<tpl if="values.site_account_use">',"<account>","<use>{site_account_use}</use>","<username>{site_account_username}</username>","<password>{site_account_password}</password>","</account>","</tpl>","</site>","<options>",'<tpl if="values.options_every">',"<every>{options_every}</every>","</tpl>",'<tpl if="values.options_onerunonly">',"<oneRunOnly>{options_onerunonly}</oneRunOnly>","</tpl>",'<tpl if="values.options_lang">',"<lang>{options_lang}</lang>","</tpl>",'<tpl if="values.options_topic">',"<topic>{options_topic}</topic>","</tpl>",'<tpl if="values.options_createthumbnails">',"<createThumbnails>{options_createthumbnails}</createThumbnails>","</tpl>",'<tpl if="values.options_uselayer">',"<useLayer>{options_uselayer}</useLayer>","</tpl>",'<tpl if="values.options_uselayermd">',"<useLayerMd>{options_uselayermd}</useLayerMd>","</tpl>",'<tpl if="values.options_datasetcategory">',"<datasetcategory>{options_datasetcategory}</datasetcategory>","</tpl>","</options>","<content>","</content>","<privileges>","</privileges>",'<group id="1">','<operation name="view" />','<operation name="dynamic" />',"</group>","<categories>","</categories>",'<tpl if="values.info_result_total">',"</tpl>","</node>"],initComponent:function(){GeoNetwork.Templates.superclass.initComponent.call(this)
-},getHarvesterTemplate:function(){return new Ext.XTemplate(this.xmlTplMarkup)
-}});
-EEA.Templates.TITLE='<h1><input type="checkbox" <tpl if="selected==\'true\'">checked="true"</tpl> class="selector" onclick="javascript:app.getCatalogue().metadataSelect((this.checked?\'add\':\'remove\'), [\'{uuid}\']);"/><a href="#" onclick="javascript:app.getCatalogue().metadataShow(\'{uuid}\');return false;">{title}</a><span class="md-action-menu"> - <a rel="mdMenu">'+OpenLayers.i18n("mdMenu")+"</a></span></h1>";
-EEA.Templates.RATING_TPL='<tpl if="isharvested==\'n\' || harvestertype==\'geonetwork\'"><div class="rating"><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'1\'">checked="true"</tpl> value="1"/><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'2\'">checked="true"</tpl> value="2"/><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'3\'">checked="true"</tpl> value="3"/><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'4\'">checked="true"</tpl> value="4"/><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'5\'">checked="true"</tpl> value="5"/></div></tpl>';
-EEA.Templates.LOGO='<div class="md-logo"><img src="{[app.getCatalogue().URL]}/images/logos/{source}.gif"/></div>';
-EEA.Templates.SIMPLE=new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="md md-simple" id="md{uuid}" title="{abstract}">','<table><tr><td style="width:30px;">',GeoNetwork.Templates.LOGO,'</td><td id="{uuid}">',GeoNetwork.Templates.TITLE,'<span class="subject"><tpl for="subject">','{value}{[xindex==xcount?"":", "]}',"</tpl></span>","</td></tr></table>","</li>","</tpl>","</ul>");
-EEA.Templates.THUMBNAIL=new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="md md-thumbnail" id="md{uuid}">','<div class="md-wrap" id="{uuid}" title="{abstract}">',GeoNetwork.Templates.TITLE,'<div class="thumbnail">','<tpl if="thumbnail">','<a rel="lightbox" href="{thumbnail}"><img src="{thumbnail}" alt="Thumbnail"/></a>',"</tpl>","<tpl if=\"thumbnail==''\"></tpl>","</div>",'<tpl for="links">',"<tpl if=\"values.type == 'application/vnd.ogc.wms_xml'\">","<a href=\"#\" class=\"md-mn addLayer\" title=\"{title}\" alt=\"{title}\" onclick=\"app.switchMode('1', true);app.getIMap().addWMSLayer([['{title}', '{href}', '{name}', '{id}']]);\">&nbsp;</a>","</tpl>","</tpl>","</div>","</li>","</tpl>","</ul>");
-EEA.Templates.FULL=new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="md md-full">',"<table><tr>",'<td class="left">',EEA.Templates.LOGO,"</td>",'<td id="{uuid}">',EEA.Templates.TITLE,'<p class="abstract">{[values.abstract.substring(0, 350)]} ...</p>','<p class="subject"><tpl for="subject">','{value}{[xindex==xcount?"":", "]}',"</tpl></p>",'<div class="md-links">','<tpl for="links">',"<tpl if=\"values.type == 'application/vnd.ogc.wms_xml' || values.type == 'OGC:WMS'\">",'<a href="#" class="md-mn addLayer" title="'+OpenLayers.i18n("addToMap")+" {title}\" alt=\"Add layer to map\" onclick=\"app.switchMode('1', true);app.getIMap().addWMSLayer([['{[escape(values.title)]}', '{href}', '{name}', '{id}']]);\">&nbsp;</a>","</tpl>","<tpl if=\"values.type == 'application/vnd.google-earth.kml+xml'\">",'<a href="{href}" class="md-mn md-mn-kml" title="'+OpenLayers.i18n("viewKml")+' {title}" alt="Open kml">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'application/zip' || values.type == 'application/x-compressed'\">",'<a href="{href}" class="md-mn md-mn-zip" title="'+OpenLayers.i18n("downloadLink")+' {title}" alt="Download">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'text/html'\">",'<a href="{href}" class="md-mn md-mn-www" title="'+OpenLayers.i18n("webLink")+' {title}" alt="Web link" target="_blank">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'EEA:FILEPATH'\">",'<a href="'+EEA.WEBDAV_URL+'{href}" class="md-mn md-mn-download" title="'+OpenLayers.i18n("webdavLink")+' {title}" alt="EEA webdav link" target="_blank">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'EEA:FILEPATH'\">",'<a href="'+EEA.CIFS_URL+'{href}" class="md-mn md-mn-zip" title="'+OpenLayers.i18n("cifsLink")+' {title}" alt="EEA cifs link" target="_blank">&nbsp;</a>',"</tpl>","</tpl>",'<tpl if="this.hasDownloadLinks(values.links)">','<a href="#" onclick="app.getCatalogue().metadataPrepareDownload({id});" class="md-mn downloadAllIcon" title="'+OpenLayers.i18n("prepareDownload")+'" alt="download">&nbsp;</a>',"</tpl>",'<tpl if="this.hasEEALinks(values.links)">','<a href="'+EEA.MAPVIEWER_URL+'{uuid}" class="md-mn addLayer" title="'+OpenLayers.i18n("addToMap")+' {title}" alt="EEA link" target="_blank">&nbsp;</a>',"</tpl>","</div>",'</td><td class="thumb">','<div class="thumbnail">','<tpl if="thumbnail">','<a rel="lightbox" href="{thumbnail}"><img src="{thumbnail}" alt="Thumbnail"/></a>',"</tpl>","<tpl if=\"thumbnail==''\"></tpl>","</div>",'</td><td class="icon">','<div class="md-mn valid-{valid}" title="'+OpenLayers.i18n("validityInfo"),'<tpl for="valid_details">',"{values.type}: ","<tpl if=\"values.valid == '1'\">"+OpenLayers.i18n("valid")+"</tpl>","<tpl if=\"values.valid == '0'\">"+OpenLayers.i18n("notValid")+"</tpl>","<tpl if=\"values.valid == '-1'\">"+OpenLayers.i18n("notDetermined")+"</tpl>","<tpl if=\"values.ratio != ''\"> ({values.ratio}) </tpl> - ","</tpl>",'">&nbsp;</div>','</td><td class="icon" title="'+OpenLayers.i18n("metadataCategories")+'">','<tpl for="category">','<div class="md-mn cat-{value}" title="{value}">&nbsp;</div>',"</tpl>","</td></tr></table>",'<div class="md-contact">','<tpl for="contact">',"<tpl if=\"applies=='resource'\">",'<span title="{role} - {applies}"><tpl if="values.logo !== undefined ">','<img src="{logo}" class="orgLogo"/>',"</tpl>","{name}&nbsp;&nbsp;</span>","</tpl>","</tpl>","<tpl if=\"edit=='true' && isharvested!='y'\">",'<br/><span class="md-mn md-mn-user" title="'+OpenLayers.i18n("ownerName")+'">{ownername} ('+OpenLayers.i18n("lastUpdate")+"{[values.changedate.split('T')[0]]})</span>","</tpl>","</div>","</li>","</tpl>","</ul>",{hasDownloadLinks:function(values){var i;
-for(i=0;
-i<values.length;
-i++){if(values[i].type==="application/x-compressed"){return true
-}}return false
-},hasEEALinks:function(values){var i;
-for(i=0;
-i<values.length;
-i++){if(values[i].type==="EEA:FILEPATH"){return true
-}}return false
-}});Ext.namespace("GeoNetwork");
 var catalogue;
 var app;
 GeoNetwork.app=function(){var geonetworkUrl;
@@ -17422,7 +18084,13 @@ var editorWindow;
 var editorPanel;
 var urlParameters={};
 var catalogue;
-var iMap,searchForm,resultsPanel,metadataResultsView,tBar,bBar,mainTagCloudViewPanel,tagCloudViewPanel,infoPanel,visualizationModeInitialized=false;
+var iMap;
+var searchForm;
+var resultsPanel;
+var metadataResultsView;
+var tBar,bBar;
+var mainTagCloudViewPanel,tagCloudViewPanel,infoPanel;
+var visualizationModeInitialized=false;
 function createModeSwitcher(){var ms={xtype:"radiogroup",id:"ms",hidden:!GeoNetwork.MapModule,items:[{name:"mode",ctCls:"mn-main",boxLabel:OpenLayers.i18n("discovery"),id:"discoveryMode",width:110,inputValue:0,checked:true},{name:"mode",ctCls:"mn-main",width:140,boxLabel:OpenLayers.i18n("visualization"),id:"visualizationMode",inputValue:1}],listeners:{change:function(rg,checked){app.switchMode(checked.getGroupValue(),false)
 }}};
 return new Ext.form.FormPanel({renderTo:"mode-form",border:false,layout:"hbox",items:ms})
@@ -17432,7 +18100,7 @@ metadataResultsView.addMap(iMap.getMap());
 visualizationModeInitialized=true
 }function createLanguageSwitcher(lang){return new Ext.form.FormPanel({renderTo:"lang-form",width:80,border:false,layout:"hbox",hidden:GeoNetwork.Util.locales.length===1?true:false,items:[new Ext.form.ComboBox({mode:"local",triggerAction:"all",width:80,store:new Ext.data.ArrayStore({idIndex:0,fields:["id","name"],data:GeoNetwork.Util.locales}),valueField:"id",displayField:"name",value:lang,listeners:{select:function(cb,record,idx){window.location.replace("?hl="+cb.getValue())
 }}})]})
-}function createLoginForm(){var loginForm=new GeoNetwork.LoginForm({renderTo:"login-form",catalogue:catalogue,width:300,layout:"form"});
+}function createLoginForm(){var loginForm=new GeoNetwork.LoginForm({renderTo:"login-form",catalogue:catalogue,layout:"hbox",hideLoginLabels:GeoNetwork.hideLoginLabels});
 catalogue.on("afterBadLogin",loginAlert,this)
 }function loginAlert(cat,user){Ext.Msg.show({title:"Login",msg:"Login failed. Check your username and password.",icon:Ext.MessageBox.ERROR,buttons:Ext.MessageBox.OK})
 }function createSearchForm(){var advancedCriteria=[];
@@ -17445,15 +18113,14 @@ var when=new Ext.form.FieldSet({title:OpenLayers.i18n("when"),autoWidth:true,def
 var catalogueField=GeoNetwork.util.SearchFormTools.getCatalogueField(services.getSources,services.logoUrl,true);
 var groupField=GeoNetwork.util.SearchFormTools.getGroupField(services.getGroups,true);
 var metadataTypeField=GeoNetwork.util.SearchFormTools.getMetadataTypeField(true);
+var categoryField=GeoNetwork.util.SearchFormTools.getCategoryField(services.getCategories,"../images/default/category/",true);
 var validField=GeoNetwork.util.SearchFormTools.getValidField(true);
-var spatialTypes=GeoNetwork.util.SearchFormTools.getSpatialRepresentationTypeField([["grid",OpenLayers.i18n("grid")],["textTabled",OpenLayers.i18n("textTable")],["vector",OpenLayers.i18n("vector")]],true);
+var spatialTypes=GeoNetwork.util.SearchFormTools.getSpatialRepresentationTypeField(null,true);
 var denominatorField=GeoNetwork.util.SearchFormTools.getScaleDenominatorField(true);
-var typeCodeList=GeoNetwork.util.SearchFormTools.getTypesField(null,true);
-advancedCriteria.push(themekeyField,orgNameField,typeCodeList,when,spatialTypes,denominatorField,catalogueField,groupField,metadataTypeField,validField);
+advancedCriteria.push(themekeyField,orgNameField,categoryField,when,spatialTypes,denominatorField,catalogueField,groupField,metadataTypeField,validField);
 var adv={xtype:"fieldset",title:OpenLayers.i18n("advancedSearchOptions"),autoHeight:true,autoWidth:true,collapsible:true,collapsed:(urlParameters.advanced?false:true),defaultType:"checkbox",defaults:{width:160},items:advancedCriteria};
-var inspire={xtype:"fieldset",title:OpenLayers.i18n("inspireSearchOptions"),autoHeight:true,autoWidth:true,collapsible:true,collapsed:(urlParameters.inspire?false:true),defaultType:"checkbox",defaults:{width:160},items:GeoNetwork.util.INSPIRESearchFormTools.getINSPIREFields(catalogue.services,true)};
 var formItems=[];
-formItems.push(GeoNetwork.util.SearchFormTools.getSimpleFormFields(catalogue.services,GeoNetwork.map.BACKGROUND_LAYERS,GeoNetwork.map.MAP_OPTIONS,false,GeoNetwork.searchDefault.activeMapControlExtent),inspire,adv);
+formItems.push(GeoNetwork.util.SearchFormTools.getSimpleFormFields(catalogue.services,GeoNetwork.map.BACKGROUND_LAYERS,GeoNetwork.map.MAP_OPTIONS,true,GeoNetwork.searchDefault.activeMapControlExtent),adv);
 var adminFields=[groupField,metadataTypeField,validField];
 Ext.each(adminFields,function(item){item.setVisible(false)
 });
@@ -17463,19 +18130,20 @@ catalogue.on("afterLogin",function(){Ext.each(adminFields,function(item){item.se
 catalogue.on("afterLogout",function(){Ext.each(adminFields,function(item){item.setVisible(false)
 })
 });
-return new Ext.FormPanel({id:"searchForm",renderTo:"search-form",border:false,padding:5,defaults:{width:180},listeners:{afterrender:function(){}},items:formItems,buttons:[{tooltip:OpenLayers.i18n("resetSearchForm"),id:"resetBt",icon:"../../apps/images/default/cross.png",listeners:{click:function(){Ext.getCmp("searchForm").getForm().reset()
-}}},{text:OpenLayers.i18n("search"),id:"searchBt",icon:"../../apps/js/GeoNetwork/resources/images/default/find.png",iconAlign:"right",listeners:{click:function(){if(Ext.getCmp("geometryMap")){metadataResultsView.addMap(Ext.getCmp("geometryMap").map,true)
+return new Ext.FormPanel({id:"searchForm",border:false,padding:5,defaults:{width:180},listeners:{afterrender:function(){}},items:formItems,buttons:[{tooltip:OpenLayers.i18n("resetSearchForm"),id:"resetBt",icon:"../images/default/cross.png",listeners:{click:function(){Ext.getCmp("searchForm").getForm().reset()
+}}},{text:OpenLayers.i18n("search"),id:"searchBt",icon:"../js/GeoNetwork/resources/images/default/find.png",iconAlign:"right",listeners:{click:function(){if(Ext.getCmp("geometryMap")){metadataResultsView.addMap(Ext.getCmp("geometryMap").map,true)
 }var any=Ext.get("E_any");
 if(any){if(any.getValue()===OpenLayers.i18n("fullTextSearch")){any.setValue("")
 }}catalogue.startRecord=1;
 search()
 }}}]})
-}function createHelpPanel(){return new Ext.Panel({border:false,frame:false,baseCls:"none",id:"helpPanel",autoWidth:true,renderTo:"shortcut",autoLoad:{url:"help_"+catalogue.LANG+".html",callback:initShortcut,scope:this,loadScripts:false}})
 }function search(){searching=true;
-catalogue.search("searchForm",app.loadResults,null,catalogue.startRecord,true);
-var resultsPanel=Ext.getCmp("resultsPanel"),tagCloudPanel=Ext.getCmp("tagCloudPanel");
-if(!resultsPanel.isVisible()){resultsPanel.show()
+catalogue.search("searchForm",app.loadResults,null,catalogue.startRecord,true)
+}function initPanels(){var infoPanel=Ext.getCmp("infoPanel"),resultsPanel=Ext.getCmp("resultsPanel"),tagCloudPanel=Ext.getCmp("tagCloudPanel");
+if(infoPanel.isVisible()){infoPanel.hide()
+}if(!resultsPanel.isVisible()){resultsPanel.show()
 }if(!tagCloudPanel.isVisible()){tagCloudPanel.show()
+}if(GeoNetwork.MapModule&&!visualizationModeInitialized){initMap()
 }}function createBBar(){var previousAction=new Ext.Action({id:"previousBt",text:"&lt;&lt;",handler:function(){var from=catalogue.startRecord-parseInt(Ext.getCmp("E_hitsperpage").getValue(),10);
 if(from>0){catalogue.startRecord=from;
 search()
@@ -17484,14 +18152,21 @@ var nextAction=new Ext.Action({id:"nextBt",text:"&gt;&gt;",handler:function(){ca
 search()
 },scope:this});
 return new Ext.Toolbar({items:[previousAction,"|",nextAction,"|",{xtype:"tbtext",text:"",id:"info"}]})
-}function createResultsPanel(){metadataResultsView=new GeoNetwork.MetadataResultsView({catalogue:catalogue,autoScroll:true,autoHeight:true,tpl:EEA.Templates.FULL,templates:{SIMPLE:EEA.Templates.SIMPLE,THUMBNAIL:EEA.Templates.THUMBNAIL,FULL:EEA.Templates.FULL}});
+}function createResultsPanel(){metadataResultsView=new GeoNetwork.MetadataResultsView({catalogue:catalogue,autoScroll:true,tpl:GeoNetwork.Templates.FULL});
 catalogue.resultsView=metadataResultsView;
 tBar=new GeoNetwork.MetadataResultsToolbar({catalogue:catalogue,searchBtCmp:Ext.getCmp("searchBt"),sortByCmp:Ext.getCmp("E_sortBy"),metadataResultsView:metadataResultsView});
 bBar=createBBar();
-resultPanel=new Ext.Panel({id:"resultsPanel",renderTo:"region-content",border:false,hidden:true,autoHeight:true,bodyCssClass:"md-view",layout:"fit",tbar:tBar,items:metadataResultsView,bbar:bBar});
+resultPanel=new Ext.Panel({id:"resultsPanel",border:false,hidden:true,bodyCssClass:"md-view",autoWidth:true,layout:"fit",tbar:tBar,items:metadataResultsView,bbar:bBar});
 return resultPanel
-}function createTagCloud(){var tagCloudView=new GeoNetwork.TagCloudView({catalogue:catalogue,tpl:new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="tag-cloud">','<a href="#" onclick="javascript:catalogue.kvpSearch(\'fast=false&summaryOnly=0&from=1&to=20&hitsPerPage=20&themekey={value}\', null, null, null);" alt="{value}" title="{count} records">{value} ({count} records)</a>',"</li>","</tpl>","</ul>")});
-return new Ext.Panel({id:"tagCloudPanel",renderTo:"tag-cloud",layout:"fit",border:false,hidden:true,autoHeight:true,baseCls:"md-view",items:tagCloudView})
+}function loadCallback(el,success,response,options){if(success){createMainTagCloud()
+}else{Ext.get("infoPanel").getUpdater().update({url:"home_en.html"});
+Ext.get("helpPanel").getUpdater().update({url:"help_en.html"})
+}}function createInfoPanel(){return new Ext.Panel({border:true,id:"infoPanel",baseCls:"md-info",autoWidth:true,contentEl:"infoContent",autoLoad:{url:"home_"+catalogue.LANG+".html",callback:loadCallback,scope:this,loadScripts:false}})
+}function createHelpPanel(){return new Ext.Panel({border:false,frame:false,baseCls:"none",id:"helpPanel",autoWidth:true,renderTo:"shortcut",autoLoad:{url:"help_"+catalogue.LANG+".html",callback:initShortcut,scope:this,loadScripts:false}})
+}function createMainTagCloud(){var tagCloudView=new GeoNetwork.TagCloudView({catalogue:catalogue,query:"fast=true&summaryOnly=true",renderTo:"tag",onSuccess:"app.loadResults"});
+return tagCloudView
+}function createTagCloud(){var tagCloudView=new GeoNetwork.TagCloudView({catalogue:catalogue});
+return new Ext.Panel({id:"tagCloudPanel",border:true,hidden:true,baseCls:"md-view",items:tagCloudView})
 }function edit(metadataId,create,group,child){if(!this.editorWindow){this.editorPanel=new GeoNetwork.editor.EditorPanel({defaultViewMode:GeoNetwork.Settings.editor.defaultViewMode,catalogue:catalogue,xlinkOptions:{CONTACT:true}});
 this.editorWindow=new Ext.Window({tools:[{id:"newwindow",qtip:OpenLayers.i18n("newWindow"),handler:function(e,toolEl,panel,tc){window.open(GeoNetwork.Util.getBaseUrl(location.href)+"#edit="+metadataId);
 panel.hide()
@@ -17500,47 +18175,72 @@ this.editorPanel.setContainer(this.editorWindow);
 this.editorPanel.on("editorClosed",function(){Ext.getCmp("searchBt").fireEvent("click")
 })
 }if(metadataId){this.editorWindow.show();
-this.editorWindow.maximize();
 this.editorPanel.init(metadataId,create,group,child)
-}}function createHeader(){new Ext.Panel({border:false,frame:false,baseCls:"none",autoWidth:true,renderTo:"header",autoLoad:{url:"http://www.eea.europa.eu/"+catalogue.LANG+"/getHeader",loadScripts:false}});
-return new Ext.Panel({border:false,frame:false,baseCls:"none",autoWidth:true,renderTo:"footer",autoLoad:{url:"http://www.eea.europa.eu/"+catalogue.LANG+"/getFooter",loadScripts:false}})
-}return{init:function(){geonetworkUrl=GeoNetwork.URL||window.location.href.match(/(http.*\/.*)\/eea\/search.*/,"")[1];
+}}function createHeader(){var info=catalogue.getInfo();
+Ext.getDom("title").innerHTML='<img class="catLogo" src="../../images/logos/'+info.siteId+'.gif"/>&nbsp;'+info.name
+}return{init:function(){geonetworkUrl=GeoNetwork.URL||window.location.href.match(/(http.*\/.*)\/apps\/search.*/,"")[1];
 urlParameters=GeoNetwork.Util.getParameters(location.href);
 var lang=GeoNetwork.Util.getCatalogueLang(urlParameters.hl||GeoNetwork.defaultLocale);
 if(urlParameters.extent){urlParameters.bounds=new OpenLayers.Bounds(urlParameters.extent[0],urlParameters.extent[1],urlParameters.extent[2],urlParameters.extent[3])
-}Ext.getDom("searchLb").innerHTML=OpenLayers.i18n("search");
-Ext.getDom("loginLb").innerHTML=OpenLayers.i18n("login");
-catalogue=new GeoNetwork.Catalogue({statusBarId:"info",lang:lang,hostUrl:geonetworkUrl,mdOverlayedCmpId:"resultsPanel",adminAppUrl:geonetworkUrl+"/srv/"+lang+"/admin",metadataStore:GeoNetwork.Settings.mdStore(),metadataCSWStore:GeoNetwork.data.MetadataCSWResultsStore(),summaryStore:GeoNetwork.data.MetadataSummaryStore(),editMode:2,metadataEditFn:edit});
+}catalogue=new GeoNetwork.Catalogue({statusBarId:"info",lang:lang,hostUrl:geonetworkUrl,mdOverlayedCmpId:"resultsPanel",adminAppUrl:geonetworkUrl+"/srv/"+lang+"/admin",metadataStore:GeoNetwork.Settings.mdStore?GeoNetwork.Settings.mdStore():GeoNetwork.data.MetadataResultsStore(),metadataCSWStore:GeoNetwork.data.MetadataCSWResultsStore(),summaryStore:GeoNetwork.data.MetadataSummaryStore(),editMode:2,metadataEditFn:edit});
 createHeader();
 catalogue.setServiceUrl("xmlSearch",GeoNetwork.Settings.searchService);
 searchForm=createSearchForm();
+createModeSwitcher();
 createLanguageSwitcher(lang);
 createLoginForm();
-createTagCloud();
 edit();
 resultsPanel=createResultsPanel();
-createHelpPanel();
-GeoNetwork.util.SearchTools.populateFormFromParams(searchForm,urlParameters);
+infoPanel=createInfoPanel();
+helpPanel=createHelpPanel();
+tagCloudViewPanel=createTagCloud();
+var margins="35 0 0 0";
+var viewport=new Ext.Viewport({layout:"border",id:"vp",items:[{region:"west",id:"west",split:true,minWidth:300,width:300,maxWidth:400,autoScroll:true,collapsible:true,hideCollapseTool:true,collapseMode:"mini",margins:margins,forceLayout:true,layoutConfig:{animate:true},items:[searchForm,tagCloudViewPanel]},{region:"center",id:"center",split:true,margins:margins,items:[infoPanel,resultPanel]},{region:"east",id:"east",layout:"fit",split:true,collapsible:true,hideCollapseTool:true,collapseMode:"mini",collapsed:true,hidden:!GeoNetwork.MapModule,margins:margins,minWidth:300,width:500}]});
+if(urlParameters.mode){app.switchMode(urlParameters.mode,false)
+}GeoNetwork.util.SearchTools.populateFormFromParams(searchForm,urlParameters);
 if(urlParameters.search!==undefined){Ext.getCmp("searchBt").fireEvent("click")
 }if(urlParameters.edit!==undefined&&urlParameters.edit!==""){catalogue.metadataEdit(urlParameters.edit)
 }if(urlParameters.create!==undefined){resultPanel.getTopToolbar().createMetadataAction.fireEvent("click")
-}if(urlParameters.uuid!==undefined){catalogue.metadataShow(urlParameters.uuid,false)
+}if(urlParameters.uuid!==undefined){catalogue.metadataShow(urlParameters.uuid,true)
 }else{if(urlParameters.id!==undefined){catalogue.metadataShowById(urlParameters.id,true)
 }}Ext.get("E_any").setWidth(285);
 Ext.get("E_any").setHeight(28);
 if(GeoNetwork.searchDefault.activeMapControlExtent){Ext.getCmp("geometryMap").setExtent()
 }if(urlParameters.bounds){Ext.getCmp("geometryMap").map.zoomToExtent(urlParameters.bounds)
-}var events=["afterDelete","afterRating","afterLogout","afterLogin"];
+}resultPanel.setHeight(Ext.getCmp("center").getHeight());
+var events=["afterDelete","afterRating","afterLogout","afterLogin"];
 Ext.each(events,function(e){catalogue.on(e,function(){if(searching===true){Ext.getCmp("searchBt").fireEvent("click")
 }})
 })
+},getIMap:function(){if(!iMap){initMap()
+}return iMap
 },getCatalogue:function(){return catalogue
-},loadResults:function(response){Ext.getCmp("previousBt").setDisabled(catalogue.startRecord===1);
+},loadResults:function(response){initPanels();
+Ext.getCmp("previousBt").setDisabled(catalogue.startRecord===1);
 Ext.getCmp("nextBt").setDisabled(catalogue.startRecord+parseInt(Ext.getCmp("E_hitsperpage").getValue(),10)>catalogue.metadataStore.totalLength);
 if(Ext.getCmp("E_sortBy").getValue()){Ext.getCmp("sortByToolBar").setValue(Ext.getCmp("E_sortBy").getValue()+"#"+Ext.getCmp("sortOrder").getValue())
 }else{Ext.getCmp("sortByToolBar").setValue(Ext.getCmp("E_sortBy").getValue())
-}Ext.ux.Lightbox.register("a[rel^=lightbox]")
-}}
+}resultsPanel.syncSize();
+resultsPanel.setHeight(Ext.getCmp("center").getHeight());
+Ext.getCmp("west").syncSize();
+Ext.getCmp("center").syncSize();
+Ext.ux.Lightbox.register("a[rel^=lightbox]")
+},switchMode:function(mode,force){var ms=Ext.getCmp("ms"),e=Ext.getCmp("east"),c=Ext.getCmp("center"),w=Ext.getCmp("west"),currentMode;
+if(mode===null){currentMode=ms.getValue().getGroupValue();
+if(currentMode==="0"){ms.onSetValue(Ext.getCmp("visualizationMode"),true)
+}else{ms.onSetValue(Ext.getCmp("discoveryMode"),true)
+}mode=currentMode=ms.getValue().getGroupValue()
+}if(force){if(mode==="1"){ms.onSetValue(Ext.getCmp("visualizationMode"),true)
+}else{ms.onSetValue(Ext.getCmp("discoveryMode"),true)
+}}if(mode==="1"&&!visualizationModeInitialized){initMap()
+}if(mode==="1"&&iMap){e.add(iMap.getViewport());
+e.doLayout();
+if(e.collapsed){e.toggleCollapse()
+}if(!w.collapsed){w.toggleCollapse()
+}Ext.getCmp("vp").syncSize()
+}else{if(!e.collapsed){e.toggleCollapse()
+}if(w.collapsed){w.toggleCollapse()
+}}}}
 };
 Ext.onReady(function(){var lang=/hl=([a-z]{2})/.exec(location.href);
 GeoNetwork.Util.setLang(lang&&lang[1],"..");

@@ -91,6 +91,17 @@
                 <include>${project.build.directory}/classes/eea/search/js/App.js</include>
               </includes>
             </aggregation>
+            <aggregation>
+              <output>src/main/resources/gisc/search/js/App-mini.js</output>
+              <includes>
+                <include>../../../../../../../web-client/target/classes/apps/js/GeoNetwork-mini.js</include>
+                <include>${project.build.directory}/classes/gisc/search/js/Settings.js</include>
+                <include>${project.build.directory}/classes/gisc/search/js/map/Settings.js</include>
+                <include>${project.build.directory}/classes/gisc/search/js/map/MapApp.js</include>
+                <include>${project.build.directory}/classes/gisc/search/js/Shortcuts.js</include>
+                <include>${project.build.directory}/classes/gisc/search/js/App.js</include>
+              </includes>
+            </aggregation>
           </aggregations>
         </configuration>
       </plugin>
