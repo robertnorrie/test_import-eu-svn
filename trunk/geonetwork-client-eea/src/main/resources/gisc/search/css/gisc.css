@@ -13,6 +13,10 @@
 }
 
 /* added for GISC Catalogue header */
+#header div#headereea div {
+  float: none !important;
+  display: block !important;
+}
 #toolribbon {
     color: #315076;
     font-size: 80%;

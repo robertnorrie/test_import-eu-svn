@@ -44,11 +44,11 @@ GeoNetwork.Settings.editor = {
 
 // Define which type of search to use
 // Default mode
-GeoNetwork.Settings.mdStore = GeoNetwork.data.MetadataResultsStore;
-GeoNetwork.Settings.searchService='xml.search';
-// IndexOnly mode : this mode using MetadataResultsFastStore is **experimental**
-//GeoNetwork.Settings.mdStore = GeoNetwork.data.MetadataResultsFastStore();
-//GeoNetwork.Settings.searchService='q';
+//GeoNetwork.Settings.mdStore = GeoNetwork.data.MetadataResultsStore;
+//GeoNetwork.Settings.searchService='xml.search';
+// IndexOnly mode 
+GeoNetwork.Settings.mdStore = GeoNetwork.data.MetadataResultsFastStore;
+GeoNetwork.Settings.searchService='q';
 
 
 GeoNetwork.MapModule = true;
