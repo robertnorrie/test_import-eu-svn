@@ -45,6 +45,10 @@ pre.code {
   /*padding: 5px;*/
 }
 
+#tagCloudPanel {
+  display:block;
+  height: 240px;
+}
 .info {
   float : left;
   width : 60%;

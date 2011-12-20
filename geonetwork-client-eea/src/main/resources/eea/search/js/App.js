@@ -310,7 +310,7 @@ GeoNetwork.app = function () {
         var formItems = [];
         formItems.push(GeoNetwork.util.SearchFormTools.getSimpleFormFields(catalogue.services, 
                     GeoNetwork.map.BACKGROUND_LAYERS, GeoNetwork.map.MAP_OPTIONS, false, 
-                    GeoNetwork.searchDefault.activeMapControlExtent), 
+                    GeoNetwork.searchDefault.activeMapControlExtent, undefined, {width: 290}), 
                     inspire, adv);
         // Add advanced mode criteria to simple form - end
         
@@ -591,7 +591,9 @@ GeoNetwork.app = function () {
     }
     
     function createHeader(){
-        //var info = catalogue.getInfo();
+        var info = catalogue.getInfo();
+        document.title = info.name;
+        
         // http://www.eea.europa.eu/en/getHeader
         // Load EEA header inf
         new Ext.Panel({
