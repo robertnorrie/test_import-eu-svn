@@ -45,6 +45,14 @@ pre.code {
   /*padding: 5px;*/
 }
 
+.latest {
+  clear: both;
+  float: right;
+  height: 300px;
+}
+.latest * input[type='checkbox'] {
+  display: none;
+}
 #tagCloudPanel {
   display:block;
   height: 240px;
@@ -62,7 +70,7 @@ pre.code {
   margin : 13px;
 }
 
-.info h3 {
+.info h3, .latest h3 {
   border-bottom : 2px solid #003366;
 }
 
@@ -114,20 +122,11 @@ ul.main {
 
 #infoContent {
   vertical-align : bottom;
-}
-#infoContent div.md-info h2 {
-  border-bottom : 2px solid #959532;
+  float: right;
 }
 #infoContent div.md-info {
-  width : 15%;
-  height : 200px;
-  float : left;
-  margin : 2px;
-  -moz-border-radius : 4px;
-  -webkit-border-radius : 4px;
-  border-radius : 4px;
-  background-color : rgba(10, 10, 10, 0.15);
-  border-top : 1px solid rgba(0, 0, 0, 0.15);
+  width: 85%;
+  border: 0px;
 }
 
 .cc {
