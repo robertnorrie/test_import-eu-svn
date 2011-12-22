@@ -151,7 +151,25 @@ GeoNetwork.app = function () {
             loginForm.login(catalogue, true);
         }
     }
-    
+    /**
+     * Create latest metadata panel.
+     */
+    function createLatestUpdate(){
+        var latestView = new GeoNetwork.MetadataResultsView({
+            catalogue: catalogue,
+            height: 300,
+            autoScroll: true,
+            tpl: EEA.Templates.THUMBNAIL
+        });
+        latestView.setStore(GeoNetwork.Settings.mdStore());
+        new Ext.Panel({
+            border: false,
+            bodyCssClass: 'md-view',
+            items: latestView,
+            renderTo: 'latest'
+        });
+        catalogue.kvpSearch(GeoNetwork.Settings.latestQuery, null, null, null, true, latestView.getStore());
+    }
     /**
      * Error message in case of bad login
      *
@@ -384,6 +402,34 @@ GeoNetwork.app = function () {
             }]
         });
     }
+    function loadCallback(el, success, response, options){
+        if (success) {
+            createLatestUpdate();
+        } else {
+            Ext.get('infoPanel').getUpdater().update({url:'home_en.html'});
+        }
+    }
+    /** private: methode[createInfoPanel]
+     *  Main information panel displayed on load
+     *
+     *  :return:
+     */
+    function createInfoPanel(){
+        return new Ext.Panel({
+            border: true,
+            id: 'infoPanel',
+            baseCls: 'md-info',
+            autoWidth: true,
+            renderTo: 'infoContent',
+            //contentEl: 'infoContent',
+            autoLoad: {
+                url: 'home_' + catalogue.LANG + '.html',
+                callback: loadCallback,
+                scope: this,
+                loadScripts: false
+            }
+        });
+    }
     /** private: methode[createHelpPanel]
      *  Help panel displayed on load
      *
@@ -409,12 +455,12 @@ GeoNetwork.app = function () {
         searching = true;
         catalogue.search('searchForm', app.loadResults, null, catalogue.startRecord, true);
         
-//        var infoPanel = Ext.getCmp('infoPanel'), 
-          var resultsPanel = Ext.getCmp('resultsPanel'),
-          	tagCloudPanel = Ext.getCmp('tagCloudPanel');
-//        if (infoPanel.isVisible()) {
-//            infoPanel.hide();
-//        }
+        var infoPanel = Ext.getCmp('infoPanel'), 
+            resultsPanel = Ext.getCmp('resultsPanel'),
+            tagCloudPanel = Ext.getCmp('tagCloudPanel');
+          if (infoPanel.isVisible()) {
+            infoPanel.hide();
+          }
           if (!resultsPanel.isVisible()) {
              resultsPanel.show();
           }
@@ -674,6 +720,7 @@ GeoNetwork.app = function () {
             resultsPanel = createResultsPanel();
 
             createHelpPanel();
+            infoPanel = createInfoPanel();
             
             /* Init form field URL according to URL parameters */
             GeoNetwork.util.SearchTools.populateFormFromParams(searchForm, urlParameters);
