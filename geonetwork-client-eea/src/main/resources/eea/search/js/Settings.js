@@ -51,7 +51,7 @@ GeoNetwork.Settings.mdStore = GeoNetwork.data.MetadataResultsFastStore;
 GeoNetwork.Settings.searchService='q';
 
 //Latest update info query
-GeoNetwork.Settings.latestQuery = "from=1&to=5&sortBy=changeDate&fast=index";
+GeoNetwork.Settings.latestQuery = "from=1&to=6&sortBy=changeDate&fast=index";
 //GeoNetwork.Settings.latestTpl = EEA.Templates.THUMBNAIL;
 
 GeoNetwork.MapModule = true;
