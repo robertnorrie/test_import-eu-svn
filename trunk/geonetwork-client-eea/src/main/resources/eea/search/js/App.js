@@ -157,7 +157,7 @@ GeoNetwork.app = function () {
     function createLatestUpdate(){
         var latestView = new GeoNetwork.MetadataResultsView({
             catalogue: catalogue,
-            height: 300,
+            height: 500,
             autoScroll: true,
             tpl: EEA.Templates.THUMBNAIL
         });
@@ -570,7 +570,7 @@ GeoNetwork.app = function () {
                     '<tpl for=".">', 
                         '<li class="tag-cloud">',
                             // TODO : hitsPerPage should take in account the current search form
-                            '<a href="#" onclick="javascript:catalogue.kvpSearch(\'fast=false&summaryOnly=0&from=1&to=20&hitsPerPage=20&themekey={value}\', ' + 
+                            '<a href="#" onclick="javascript:catalogue.kvpSearch(\'fast=index&summaryOnly=0&from=1&to=20&hitsPerPage=20&themekey={value}\', ' + 
                         'null, null, null);" alt="{value}" title="{count} records">{value} ({count} records)</a>', 
                         '</li>', 
                     '</tpl>', 
@@ -642,29 +642,29 @@ GeoNetwork.app = function () {
         
         // http://www.eea.europa.eu/en/getHeader
         // Load EEA header inf
-        new Ext.Panel({
-            border: false,
-            frame: false,
-            baseCls: 'none',
-            autoWidth: true,
-            renderTo: 'header',
-            autoLoad: {
-                //url: 'http://webservices.eea.europa.eu/templates/getHeader?tabselected=products',
-                url: 'http://www.eea.europa.eu/' + catalogue.LANG + '/getHeader',
-                loadScripts: false
-            }
-        });
-        return new Ext.Panel({
-            border: false,
-            frame: false,
-            baseCls: 'none',
-            autoWidth: true,
-            renderTo: 'footer',
-            autoLoad: {
-                url: 'http://www.eea.europa.eu/' + catalogue.LANG + '/getFooter',
-                loadScripts: false
-            }
-        });
+//        new Ext.Panel({
+//            border: false,
+//            frame: false,
+//            baseCls: 'none',
+//            autoWidth: true,
+//            renderTo: 'header',
+//            autoLoad: {
+//                //url: 'http://webservices.eea.europa.eu/templates/getHeader?tabselected=products',
+//                url: 'http://www.eea.europa.eu/' + catalogue.LANG + '/getHeader',
+//                loadScripts: false
+//            }
+//        });
+//        return new Ext.Panel({
+//            border: false,
+//            frame: false,
+//            baseCls: 'none',
+//            autoWidth: true,
+//            renderTo: 'footer',
+//            autoLoad: {
+//                url: 'http://www.eea.europa.eu/' + catalogue.LANG + '/getFooter',
+//                loadScripts: false
+//            }
+//        });
     }
     
     // public space:

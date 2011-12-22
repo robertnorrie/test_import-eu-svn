@@ -48,7 +48,8 @@ pre.code {
 .latest {
   clear: both;
   float: right;
-  height: 300px;
+  height: 550px;
+  width: 550px;
 }
 .latest * input[type='checkbox'] {
   display: none;
@@ -292,7 +293,7 @@ table.related * a:hover,
 #loading-mask {
   position : absolute;
   left : 0;
-  top : 0;
+  top : 5px;
   width : 100%;
   height : 100%;
   z-index : 20000;
@@ -354,4 +355,9 @@ dl.xml {
 }
 dl.xml * dd {
   padding-left : 2px;
+}
+
+.md-view ul {
+  margin: 0 !important;
+  padding: 0 !important;
 }
