@@ -519,6 +519,7 @@ GeoNetwork.app = function () {
             catalogue: catalogue,
             autoScroll: true,
             autoHeight: true,
+            displaySerieMembers: true,
             tpl: EEA.Templates.FULL,
             templates: {
                 SIMPLE: EEA.Templates.SIMPLE,
