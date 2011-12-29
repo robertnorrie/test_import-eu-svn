@@ -214,10 +214,10 @@ EEA.Templates.FULL = new Ext.XTemplate(
 //                            '<tpl if="values.type == \'EEA:FILEPATH\'">',
 //                                '<a href="' + EEA.MAPVIEWER_URL + '{uuid}" class="md-mn addLayer" title="' + OpenLayers.i18n('addToMap') + ' {title}" alt="EEA link" target="_blank">&nbsp;</a>',
 //                            '</tpl>',
-                            '<tpl if="values.type == \'EEA:FILEPATH\'">',
+                            '<tpl if="values.type == \'EEA:FILEPATH\' || values.type == \'EEA:FOLDERPATH\'">',
                             	'<a href="' + EEA.WEBDAV_URL + '{href}" class="md-mn md-mn-download" title="' + OpenLayers.i18n('webdavLink') + ' {title}" alt="EEA webdav link" target="_blank">&nbsp;</a>',
 	                        '</tpl>',
-	                        '<tpl if="values.type == \'EEA:FILEPATH\'">',
+	                        '<tpl if="values.type == \'EEA:FILEPATH\' || values.type == \'EEA:FOLDERPATH\'">',
 		                        '<a href="' + EEA.CIFS_URL + '{href}" class="md-mn md-mn-zip" title="' + OpenLayers.i18n('cifsLink') + ' {title}" alt="EEA cifs link" target="_blank">&nbsp;</a>',
 		                    '</tpl>',
                             // FIXME : no else ops, how to display other links ?
@@ -254,6 +254,7 @@ EEA.Templates.FULL = new Ext.XTemplate(
                   '<div class="md-mn cat-{value}" title="{value}">&nbsp;</div>',
                 '</tpl>',
                 '</td></tr></table>',
+                '<div class="relation" title="' + OpenLayers.i18n('relateddatasets') + '"><span></span><ul id="md-relation-{id}"></ul></div>',
                 '<div class="md-contact">',
                   '<tpl for="contact">',
                       // metadata contact are not displayed.

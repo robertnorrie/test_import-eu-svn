@@ -12,7 +12,10 @@
    margin-left: 300px !important; 
 }*/
 #slide-menu {
-    width: 292px !important;    
+    width: 300px !important;    
+}
+.latest * .md-view {
+  background-color: #F3F3F3;
 }
 #lang-form {
     display: none;
