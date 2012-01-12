@@ -1,8 +1,9 @@
 GeoNetwork.Settings = {};
 EEA = {};
-EEA.MAPVIEWER_URL = 'http://swordfish/paul/databrowser/map_default.phtml?resetsession=ALL&uuid=';
-EEA.WEBDAV_URL = 'https://gisdata.eea.europa.eu/data/gis_sdi';
-EEA.CIFS_URL = 'file:////sandfish/gis_sdi';
+EEA.MAPVIEWER_URL = 'https://sdi.eea.europa.eu/eea/databrowser/?uuid=';
+EEA.WEBDAV_URL = 'https://sdi.eea.europa.eu/data';
+EEA.CIFS_URL = '\\sdi.eea.europa.eu\data';
+EEA.FTPS_URL = 'ftps://sdi.eea.europa.eu/data';
 
 // Turn off rating
 Ext.ux.RatingItem = undefined;

@@ -161,7 +161,11 @@ GeoNetwork.app = function () {
             autoScroll: true,
             tpl: EEA.Templates.THUMBNAIL
         });
-        latestView.setStore(GeoNetwork.Settings.mdStore());
+        var latestStore = GeoNetwork.Settings.mdStore();
+        latestView.setStore(latestStore);
+        latestStore.on('load', function(){
+            Ext.ux.Lightbox.register('a[rel^=lightbox]');
+        });
         new Ext.Panel({
             border: false,
             bodyCssClass: 'md-view',
@@ -519,6 +523,7 @@ GeoNetwork.app = function () {
             catalogue: catalogue,
             autoScroll: true,
             autoHeight: true,
+            displayContextualMenu: false,
             displaySerieMembers: true,
             tpl: EEA.Templates.FULL,
             templates: {
@@ -529,6 +534,16 @@ GeoNetwork.app = function () {
         });
         
         catalogue.resultsView = metadataResultsView;
+        
+//        metadataResultsView.getStore().on('load', function(store, records) {
+//            var links = Ext.query('.md-links a', metadataResultsView.el.dom.body);
+//
+//            Ext.each(links, function(a) {
+//                Ext.get(a).hover(function () {
+//                    //console.log(this.getAttribute('href'));
+//                });
+//            });
+//        });
         
         tBar = new GeoNetwork.MetadataResultsToolbar({
             catalogue: catalogue,
@@ -604,7 +619,7 @@ GeoNetwork.app = function () {
                     id: 'newwindow',
                     qtip: OpenLayers.i18n('newWindow'),
                     handler: function (e, toolEl, panel, tc){
-                        window.open(GeoNetwork.Util.getBaseUrl(location.href) + "#edit=" + metadataId);
+                        window.open(GeoNetwork.Util.getBaseUrl(location.href) + "#edit=" + panel.getComponent('editorPanel').metadataId);
                         panel.hide();
                     },
                     scope: this
