@@ -133,9 +133,11 @@ EEA.Templates.SIMPLE = new Ext.XTemplate(
                 GeoNetwork.Templates.LOGO,
                 '</td><td id="{uuid}">',
                 GeoNetwork.Templates.TITLE,
-                '<span class="subject"><tpl for="subject">',
-                    '{value}{[xindex==xcount?"":", "]}',
-                '</tpl></span>',
+                '<tpl if="subject">',
+                    '<span class="subject"><tpl for="subject">',
+                        '{value}{[xindex==xcount?"":", "]}',
+                    '</tpl></span>',
+                '</tpl>',
                 '</td></tr></table>',
             '</li>',
         '</tpl>',
@@ -192,9 +194,11 @@ EEA.Templates.FULL = new Ext.XTemplate(
                 '<td id="{uuid}">',
                     EEA.Templates.TITLE,
                     '<p class="abstract">{[values.abstract.substring(0, 350)]} ...</p>',    // FIXME : 250 as parameters
-                    '<p class="subject"><tpl for="subject">',
-                        '{value}{[xindex==xcount?"":", "]}',
-                    '</tpl></p>',
+                    '<tpl if="subject">',
+                        '<p class="subject"><tpl for="subject">',
+                            '{value}{[xindex==xcount?"":", "]}',
+                        '</tpl></p>',
+                    '</tpl>',
                     '<div class="md-links">',
                     // FIXME : this call require the catalogue to be named catalogue, static call ?
                     // FIXME : ref to app
@@ -215,20 +219,25 @@ EEA.Templates.FULL = new Ext.XTemplate(
 //                                '<a href="' + EEA.MAPVIEWER_URL + '{uuid}" class="md-mn addLayer" title="' + OpenLayers.i18n('addToMap') + ' {title}" alt="EEA link" target="_blank">&nbsp;</a>',
 //                            '</tpl>',
                             '<tpl if="values.type == \'EEA:FILEPATH\' || values.type == \'EEA:FOLDERPATH\'">',
-                            	'<a href="' + EEA.WEBDAV_URL + '{href}" class="md-mn md-mn-download" title="' + OpenLayers.i18n('webdavLink') + ' {title}" alt="EEA webdav link" target="_blank">&nbsp;</a>',
+                            	'<a href="' + EEA.WEBDAV_URL + '{href}" class="md-mn md-mn-download" target="_blank" title="' + OpenLayers.i18n('webdavLink') + ' {title}" alt="EEA webdav link" target="_blank">&nbsp;</a>',
 	                        '</tpl>',
 	                        '<tpl if="values.type == \'EEA:FILEPATH\' || values.type == \'EEA:FOLDERPATH\'">',
-		                        '<a href="' + EEA.CIFS_URL + '{href}" class="md-mn md-mn-zip" title="' + OpenLayers.i18n('cifsLink') + ' {title}" alt="EEA cifs link" target="_blank">&nbsp;</a>',
+		                    // replace / by \ TODO
+	                        '<a href="' + EEA.CIFS_URL + '{href}" class="md-mn md-mn-zip" target="_blank" title="' + OpenLayers.i18n('cifsLink') + ' {title}" alt="EEA cifs link" target="_blank">&nbsp;</a>',
 		                    '</tpl>',
+		                    '<tpl if="values.type == \'EEA:FILEPATH\' || values.type == \'EEA:FOLDERPATH\'">',
+                                '<a href="' + EEA.FTPS_URL + '{href}" class="md-mn md-mn-ftps" target="_blank" title="' + OpenLayers.i18n('ftpsLink') + ' {title}" alt="EEA ftps link" target="_blank">&nbsp;</a>',
+                            '</tpl>',
                             // FIXME : no else ops, how to display other links ?
                         //'|<a href="#" onclick="app.getIMap().addWMSLayer([[\'{title}\', \'{href}\', \'{name}\', \'{id}\']]);">{type}</a>',
                         '</tpl>',
                         '<tpl if="this.hasDownloadLinks(values.links)">',//type == \'application/vnd.ogc.wms_xml\'">',
-                        	'<a href="#" onclick="app.getCatalogue().metadataPrepareDownload({id});" class="md-mn downloadAllIcon" title="' + OpenLayers.i18n('prepareDownload') + '" alt="download">&nbsp;</a>',
+                            '<a href="#" onclick="app.getCatalogue().metadataPrepareDownload({id});" class="md-mn downloadAllIcon" title="' + OpenLayers.i18n('prepareDownload') + '" alt="download">&nbsp;</a>',
                         '</tpl>',
                         '<tpl if="this.hasEEALinks(values.links)">',//type == \'application/vnd.ogc.wms_xml\'">',
-                        	'<a href="' + EEA.MAPVIEWER_URL + '{uuid}" class="md-mn addLayer" title="' + OpenLayers.i18n('addToMap') + ' {title}" alt="EEA link" target="_blank">&nbsp;</a>',                        
+                            '<a href="' + EEA.MAPVIEWER_URL + '{uuid}" class="md-mn addLayer" target="_blank" title="' + OpenLayers.i18n('addToMap') + ' {title}" alt="EEA link" target="_blank">&nbsp;</a>',                        
                         '</tpl>',
+                        //'<div id="md-link-info{id}"><input type="text" value=""/></div>',
                     '</div>',
                 '</td><td class="thumb">',
 //                        GeoNetwork.Templates.RATING_TPL,
@@ -285,7 +294,9 @@ EEA.Templates.FULL = new Ext.XTemplate(
         hasEEALinks: function(values) {
             var i;
             for (i = 0; i < values.length; i ++) {
-                if (values[i].type === 'EEA:FILEPATH' && 
+                if (values[i].type === 'EEA:DBPG') {
+                    return true;
+                } else if (values[i].type === 'EEA:FILEPATH' && 
                         (values[i].href.indexOf('.mdb') == -1 && values[i].href.indexOf('.gdb') == -1)) {
                     return true;
                 }
