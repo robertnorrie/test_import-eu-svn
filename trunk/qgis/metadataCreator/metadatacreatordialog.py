@@ -86,17 +86,20 @@ class metadataCreatorDialog(QDialog):
         columns = self.currentLayer.dataProvider().fields()
         for index, column in columns.items():
             # populate internal representation
-            self.currentFields.append(\
-                    {
-                        'index': index,
-                        'name': column.name(),
-                        'type': column.typeName(),
-                        'description': "",
-                        'cardinality': "",
-                        'values' : []
-                    })
-            # populate combo box with last added element
-            self.ui.currentFieldBox.addItem(self.currentFields[-1]['name'])
+            field = {
+                    'index': index,
+                    'name': column.name(),
+                    'type': column.typeName(),
+                    'description': "",
+                    'cardinality': "",
+                    'values' : []
+                    }
+            self.currentFields.append(field)
+        # sort by index key
+        self.currentFields.sort(key = lambda k:k['index'])
+        # populate combo box with fields in same order
+        for field in self.currentFields:
+            self.ui.currentFieldBox.addItem(field['name'], field['index'])
 
     def updateFieldForm(self):
         pass
