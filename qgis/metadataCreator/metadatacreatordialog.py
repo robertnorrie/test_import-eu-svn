@@ -57,6 +57,11 @@ class metadataCreatorDialog(QDialog):
         self.connect(self.ui.refreshButton, SIGNAL('clicked()'), self.updateFieldList)
         # when current field changes, fill form
         self.connect(self.ui.currentFieldBox, SIGNAL('currentIndexChanged(int)'), self.updateFieldForm)
+        # when one of the field form element is finished editing, 
+        # then save to internal field struct
+        self.connect(self.ui.f_typeText, SIGNAL('editingFinished()'), self.saveFieldComponent)
+        self.connect(self.ui.f_definitionText, SIGNAL('editingFinished()'), self.saveFieldComponent)
+        self.connect(self.ui.f_cardinalityText, SIGNAL('editingFinished()'), self.saveFieldComponent)
 
     
     def updateTemplateFile(self):
@@ -97,7 +102,7 @@ class metadataCreatorDialog(QDialog):
                         'index': index,
                         'name': column.name(),
                         'type': column.typeName(),
-                        'description': "",
+                        'definition': "",
                         'cardinality': "",
                         'values' : []
                         }
@@ -120,7 +125,7 @@ class metadataCreatorDialog(QDialog):
         if fieldIndex != -1:
             # fill form elements
             self.ui.f_nameText.setText(self.currentFields[fieldIndex]['name'])
-            self.ui.f_definitionText.setText(self.currentFields[fieldIndex]['description'])
+            self.ui.f_definitionText.setText(self.currentFields[fieldIndex]['definition'])
             self.ui.f_typeText.setText(self.currentFields[fieldIndex]['type'])
             self.ui.f_cardinalityText.setText(self.currentFields[fieldIndex]['cardinality'])
             # reset values
@@ -131,9 +136,9 @@ class metadataCreatorDialog(QDialog):
     def saveFieldComponent(self):
         fieldIndex = self.ui.currentFieldBox.currentIndex()
         if fieldIndex != -1:
-            self.currentFields[fieldIndex]['type'] = ui.f_typeText.text()
-            self.currentFields[fieldIndex]['description'] = ui.f_descriptionText.text()
-            self.currentFields[fieldIndex]['cardinality'] = ui.f_cardinalityText.text()
+            self.currentFields[fieldIndex]['type'] = self.ui.f_typeText.text()
+            self.currentFields[fieldIndex]['definition'] = self.ui.f_definitionText.text()
+            self.currentFields[fieldIndex]['cardinality'] = self.ui.f_cardinalityText.text()
             # TODO : save values
 
     def analyzeValues(self, field):
