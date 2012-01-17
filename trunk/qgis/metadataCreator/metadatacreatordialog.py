@@ -39,7 +39,16 @@ class metadataCreatorDialog(QDialog):
 
         # update data source combobox content
         self.updateDatasourceBox()
+
+        # connect browse button to file search dialog
+        self.connect(self.ui.browseTemplateButton, SIGNAL('clicked()'), self.updateTemplateFile)
     
+    def updateTemplateFile(self):
+        filename = QFileDialog.getOpenFileName(self, \
+                "Open XML template file", "", "Template file (*.xml)")
+        if filename:
+            self.ui.templateText.setText(filename)
+
     def updateDatasourceBox(self):
         pass
 
