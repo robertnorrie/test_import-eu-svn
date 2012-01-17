@@ -115,7 +115,7 @@ class metadataCreatorDialog(QDialog):
                         'index': index,
                         'name': column.name(),
                         'type': column.typeName(),
-                        'definition': "",
+                        'definition': column.comment(),
                         'cardinality': "",
                         'values' : []
                         }
