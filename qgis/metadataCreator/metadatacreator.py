@@ -34,7 +34,7 @@ class metadataCreator:
         # Save reference to the QGIS interface
         self.iface = iface
         # Create the dialog and keep reference
-        self.dlg = metadataCreatorDialog()
+        self.dlg = metadataCreatorDialog(iface)
 
     def initGui(self):
         # Create action that will start plugin configuration

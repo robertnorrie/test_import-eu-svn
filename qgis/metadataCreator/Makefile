@@ -21,7 +21,7 @@
 
 PLUGINNAME = metadatacreator
 
-PY_FILES = metadatacreator.py metadatacreatordialog.py __init__.py
+PY_FILES = metadatacreator.py metadatacreatordialog.py __init__.py iso19110.py
 
 EXTRAS = icon.png 
 
