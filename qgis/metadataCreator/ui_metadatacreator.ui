@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>486</width>
-    <height>356</height>
+    <width>572</width>
+    <height>384</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -257,129 +257,173 @@
       <attribute name="title">
        <string>Fields</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <layout class="QGridLayout" name="gridLayout">
-         <item row="0" column="0" colspan="2">
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <widget class="QLabel" name="currentFieldLabel">
-             <property name="text">
-              <string>Current field :</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QComboBox" name="currentFieldBox"/>
-           </item>
-           <item>
-            <widget class="QPushButton" name="refreshButton">
-             <property name="text">
-              <string>Reset List</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item row="3" column="0">
-          <layout class="QFormLayout" name="formLayout_3">
-           <property name="fieldGrowthPolicy">
-            <enum>QFormLayout::ExpandingFieldsGrow</enum>
+      <layout class="QGridLayout" name="gridLayout_2" columnstretch="2,0,3">
+       <item row="0" column="0" colspan="3">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="currentFieldLabel">
+           <property name="text">
+            <string>Current field : </string>
            </property>
-           <item row="0" column="0">
-            <widget class="QLabel" name="f_nameLabel">
-             <property name="text">
-              <string>Name</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="f_nameText">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="f_typeLabel">
-             <property name="text">
-              <string>Type</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="f_typeText"/>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="f_definitionLabel">
-             <property name="text">
-              <string>Definition</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QLineEdit" name="f_definitionText"/>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="f_cardinalityLabel">
-             <property name="text">
-              <string>Cardinality</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="QLineEdit" name="f_cardinalityText"/>
-           </item>
-          </layout>
-         </item>
-         <item row="3" column="1">
-          <layout class="QFormLayout" name="formLayout_4">
-           <property name="fieldGrowthPolicy">
-            <enum>QFormLayout::ExpandingFieldsGrow</enum>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
-           <item row="0" column="0">
-            <widget class="QLabel" name="valuesLabel">
-             <property name="text">
-              <string>Values</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QPushButton" name="analyzeButton">
-             <property name="text">
-              <string>Analyze</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="QListWidget" name="valuesList"/>
-           </item>
-           <item row="2" column="0">
-            <widget class="QPushButton" name="newValueButton">
-             <property name="text">
-              <string>New</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QPushButton" name="deleteValueButton">
-             <property name="text">
-              <string>Delete</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          </widget>
          </item>
-         <item row="1" column="0" colspan="2">
-          <widget class="Line" name="line_2">
-           <property name="minimumSize">
+         <item>
+          <widget class="QComboBox" name="currentFieldBox"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="refreshButton">
+           <property name="text">
+            <string>Reset List</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0" colspan="3">
+        <widget class="Line" name="line_2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <layout class="QFormLayout" name="formLayout_3">
+         <property name="fieldGrowthPolicy">
+          <enum>QFormLayout::ExpandingFieldsGrow</enum>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="f_nameLabel">
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="f_nameText">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="f_typeLabel">
+           <property name="text">
+            <string>Type</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="f_typeText"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="f_definitionLabel">
+           <property name="text">
+            <string>Definition</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QPlainTextEdit" name="f_definitionText">
+           <property name="maximumSize">
             <size>
-             <width>0</width>
-             <height>20</height>
+             <width>16777215</width>
+             <height>50</height>
             </size>
            </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="f_cardinalityLabel">
+           <property name="text">
+            <string>Cardinality</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="f_cardinalityText"/>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="1">
+        <widget class="Line" name="line_3">
+         <property name="minimumSize">
+          <size>
+           <width>30</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="valuesLabel">
+           <property name="text">
+            <string>Values</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="analyzeButton">
+           <property name="text">
+            <string>Analyze</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QTableWidget" name="valuesTable">
+           <property name="sortingEnabled">
+            <bool>true</bool>
+           </property>
+           <attribute name="horizontalHeaderDefaultSectionSize">
+            <number>82</number>
+           </attribute>
+           <attribute name="horizontalHeaderStretchLastSection">
+            <bool>true</bool>
+           </attribute>
+           <attribute name="verticalHeaderVisible">
+            <bool>false</bool>
+           </attribute>
+           <column>
+            <property name="text">
+             <string>label</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>code</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>definition</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QPushButton" name="newValueButton">
+           <property name="text">
+            <string>New</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QPushButton" name="deleteValueButton">
+           <property name="text">
+            <string>Delete</string>
            </property>
           </widget>
          </item>

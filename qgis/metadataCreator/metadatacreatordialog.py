@@ -60,7 +60,7 @@ class metadataCreatorDialog(QDialog):
         # when one of the field form element is finished editing, 
         # then save to internal field struct
         self.connect(self.ui.f_typeText, SIGNAL('editingFinished()'), self.saveFieldComponent)
-        self.connect(self.ui.f_definitionText, SIGNAL('editingFinished()'), self.saveFieldComponent)
+        self.connect(self.ui.f_definitionText, SIGNAL('textChanged()'), self.saveFieldComponent)
         self.connect(self.ui.f_cardinalityText, SIGNAL('editingFinished()'), self.saveFieldComponent)
 
     
@@ -125,19 +125,19 @@ class metadataCreatorDialog(QDialog):
         if fieldIndex != -1:
             # fill form elements
             self.ui.f_nameText.setText(self.currentFields[fieldIndex]['name'])
-            self.ui.f_definitionText.setText(self.currentFields[fieldIndex]['definition'])
+            self.ui.f_definitionText.setPlainText(self.currentFields[fieldIndex]['definition'])
             self.ui.f_typeText.setText(self.currentFields[fieldIndex]['type'])
             self.ui.f_cardinalityText.setText(self.currentFields[fieldIndex]['cardinality'])
-            # reset values
-            self.ui.valuesList.clear()
             # TODO : check value model
-            self.ui.valuesList.addItems(self.currentFields[fieldIndex]['values'])
+            # reset values
+            # self.ui.valuesTable.clear()
+            # self.ui.valuesTable.addItems(self.currentFields[fieldIndex]['values'])
 
     def saveFieldComponent(self):
         fieldIndex = self.ui.currentFieldBox.currentIndex()
         if fieldIndex != -1:
             self.currentFields[fieldIndex]['type'] = self.ui.f_typeText.text()
-            self.currentFields[fieldIndex]['definition'] = self.ui.f_definitionText.text()
+            self.currentFields[fieldIndex]['definition'] = self.ui.f_definitionText.toPlainText()
             self.currentFields[fieldIndex]['cardinality'] = self.ui.f_cardinalityText.text()
             # TODO : save values
 
