@@ -200,7 +200,7 @@ class metadataCreatorDialog(QDialog):
         params['fc_versionNumber'] = ui.fc_versionNbText.text()
         params['ft_name'] = ui.ft_nameText.text()
         params['ft_definition'] = ui.ft_definitionText.text()
-        params['fields'] = self.fields 
+        params['fields'] = self.currentFields 
         return iso19110.generateXML(self.ui.templateText.text(), params)
 
     def saveXML(self):
