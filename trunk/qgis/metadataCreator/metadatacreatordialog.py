@@ -43,6 +43,9 @@ class metadataCreatorDialog(QDialog):
         # update data source combobox content
         self.updateDatasourceBox()
 
+        # update initial field list
+        self.updateFieldList()
+
         # connect browse button to file search dialog
         self.connect(self.ui.browseTemplateButton, SIGNAL('clicked()'), self.updateTemplateFile)
         # change current layer
@@ -52,6 +55,9 @@ class metadataCreatorDialog(QDialog):
         self.connect(self.ui.tabWidget, SIGNAL('currentChanged(int)'), self.tabChanged)
         # when refresh button is clicked, reload field list
         self.connect(self.ui.refreshButton, SIGNAL('clicked()'), self.updateFieldList)
+        # when current field changes, fill form
+        self.connect(self.ui.currentFieldBox, SIGNAL('currentIndexChanged(int)'), self.updateFieldForm)
+
     
     def updateTemplateFile(self):
         filename = QFileDialog.getOpenFileName(self, \
@@ -83,26 +89,44 @@ class metadataCreatorDialog(QDialog):
         # clear combo box
         self.ui.currentFieldBox.clear()
         # get field list from data provider
-        columns = self.currentLayer.dataProvider().fields()
-        for index, column in columns.items():
-            # populate internal representation
-            field = {
-                    'index': index,
-                    'name': column.name(),
-                    'type': column.typeName(),
-                    'description': "",
-                    'cardinality': "",
-                    'values' : []
-                    }
-            self.currentFields.append(field)
-        # sort by index key
-        self.currentFields.sort(key = lambda k:k['index'])
-        # populate combo box with fields in same order
-        for field in self.currentFields:
-            self.ui.currentFieldBox.addItem(field['name'], field['index'])
+        if self.currentLayer:
+            columns = self.currentLayer.dataProvider().fields()
+            for index, column in columns.items():
+                # populate internal representation
+                field = {
+                        'index': index,
+                        'name': column.name(),
+                        'type': column.typeName(),
+                        'description': "",
+                        'cardinality': "",
+                        'values' : []
+                        }
+                self.currentFields.append(field)
+            # sort list by index key
+            self.currentFields.sort(key = lambda k:k['index'])
+            # populate combo box with fields in same order
+            # call to addItem when box is empty emits currentIndexChanged
+            for field in self.currentFields:
+                self.ui.currentFieldBox.addItem(field['name'])
+            # next instruction will call updateFieldForm slot
+            self.ui.currentFieldBox.setCurrentIndex(0)
+            # update field form
+            self.updateFieldForm()    
 
     def updateFieldForm(self):
-        pass
+        # get selected field if any
+        fieldIndex = self.ui.currentFieldBox.currentIndex()
+        # nothing in combo box
+        if fieldIndex != -1:
+            # fill form elements
+            self.ui.f_nameText.setText(self.currentFields[fieldIndex]['name'])
+            self.ui.f_definitionText.setText(self.currentFields[fieldIndex]['description'])
+            self.ui.f_typeText.setText(self.currentFields[fieldIndex]['type'])
+            self.ui.f_cardinalityText.setText(self.currentFields[fieldIndex]['cardinality'])
+            # reset values
+            self.ui.valuesList.clear()
+            # TODO : check value model
+            self.ui.valuesList.addItems(self.currentFields[fieldIndex]['values'])
 
     def saveFieldComponent(self):
         pass
