@@ -129,7 +129,12 @@ class metadataCreatorDialog(QDialog):
             self.ui.valuesList.addItems(self.currentFields[fieldIndex]['values'])
 
     def saveFieldComponent(self):
-        pass
+        fieldIndex = self.ui.currentFieldBox.currentIndex()
+        if fieldIndex != -1:
+            self.currentFields[fieldIndex]['type'] = ui.f_typeText.text()
+            self.currentFields[fieldIndex]['description'] = ui.f_descriptionText.text()
+            self.currentFields[fieldIndex]['cardinality'] = ui.f_cardinalityText.text()
+            # TODO : save values
 
     def analyzeValues(self, field):
         pass
