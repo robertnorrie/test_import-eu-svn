@@ -38,27 +38,27 @@
             <enum>QFormLayout::ExpandingFieldsGrow</enum>
            </property>
            <item row="2" column="1">
-            <widget class="QPushButton" name="pushButton_5">
+            <widget class="QPushButton" name="browseTemplateButton">
              <property name="text">
               <string>Browse...</string>
              </property>
             </widget>
            </item>
            <item row="0" column="0">
-            <widget class="QLabel" name="label_7">
+            <widget class="QLabel" name="dataSourceLabel">
              <property name="text">
               <string>Data source</string>
              </property>
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QComboBox" name="comboBox_2"/>
+            <widget class="QComboBox" name="dataSourceBox"/>
            </item>
            <item row="1" column="1">
-            <widget class="QLineEdit" name="lineEdit_5"/>
+            <widget class="QLineEdit" name="templateText"/>
            </item>
            <item row="1" column="0">
-            <widget class="QLabel" name="label_8">
+            <widget class="QLabel" name="templateLabel">
              <property name="text">
               <string>Template</string>
              </property>
@@ -76,21 +76,21 @@
          <item>
           <layout class="QFormLayout" name="formLayout_2">
            <item row="0" column="0" colspan="2">
-            <widget class="QCheckBox" name="checkBox">
+            <widget class="QCheckBox" name="classification">
              <property name="text">
               <string>Classification</string>
              </property>
             </widget>
            </item>
            <item row="1" column="0">
-            <widget class="QLabel" name="label_9">
+            <widget class="QLabel" name="rowNbLabel">
              <property name="text">
               <string>Row #</string>
              </property>
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QSpinBox" name="spinBox">
+            <widget class="QSpinBox" name="rowNb">
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
@@ -106,14 +106,14 @@
             </widget>
            </item>
            <item row="2" column="0">
-            <widget class="QLabel" name="label_10">
+            <widget class="QLabel" name="requiredValuesNbLabel">
              <property name="text">
               <string>Required values #</string>
              </property>
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QSpinBox" name="spinBox_2">
+            <widget class="QSpinBox" name="requiredValuesNb">
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
@@ -129,14 +129,14 @@
             </widget>
            </item>
            <item row="3" column="0">
-            <widget class="QLabel" name="label_11">
+            <widget class="QLabel" name="nodataValuesLabel">
              <property name="text">
               <string>NODATA values</string>
              </property>
             </widget>
            </item>
            <item row="3" column="1">
-            <widget class="QLineEdit" name="lineEdit_6"/>
+            <widget class="QLineEdit" name="nodataValuesText"/>
            </item>
           </layout>
          </item>
@@ -164,24 +164,24 @@
           <item>
            <layout class="QFormLayout" name="formLayout_5">
             <item row="0" column="0">
-             <widget class="QLabel" name="label_12">
+             <widget class="QLabel" name="fc_nameLabel">
               <property name="text">
                <string>Name</string>
               </property>
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QLineEdit" name="lineEdit_7"/>
+             <widget class="QLineEdit" name="fc_nameText"/>
             </item>
             <item row="1" column="0">
-             <widget class="QLabel" name="label_13">
+             <widget class="QLabel" name="fc_scopeLabel">
               <property name="text">
                <string>Scope</string>
               </property>
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QPlainTextEdit" name="plainTextEdit">
+             <widget class="QPlainTextEdit" name="fc_scopeText">
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
@@ -191,14 +191,14 @@
              </widget>
             </item>
             <item row="2" column="0">
-             <widget class="QLabel" name="label_14">
+             <widget class="QLabel" name="fc_versionNbLabel">
               <property name="text">
                <string>Version number</string>
               </property>
              </widget>
             </item>
             <item row="2" column="1">
-             <widget class="QLineEdit" name="lineEdit_9"/>
+             <widget class="QLineEdit" name="fc_versionNbText"/>
             </item>
            </layout>
           </item>
@@ -220,24 +220,24 @@
           <item>
            <layout class="QFormLayout" name="formLayout_6">
             <item row="0" column="0">
-             <widget class="QLabel" name="label_15">
+             <widget class="QLabel" name="ft_nameLabel">
               <property name="text">
                <string>Name</string>
               </property>
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QLineEdit" name="lineEdit_8"/>
+             <widget class="QLineEdit" name="ft_nameText"/>
             </item>
             <item row="1" column="0">
-             <widget class="QLabel" name="label_16">
+             <widget class="QLabel" name="ft_definitionLabel">
               <property name="text">
                <string>Definition</string>
               </property>
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QPlainTextEdit" name="plainTextEdit_2">
+             <widget class="QPlainTextEdit" name="ft_definitionText">
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
@@ -263,17 +263,17 @@
          <item row="0" column="0" colspan="2">
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
-            <widget class="QLabel" name="label">
+            <widget class="QLabel" name="currentFieldLabel">
              <property name="text">
               <string>Current field :</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="comboBox"/>
+            <widget class="QComboBox" name="currentFieldBox"/>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="refreshButton">
              <property name="text">
               <string>Refresh List</string>
              </property>
@@ -287,48 +287,48 @@
             <enum>QFormLayout::ExpandingFieldsGrow</enum>
            </property>
            <item row="0" column="0">
-            <widget class="QLabel" name="label_3">
+            <widget class="QLabel" name="f_nameLabel">
              <property name="text">
               <string>Name</string>
              </property>
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QLineEdit" name="lineEdit">
+            <widget class="QLineEdit" name="f_nameText">
              <property name="enabled">
               <bool>false</bool>
              </property>
             </widget>
            </item>
            <item row="1" column="0">
-            <widget class="QLabel" name="label_4">
+            <widget class="QLabel" name="f_typeLabel">
              <property name="text">
               <string>Type</string>
              </property>
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QLineEdit" name="lineEdit_2"/>
+            <widget class="QLineEdit" name="f_typeText"/>
            </item>
            <item row="2" column="0">
-            <widget class="QLabel" name="label_5">
+            <widget class="QLabel" name="f_definitionLabel">
              <property name="text">
               <string>Definition</string>
              </property>
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QLineEdit" name="lineEdit_3"/>
+            <widget class="QLineEdit" name="f_definitionText"/>
            </item>
            <item row="3" column="0">
-            <widget class="QLabel" name="label_6">
+            <widget class="QLabel" name="f_cardinalityLabel">
              <property name="text">
               <string>Cardinality</string>
              </property>
             </widget>
            </item>
            <item row="3" column="1">
-            <widget class="QLineEdit" name="lineEdit_4"/>
+            <widget class="QLineEdit" name="f_cardinalityText"/>
            </item>
           </layout>
          </item>
@@ -337,47 +337,34 @@
            <property name="fieldGrowthPolicy">
             <enum>QFormLayout::ExpandingFieldsGrow</enum>
            </property>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_2">
+           <item row="0" column="0">
+            <widget class="QLabel" name="valuesLabel">
              <property name="text">
               <string>Values</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QPushButton" name="pushButton_4">
+           <item row="0" column="1">
+            <widget class="QPushButton" name="analyzeButton">
              <property name="text">
               <string>Analyze</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="0" colspan="2">
-            <widget class="QListWidget" name="listWidget"/>
+           <item row="1" column="0" colspan="2">
+            <widget class="QListWidget" name="valuesList"/>
            </item>
-           <item row="3" column="0">
-            <widget class="QPushButton" name="pushButton_2">
+           <item row="2" column="0">
+            <widget class="QPushButton" name="newValueButton">
              <property name="text">
               <string>New</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
-            <widget class="QPushButton" name="pushButton_3">
+           <item row="2" column="1">
+            <widget class="QPushButton" name="deleteValueButton">
              <property name="text">
               <string>Delete</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="Line" name="line_3">
-             <property name="minimumSize">
-              <size>
-               <width>10</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
              </property>
             </widget>
            </item>
@@ -406,7 +393,7 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
-        <widget class="QTextEdit" name="textEdit"/>
+        <widget class="QTextEdit" name="xmlEditor"/>
        </item>
       </layout>
      </widget>
