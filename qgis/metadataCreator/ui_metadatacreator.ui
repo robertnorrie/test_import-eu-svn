@@ -275,7 +275,7 @@
            <item>
             <widget class="QPushButton" name="refreshButton">
              <property name="text">
-              <string>Refresh List</string>
+              <string>Reset List</string>
              </property>
             </widget>
            </item>
