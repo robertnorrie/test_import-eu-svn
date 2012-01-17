@@ -20,12 +20,64 @@
  ***************************************************************************/
 """
 
-from PyQt4 import QtCore, QtGui
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
+from qgis.core import *
+
 from ui_metadatacreator import Ui_metadataCreator
+import iso19110
+
 # create the dialog for zoom to point
-class metadataCreatorDialog(QtGui.QDialog):
-    def __init__(self):
-        QtGui.QDialog.__init__(self)
+class metadataCreatorDialog(QDialog):
+    def __init__(self, iface):
+        QDialog.__init__(self)
+        # keep qgis interface reference
+        self.iface = iface
         # Set up the user interface from Designer.
         self.ui = Ui_metadataCreator()
         self.ui.setupUi(self)
+
+        # update data source combobox content
+        self.updateDatasourceBox()
+    
+    def updateDatasourceBox(self):
+        pass
+
+    def updateFieldList(self):
+        pass
+
+    def updateFieldForm(self):
+        pass
+
+    def saveFieldComponent(self):
+        pass
+
+    def analyzeValues(self, field):
+        pass
+
+    def updateValueList(self, values):
+        pass
+
+    def delCurrentValue(self):
+        pass
+
+    def addNewValue(self):
+        pass
+
+    def generateXML(self):
+        params = {}
+        params['fc_name'] = ui.fc_nameText.text()
+        params['fc_scope'] = ui.fc_scopeText.text()
+        params['fc_versionNumber'] = ui.fc_versionNbText.text()
+        params['ft_name'] = ui.ft_nameText.text()
+        params['ft_definition'] = ui.ft_definitionText.text()
+        params['fields'] = self.fields 
+        return iso19110.generateXML(self.ui.templateText.text(), params)
+
+    def saveXML(self):
+        pass
+
+
+        
+
+
