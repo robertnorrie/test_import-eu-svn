@@ -57,16 +57,26 @@ class metadataCreatorDialog(QDialog):
         self.connect(self.ui.refreshButton, SIGNAL('clicked()'), self.updateFieldList)
         # when current field changes, fill form
         self.connect(self.ui.currentFieldBox, SIGNAL('currentIndexChanged(int)'), self.updateFieldForm)
-        # when one of the field form element is finished editing, 
-        # then save to internal field struct
-        self.connect(self.ui.f_typeText, SIGNAL('editingFinished()'), self.saveFieldComponent)
-        self.connect(self.ui.f_definitionText, SIGNAL('textChanged()'), self.saveFieldComponent)
-        self.connect(self.ui.f_cardinalityText, SIGNAL('editingFinished()'), self.saveFieldComponent)
+        # attribute field form are active. connect them
+        self.activeFieldForm(True)
         # values elements
         self.connect(self.ui.newValueButton, SIGNAL('clicked()'), self.newValueRow)
         self.connect(self.ui.deleteValueButton, SIGNAL('clicked()'), self.deleteValueRow)
 
-    
+    def activeFieldForm(self, connect = True):
+        if connect:
+            # when one of the field form element is finished editing, 
+            # then save to internal field struct
+            self.connect(self.ui.f_typeText, SIGNAL('editingFinished()'), self.saveFieldComponent)
+            self.connect(self.ui.f_definitionText, SIGNAL('textChanged()'), self.saveFieldComponent)
+            self.connect(self.ui.f_cardinalityText, SIGNAL('editingFinished()'), self.saveFieldComponent)
+            self.connect(self.ui.valuesTable, SIGNAL('cellChanged(int, int)'), self.saveFieldComponent)
+        else:
+            self.disconnect(self.ui.f_typeText, SIGNAL('editingFinished()'), self.saveFieldComponent)
+            self.disconnect(self.ui.f_definitionText, SIGNAL('textChanged()'), self.saveFieldComponent)
+            self.disconnect(self.ui.f_cardinalityText, SIGNAL('editingFinished()'), self.saveFieldComponent)
+            self.disconnect(self.ui.valuesTable, SIGNAL('cellChanged(int, int)'), self.saveFieldComponent)
+
     def updateTemplateFile(self):
         filename = QFileDialog.getOpenFileName(self, \
                 "Open XML template file", "", "Template file (*.xml)")
@@ -109,6 +119,7 @@ class metadataCreatorDialog(QDialog):
                         'cardinality': "",
                         'values' : []
                         }
+                self.analyzeValues(field)
                 self.currentFields.append(field)
             # sort list by index key
             self.currentFields.sort(key = lambda k:k['index'])
@@ -119,9 +130,11 @@ class metadataCreatorDialog(QDialog):
             # next instruction will call updateFieldForm slot
             self.ui.currentFieldBox.setCurrentIndex(0)
             # update field form
-            self.updateFieldForm()    
+            #self.updateFieldForm()    
 
     def updateFieldForm(self):
+        # deactivate signals, otherwise they are messing with value setting
+        self.activeFieldForm(False)
         # get selected field if any
         fieldIndex = self.ui.currentFieldBox.currentIndex()
         # nothing in combo box
@@ -131,30 +144,54 @@ class metadataCreatorDialog(QDialog):
             self.ui.f_definitionText.setPlainText(self.currentFields[fieldIndex]['definition'])
             self.ui.f_typeText.setText(self.currentFields[fieldIndex]['type'])
             self.ui.f_cardinalityText.setText(self.currentFields[fieldIndex]['cardinality'])
-            # TODO : check value model
             # reset values
-            # self.ui.valuesTable.clear()
-            # self.ui.valuesTable.addItems(self.currentFields[fieldIndex]['values'])
+            values = self.currentFields[fieldIndex]['values']
+            self.ui.valuesTable.clearContents()
+            self.ui.valuesTable.setRowCount(len(values))
+            # fill values in table
+            for rownb, value in enumerate(values):
+                self.ui.valuesTable.setItem(rownb, 0, QTableWidgetItem(value['label']))
+                self.ui.valuesTable.setItem(rownb, 1, QTableWidgetItem(value['code']))
+                self.ui.valuesTable.setItem(rownb, 2, QTableWidgetItem(value['definition']))
+        # reactivate signals
+        self.activeFieldForm(True)
 
     def saveFieldComponent(self):
         fieldIndex = self.ui.currentFieldBox.currentIndex()
         if fieldIndex != -1:
-            self.currentFields[fieldIndex]['type'] = self.ui.f_typeText.text()
-            self.currentFields[fieldIndex]['definition'] = self.ui.f_definitionText.toPlainText()
-            self.currentFields[fieldIndex]['cardinality'] = self.ui.f_cardinalityText.text()
-            # TODO : save values
+            currentField = self.currentFields[fieldIndex]
+            currentField['type'] = self.ui.f_typeText.text()
+            currentField['definition'] = self.ui.f_definitionText.toPlainText()
+            currentField['cardinality'] = self.ui.f_cardinalityText.text()
+            # save values from table to internal storage
+            currentField['values'] = []
+            for rownb in range(self.ui.valuesTable.rowCount()):
+                currentField['values'].append(\
+                        {'label':self.ui.valuesTable.item(rownb, 0).text(),
+                            'code':self.ui.valuesTable.item(rownb, 1).text(),
+                            'definition':self.ui.valuesTable.item(rownb, 2).text()})
 
     def analyzeValues(self, field):
-        pass
-
-    def updateValueList(self, values):
-        pass
+        # TODO implement real function
+        field['values'] = [{'label':"test1", 'code':"code1", 'definition':"def1"},
+                {'label':"test2", 'code':"code2", 'definition':"def2"},
+                {'label':"test3", 'code':"code3", 'definition':"def3"}]
 
     def deleteValueRow(self):
         self.ui.valuesTable.removeRow(self.ui.valuesTable.currentRow())
 
     def newValueRow(self):
-        self.ui.valuesTable.insertRow(self.ui.valuesTable.rowCount())
+        # disconnect signals because we change items one by one
+        # and don't want to save components every time
+        self.activeFieldForm(False)
+        rowcount = self.ui.valuesTable.rowCount()
+        self.ui.valuesTable.insertRow(rowcount)
+        # initialize table widgets to empty string
+        self.ui.valuesTable.setItem(rowcount, 0, QTableWidgetItem(''))
+        self.ui.valuesTable.setItem(rowcount, 1, QTableWidgetItem(''))
+        self.ui.valuesTable.setItem(rowcount, 2, QTableWidgetItem(''))
+        self.saveFieldComponent()
+        self.activeFieldForm(True)
 
     def generateXML(self):
         params = {}
