@@ -54,6 +54,8 @@ class metadataCreator:
 
     # run method that performs all the real work
     def run(self):
+        # update dialog forms
+        self.dlg.updateDatasourceBox()
         # show the dialog
         self.dlg.show()
         # Run the dialog event loop
