@@ -62,6 +62,9 @@ class metadataCreatorDialog(QDialog):
         self.connect(self.ui.f_typeText, SIGNAL('editingFinished()'), self.saveFieldComponent)
         self.connect(self.ui.f_definitionText, SIGNAL('textChanged()'), self.saveFieldComponent)
         self.connect(self.ui.f_cardinalityText, SIGNAL('editingFinished()'), self.saveFieldComponent)
+        # values elements
+        self.connect(self.ui.newValueButton, SIGNAL('clicked()'), self.newValueRow)
+        self.connect(self.ui.deleteValueButton, SIGNAL('clicked()'), self.deleteValueRow)
 
     
     def updateTemplateFile(self):
@@ -147,11 +150,11 @@ class metadataCreatorDialog(QDialog):
     def updateValueList(self, values):
         pass
 
-    def delCurrentValue(self):
-        pass
+    def deleteValueRow(self):
+        self.ui.valuesTable.removeRow(self.ui.valuesTable.currentRow())
 
-    def addNewValue(self):
-        pass
+    def newValueRow(self):
+        self.ui.valuesTable.insertRow(self.ui.valuesTable.rowCount())
 
     def generateXML(self):
         params = {}
