@@ -33,6 +33,9 @@ class metadataCreatorDialog(QDialog):
         QDialog.__init__(self)
         # keep qgis interface reference
         self.iface = iface
+        self.currentLayer = None
+        self.currentFields = []
+
         # Set up the user interface from Designer.
         self.ui = Ui_metadataCreator()
         self.ui.setupUi(self)
@@ -42,6 +45,13 @@ class metadataCreatorDialog(QDialog):
 
         # connect browse button to file search dialog
         self.connect(self.ui.browseTemplateButton, SIGNAL('clicked()'), self.updateTemplateFile)
+        # change current layer
+        self.connect(self.ui.dataSourceBox, SIGNAL('currentIndexChanged(int)'), self.changeCurrentLayer)
+
+        # when tab change to attribute tab, reset field list
+        self.connect(self.ui.tabWidget, SIGNAL('currentChanged(int)'), self.tabChanged)
+        # when refresh button is clicked, reload field list
+        self.connect(self.ui.refreshButton, SIGNAL('clicked()'), self.updateFieldList)
     
     def updateTemplateFile(self):
         filename = QFileDialog.getOpenFileName(self, \
@@ -50,10 +60,43 @@ class metadataCreatorDialog(QDialog):
             self.ui.templateText.setText(filename)
 
     def updateDatasourceBox(self):
-        pass
+        self.ui.dataSourceBox.clear()
+        for layer in self.iface.mapCanvas().layers():
+            self.ui.dataSourceBox.addItem(layer.name(), QVariant(layer))
+        if self.ui.dataSourceBox.count():     
+            self.changeCurrentLayer(0)
+
+    def changeCurrentLayer(self, index = None):
+        if index is not None:
+            self.currentLayer = self.ui.dataSourceBox.itemData(index).toPyObject()
+        else:
+            self.currentLayer = None
+
+    def tabChanged(self, tabIndex):
+        # do we focus on Fields tab ?
+        if tabIndex == 2:
+            self.updateFieldList()
 
     def updateFieldList(self):
-        pass
+        # clear internal representation
+        self.currentFields = []
+        # clear combo box
+        self.ui.currentFieldBox.clear()
+        # get field list from data provider
+        columns = self.currentLayer.dataProvider().fields()
+        for index, column in columns.items():
+            # populate internal representation
+            self.currentFields.append(\
+                    {
+                        'index': index,
+                        'name': column.name(),
+                        'type': column.typeName(),
+                        'description': "",
+                        'cardinality': "",
+                        'values' : []
+                    })
+            # populate combo box with last added element
+            self.ui.currentFieldBox.addItem(self.currentFields[-1]['name'])
 
     def updateFieldForm(self):
         pass
