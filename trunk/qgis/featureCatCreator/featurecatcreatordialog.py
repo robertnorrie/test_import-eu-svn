@@ -35,6 +35,7 @@ class featureCatCreatorDialog(QDialog):
         self.iface = iface
         self.currentLayer = None
         self.currentFields = []
+        self.nodataValues = []
 
         # Set up the user interface from Designer.
         self.ui = Ui_featureCatCreator()
@@ -50,6 +51,8 @@ class featureCatCreatorDialog(QDialog):
         self.connect(self.ui.browseTemplateButton, SIGNAL('clicked()'), self.updateTemplateFile)
         # connect analyze button to the analysis
         self.connect(self.ui.analyzeButton, SIGNAL('clicked()'), self.analyzeButtonClicked)
+        # connect nodata button to imput values
+        self.connect(self.ui.nodataButton, SIGNAL('clicked()'), self.getNodataInput)
         # change current layer
         self.connect(self.ui.dataSourceBox, SIGNAL('currentIndexChanged(int)'), self.changeCurrentLayer)
 
@@ -179,6 +182,12 @@ class featureCatCreatorDialog(QDialog):
                         {'label':self.ui.valuesTable.item(rownb, 0).text(),
                             'code':self.ui.valuesTable.item(rownb, 1).text(),
                             'definition':self.ui.valuesTable.item(rownb, 2).text()})
+
+    def getNodataInput(self):
+        nodata, ok = QInputDialog.getText(self, "NODATA values", "Enter NODATA values separated by ';'",
+                QLineEdit.Normal, ';'.join(self.nodataValues))
+        if ok:
+            self.nodataValues = [it for it in str(nodata).strip().split(';') if it != '']
 
     def analyzeButtonClicked(self):
         self.analyzeCurrentFieldValues()
