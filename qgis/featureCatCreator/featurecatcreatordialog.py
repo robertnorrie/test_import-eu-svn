@@ -63,7 +63,7 @@ class featureCatCreatorDialog(QDialog):
         # when template name is set, fill fc and ft fields
         self.connect(self.ui.templateText, SIGNAL('editingFinished()'), self.fillFcFtForm)
         # when refresh button is clicked, reload field list
-        self.connect(self.ui.refreshButton, SIGNAL('clicked()'), self.updateFieldList)
+        self.connect(self.ui.refreshButton, SIGNAL('clicked()'), self.refreshButtonPushed)
         # when current field changes, fill form
         self.connect(self.ui.currentFieldBox, SIGNAL('currentIndexChanged(int)'), self.updateFieldForm)
         # attribute field form are active. connect them
@@ -118,6 +118,10 @@ class featureCatCreatorDialog(QDialog):
             # FIXME : raise and catch only relevant exceptions
             except Exception, e:
                 self.ui.xmlEditor.setText("Error generating XML: %s" % e.message)
+
+    def refreshButtonPushed(self):
+        self.updateFieldList()
+        self.updateFieldForm()
 
     def updateFieldList(self):
         # clear internal representation
