@@ -100,6 +100,15 @@ class metadataCreatorDialog(QDialog):
         # do we focus on Fields tab ?
         if tabIndex == 2:
             self.updateFieldList()
+            
+        # temporary code populating the 4th tab
+        # to be moved elsewhere
+        elif tabIndex == 3:
+            try:
+                self.ui.xmlEditor.setText(self.generateXML())
+            except Exception, e:
+                self.ui.xmlEditor.setText("Error: %s" % e.message)
+
 
     def updateFieldList(self):
         # clear internal representation
@@ -195,18 +204,15 @@ class metadataCreatorDialog(QDialog):
 
     def generateXML(self):
         params = {}
-        params['fc_name'] = ui.fc_nameText.text()
-        params['fc_scope'] = ui.fc_scopeText.text()
-        params['fc_versionNumber'] = ui.fc_versionNbText.text()
-        params['ft_name'] = ui.ft_nameText.text()
-        params['ft_definition'] = ui.ft_definitionText.text()
+        params['fc_name'] = self.ui.fc_nameText.text()
+        params['fc_scope'] = self.ui.fc_scopeText.toPlainText()
+        params['fc_versionNumber'] = self.ui.fc_versionNbText.text()
+        params['ft_name'] = self.ui.ft_nameText.text()
+        params['ft_definition'] = self.ui.ft_definitionText.toPlainText()
         params['fields'] = self.currentFields 
         return iso19110.generateXML(self.ui.templateText.text(), params)
 
     def saveXML(self):
         pass
-
-
-        
 
 
