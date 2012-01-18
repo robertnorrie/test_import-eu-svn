@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 /***************************************************************************
- metadataCreator
+ featureCatCreator
                                  A QGIS plugin
- Select a datasource and generates a metadata record for the feature catalogue using the ISO19110 standard in XML format.
+    Generates, for a selected datasource, a feature catalogue metadata record in XML format compliant with ISO19110 standard.
                               -------------------
         begin                : 2012-01-17
         copyright            : (C) 2012 by Vincent Picavet (Oslandia) for EEA
@@ -26,19 +26,19 @@ from qgis.core import *
 # Initialize Qt resources from file resources.py
 import resources
 # Import the code for the dialog
-from metadatacreatordialog import metadataCreatorDialog
+from featurecatcreatordialog import featureCatCreatorDialog
 
-class metadataCreator:
+class featureCatCreator:
 
     def __init__(self, iface):
         # Save reference to the QGIS interface
         self.iface = iface
         # Create the dialog and keep reference
-        self.dlg = metadataCreatorDialog(iface)
+        self.dlg = featureCatCreatorDialog(iface)
 
     def initGui(self):
         # Create action that will start plugin configuration
-        self.action = QAction(QIcon(":/plugins/metadatacreator/icon.png"), \
+        self.action = QAction(QIcon(":/plugins/featurecatcreator/icon.png"), \
             u"Metadata creator", self.iface.mainWindow())
         # connect the action to the run method
         QObject.connect(self.action, SIGNAL("triggered()"), self.run)

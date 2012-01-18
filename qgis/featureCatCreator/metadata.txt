@@ -9,9 +9,9 @@
 
 
 [general]
-name=Feature Catalog metadata creator
+name=ISO19110 feature catalogue metadata creator
 qgisMinimumVersion=1.0
-description=Select a datasource and generates a metadata record for the feature catalogue using the ISO19110 standard in XML format.
+description=Generates, for a selected datasource, a feature catalogue metadata record in XML format compliant with ISO19110 standard.
 version=0.1
 
 # end of mandatory metadata
