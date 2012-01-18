@@ -32,5 +32,5 @@ def qgisMinimumVersion():
     return "1.0"
 def classFactory(iface):
     # load featureCatCreator class from file featureCatCreator
-    from featureCatCreator import featureCatCreator 
+    from featurecatcreator import featureCatCreator 
     return featureCatCreator(iface)
