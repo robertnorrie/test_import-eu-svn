@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>572</width>
-    <height>384</height>
+    <width>714</width>
+    <height>495</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,130 +25,51 @@
      <property name="tabsClosable">
       <bool>false</bool>
      </property>
-     <widget class="QWidget" name="globalTab">
+     <widget class="QWidget" name="editTab">
       <attribute name="title">
        <string>Global</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <layout class="QFormLayout" name="formLayout">
-           <property name="fieldGrowthPolicy">
-            <enum>QFormLayout::ExpandingFieldsGrow</enum>
-           </property>
-           <item row="2" column="1">
-            <widget class="QPushButton" name="browseTemplateButton">
-             <property name="text">
-              <string>Browse...</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="dataSourceLabel">
-             <property name="text">
-              <string>Data source</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QComboBox" name="dataSourceBox"/>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="templateText"/>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="templateLabel">
-             <property name="text">
-              <string>Template</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <widget class="Line" name="line">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QFormLayout" name="formLayout_2">
-           <item row="0" column="0" colspan="2">
-            <widget class="QCheckBox" name="classification">
-             <property name="text">
-              <string>Classification</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="rowNbLabel">
-             <property name="text">
-              <string>Row #</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QSpinBox" name="rowNb">
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-             <property name="maximum">
-              <number>100000</number>
-             </property>
-             <property name="singleStep">
-              <number>100</number>
-             </property>
-             <property name="value">
-              <number>1000</number>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="requiredValuesNbLabel">
-             <property name="text">
-              <string>Required values #</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QSpinBox" name="requiredValuesNb">
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-             <property name="maximum">
-              <number>50000</number>
-             </property>
-             <property name="singleStep">
-              <number>100</number>
-             </property>
-             <property name="value">
-              <number>100</number>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="nodataValuesLabel">
-             <property name="text">
-              <string>NODATA values</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="QLineEdit" name="nodataValuesText"/>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="editTab">
-      <attribute name="title">
-       <string>Edit</string>
-      </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>Data</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <layout class="QFormLayout" name="formLayout_4">
+            <item row="0" column="0">
+             <widget class="QLabel" name="dataSourceLabel">
+              <property name="text">
+               <string>Data source</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="dataSourceBox"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="templateLabel">
+              <property name="text">
+               <string>Template</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="templateText"/>
+            </item>
+            <item row="2" column="1">
+             <widget class="QPushButton" name="browseTemplateButton">
+              <property name="text">
+               <string>Browse...</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
        <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="maximumSize">
@@ -280,6 +201,13 @@
            </property>
           </widget>
          </item>
+         <item>
+          <widget class="QCheckBox" name="classification">
+           <property name="text">
+            <string>Classification</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
        <item row="1" column="0" colspan="3">
@@ -300,38 +228,38 @@
          <property name="fieldGrowthPolicy">
           <enum>QFormLayout::ExpandingFieldsGrow</enum>
          </property>
-         <item row="0" column="0">
+         <item row="1" column="0">
           <widget class="QLabel" name="f_nameLabel">
            <property name="text">
             <string>Name</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1">
+         <item row="1" column="1">
           <widget class="QLineEdit" name="f_nameText">
            <property name="enabled">
             <bool>false</bool>
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
+         <item row="2" column="0">
           <widget class="QLabel" name="f_typeLabel">
            <property name="text">
             <string>Type</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
+         <item row="2" column="1">
           <widget class="QLineEdit" name="f_typeText"/>
          </item>
-         <item row="2" column="0">
+         <item row="3" column="0">
           <widget class="QLabel" name="f_definitionLabel">
            <property name="text">
             <string>Definition</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
+         <item row="3" column="1">
           <widget class="QPlainTextEdit" name="f_definitionText">
            <property name="maximumSize">
             <size>
@@ -341,15 +269,28 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="0">
+         <item row="4" column="0">
           <widget class="QLabel" name="f_cardinalityLabel">
            <property name="text">
             <string>Cardinality</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="1">
+         <item row="4" column="1">
           <widget class="QLineEdit" name="f_cardinalityText"/>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Field</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -368,21 +309,14 @@
        </item>
        <item row="2" column="2">
         <layout class="QGridLayout" name="gridLayout">
-         <item row="0" column="0">
-          <widget class="QLabel" name="valuesLabel">
-           <property name="text">
-            <string>Values</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
+         <item row="2" column="3">
           <widget class="QPushButton" name="analyzeButton">
            <property name="text">
             <string>Analyze</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="0" colspan="2">
+         <item row="3" column="0" colspan="4">
           <widget class="QTableWidget" name="valuesTable">
            <property name="selectionMode">
             <enum>QAbstractItemView::SingleSelection</enum>
@@ -419,14 +353,72 @@
            </column>
           </widget>
          </item>
-         <item row="2" column="0">
+         <item row="2" column="2">
+          <widget class="QSpinBox" name="requiredValuesNb">
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="suffix">
+            <string> Occ.</string>
+           </property>
+           <property name="maximum">
+            <number>50000</number>
+           </property>
+           <property name="singleStep">
+            <number>1</number>
+           </property>
+           <property name="value">
+            <number>5</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QPushButton" name="pushButton">
+           <property name="text">
+            <string>NODATA...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QSpinBox" name="rowNb">
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="suffix">
+            <string> Rows</string>
+           </property>
+           <property name="maximum">
+            <number>100000</number>
+           </property>
+           <property name="singleStep">
+            <number>100</number>
+           </property>
+           <property name="value">
+            <number>1000</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="valuesLabel">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Values</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
           <widget class="QPushButton" name="newValueButton">
            <property name="text">
             <string>New</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
+         <item row="4" column="1">
           <widget class="QPushButton" name="deleteValueButton">
            <property name="text">
             <string>Delete</string>
