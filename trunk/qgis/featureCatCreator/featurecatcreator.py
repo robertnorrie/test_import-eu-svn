@@ -39,17 +39,17 @@ class featureCatCreator:
     def initGui(self):
         # Create action that will start plugin configuration
         self.action = QAction(QIcon(":/plugins/featurecatcreator/icon.png"), \
-            u"Metadata creator", self.iface.mainWindow())
+            u"Feature catalogue creator", self.iface.mainWindow())
         # connect the action to the run method
         QObject.connect(self.action, SIGNAL("triggered()"), self.run)
 
         # Add toolbar button and menu item
         self.iface.addToolBarIcon(self.action)
-        self.iface.addPluginToMenu(u"&Metadata creator", self.action)
+        self.iface.addPluginToMenu(u"&Feature catalogue creator", self.action)
 
     def unload(self):
         # Remove the plugin menu item and icon
-        self.iface.removePluginMenu(u"&Metadata creator",self.action)
+        self.iface.removePluginMenu(u"&Feature catalogue creator",self.action)
         self.iface.removeToolBarIcon(self.action)
 
     # run method that performs all the real work
