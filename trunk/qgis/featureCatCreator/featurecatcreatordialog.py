@@ -56,8 +56,10 @@ class featureCatCreatorDialog(QDialog):
         # change current layer
         self.connect(self.ui.dataSourceBox, SIGNAL('currentIndexChanged(int)'), self.changeCurrentLayer)
 
-        # when tab change to attribute tab, reset field list
+        # when tab change to XML tab, generate result
         self.connect(self.ui.tabWidget, SIGNAL('currentChanged(int)'), self.tabChanged)
+        # when template name is set, fill fc and ft fields
+        self.connect(self.ui.templateText, SIGNAL('editingFinished()'), self.fillFcFtForm)
         # when refresh button is clicked, reload field list
         self.connect(self.ui.refreshButton, SIGNAL('clicked()'), self.updateFieldList)
         # when current field changes, fill form
@@ -104,7 +106,7 @@ class featureCatCreatorDialog(QDialog):
 
     def tabChanged(self, tabIndex):
         # do we focus on Fields tab ?
-        if tabIndex == 3:
+        if tabIndex == 2:
             try:
                 self.ui.xmlEditor.setText(self.generateXML())
             # FIXME : raise and catch only relevant exceptions
@@ -249,6 +251,9 @@ class featureCatCreatorDialog(QDialog):
         self.ui.valuesTable.setItem(rowcount, 2, QTableWidgetItem(''))
         self.saveFieldComponent()
         self.activeFieldForm(True)
+
+    def fillFcFtForm(self):
+        pass
 
     def generateXML(self):
         params = {}
