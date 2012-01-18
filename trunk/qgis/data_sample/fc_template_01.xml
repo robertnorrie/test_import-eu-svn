@@ -10,7 +10,7 @@
     <gco:CharacterString>1.0 (exemple of value - choose your own version number)</gco:CharacterString>
   </gfc:versionNumber>
   <gfc:versionDate>
-    <gco:DateTime xmlns:gmx="http://www.isotc211.org/2005/gmx" />
+    <gco:DateTime xmlns:gmx="http://www.isotc211.org/2005/gmx"/>
   </gfc:versionDate>
   <gfc:producer>
     <gmd:CI_ResponsibleParty>
@@ -18,10 +18,10 @@
         <gco:CharacterString>European Environment Agency</gco:CharacterString>
       </gmd:individualName>
       <gmd:organisationName>
-        <gco:CharacterString />
+        <gco:CharacterString/>
       </gmd:organisationName>
       <gmd:positionName>
-        <gco:CharacterString />
+        <gco:CharacterString/>
       </gmd:positionName>
       <gmd:contactInfo>
         <gmd:CI_Contact>
@@ -50,14 +50,14 @@
         </gmd:CI_Contact>
       </gmd:contactInfo>
       <gmd:role>
-        <gmd:CI_RoleCode codeListValue="pointOfContact" codeList="CI_RoleCode" />
+        <gmd:CI_RoleCode codeListValue="pointOfContact" codeList="CI_RoleCode"/>
       </gmd:role>
     </gmd:CI_ResponsibleParty>
   </gfc:producer>
   <gfc:featureType>
     <gfc:FC_FeatureType>
       <gfc:typeName>
-        <gco:LocalName>Name of the feature type (by default it&apos;s coming from the label of data source selected by the user of the QGIS plugin</gco:LocalName>
+        <gco:LocalName>Name of the feature type (by default it's coming from the label of data source selected by the user of the QGIS plugin</gco:LocalName>
       </gfc:typeName>
       <gfc:definition>
         <gco:CharacterString>Definition of the feature type (may be lengthy)</gco:CharacterString>
@@ -65,14 +65,14 @@
       <gfc:isAbstract>
         <gco:Boolean>false</gco:Boolean>
       </gfc:isAbstract>
-      <gfc:featureCatalogue />
+      <gfc:featureCatalogue/>
       <gfc:carrierOfCharacteristics>
         <gfc:FC_FeatureAttribute>
           <gfc:memberName>
             <gco:LocalName>VALUE</gco:LocalName>
           </gfc:memberName>
           <gfc:definition>
-            <gco:CharacterString />
+            <gco:CharacterString/>
           </gfc:definition>
           <gfc:cardinality>
             <gco:Multiplicity>
@@ -88,11 +88,11 @@
               </gco:range>
             </gco:Multiplicity>
           </gfc:cardinality>
-          <gfc:featureType />
+          <gfc:featureType/>
           <gfc:valueMeasurementUnit>
             <gml:UnitDefinition xmlns:gml="http://www.opengis.net/gml" gml:id="unknown">
-              <gml:description />
-              <gml:identifier codeSpace="unknown" />
+              <gml:description/>
+              <gml:identifier codeSpace="unknown"/>
             </gml:UnitDefinition>
           </gfc:valueMeasurementUnit>
           <gfc:listedValue>
@@ -120,4 +120,3 @@
     </gfc:FC_FeatureType>
   </gfc:featureType>
 </gfc:FC_FeatureCatalogue>
-

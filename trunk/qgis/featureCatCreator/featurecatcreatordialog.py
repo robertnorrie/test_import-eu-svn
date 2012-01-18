@@ -108,10 +108,10 @@ class featureCatCreatorDialog(QDialog):
         # do we focus on Fields tab ?
         if tabIndex == 2:
             try:
-                self.ui.xmlEditor.setText(self.generateXML())
+                self.ui.xmlEditor.setPlainText(self.generateXML())
             # FIXME : raise and catch only relevant exceptions
             except Exception, e:
-                self.ui.xmlEditor.setText("Error generating XML : %s" % e.message)
+                self.ui.xmlEditor.setText("Error generating XML: %s" % e.message)
 
     def updateFieldList(self):
         # clear internal representation
