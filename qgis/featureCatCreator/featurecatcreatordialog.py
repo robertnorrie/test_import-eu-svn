@@ -48,6 +48,8 @@ class featureCatCreatorDialog(QDialog):
 
         # connect browse button to file search dialog
         self.connect(self.ui.browseTemplateButton, SIGNAL('clicked()'), self.updateTemplateFile)
+        # connect analyze button to the analysis
+        self.connect(self.ui.analyzeButton, SIGNAL('clicked()'), self.analyzeButtonClicked)
         # change current layer
         self.connect(self.ui.dataSourceBox, SIGNAL('currentIndexChanged(int)'), self.changeCurrentLayer)
 
@@ -99,16 +101,12 @@ class featureCatCreatorDialog(QDialog):
 
     def tabChanged(self, tabIndex):
         # do we focus on Fields tab ?
-        if tabIndex == 2:
-            pass
-            #self.updateFieldList()
-        elif tabIndex == 3:
+        if tabIndex == 3:
             try:
                 self.ui.xmlEditor.setText(self.generateXML())
             # FIXME : raise and catch only relevant exceptions
             except Exception, e:
                 self.ui.xmlEditor.setText("Error generating XML : %s" % e.message)
-
 
     def updateFieldList(self):
         # clear internal representation
@@ -128,7 +126,6 @@ class featureCatCreatorDialog(QDialog):
                         'cardinality': "",
                         'values' : []
                         }
-                self.analyzeValues(field)
                 self.currentFields.append(field)
             # sort list by index key
             self.currentFields.sort(key = lambda k:k['index'])
@@ -136,6 +133,9 @@ class featureCatCreatorDialog(QDialog):
             # call to addItem when box is empty emits currentIndexChanged
             for field in self.currentFields:
                 self.ui.currentFieldBox.addItem(field['name'])
+            # analyze values for all field if enabled 
+            if self.ui.classification.isChecked():
+                self.analyzeValues()
             # next instruction will call updateFieldForm slot
             self.ui.currentFieldBox.setCurrentIndex(0)
             # update field form
@@ -180,11 +180,50 @@ class featureCatCreatorDialog(QDialog):
                             'code':self.ui.valuesTable.item(rownb, 1).text(),
                             'definition':self.ui.valuesTable.item(rownb, 2).text()})
 
-    def analyzeValues(self, field):
-        # TODO implement real function
-        field['values'] = [{'label':"test1", 'code':"code1", 'definition':"def1"},
-                {'label':"test2", 'code':"code2", 'definition':"def2"},
-                {'label':"test3", 'code':"code3", 'definition':"def3"}]
+    def analyzeButtonClicked(self):
+        self.analyzeCurrentFieldValues()
+        self.updateFieldForm()
+
+    def analyzeCurrentFieldValues(self):
+        # set index list only for current field
+        index_list = [self.ui.currentFieldBox.currentIndex()]
+        self.analyzeValues(index_list)
+
+    def analyzeValues(self, index_list = None):
+        # get data provider
+        if self.currentLayer:
+            provider = self.currentLayer.dataProvider()
+            fieldIndexList = index_list 
+            # set index list for all fields if not given
+            if fieldIndexList is None:
+                fieldIndexList = [field['index'] for field in self.currentFields]
+            # store values for each field, with occurence nb
+            fieldsValues = {}
+            for i in fieldIndexList:
+                fieldsValues[i] = {}
+            # select features without geometry
+            provider.select(fieldIndexList, QgsRectangle(), False)
+            feat = QgsFeature()
+            # iterate over a limited number of features
+            for rownb in range(self.ui.rowNb.value()):
+                if provider.nextFeature(feat):
+                    # for each field set value as dictionnary key and
+                    # increment value count if already found
+                    for fieldIndex, fieldValue in feat.attributeMap().items():
+                        if fieldsValues[fieldIndex].has_key(fieldValue.toString()):
+                            fieldsValues[fieldIndex][fieldValue.toString()] += 1
+                        else:
+                            fieldsValues[fieldIndex][fieldValue.toString()] = 1
+                else:
+                    # no more feature, go out 
+                    break
+            # only keep values with count > specified
+            # generate a value structure for each field
+            for index in fieldIndexList:
+                self.currentFields[index]['values'] = [\
+                        {'code':key, 'label':'', 'definition':''}\
+                        for key, value in fieldsValues[index].items()\
+                        if value >= self.ui.requiredValuesNb.value()]
 
     def deleteValueRow(self):
         self.ui.valuesTable.removeRow(self.ui.valuesTable.currentRow())
