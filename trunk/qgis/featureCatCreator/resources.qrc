@@ -1,5 +1,6 @@
 <RCC>
-    <qresource prefix="/plugins/featurecatcreator" >
-        <file>icon.png</file>
-    </qresource>
+  <qresource prefix="/plugins/featurecatcreator">
+    <file>mActionOpenTable.png</file>
+    <file>icon.png</file>
+  </qresource>
 </RCC>
