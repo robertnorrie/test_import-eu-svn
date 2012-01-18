@@ -53,6 +53,8 @@ class featureCatCreatorDialog(QDialog):
         self.connect(self.ui.analyzeButton, SIGNAL('clicked()'), self.analyzeButtonClicked)
         # connect nodata button to imput values
         self.connect(self.ui.nodataButton, SIGNAL('clicked()'), self.getNodataInput)
+        # connect attribute table button to show attribute table
+        self.connect(self.ui.attributeTableButton, SIGNAL('clicked()'), self.showAttributeTable)
         # change current layer
         self.connect(self.ui.dataSourceBox, SIGNAL('currentIndexChanged(int)'), self.changeCurrentLayer)
 
@@ -69,6 +71,10 @@ class featureCatCreatorDialog(QDialog):
         # values elements
         self.connect(self.ui.newValueButton, SIGNAL('clicked()'), self.newValueRow)
         self.connect(self.ui.deleteValueButton, SIGNAL('clicked()'), self.deleteValueRow)
+
+    def showAttributeTable(self):
+        if self.currentLayer:
+            self.iface.showAttributeTable(self.currentLayer)
 
     def activeFieldForm(self, connect = True):
         if connect:

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>714</width>
-    <height>495</height>
+    <width>760</width>
+    <height>524</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -178,9 +178,20 @@
       <attribute name="title">
        <string>Fields</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_2" columnstretch="2,0,3">
+      <layout class="QGridLayout" name="gridLayout_2" columnstretch="2,0,0">
        <item row="0" column="0" colspan="3">
         <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QToolButton" name="attributeTableButton">
+           <property name="text">
+            <string>...</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/plugins/featurecatcreator/mActionOpenTable.png</normaloff>:/plugins/featurecatcreator/mActionOpenTable.png</iconset>
+           </property>
+          </widget>
+         </item>
          <item>
           <widget class="QLabel" name="currentFieldLabel">
            <property name="text">
@@ -453,7 +464,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>

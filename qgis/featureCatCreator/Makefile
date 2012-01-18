@@ -23,11 +23,11 @@ PLUGINNAME = featurecatcreator
 
 PY_FILES = featurecatcreator.py featurecatcreatordialog.py __init__.py iso19110.py
 
-EXTRAS = icon.png 
+EXTRAS = icon.png mActionOpenTable.png
 
 UI_FILES = ui_featurecatcreator.py
 
-RESOURCE_FILES = resources.py
+RESOURCE_FILES = resources_rc.py
 
 default: compile
 
