@@ -1,7 +1,7 @@
 #/***************************************************************************
-# metadataCreator
+# featureCatCreator
 # 
-# Select a datasource and generates a metadata record for the feature catalogue using the ISO19110 standard in XML format.
+#   Generates, for a selected datasource, a feature catalogue metadata record in XML format compliant with ISO19110 standard.
 #                             -------------------
 #        begin                : 2012-01-17
 #        copyright            : (C) 2012 by Vincent Picavet (Oslandia) for EEA
@@ -19,13 +19,13 @@
 
 # Makefile for a PyQGIS plugin 
 
-PLUGINNAME = metadatacreator
+PLUGINNAME = featurecatcreator
 
-PY_FILES = metadatacreator.py metadatacreatordialog.py __init__.py iso19110.py
+PY_FILES = featurecatcreator.py featurecatcreatordialog.py __init__.py iso19110.py
 
 EXTRAS = icon.png 
 
-UI_FILES = ui_metadatacreator.py
+UI_FILES = ui_featurecatcreator.py
 
 RESOURCE_FILES = resources.py
 

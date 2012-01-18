@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 /***************************************************************************
- metadataCreator
+ featureCatCreator
                                  A QGIS plugin
- Select a datasource and generates a metadata record for the feature catalogue using the ISO19110 standard in XML format.
+    Generates, for a selected datasource, a feature catalogue metadata record in XML format compliant with ISO19110 standard.
                              -------------------
         begin                : 2012-01-17
         copyright            : (C) 2012 by Vincent Picavet (Oslandia) for EEA
@@ -21,9 +21,9 @@
  This script initializes the plugin, making it known to QGIS.
 """
 def name():
-    return "Feature Catalog metadata creator"
+    return "ISO19110 feature catalogue metadata creator"
 def description():
-    return "Select a datasource and generates a metadata record for the feature catalogue using the ISO19110 standard in XML format."
+    return "Generates, for a selected datasource, a feature catalogue metadata record in XML format compliant with ISO19110 standard."
 def version():
     return "Version 0.1"
 def icon():
@@ -31,6 +31,6 @@ def icon():
 def qgisMinimumVersion():
     return "1.0"
 def classFactory(iface):
-    # load metadataCreator class from file metadataCreator
-    from metadatacreator import metadataCreator
-    return metadataCreator(iface)
+    # load featureCatCreator class from file featureCatCreator
+    from featureCatCreator import featureCatCreator 
+    return featureCatCreator(iface)

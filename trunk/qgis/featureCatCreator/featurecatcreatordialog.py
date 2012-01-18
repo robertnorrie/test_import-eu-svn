@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 /***************************************************************************
- metadataCreatorDialog
+ featureCatCreator
                                  A QGIS plugin
- Select a datasource and generates a metadata record for the feature catalogue using the ISO19110 standard in XML format.
+    Generates, for a selected datasource, a feature catalogue metadata record in XML format compliant with ISO19110 standard.
                              -------------------
         begin                : 2012-01-17
         copyright            : (C) 2012 by Vincent Picavet (Oslandia) for EEA
@@ -24,11 +24,11 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from qgis.core import *
 
-from ui_metadatacreator import Ui_metadataCreator
+from ui_featurecatcreator import Ui_featureCatCreator
 import iso19110
 
 # create the dialog for zoom to point
-class metadataCreatorDialog(QDialog):
+class featureCatCreatorDialog(QDialog):
     def __init__(self, iface):
         QDialog.__init__(self)
         # keep qgis interface reference
@@ -37,7 +37,7 @@ class metadataCreatorDialog(QDialog):
         self.currentFields = []
 
         # Set up the user interface from Designer.
-        self.ui = Ui_metadataCreator()
+        self.ui = Ui_featureCatCreator()
         self.ui.setupUi(self)
 
         # update data source combobox content
@@ -100,15 +100,6 @@ class metadataCreatorDialog(QDialog):
         # do we focus on Fields tab ?
         if tabIndex == 2:
             self.updateFieldList()
-            
-        # temporary code populating the 4th tab
-        # to be moved elsewhere
-        elif tabIndex == 3:
-            try:
-                self.ui.xmlEditor.setText(self.generateXML())
-            except Exception, e:
-                self.ui.xmlEditor.setText("Error: %s" % e.message)
-
 
     def updateFieldList(self):
         # clear internal representation
@@ -204,15 +195,18 @@ class metadataCreatorDialog(QDialog):
 
     def generateXML(self):
         params = {}
-        params['fc_name'] = self.ui.fc_nameText.text()
-        params['fc_scope'] = self.ui.fc_scopeText.toPlainText()
-        params['fc_versionNumber'] = self.ui.fc_versionNbText.text()
-        params['ft_name'] = self.ui.ft_nameText.text()
-        params['ft_definition'] = self.ui.ft_definitionText.toPlainText()
+        params['fc_name'] = ui.fc_nameText.text()
+        params['fc_scope'] = ui.fc_scopeText.text()
+        params['fc_versionNumber'] = ui.fc_versionNbText.text()
+        params['ft_name'] = ui.ft_nameText.text()
+        params['ft_definition'] = ui.ft_definitionText.text()
         params['fields'] = self.currentFields 
         return iso19110.generateXML(self.ui.templateText.text(), params)
 
     def saveXML(self):
         pass
+
+
+        
 
 
