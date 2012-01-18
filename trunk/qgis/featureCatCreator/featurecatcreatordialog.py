@@ -95,11 +95,13 @@ class featureCatCreatorDialog(QDialog):
             self.currentLayer = self.ui.dataSourceBox.itemData(index).toPyObject()
         else:
             self.currentLayer = None
+        self.updateFieldList()
 
     def tabChanged(self, tabIndex):
         # do we focus on Fields tab ?
         if tabIndex == 2:
-            self.updateFieldList()
+            pass
+            #self.updateFieldList()
         elif tabIndex == 3:
             try:
                 self.ui.xmlEditor.setText(self.generateXML())
