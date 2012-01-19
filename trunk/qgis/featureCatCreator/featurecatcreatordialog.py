@@ -106,6 +106,7 @@ class featureCatCreatorDialog(QDialog):
         if filename:
             self.ui.templateText.setText(filename)
             self.isoDoc = iso19110.iso19110Doc(self.ui.templateText.text())
+            self.fillFcFtForm()
 
     def updateDatasourceBox(self):
         self.ui.dataSourceBox.clear()
@@ -356,14 +357,17 @@ class featureCatCreatorDialog(QDialog):
         self.activeFieldForm(True)
 
     def fillFcFtForm(self):
-        pass
+        if self.isoDoc:
+            self.ui.fc_nameText.setText(self.isoDoc.getFcName())
+            self.ui.fc_scopeText.setPlainText(self.isoDoc.getFcScope())
+            self.ui.fc_versionNbText.setText(self.isoDoc.getFcVersionNumber())
 
     def getParams(self):
         params = {}
-        params['fc_name'] = self.ui.fc_nameText.text()
+        params['fc_name'] = self.ui.fc_nameText.text
         params['fc_scope'] = self.ui.fc_scopeText.toPlainText()
-        params['fc_versionNumber'] = self.ui.fc_versionNbText.text()
-        params['ft_name'] = self.ui.ft_nameText.text()
+        params['fc_versionNumber'] = self.ui.fc_versionNbText.text
+        params['ft_name'] = self.ui.ft_nameText.text
         params['ft_definition'] = self.ui.ft_definitionText.toPlainText()
         params['fields'] = self.currentFields
         return params
