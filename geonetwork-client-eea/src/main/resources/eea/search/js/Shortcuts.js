@@ -104,9 +104,23 @@ function initShortcut(){
         stopEvent: true,
         label: OpenLayers.i18n('focusOnLogin'),
         fn: function(){
-        	var e = Ext.get('username');
-        	e.highlight();
-            e.dom.focus(true);
+            var e = Ext.get('username');
+            if (e.isVisible()) {
+                e.highlight();
+                e.dom.focus(true);
+            } else {
+                catalogue.logout();
+            }
+            
+        }
+    }, {
+        key: "a",
+        ctrl: true,
+        shift: true,
+        stopEvent: true,
+        label: OpenLayers.i18n('openAdmin'),
+        fn: function(){
+            catalogue.admin();
         }
     }, {
         key: "i",

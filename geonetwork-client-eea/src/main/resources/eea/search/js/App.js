@@ -806,6 +806,43 @@ GeoNetwork.app = function () {
 //            Ext.getCmp('tagCloudPanel').setHeight(200);
             //resultPanel.setHeight(Ext.getCmp('center').getHeight());
             Ext.ux.Lightbox.register('a[rel^=lightbox]');
+            
+            
+            // Register tooltips for each hyperlink
+            // to easy copy/paste the links. The tooltip
+            // is composed of an hyperlink to trigger open in new
+            // window and an input text to easily copy/paste the link.
+            var links = Ext.query('div.md-links > a', Ext.get('resultsPanel').dom.body);// TODO restrict to results panel only, resultPanel.dom.body);
+            Ext.each(links, function(item) {
+                var el = Ext.get(item);
+                var href = el.getAttribute('href')
+                
+                // Register hover tooltip and remove browser tooltip triggered by title
+                var f = function(){
+                    if (!Ext.get(href)) {
+                        
+                        var title = el.getAttribute('title');
+                        //var title = GeoNetwork.lang.en[titleId] && GeoNetwork.lang.en[titleId] != titleId ? GeoNetwork.lang.en[titleId] : titleId;
+                        // FIXME 
+                        var t = new Ext.ToolTip({
+                                id: href,   // Identify tooltip by the href which might be unique
+                                target: el,
+                                title: title,
+                                anchor: 'top',
+                                closable: true,
+                                //autoHide: false,
+                                dismissDelay: 3000,
+                                hideDelay: 4000,
+                                html: '<a target="_blank" href="' + href + '">Open in new window</a> or copy link below<br/>' +
+                                    '<input type="text" value="' + href + '" size="36"/>'
+                            });
+                        item.setAttribute('title', '');
+                        t.setVisible(true);
+                    }
+                };
+                el.on('mouseover', f, this);
+            
+            });
         }
     };
 };
