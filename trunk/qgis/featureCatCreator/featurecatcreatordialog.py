@@ -60,7 +60,7 @@ class featureCatCreatorDialog(QDialog):
         self.connect(self.ui.browseTemplateButton, SIGNAL('clicked()'), self.updateTemplateFile)
         # connect analyze button to the analysis
         self.connect(self.ui.analyzeButton, SIGNAL('clicked()'), self.analyzeButtonClicked)
-        # connect nodata button to imput values
+        # connect nodata button to input values
         self.connect(self.ui.nodataButton, SIGNAL('clicked()'), self.getNodataInput)
         # connect attribute table button to show attribute table
         self.connect(self.ui.attributeTableButton, SIGNAL('clicked()'), self.showAttributeTable)
