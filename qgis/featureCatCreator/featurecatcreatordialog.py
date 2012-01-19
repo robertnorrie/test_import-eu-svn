@@ -129,7 +129,7 @@ class featureCatCreatorDialog(QDialog):
         self.updateFieldList()
 
     def tabChanged(self, tabIndex):
-        # do we focus on Fields tab ?
+        # do we focus on XML tab ?
         if tabIndex == 2 and self.isoDoc != None:
             try:
                 isoDoc = iso19110.iso19110Doc(self.ui.templateText.text())
