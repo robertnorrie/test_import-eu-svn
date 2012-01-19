@@ -12,56 +12,46 @@ from PyQt4 import QtXml
 from PyQt4 import QtCore
 
 import os.path
+import urllib2
 import xml.etree.ElementTree as etree
 
 
 def getTemplateContent(templatePath):
     # is the template path an URL or a file system path?
+    
+    templateContent = None
 
     # testing if the path is empty
     if templatePath.trimmed().isEmpty():
         raise ValueError, "The text field specifying the template path is empty."
         
     # testing if the path is a file system path
-    if os.path.exists(templatePath):
-        return getTemplateContentFromFileSystemPath(str(templatePath))
-    
+    isAFileSystemPath = False
+    isAFileUrlPath = False
+    if os.path.exists(str(templatePath)):
+        isAFileSystemPath = True
+        
+        file = open(str(templatePath), "r")
+        
+        try:
+            templateContent = file.read()
+            return templateContent
+        finally:
+            file.close()
+            
     # try to retrieve the template from the web
     else:
-        qUrl = QtCore.QUrl(templatePath)
-        print qUrl
-        print qUrl.isValid()
-        if not qUrl.isValid():
-            raise IOError, "The path of the template is not a valid URL."
+        # retrieving the content of the file
         
-        return getTemplateContentFromUrl(str(templatePath))
+        try:
+            templateContent = urllib2.urlopen(str(templatePath)).read()
+            isAFileUrlPath = True
+            return templateContent
+        except urllib2.URLError, e:
+            isAFileUrlPath = False
     
-    return None
-
-
-def getTemplateContentFromUrl(templateUrl):
-    # retrieving the content of the file
-    import urllib2
-    templateContent = None
-    
-    try:
-        templateContent = urllib2.urlopen(templateUrl).read()
-    except urllib2.URLError, e:
-        raise IOError, "The path of the template is not a valid URL."
-    
-    return templateContent
-
-    
-def getTemplateContentFromFileSystemPath(templateFileSystemPath):
-    file = open(templateFileSystemPath, "r")
-    templateContent = None
-    
-    try:
-        templateContent = file.read()
-    finally:
-        file.close()
-        
-    return templateContent
+    if not (isAFileSystemPath or isAFileUrlPath):
+        raise ValueError, "The path of the template is not a valid file system path nor a valid URL."
 
     
 class iso19110Doc:
