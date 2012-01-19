@@ -129,7 +129,7 @@ class featureCatCreatorDialog(QDialog):
         self.updateFieldList()
         self.updateFieldForm()
 
-    def updateFieldList(self):
+    def updateVectorFieldList(self):
         # clear internal representation
         self.currentFields = []
         # clear combo box
@@ -156,11 +156,38 @@ class featureCatCreatorDialog(QDialog):
                 self.ui.currentFieldBox.addItem(field['name'])
             # analyze values for all field if enabled 
             if self.ui.classification.isChecked():
-                self.analyzeValues()
+                self.analyzeVectorValues()
             # next instruction will call updateFieldForm slot
             self.ui.currentFieldBox.setCurrentIndex(0)
-            # update field form
-            #self.updateFieldForm()    
+
+    def updateRasterFieldList(self):
+        self.currentFields = []
+        self.ui.currentFieldBox.clear()
+        if self.currentLayer:
+            # band indexes are 1-based !
+            for index in range(1, self.currentLayer.bandCount() + 1):
+                field = {
+                        'index': index,
+                        'name': "%s" % self.currentLayer.bandName(index),
+                        'type': "",
+                        'definition':"",
+                        'cardinality':'',
+                        'values' : []
+                        }
+                self.currentFields.append(field)
+            for field in self.currentFields:
+                self.ui.currentFieldBox.addItem(field['name'])
+            if self.ui.classification.isChecked():
+                self.analyzeRasterValues()
+            self.ui.currentFieldBox.setCurrentIndex(0)
+
+    def updateFieldList(self):
+        if self.currentLayer:
+            if self.currentLayer.type() == QgsMapLayer.VectorLayer:
+                self.updateVectorFieldList()
+            # current layer can only be raster or vector
+            else:
+                self.updateRasterFieldList()
 
     def updateFieldForm(self):
         # deactivate signals, otherwise they are messing with value setting
@@ -214,9 +241,15 @@ class featureCatCreatorDialog(QDialog):
     def analyzeCurrentFieldValues(self):
         # set index list only for current field
         index_list = [self.ui.currentFieldBox.currentIndex()]
-        self.analyzeValues(index_list)
+        if self.currentLayer.type() == QgsMapLayer.VectorLayer:
+            self.analyzeVectorValues(index_list)
+        else:
+            self.analyzeRasterValues(index_list)
 
-    def analyzeValues(self, index_list = None):
+    def analyzeRasterValues(self, index_list = None):
+        pass
+
+    def analyzeVectorValues(self, index_list = None):
         # get data provider
         if self.currentLayer:
             provider = self.currentLayer.dataProvider()
