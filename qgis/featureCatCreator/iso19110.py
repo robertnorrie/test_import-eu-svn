@@ -14,12 +14,6 @@ from PyQt4 import QtCore
 import os.path
 import xml.etree.ElementTree as etree
 
-def generateXML(templatePath, param):
-    templateContent = getTemplateContent(templatePath)
-    isoDoc = iso19110Doc(templateContent)
-
-    return isoDoc.toString()
-
 
 def getTemplateContent(templatePath):
     # is the template path an URL or a file system path?
@@ -63,7 +57,9 @@ def getTemplateContentFromFileSystemPath(templateFileSystemPath):
     
 class iso19110Doc:
     
-    def __init__(self, templateContent):
+    def __init__(self, templatePath):
+        
+        templateContent = getTemplateContent(templatePath)
         self.templateContent = templateContent.decode('utf-8')
         #print templateContent
         #self.templateContent = "sdfsfsdf"
@@ -97,7 +93,7 @@ class iso19110Doc:
         #return self.domDoc.toString(2)
         return etree.tostring(self.etDoc)
 
-    def updateDomWithParam(self, param):
+    def updateWithParams(self, params):
         # update the feature catalogue name, scope and version number
         
         # update the feature  type name and definition
