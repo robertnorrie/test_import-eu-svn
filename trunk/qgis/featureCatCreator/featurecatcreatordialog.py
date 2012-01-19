@@ -75,7 +75,7 @@ class featureCatCreatorDialog(QDialog):
         self.connect(self.ui.deleteValueButton, SIGNAL('clicked()'), self.deleteValueRow)
 
     def showAttributeTable(self):
-        if self.currentLayer:
+        if self.currentLayer and self.currentLayer == QgsMapLayer.VectorLayer:
             self.iface.showAttributeTable(self.currentLayer)
 
     def activeFieldForm(self, connect = True):
@@ -102,7 +102,8 @@ class featureCatCreatorDialog(QDialog):
     def updateDatasourceBox(self):
         self.ui.dataSourceBox.clear()
         for layer in self.iface.mapCanvas().layers():
-            self.ui.dataSourceBox.addItem(layer.name(), QVariant(layer))
+            if layer.type() in [QgsMapLayer.VectorLayer, QgsMapLayer.RasterLayer]:
+                self.ui.dataSourceBox.addItem(layer.name(), QVariant(layer))
         if self.ui.dataSourceBox.count():     
             self.changeCurrentLayer(0)
 
