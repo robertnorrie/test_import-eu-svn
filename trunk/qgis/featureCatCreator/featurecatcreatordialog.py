@@ -43,6 +43,9 @@ class featureCatCreatorDialog(QDialog):
         self.ui = Ui_featureCatCreator()
         self.ui.setupUi(self)
 
+        # default is first tab
+        self.ui.tabWidget.setCurrentIndex(0)
+
         # update data source combobox content
         self.updateDatasourceBox()
 
