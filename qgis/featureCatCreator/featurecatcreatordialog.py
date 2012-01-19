@@ -49,6 +49,9 @@ class featureCatCreatorDialog(QDialog):
         # update initial field list
         self.updateFieldList()
 
+        self.connectSignals()
+
+    def connectSignals(self):
         # connect browse button to file search dialog
         self.connect(self.ui.browseTemplateButton, SIGNAL('clicked()'), self.updateTemplateFile)
         # connect analyze button to the analysis
@@ -73,6 +76,7 @@ class featureCatCreatorDialog(QDialog):
         # values elements
         self.connect(self.ui.newValueButton, SIGNAL('clicked()'), self.newValueRow)
         self.connect(self.ui.deleteValueButton, SIGNAL('clicked()'), self.deleteValueRow)
+
 
     def showAttributeTable(self):
         if self.currentLayer and self.currentLayer == QgsMapLayer.VectorLayer:
