@@ -79,7 +79,7 @@ class featureCatCreatorDialog(QDialog):
 
 
     def showAttributeTable(self):
-        if self.currentLayer and self.currentLayer == QgsMapLayer.VectorLayer:
+        if self.currentLayer and self.currentLayer.type() == QgsMapLayer.VectorLayer:
             self.iface.showAttributeTable(self.currentLayer)
 
     def activeFieldForm(self, connect = True):
@@ -114,6 +114,12 @@ class featureCatCreatorDialog(QDialog):
     def changeCurrentLayer(self, index = None):
         if index is not None:
             self.currentLayer = self.ui.dataSourceBox.itemData(index).toPyObject()
+            # activate attribute table button only for vectors
+            if self.currentLayer:
+                if self.currentLayer.type() == QgsMapLayer.VectorLayer:
+                    self.ui.attributeTableButton.setEnabled(True)
+                else:
+                    self.ui.attributeTableButton.setEnabled(False)
         else:
             self.currentLayer = None
         self.updateFieldList()
