@@ -36,6 +36,8 @@ class featureCatCreatorDialog(QDialog):
         self.currentLayer = None
         self.currentFields = []
         self.nodataValues = []
+        # reference to the iso19110Doc instance
+        self.isoDoc = None
 
         # Set up the user interface from Designer.
         self.ui = Ui_featureCatCreator()
@@ -71,9 +73,6 @@ class featureCatCreatorDialog(QDialog):
         # values elements
         self.connect(self.ui.newValueButton, SIGNAL('clicked()'), self.newValueRow)
         self.connect(self.ui.deleteValueButton, SIGNAL('clicked()'), self.deleteValueRow)
-        
-        # reference to the iso19110Doc instance
-        self.isoDoc = None
 
     def showAttributeTable(self):
         if self.currentLayer:
