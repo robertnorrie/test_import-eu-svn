@@ -33,7 +33,7 @@ default: compile
 
 compile: $(UI_FILES) $(RESOURCE_FILES)
 
-%.py : %.qrc
+%_rc.py : %.qrc
 	pyrcc4 -o $@  $<
 
 %.py : %.ui
