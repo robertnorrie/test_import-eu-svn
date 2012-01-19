@@ -71,6 +71,9 @@ class featureCatCreatorDialog(QDialog):
         # values elements
         self.connect(self.ui.newValueButton, SIGNAL('clicked()'), self.newValueRow)
         self.connect(self.ui.deleteValueButton, SIGNAL('clicked()'), self.deleteValueRow)
+        
+        # reference to the iso19110Doc instance
+        self.isoDoc = None
 
     def showAttributeTable(self):
         if self.currentLayer:
@@ -95,6 +98,7 @@ class featureCatCreatorDialog(QDialog):
                 "Open XML template file", "", "Template file (*.xml)")
         if filename:
             self.ui.templateText.setText(filename)
+            self.isoDoc = iso19110.iso19110Doc(self.ui.templateText.text())
 
     def updateDatasourceBox(self):
         self.ui.dataSourceBox.clear()
@@ -112,9 +116,11 @@ class featureCatCreatorDialog(QDialog):
 
     def tabChanged(self, tabIndex):
         # do we focus on Fields tab ?
-        if tabIndex == 2:
+        if tabIndex == 2 and self.isoDoc != None:
             try:
-                self.ui.xmlEditor.setPlainText(self.generateXML())
+                isoDoc = iso19110.iso19110Doc(self.ui.templateText.text())
+                isoDoc.updateWithParams(self.getParams())
+                self.ui.xmlEditor.setPlainText(isoDoc.toString())
             # FIXME : raise and catch only relevant exceptions
             except Exception, e:
                 self.ui.xmlEditor.setText("Error generating XML: %s" % e.message)
@@ -265,20 +271,19 @@ class featureCatCreatorDialog(QDialog):
     def fillFcFtForm(self):
         pass
 
-    def generateXML(self):
+    def getParams(self):
         params = {}
         params['fc_name'] = self.ui.fc_nameText.text()
         params['fc_scope'] = self.ui.fc_scopeText.toPlainText()
         params['fc_versionNumber'] = self.ui.fc_versionNbText.text()
         params['ft_name'] = self.ui.ft_nameText.text()
         params['ft_definition'] = self.ui.ft_definitionText.toPlainText()
-        params['fields'] = self.currentFields 
-        return iso19110.generateXML(self.ui.templateText.text(), params)
+        params['fields'] = self.currentFields
+        return params
+
+    def generateXML(self):
+        return self.isoDoc.toString()
 
     def saveXML(self):
         pass
-
-
-        
-
 
