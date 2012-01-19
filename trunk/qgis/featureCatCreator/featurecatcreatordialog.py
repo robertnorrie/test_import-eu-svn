@@ -19,6 +19,7 @@
  *                                                                         *
  ***************************************************************************/
 """
+import random
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -265,7 +266,42 @@ class featureCatCreatorDialog(QDialog):
             self.analyzeRasterValues(index_list)
 
     def analyzeRasterValues(self, index_list = None):
-        pass
+        # raster data analysis is based on random points
+        # in the canvas area
+        if self.currentLayer:
+            if index_list is None:
+                fieldIndexList = [field['index'] for field in self.currentFields]
+            else:
+                # raster band index is 1-based, whereas index list is 0-based
+                fieldIndexList = [i + 1 for i in index_list]
+            fieldsValues = {}
+            for i in fieldIndexList:
+                fieldsValues[i] = {}
+            random.seed()
+            extent = self.iface.mapCanvas().extent()
+            point = QgsPoint()
+            valueNb = 0
+            while valueNb < self.ui.rowNb.value():
+                x = random.random() * extent.width() + extent.xMinimum()
+                y = random.random() * extent.height() + extent.yMinimum()
+                point.set(x,y)
+                success, data = self.currentLayer.identify(point)
+                if success and str(data.values()[0]) != 'out of extent':
+                    valueNb += 1
+                    for fieldName, fieldValue in data.items():
+                        if str(fieldValue) not in self.nodataValues:
+                            fieldIndex = self.currentLayer.bandNumber(fieldName)
+                            if fieldsValues[fieldIndex].has_key(str(fieldValue)):
+                                fieldsValues[fieldIndex][str(fieldValue)] += 1
+                            else:
+                                fieldsValues[fieldIndex][str(fieldValue)] = 1
+            # only keep values with count > specified
+            # generate a value structure for each field
+            for index in fieldIndexList:
+                self.currentFields[index - 1]['values'] = [\
+                        {'code':key, 'label':'', 'definition':''}\
+                        for key, value in fieldsValues[index].items()\
+                        if value >= self.ui.requiredValuesNb.value()]
 
     def analyzeVectorValues(self, index_list = None):
         # get data provider
