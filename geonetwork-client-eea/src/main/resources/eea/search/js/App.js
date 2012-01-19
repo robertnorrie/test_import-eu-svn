@@ -332,7 +332,7 @@ GeoNetwork.app = function () {
         var formItems = [];
         formItems.push(GeoNetwork.util.SearchFormTools.getSimpleFormFields(catalogue.services, 
                     GeoNetwork.map.BACKGROUND_LAYERS, GeoNetwork.map.MAP_OPTIONS, false, 
-                    GeoNetwork.searchDefault.activeMapControlExtent, undefined, {width: 290}), 
+                    GeoNetwork.searchDefault.activeMapControlExtent, undefined, {width: 290}, false), 
                     inspire, adv);
         // Add advanced mode criteria to simple form - end
         
