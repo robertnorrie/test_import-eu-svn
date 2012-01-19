@@ -56,6 +56,8 @@ class featureCatCreatorDialog(QDialog):
         self.connectSignals()
 
     def connectSignals(self):
+        # connect save button to file save dialog
+        self.connect(self.ui.buttonBox, SIGNAL('accepted()'), self.saveXML)        
         # connect browse button to file search dialog
         self.connect(self.ui.browseTemplateButton, SIGNAL('clicked()'), self.updateTemplateFile)
         # connect analyze button to the analysis
@@ -70,7 +72,7 @@ class featureCatCreatorDialog(QDialog):
         # when tab change to XML tab, generate result
         self.connect(self.ui.tabWidget, SIGNAL('currentChanged(int)'), self.tabChanged)
         # when template name is set, fill fc and ft fields
-        self.connect(self.ui.templateText, SIGNAL('editingFinished()'), self.fillFcFtForm)
+        self.connect(self.ui.templateText, SIGNAL('editingFinished()'), self.templateFileEditingFinished)
         # when refresh button is clicked, reload field list
         self.connect(self.ui.refreshButton, SIGNAL('clicked()'), self.refreshButtonPushed)
         # when current field changes, fill form
@@ -105,8 +107,11 @@ class featureCatCreatorDialog(QDialog):
                 "Open XML template file", "", "Template file (*.xml)")
         if filename:
             self.ui.templateText.setText(filename)
-            self.isoDoc = iso19110.iso19110Doc(self.ui.templateText.text())
-            self.fillFcFtForm()
+            self.templateFileEditingFinished()
+
+    def templateFileEditingFinished(self):
+        self.isoDoc = iso19110.iso19110Doc(self.ui.templateText.text())
+        self.fillFcForm()
 
     def updateDatasourceBox(self):
         self.ui.dataSourceBox.clear()
@@ -121,6 +126,7 @@ class featureCatCreatorDialog(QDialog):
             self.currentLayer = self.ui.dataSourceBox.itemData(index).toPyObject()
             # activate attribute table button only for vectors
             if self.currentLayer:
+                self.ui.ft_nameText.setText(self.currentLayer.name())
                 if self.currentLayer.type() == QgsMapLayer.VectorLayer:
                     self.ui.attributeTableButton.setEnabled(True)
                 else:
@@ -133,9 +139,10 @@ class featureCatCreatorDialog(QDialog):
         # do we focus on XML tab ?
         if tabIndex == 2 and self.isoDoc != None:
             try:
-                isoDoc = iso19110.iso19110Doc(self.ui.templateText.text())
-                isoDoc.updateWithParams(self.getParams())
-                self.ui.xmlEditor.setPlainText(isoDoc.toString())
+                self.isoDoc = iso19110.iso19110Doc(self.ui.templateText.text())
+                self.isoDoc.updateWithParams(self.getParams())
+                self.ui.xmlEditor.setPlainText(self.isoDoc.toString().decode('utf-8'))
+
             except IOError, e:
                 self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
             except ValueError, e:
@@ -356,25 +363,30 @@ class featureCatCreatorDialog(QDialog):
         self.saveFieldComponent()
         self.activeFieldForm(True)
 
-    def fillFcFtForm(self):
+    def fillFcForm(self):
         if self.isoDoc:
+            # feature catalog properties
             self.ui.fc_nameText.setText(self.isoDoc.getFcName())
             self.ui.fc_scopeText.setPlainText(self.isoDoc.getFcScope())
             self.ui.fc_versionNbText.setText(self.isoDoc.getFcVersionNumber())
 
     def getParams(self):
         params = {}
-        params['fc_name'] = self.ui.fc_nameText.text
-        params['fc_scope'] = self.ui.fc_scopeText.toPlainText()
-        params['fc_versionNumber'] = self.ui.fc_versionNbText.text
-        params['ft_name'] = self.ui.ft_nameText.text
-        params['ft_definition'] = self.ui.ft_definitionText.toPlainText()
+        params['fc_name'] = unicode(self.ui.fc_nameText.text())
+        params['fc_scope'] = unicode(self.ui.fc_scopeText.toPlainText())
+        params['fc_versionNumber'] = unicode(self.ui.fc_versionNbText.text())
+        params['ft_name'] = unicode(self.ui.ft_nameText.text())
+        params['ft_definition'] = unicode(self.ui.ft_definitionText.toPlainText())
         params['fields'] = self.currentFields
         return params
 
-    def generateXML(self):
-        return self.isoDoc.toString()
-
     def saveXML(self):
-        pass
+        filePath = QFileDialog.getSaveFileName(self, \
+                "Save XML feature catalog file", "", "XML file (*.xml)")
+        
+        #FIXE ME: remove the following line
+        filePath = r"D:\sync\projets\EEA - QGIS Plugin\old_project\test.xml"
+        
+        if filePath and self.isoDoc:
+            self.isoDoc.save(filePath)
 

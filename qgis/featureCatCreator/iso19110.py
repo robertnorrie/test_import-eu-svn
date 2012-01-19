@@ -70,6 +70,9 @@ class iso19110Doc:
         
         # using etree
         self.etDoc = etree.fromstring(self.templateContent)
+        
+        # updating the date of the feature catalog
+        self.updateFcVersionDate()
     
     def checkTemplateValidity(self):
         templateDomDoc = QtXml.QDomDocument()
@@ -89,15 +92,24 @@ class iso19110Doc:
         pass
     
     def toString(self):
-        #return self.domDoc.toString(2)
-        return etree.tostring(self.etDoc)
+        return etree.tostring(self.etDoc, encoding="utf-8")
+
+    def save(self, filePath):
+        file = open(filePath, 'w')
+        file.write(etree.tostring(self.etDoc, encoding="utf-8"))
+        file.close()
 
     def updateWithParams(self, params):
         # update the feature catalogue name, scope and version number
+        self.setFcName(params["fc_name"])
+        self.setFcScope(params["fc_scope"])
+        self.setFcVersionNumber(params["fc_versionNumber"])
         
         # update the feature  type name and definition
+        self.setFtName(params["ft_name"])
+        self.setFtDefinition(params["ft_definition"])
         
-        # update the attributes
+        # update the fields/attributes
             
             # update the type, definition and cardinality of the attribute
             
@@ -114,7 +126,7 @@ class iso19110Doc:
         fcNames = self.etDoc.findall("./{%s}name/{%s}CharacterString" % (GFC_NS, GCO_NS))
         if len(fcNames) != 1:
             self.cleanFcName()
-            
+        
         fcNames[0].text = newName
 
     def cleanFcName(self):
@@ -169,5 +181,35 @@ class iso19110Doc:
         newDateNode.text = today.strftime(format)
         
     def cleanFcVersionDate(self):
+        pass
+
+
+    def getFtName(self):
+        ftName = self.etDoc.findall("./{%s}featureType/{%s}FC_FeatureType/{%s}typeName/{%s}LocalName" % (GFC_NS, GFC_NS, GFC_NS, GCO_NS))[0].text
+        return ftName
+
+    def setFtName(self, newName):
+        ftNames = self.etDoc.findall("./{%s}featureType/{%s}FC_FeatureType/{%s}typeName/{%s}LocalName" % (GFC_NS, GFC_NS, GFC_NS, GCO_NS))
+        if len(ftNames) != 1:
+            self.cleanFtName()
+            
+        ftNames[0].text = newName
+
+    def cleanFtName(self):
+        pass
+
+   
+    def getFtDefinition(self):
+        ftDefinition = self.etDoc.findall("./{%s}featureType/{%s}FC_FeatureType/{%s}definition/{%s}CharacterString" % (GFC_NS, GFC_NS, GFC_NS, GCO_NS))[0].text
+        return ftDefinition
+
+    def setFtDefinition(self, newScope):
+        ftDefinitions = self.etDoc.findall("./{%s}featureType/{%s}FC_FeatureType/{%s}definition/{%s}CharacterString" % (GFC_NS, GFC_NS, GFC_NS, GCO_NS))
+        if len(ftDefinitions) != 1:
+            self.cleanFtDefinition()
+            
+        ftDefinitions[0].text = newScope
+
+    def cleanFtDefinition(self):
         pass
 
