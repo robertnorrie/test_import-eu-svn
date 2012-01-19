@@ -177,6 +177,10 @@ class featureCatCreatorDialog(QDialog):
         self.currentFields = []
         self.ui.currentFieldBox.clear()
         if self.currentLayer:
+            # set nodata value from layer
+            value, ok = self.currentLayer.noDataValue()
+            if ok:
+                self.nodataValues = [str(value)]
             # band indexes are 1-based !
             for index in range(1, self.currentLayer.bandCount() + 1):
                 field = {
