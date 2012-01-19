@@ -20,19 +20,21 @@ def getTemplateContent(templatePath):
 
     # testing if the path is empty
     if templatePath.trimmed().isEmpty():
-        raise Exception, "The text field specifying the template path is empty."
+        raise ValueError, "The text field specifying the template path is empty."
         
     # testing if the path is a file system path
     if os.path.exists(templatePath):
-        return getTemplateContentFromFileSystemPath(templatePath)
+        return getTemplateContentFromFileSystemPath(str(templatePath))
     
-    # testing if the URL is valid
+    # try to retrieve the template from the web
     else:
         qUrl = QtCore.QUrl(templatePath)
+        print qUrl
+        print qUrl.isValid()
         if not qUrl.isValid():
-            raise Exception, "The path of the template is not a valid URL."
+            raise IOError, "The path of the template is not a valid URL."
         
-        return getTemplateContentFromUrl(templatePath)
+        return getTemplateContentFromUrl(str(templatePath))
     
     return None
 
@@ -40,7 +42,14 @@ def getTemplateContent(templatePath):
 def getTemplateContentFromUrl(templateUrl):
     # retrieving the content of the file
     import urllib2
-    return urllib2.urlopen(templateUrl).read()
+    templateContent = None
+    
+    try:
+        templateContent = urllib2.urlopen(templateUrl).read()
+    except urllib2.URLError, e:
+        raise IOError, "The path of the template is not a valid URL."
+    
+    return templateContent
 
     
 def getTemplateContentFromFileSystemPath(templateFileSystemPath):
@@ -78,7 +87,7 @@ class iso19110Doc:
         # check if the template is a valid XML document
         domParsingResult =  templateDomDoc.setContent(QtCore.QString(self.templateContent))
         if not domParsingResult[0]:
-            raise Exception, "The selected iso19110 template is not a valid XML document (%s at line %d and column %d)" % (domParsingResult[1], domParsingResult[2], domParsingResult[3])
+            raise IOError, "The selected iso19110 template is not a valid XML document (%s at line %d and column %d)" % (domParsingResult[1], domParsingResult[2], domParsingResult[3])
         
         # check the declaration of namespaces
         

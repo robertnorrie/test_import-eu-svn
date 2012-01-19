@@ -134,9 +134,10 @@ class featureCatCreatorDialog(QDialog):
                 isoDoc = iso19110.iso19110Doc(self.ui.templateText.text())
                 isoDoc.updateWithParams(self.getParams())
                 self.ui.xmlEditor.setPlainText(isoDoc.toString())
-            # FIXME : raise and catch only relevant exceptions
-            except Exception, e:
-                self.ui.xmlEditor.setText("Error generating XML: %s" % e.message)
+            except IOError, e:
+                self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
+            except ValueError, e:
+                self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
 
     def refreshButtonPushed(self):
         self.updateFieldList()
