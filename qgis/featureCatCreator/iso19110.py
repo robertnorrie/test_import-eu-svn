@@ -127,7 +127,10 @@ class iso19110Doc:
         if len(fcNames) != 1:
             self.cleanFcName()
         
-        fcNames[0].text = newName
+        if isinstance(newName, QtCore.QString):
+            fcNames[0].text = unicode(newName)
+        else:
+            fcNames[0].text = newName
 
     def cleanFcName(self):
         pass
@@ -142,7 +145,10 @@ class iso19110Doc:
         if len(fcScopes) != 1:
             self.cleanFcScope()
             
-        fcScopes[0].text = newScope
+        if isinstance(newScope, QtCore.QString):
+            fcScopes[0].text = unicode(newScope)
+        else:
+            fcScopes[0].text = newScope
 
     def cleanFcScope(self):
         pass
@@ -157,7 +163,10 @@ class iso19110Doc:
         if len(fcVersions) != 1:
             self.cleanFcVersionNumber()
             
-        fcVersions[0].text = newVersionNumber
+        if isinstance(newVersionNumber, QtCore.QString):
+            fcVersions[0].text = unicode(newVersionNumber)
+        else:
+            fcVersions[0].text = newVersionNumber
 
     def cleanFcVersionNumber(self):
         pass
@@ -193,7 +202,10 @@ class iso19110Doc:
         if len(ftNames) != 1:
             self.cleanFtName()
             
-        ftNames[0].text = newName
+        if isinstance(newName, QtCore.QString):
+            ftNames[0].text = unicode(newName)
+        else:
+            ftNames[0].text = newName
 
     def cleanFtName(self):
         pass
@@ -203,12 +215,15 @@ class iso19110Doc:
         ftDefinition = self.etDoc.findall("./{%s}featureType/{%s}FC_FeatureType/{%s}definition/{%s}CharacterString" % (GFC_NS, GFC_NS, GFC_NS, GCO_NS))[0].text
         return ftDefinition
 
-    def setFtDefinition(self, newScope):
+    def setFtDefinition(self, newDefinition):
         ftDefinitions = self.etDoc.findall("./{%s}featureType/{%s}FC_FeatureType/{%s}definition/{%s}CharacterString" % (GFC_NS, GFC_NS, GFC_NS, GCO_NS))
         if len(ftDefinitions) != 1:
             self.cleanFtDefinition()
             
-        ftDefinitions[0].text = newScope
+        if isinstance(newDefinition, QtCore.QString):
+            ftDefinitions[0].text = unicode(newDefinition)
+        else:
+            ftDefinitions[0].text = newDefinition
 
     def cleanFtDefinition(self):
         pass
