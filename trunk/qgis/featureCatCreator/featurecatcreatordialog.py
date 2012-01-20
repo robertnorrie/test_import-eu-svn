@@ -92,14 +92,14 @@ class featureCatCreatorDialog(QDialog):
         if connect:
             # when one of the field form element is finished editing, 
             # then save to internal field struct
-            self.connect(self.ui.f_typeText, SIGNAL('editingFinished()'), self.saveFieldComponent)
+            self.connect(self.ui.f_typeText, SIGNAL('editTextChanged ( const QString &)'), self.saveFieldComponent)
             self.connect(self.ui.f_definitionText, SIGNAL('textChanged()'), self.saveFieldComponent)
-            self.connect(self.ui.f_cardinalityText, SIGNAL('editingFinished()'), self.saveFieldComponent)
+            self.connect(self.ui.f_cardinalityText, SIGNAL('editTextChanged ( const QString &)'), self.saveFieldComponent)
             self.connect(self.ui.valuesTable, SIGNAL('cellChanged(int, int)'), self.saveFieldComponent)
         else:
-            self.disconnect(self.ui.f_typeText, SIGNAL('editingFinished()'), self.saveFieldComponent)
+            self.disconnect(self.ui.f_typeText, SIGNAL('editTextChanged ( const QString &)'), self.saveFieldComponent)
             self.disconnect(self.ui.f_definitionText, SIGNAL('textChanged()'), self.saveFieldComponent)
-            self.disconnect(self.ui.f_cardinalityText, SIGNAL('editingFinished()'), self.saveFieldComponent)
+            self.disconnect(self.ui.f_cardinalityText, SIGNAL('editTextChanged ( const QString &)'), self.saveFieldComponent)
             self.disconnect(self.ui.valuesTable, SIGNAL('cellChanged(int, int)'), self.saveFieldComponent)
 
     def updateTemplateFile(self):
@@ -226,8 +226,24 @@ class featureCatCreatorDialog(QDialog):
             # fill form elements
             self.ui.f_nameText.setText(self.currentFields[fieldIndex]['name'])
             self.ui.f_definitionText.setPlainText(self.currentFields[fieldIndex]['definition'])
-            self.ui.f_typeText.setText(self.currentFields[fieldIndex]['type'])
-            self.ui.f_cardinalityText.setText(self.currentFields[fieldIndex]['cardinality'])
+            typeIndex = self.ui.f_typeText.findText(\
+                    self.currentFields[fieldIndex]['type'], Qt.MatchFixedString)
+            if typeIndex == -1:
+                if self.currentFields[fieldIndex]['type'] != '':
+                    self.ui.f_typeText.insertItem(0, self.currentFields[fieldIndex]['type'])
+                    self.ui.f_typeText.setCurrentIndex(0)
+            else:
+                self.ui.f_typeText.setCurrentIndex(typeIndex)
+                
+            cardinalityIndex = self.ui.f_cardinalityText.findText(\
+                    self.currentFields[fieldIndex]['cardinality'], Qt.MatchFixedString)
+            if cardinalityIndex == -1:
+                if self.currentFields[fieldIndex]['cardinality'] != '':
+                    self.ui.f_cardinalityText.insertItem(0, self.currentFields[fieldIndex]['cardinality'])
+                    self.ui.f_cardinalityText.setCurrentIndex(0)
+            else:
+                self.ui.f_cardinalityText.setCurrentIndex(cardinalityIndex)
+                
             # reset values
             values = self.currentFields[fieldIndex]['values']
             self.ui.valuesTable.clearContents()
@@ -244,9 +260,9 @@ class featureCatCreatorDialog(QDialog):
         fieldIndex = self.ui.currentFieldBox.currentIndex()
         if fieldIndex != -1:
             currentField = self.currentFields[fieldIndex]
-            currentField['type'] = self.ui.f_typeText.text()
+            currentField['type'] = self.ui.f_typeText.currentText()
             currentField['definition'] = self.ui.f_definitionText.toPlainText()
-            currentField['cardinality'] = self.ui.f_cardinalityText.text()
+            currentField['cardinality'] = self.ui.f_cardinalityText.currentText()
             # save values from table to internal storage
             currentField['values'] = []
             for rownb in range(self.ui.valuesTable.rowCount()):
