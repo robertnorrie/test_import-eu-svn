@@ -166,7 +166,7 @@ class featureCatCreatorDialog(QDialog):
                         'name': column.name(),
                         'type': column.typeName(),
                         'definition': column.comment(),
-                        'cardinality': "",
+                        'cardinality': '0..1',
                         'values' : []
                         }
                 self.currentFields.append(field)
@@ -196,8 +196,8 @@ class featureCatCreatorDialog(QDialog):
                         'index': index,
                         'name': "%s" % self.currentLayer.bandName(index),
                         'type': "",
-                        'definition':"",
-                        'cardinality':'',
+                        'definition': "",
+                        'cardinality': '1..1',
                         'values' : []
                         }
                 self.currentFields.append(field)
