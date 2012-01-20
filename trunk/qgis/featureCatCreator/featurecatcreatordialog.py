@@ -372,21 +372,26 @@ class featureCatCreatorDialog(QDialog):
 
     def getParams(self):
         params = {}
-        params['fc_name'] = unicode(self.ui.fc_nameText.text())
-        params['fc_scope'] = unicode(self.ui.fc_scopeText.toPlainText())
-        params['fc_versionNumber'] = unicode(self.ui.fc_versionNbText.text())
-        params['ft_name'] = unicode(self.ui.ft_nameText.text())
-        params['ft_definition'] = unicode(self.ui.ft_definitionText.toPlainText())
+        params['fc_name'] = self.ui.fc_nameText.text()
+        params['fc_scope'] = self.ui.fc_scopeText.toPlainText()
+        params['fc_versionNumber'] = self.ui.fc_versionNbText.text()
+        params['ft_name'] = self.ui.ft_nameText.text()
+        params['ft_definition'] = self.ui.ft_definitionText.toPlainText()
         params['fields'] = self.currentFields
+        
+        #QMessageBox.warning(self, "Warning", str(params))
         return params
 
     def saveXML(self):
+        # Initialize the file path with the one used the last time
         filePath = QFileDialog.getSaveFileName(self, \
                 "Save XML feature catalog file", "", "XML file (*.xml)")
         
         #FIXE ME: remove the following line
         filePath = r"D:\sync\projets\EEA - QGIS Plugin\old_project\test.xml"
         
+        # Save the XML doc in a file if the isoDoc exists and if the user
+        # selected a valid path
         if filePath and self.isoDoc:
             self.isoDoc.save(filePath)
 
