@@ -7,6 +7,7 @@
 GFC_NS = "http://www.isotc211.org/2005/gfc"
 GCO_NS = "http://www.isotc211.org/2005/gco"
 GML_NS = "http://www.opengis.net/gml"
+GMD_NS = "http://www.isotc211.org/2005/gmd"
 XSI_NS = "http://www.w3.org/2001/XMLSchema-instance"
 
 from PyQt4 import QtXml # Used only to prettyfy the xml doc content
@@ -56,23 +57,20 @@ def getTemplateContent(templatePath):
         raise ValueError, "The path of the template is not a valid file system path nor a valid URL."
 
     
+def removeSubElements(etreeElement, subElementsTag, numberOfElementsToBeLeft):
+    subElements = etreeElement.findall(subElementsTag)
+    for subElement in subElements[numberOfElementsToBeLeft:]:
+        etreeElement.remove(subElement)
+
 class iso19110Doc:
     
     def __init__(self, templatePath):
-        
         templateContent = getTemplateContent(templatePath)
         self.templateContent = templateContent.decode('utf-8')
         self.checkTemplateValidity()
         
-        # using QtXml
-        self.domDoc = QtXml.QDomDocument()
-        self.domDoc.setContent(QtCore.QString(self.templateContent))
-        
-        # using etree
         self.etDoc = etree.fromstring(self.templateContent)
-        
-        # updating the date of the feature catalog
-        self.updateFcVersionDate()
+
     
     def checkTemplateValidity(self):
         templateDomDoc = QtXml.QDomDocument()
@@ -80,16 +78,21 @@ class iso19110Doc:
         # check if the template is a valid XML document
         domParsingResult =  templateDomDoc.setContent(QtCore.QString(self.templateContent))
         if not domParsingResult[0]:
-            raise IOError, "The selected iso19110 template is not a valid XML document (%s at line %d and column %d)" % (domParsingResult[1], domParsingResult[2], domParsingResult[3])
-        
-        # check the declaration of namespaces
+            raise ValueError, "The selected iso19110 template is not a valid XML document (%s at line %d and column %d)" % (domParsingResult[1], domParsingResult[2], domParsingResult[3])
         
         # check the presence and cardinality of required elements
         # gfc:FC_FeatureCatalogue
+        etDoc = etree.fromstring(self.templateContent)
+        if etDoc.tag != "{%s}FC_FeatureCatalogue" % GFC_NS:
+            raise ValueError, "The selected iso19110 template is not a valid: the root element name is not %s:FC_FeatureCatalogue" % GFC_NS
         
-        # gfc:FC_FeatureCatalogue/gfc:producer
-        
-        pass
+        # gfc:producer
+        producers = etDoc.findall("./{%s}producer/{%s}CI_ResponsibleParty" % (GFC_NS, GMD_NS))
+        if len(producers) == 0:
+            raise ValueError, "The selected iso19110 template is not a valid: it does not contain an {%s}producer/{%s}CI_ResponsibleParty element" % (GFC_NS, GMD_NS)
+        elif len(producers) > 1:
+            raise ValueError, "The selected iso19110 template is not a valid: it contains more than one {%s}producer/{%s}CI_ResponsibleParty element" % (GFC_NS, GMD_NS)
+
     
     def toString(self):
         docContent = etree.tostring(self.etDoc, encoding="utf-8")
@@ -112,7 +115,13 @@ class iso19110Doc:
         self.setFcScope(params["fc_scope"])
         self.setFcVersionNumber(params["fc_versionNumber"])
         
-        # update the feature  type name and definition
+        # updating the date of the feature catalog
+        self.updateFcVersionDate()
+        
+        # clean the feature type
+        self.cleanFt()
+        
+        # update the feature type name and definition
         self.setFtName(params["ft_name"])
         self.setFtDefinition(params["ft_definition"])
         
@@ -122,11 +131,6 @@ class iso19110Doc:
         # update the fields/attributes
         for field in params["fields"]:
             self.updateField(field)
-            # update the type, definition and cardinality of the attribute
-            
-            # update the listed values of the attribute
-        
-        pass
 
 
     def getFcName(self):
@@ -138,13 +142,27 @@ class iso19110Doc:
         if len(fcNames) != 1:
             self.cleanFcName()
         
+        fcName = self.etDoc.find("./{%s}name/{%s}CharacterString" % (GFC_NS, GCO_NS))
         if isinstance(newName, QtCore.QString):
-            fcNames[0].text = unicode(newName)
+            fcName.text = unicode(newName)
         else:
-            fcNames[0].text = newName
+            fcName.text = newName
 
     def cleanFcName(self):
-        pass
+        fcNames = self.etDoc.findall("./{%s}name" % (GFC_NS))
+        if len(fcNames) > 1:
+            removeSubElements(self.etDoc, "{%s}name" % (GFC_NS), 1)
+        if len(fcNames) == 0:
+            nm = etree.Element("{%s}name" % (GFC_NS))
+            nmcs = etree.SubElement(nm, "{%s}CharacterString" % (GCO_NS))
+            self.etDoc.insert(0, nm)
+        
+        fcName = self.etDoc.find("./{%s}name" % (GFC_NS))
+        fcNameCss = fcName.findall("./{%s}CharacterString" % (GCO_NS))
+        if len(fcNameCss) > 1:
+            removeSubElements(fcName, "{%s}CharacterString" % (GCO_NS), 1)
+        if len(fcNameCss) == 0:
+            etree.SubElement(fcName, "{%s}CharacterString" % (GCO_NS))
 
    
     def getFcScope(self):
@@ -156,13 +174,27 @@ class iso19110Doc:
         if len(fcScopes) != 1:
             self.cleanFcScope()
             
+        fcScope = self.etDoc.find("./{%s}scope/{%s}CharacterString" % (GFC_NS, GCO_NS))
         if isinstance(newScope, QtCore.QString):
-            fcScopes[0].text = unicode(newScope)
+            fcScope.text = unicode(newScope)
         else:
-            fcScopes[0].text = newScope
+            fcScope.text = newScope
 
     def cleanFcScope(self):
-        pass
+        fcScopes = self.etDoc.findall("./{%s}scope" % (GFC_NS))
+        if len(fcScopes) > 1:
+            removeSubElements(self.etDoc, "{%s}scope" % (GFC_NS), 1)
+        if len(fcScopes) == 0:
+            sc = etree.Element("{%s}scope" % (GFC_NS))
+            sccs = etree.SubElement(sc, "{%s}CharacterString" % (GCO_NS))
+            self.etDoc.insert(1, sc)
+        
+        fcScope = self.etDoc.find("./{%s}scope" % (GFC_NS))
+        fcScopeCss = fcScope.findall("./{%s}CharacterString" % (GCO_NS))
+        if len(fcScopeCss) > 1:
+            removeSubElements(fcScope, "{%s}CharacterString" % (GCO_NS), 1)
+        if len(fcScopeCss) == 0:
+            etree.SubElement(fcScope, "{%s}CharacterString" % (GCO_NS))
 
 
     def getFcVersionNumber(self):
@@ -174,13 +206,27 @@ class iso19110Doc:
         if len(fcVersions) != 1:
             self.cleanFcVersionNumber()
             
+        fcVersion = self.etDoc.find("./{%s}versionNumber/{%s}CharacterString" % (GFC_NS, GCO_NS))
         if isinstance(newVersionNumber, QtCore.QString):
-            fcVersions[0].text = unicode(newVersionNumber)
+            fcVersion.text = unicode(newVersionNumber)
         else:
-            fcVersions[0].text = newVersionNumber
+            fcVersion.text = newVersionNumber
 
     def cleanFcVersionNumber(self):
-        pass
+        fcVersions = self.etDoc.findall("./{%s}versionNumber" % (GFC_NS))
+        if len(fcVersions) > 1:
+            removeSubElements(self.etDoc, "{%s}versionNumber" % (GFC_NS), 1)
+        if len(fcVersions) == 0:
+            vn = etree.Element("{%s}versionNumber" % (GFC_NS))
+            vncs = etree.SubElement(vn, "{%s}CharacterString" % (GCO_NS))
+            self.etDoc.insert(2, vn)
+        
+        fcVersion = self.etDoc.find("./{%s}versionNumber" % (GFC_NS))
+        fcVersionCss = fcVersion.findall("./{%s}CharacterString" % (GCO_NS))
+        if len(fcVersionCss) > 1:
+            removeSubElements(fcVersion, "{%s}CharacterString" % (GCO_NS), 1)
+        if len(fcVersionCss) == 0:
+            etree.SubElement(fcVersion, "{%s}CharacterString" % (GCO_NS))
 
 
     def updateFcVersionDate(self):
@@ -189,19 +235,33 @@ class iso19110Doc:
             self.cleanFcVersionDate()
         
         # remove all child elements
-        dateValues = fcDates[0].getchildren()
+        fcDate = self.etDoc.find("./{%s}versionDate" % (GFC_NS))
+        dateValues = fcDate.getchildren()
         for dateValue in dateValues:
-            fcDates[0].remove(dateValue)
+            fcDate.remove(dateValue)
             
         # set the new value
         import datetime
         today = datetime.date.today()
         format = "%Y-%m-%d"        
-        newDateNode = etree.SubElement(fcDates[0], "{%s}%s" % (GCO_NS, "Date"))
+        newDateNode = etree.SubElement(fcDate, "{%s}%s" % (GCO_NS, "Date"))
         newDateNode.text = today.strftime(format)
         
     def cleanFcVersionDate(self):
-        pass
+        fcDates = self.etDoc.findall("./{%s}versionDate" % (GFC_NS))
+        if len(fcDates) > 1:
+            removeSubElements(self.etDoc, "{%s}versionDate" % (GFC_NS), 1)
+        if len(fcDates) == 0:
+            vd = etree.Element("{%s}versionDate" % (GFC_NS))
+            vddt= etree.SubElement(vd, "{%s}Date" % (GCO_NS))
+            self.etDoc.insert(3, vd)
+        
+        fcDate = self.etDoc.find("./{%s}versionDate" % (GFC_NS))
+        fcDateCss = fcDate.findall("./{%s}Date" % (GCO_NS))
+        if len(fcDateCss) > 1:
+            removeSubElements(fcDate, "{%s}Date" % (GCO_NS), 1)
+        if len(fcDateCss) == 0:
+            etree.SubElement(fcDate, "{%s}Date" % (GCO_NS))
 
 
     def getFtName(self):
@@ -213,13 +273,28 @@ class iso19110Doc:
         if len(ftNames) != 1:
             self.cleanFtName()
             
+        ftName = self.etDoc.find("./{%s}featureType/{%s}FC_FeatureType/{%s}typeName/{%s}LocalName" % (GFC_NS, GFC_NS, GFC_NS, GCO_NS))
         if isinstance(newName, QtCore.QString):
-            ftNames[0].text = unicode(newName)
+            ftName.text = unicode(newName)
         else:
-            ftNames[0].text = newName
+            ftName.text = newName
 
     def cleanFtName(self):
-        pass
+        ftft = self.etDoc.find("./{%s}featureType/{%s}FC_FeatureType" % (GFC_NS, GFC_NS))
+        ftfttns = ftft.findall("./{%s}typeName" % (GFC_NS))
+        if len(ftfttns) > 1:
+            removeSubElements(ftft, "{%s}typeName" % (GFC_NS), 1)
+        if len(ftfttns) == 0:
+            ftfttn = etree.Element("{%s}typeName" % (GFC_NS))
+            ftfttnln = etree.SubElement(ftfttn, "{%s}LocalName" % (GCO_NS))
+            ftft.insert(0, ftfttn)
+        
+        ftfttn = ftft.find("./{%s}typeName" % (GFC_NS))
+        ftfttnlns = ftfttn.findall("./{%s}LocalName" % (GCO_NS))
+        if len(ftfttnlns) > 1:
+            removeSubElements(ftfttn, "{%s}LocalName" % (GCO_NS), 1)
+        if len(ftfttnlns) == 0:
+            etree.SubElement(ftfttn, "{%s}LocalName" % (GCO_NS))
 
    
     def getFtDefinition(self):
@@ -231,43 +306,91 @@ class iso19110Doc:
         if len(ftDefinitions) != 1:
             self.cleanFtDefinition()
             
+        ftDefinition = self.etDoc.find("./{%s}featureType/{%s}FC_FeatureType/{%s}definition/{%s}CharacterString" % (GFC_NS, GFC_NS, GFC_NS, GCO_NS))
         if isinstance(newDefinition, QtCore.QString):
-            ftDefinitions[0].text = unicode(newDefinition)
+            ftDefinition.text = unicode(newDefinition)
         else:
-            ftDefinitions[0].text = newDefinition
+            ftDefinition.text = newDefinition
 
     def cleanFtDefinition(self):
-        pass
+        ftft = self.etDoc.find("./{%s}featureType/{%s}FC_FeatureType" % (GFC_NS, GFC_NS))
+        ftftdfs = ftft.findall("./{%s}definition" % (GFC_NS))
+        if len(ftftdfs) > 1:
+            removeSubElements(ftft, "{%s}definition" % (GFC_NS), 1)
+        if len(ftftdfs) == 0:
+            ftftdf = etree.Element("{%s}definition" % (GFC_NS))
+            ftftdfcs = etree.SubElement(ftftdf, "{%s}CharacterString" % (GCO_NS))
+            ftft.insert(1, ftftdf)
+        
+        ftftdf = ftft.find("./{%s}definition" % (GFC_NS))
+        ftftdfcss = ftftdf.findall("./{%s}CharacterString" % (GCO_NS))
+        if len(ftftdfcss) > 1:
+            removeSubElements(ftftdf, "{%s}CharacterString" % (GCO_NS), 1)
+        if len(ftftdfcss) == 0:
+            etree.SubElement(ftftdf, "{%s}CharacterString" % (GCO_NS))
+
+    def cleanFtIsAbstract(self):
+        ftft = self.etDoc.find("./{%s}featureType/{%s}FC_FeatureType" % (GFC_NS, GFC_NS))
+        ftftias = ftft.findall("./{%s}isAbstract" % (GFC_NS))
+        if len(ftftias) > 1:
+            removeSubElements(ftft, "{%s}isAbstract" % (GFC_NS), 1)
+        if len(ftftias) == 0:
+            ftftia = etree.Element("{%s}isAbstract" % (GFC_NS))
+            ftftiabo = etree.SubElement(ftftia, "{%s}Boolean" % (GCO_NS))
+            ftft.insert(2, ftftia)
+        
+        ftftia = ftft.find("./{%s}isAbstract" % (GFC_NS))
+        ftftiabos = ftftia.findall("./{%s}Boolean" % (GCO_NS))
+        if len(ftftiabos) > 1:
+            removeSubElements(ftftia, "{%s}Boolean" % (GCO_NS), 1)
+        if len(ftftiabos) == 0:
+            ftftiabo = etree.SubElement(ftftia, "{%s}Boolean" % (GCO_NS))
+            ftftiabo.text = "false"
 
 
     def cleanFt(self):
-        # Remove extra typeName
-        # Remove extra definition
-        # Remove extra isAbstract
+        fts = self.etDoc.findall("./{%s}featureType" % (GFC_NS))
+        if len(fts) > 1:
+            removeSubElements(self.etDoc, "{%s}featureType" % (GFC_NS), 1)
+        if len(fts) == 0:
+            ft = etree.Element("{%s}featureType" % (GFC_NS))
+            self.etDoc.insert(len(self.etDoc.getchildren()), ft)
+        
+        ft = self.etDoc.find("./{%s}featureType" % (GFC_NS))
+        ftfts = ft.findall("./{%s}FC_FeatureType" % (GFC_NS))
+        if len(ftfts) > 1:
+            removeSubElements(ft, "{%s}FC_FeatureType" % (GFC_NS), 1)
+        if len(ftfts) == 0:
+            etree.SubElement(ft, "{%s}FC_FeatureType" % (GFC_NS))
+        
+        # Clean typeName, definition and isAbstract
+        self.cleanFtName()
+        self.cleanFtDefinition()
+        self.cleanFtIsAbstract()
 
-        # For each carrierOfCharacteristics
-        
-            # Remove extra FC_FeatureAttribute
+        # For each carrierOfCharacteristics remove extra FC_FeatureAttribute
+        cocs = ft.findall("./{%s}FC_FeatureType/{%s}carrierOfCharacteristics" % (GFC_NS, GFC_NS))
+        for coc in cocs:
+            removeSubElements(coc, "{%s}FC_FeatureAttribute" % (GFC_NS), 1)
             
-        # For each FC_FeatureAttribute
-        
-            # Remove extra memberName
-            # Remove extra definition
-            # Remove extra cardinality
-            # Remove extra valueType
-        pass
+        # For each FC_FeatureAttribute remove extra elements
+        fas = ft.findall("./{%s}FC_FeatureType/{%s}carrierOfCharacteristics/{%s}FC_FeatureAttribute" % (GFC_NS, GFC_NS, GFC_NS))
+        for fa in fas:
+            removeSubElements(fa, "{%s}memberName" % (GFC_NS), 1)
+            removeSubElements(fa, "{%s}definition" % (GFC_NS), 1)
+            removeSubElements(fa, "{%s}cardinality" % (GFC_NS), 1)
+            removeSubElements(fa, "{%s}valueMeasurementUnit" % (GFC_NS), 1)
+            removeSubElements(fa, "{%s}valueType" % (GFC_NS), 1)
 
     def removeExtraFields(self, paramFields):
         # List of the field names in the paramField parameter
         fieldNamesInParams = [unicode(f["name"]) for f in paramFields]
         
         # Get the feature type element
-        etreeFeatureTypes = self.etDoc.findall("./{%s}featureType/{%s}FC_FeatureType" % (GFC_NS, GFC_NS))
-        if len(etreeFeatureTypes) > 0:
-            featureTypeElement = etreeFeatureTypes[0]
-            
+        etreeFeatureType = self.etDoc.find("./{%s}featureType/{%s}FC_FeatureType" % (GFC_NS, GFC_NS))
+        if etreeFeatureType != None:
             # Loop over the carrierOfCharacteristics elements
-            etreeCarrierOfCharacteristics = featureTypeElement.findall("./{%s}carrierOfCharacteristics" % (GFC_NS))
+            etreeCarrierOfCharacteristics = etreeFeatureType.findall("./{%s}carrierOfCharacteristics" % (GFC_NS))
             for etreeCoC in etreeCarrierOfCharacteristics:
                 
                 # Get the field name
@@ -275,7 +398,7 @@ class iso19110Doc:
 
                 # Removal of the carrierOfCharacteristics element if its name is not in the names of the paramFields parameter
                 if len(fieldNamesElements) == 0 or fieldNamesElements[0].text not in fieldNamesInParams:
-                    featureTypeElement.remove(etreeCoC)
+                    etreeFeatureType.remove(etreeCoC)
 
 
     def updateField(self, paramField):
