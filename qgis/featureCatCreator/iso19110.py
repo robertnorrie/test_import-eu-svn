@@ -9,12 +9,13 @@ GCO_NS = "http://www.isotc211.org/2005/gco"
 GML_NS = "http://www.opengis.net/gml"
 XSI_NS = "http://www.w3.org/2001/XMLSchema-instance"
 
-from PyQt4 import QtXml
+from PyQt4 import QtXml # Used only to prettyfy the xml doc content
 from PyQt4 import QtCore
 
 import os.path
 import urllib2
 import xml.etree.ElementTree as etree
+import codecs
 
 
 def getTemplateContent(templatePath):
@@ -91,11 +92,18 @@ class iso19110Doc:
         pass
     
     def toString(self):
-        return etree.tostring(self.etDoc, encoding="utf-8")
+        docContent = etree.tostring(self.etDoc, encoding="utf-8")
+        
+        # Prettyfy the xml doc content
+        qDomDoc = QtXml.QDomDocument()
+        qDomDoc.setContent(QtCore.QString(docContent.decode('utf-8')))
+        docContent = unicode(qDomDoc.toString(2))
+        
+        return docContent
 
     def save(self, filePath):
-        file = open(filePath, 'w')
-        file.write(etree.tostring(self.etDoc, encoding="utf-8"))
+        file = codecs.open(filePath, 'w', "utf-8")
+        file.write(self.toString())
         file.close()
 
     def updateWithParams(self, params):
@@ -279,10 +287,11 @@ class iso19110Doc:
 
         # Update definition
         element = fieldElement.find("./{%s}FC_FeatureAttribute/{%s}definition/{%s}CharacterString" % (GFC_NS, GFC_NS, GCO_NS))
-        if element: element.text = unicode(paramField["definition"])
+        if element != None: element.text = unicode(paramField["definition"])
 
         # Update cardinality
-        lower = "1"
+        # default values
+        lower = "0"
         upper = "1"
         
         cardValues = unicode(paramField["cardinality"]).split("..")
@@ -307,9 +316,11 @@ class iso19110Doc:
             if upper == "1":
                 upperElement.text = "1"
                 upperElement.attrib["isInfinite"] = "false"
+                upperElement.attrib["{%s}nil" % XSI_NS] = "false"
             else:
                 upperElement.text = ""
                 upperElement.attrib["isInfinite"] = "true"
+                upperElement.attrib["{%s}nil" % XSI_NS] = "true"
 
         # Update listed values
         # Remove all listed values
@@ -335,7 +346,7 @@ class iso19110Doc:
         
         # Update value type
         element = fieldElement.find("./{%s}FC_FeatureAttribute/{%s}valueType/{%s}TypeName/{%s}aName/{%s}CharacterString" % (GFC_NS, GFC_NS, GCO_NS, GCO_NS, GCO_NS))
-        if element: element.text = unicode(paramField["type"])
+        if element!= None: element.text = unicode(paramField["type"])
 
 
     def getFieldElement(self, fieldName, createEmptyField = False):
@@ -394,4 +405,3 @@ class iso19110Doc:
         cocfavttnancs = etree.SubElement(cocfavttnan, "{%s}CharacterString" % (GCO_NS))
     
         return coc
-
