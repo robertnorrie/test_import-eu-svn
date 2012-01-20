@@ -141,8 +141,7 @@ class featureCatCreatorDialog(QDialog):
             try:
                 self.isoDoc = iso19110.iso19110Doc(self.ui.templateText.text())
                 self.isoDoc.updateWithParams(self.getParams())
-                self.ui.xmlEditor.setPlainText(self.isoDoc.toString().decode('utf-8'))
-
+                self.ui.xmlEditor.setPlainText(self.isoDoc.toString())
             except IOError, e:
                 self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
             except ValueError, e:
@@ -394,8 +393,6 @@ class featureCatCreatorDialog(QDialog):
         params['ft_name'] = self.ui.ft_nameText.text()
         params['ft_definition'] = self.ui.ft_definitionText.toPlainText()
         params['fields'] = self.currentFields
-        
-        QMessageBox.warning(self, "Warning", str(params))
         return params
 
     def saveXML(self):
