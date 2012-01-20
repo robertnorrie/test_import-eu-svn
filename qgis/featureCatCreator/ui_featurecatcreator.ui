@@ -17,7 +17,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <property name="documentMode">
       <bool>true</bool>
@@ -249,6 +249,19 @@
          <property name="fieldGrowthPolicy">
           <enum>QFormLayout::ExpandingFieldsGrow</enum>
          </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Field</string>
+           </property>
+          </widget>
+         </item>
          <item row="1" column="0">
           <widget class="QLabel" name="f_nameLabel">
            <property name="text">
@@ -269,9 +282,6 @@
             <string>Type</string>
            </property>
           </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLineEdit" name="f_typeText"/>
          </item>
          <item row="3" column="0">
           <widget class="QLabel" name="f_definitionLabel">
@@ -297,20 +307,121 @@
            </property>
           </widget>
          </item>
-         <item row="4" column="1">
-          <widget class="QLineEdit" name="f_cardinalityText"/>
+         <item row="2" column="1">
+          <widget class="QComboBox" name="f_typeText">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+           <property name="currentIndex">
+            <number>-1</number>
+           </property>
+           <property name="maxVisibleItems">
+            <number>30</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>BOOLEAN</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>BYTE</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>CHARACTER</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>DATE</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>DATETIME</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>DOUBLE</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>FLOAT</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>INTEGER</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>NUMERIC</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>REAL</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>SERIAL</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>VARCHAR</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>TEXT</string>
+            </property>
+           </item>
+          </widget>
          </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
+         <item row="4" column="1">
+          <widget class="QComboBox" name="f_cardinalityText">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
-           <property name="text">
-            <string>Field</string>
+           <property name="editable">
+            <bool>true</bool>
            </property>
+           <item>
+            <property name="text">
+             <string>0..1</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>1..1</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>0..n</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>1..n</string>
+            </property>
+           </item>
           </widget>
          </item>
         </layout>
@@ -474,6 +585,34 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>dataSourceBox</tabstop>
+  <tabstop>templateText</tabstop>
+  <tabstop>browseTemplateButton</tabstop>
+  <tabstop>fc_nameText</tabstop>
+  <tabstop>fc_scopeText</tabstop>
+  <tabstop>fc_versionNbText</tabstop>
+  <tabstop>ft_nameText</tabstop>
+  <tabstop>ft_definitionText</tabstop>
+  <tabstop>currentFieldBox</tabstop>
+  <tabstop>refreshButton</tabstop>
+  <tabstop>classification</tabstop>
+  <tabstop>f_nameText</tabstop>
+  <tabstop>f_typeText</tabstop>
+  <tabstop>f_definitionText</tabstop>
+  <tabstop>f_cardinalityText</tabstop>
+  <tabstop>rowNb</tabstop>
+  <tabstop>requiredValuesNb</tabstop>
+  <tabstop>nodataButton</tabstop>
+  <tabstop>analyzeButton</tabstop>
+  <tabstop>valuesTable</tabstop>
+  <tabstop>newValueButton</tabstop>
+  <tabstop>deleteValueButton</tabstop>
+  <tabstop>attributeTableButton</tabstop>
+  <tabstop>xmlEditor</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
  <resources>
   <include location="resources.qrc"/>
  </resources>
@@ -485,8 +624,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>252</x>
+     <y>550</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -501,8 +640,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
+     <x>320</x>
+     <y>550</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
