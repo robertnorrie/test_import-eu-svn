@@ -395,7 +395,7 @@ class featureCatCreatorDialog(QDialog):
         params['ft_definition'] = self.ui.ft_definitionText.toPlainText()
         params['fields'] = self.currentFields
         
-        #QMessageBox.warning(self, "Warning", str(params))
+        QMessageBox.warning(self, "Warning", str(params))
         return params
 
     def saveXML(self):
