@@ -22,6 +22,11 @@
  */
 Ext.namespace('GeoNetwork');
 
+
+GeoNetwork.lang.en["webdavLink"] = "WebDAV (Web-based Distributed Authoring and Versioning) link";
+GeoNetwork.lang.en["cifsLink"] = "CIFS (Common Internet File System) link";
+GeoNetwork.lang.en["ftpsLink"] = "FTPS link";
+
 /** api: (define)
  *  module = GeoNetwork
  *  class = Templates
@@ -219,14 +224,14 @@ EEA.Templates.FULL = new Ext.XTemplate(
 //                                '<a href="' + EEA.MAPVIEWER_URL + '{uuid}" class="md-mn addLayer" title="' + OpenLayers.i18n('addToMap') + ' {title}" alt="EEA link" target="_blank">&nbsp;</a>',
 //                            '</tpl>',
                             '<tpl if="values.type == \'EEA:FILEPATH\' || values.type == \'EEA:FOLDERPATH\'">',
-                            	'<a href="' + EEA.WEBDAV_URL + '{href}" class="md-mn md-mn-download" target="_blank" title="' + OpenLayers.i18n('webdavLink') + ' {title}" alt="EEA webdav link" target="_blank">&nbsp;</a>',
+                            	'<a href="' + EEA.WEBDAV_URL + '{href}" class="md-mn md-mn-download with-tooltip" target="_blank" title="' + OpenLayers.i18n('webdavLink') + ' {title}" alt="EEA webdav link" target="_blank">&nbsp;</a>',
 	                        '</tpl>',
 	                        '<tpl if="values.type == \'EEA:FILEPATH\' || values.type == \'EEA:FOLDERPATH\'">',
 		                    // replace / by \ TODO
-	                        '<a href="' + EEA.CIFS_URL + '{href}" class="md-mn md-mn-zip" target="_blank" title="' + OpenLayers.i18n('cifsLink') + ' {title}" alt="EEA cifs link" target="_blank">&nbsp;</a>',
+	                        '<a href="' + EEA.CIFS_URL + '{href}" class="md-mn md-mn-zip with-tooltip" target="_blank" title="' + OpenLayers.i18n('cifsLink') + ' {title}" alt="EEA cifs link" target="_blank">&nbsp;</a>',
 		                    '</tpl>',
 		                    '<tpl if="values.type == \'EEA:FILEPATH\' || values.type == \'EEA:FOLDERPATH\'">',
-                                '<a href="' + EEA.FTPS_URL + '{href}" class="md-mn md-mn-ftps" target="_blank" title="' + OpenLayers.i18n('ftpsLink') + ' {title}" alt="EEA ftps link" target="_blank">&nbsp;</a>',
+                                '<a href="' + EEA.FTPS_URL + '{href}" class="md-mn md-mn-ftps with-tooltip" target="_blank" title="' + OpenLayers.i18n('ftpsLink') + ' {title}" alt="EEA ftps link" target="_blank">&nbsp;</a>',
                             '</tpl>',
                             // FIXME : no else ops, how to display other links ?
                         //'|<a href="#" onclick="app.getIMap().addWMSLayer([[\'{title}\', \'{href}\', \'{name}\', \'{id}\']]);">{type}</a>',

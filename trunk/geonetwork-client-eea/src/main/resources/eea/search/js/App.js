@@ -812,7 +812,7 @@ GeoNetwork.app = function () {
             // to easy copy/paste the links. The tooltip
             // is composed of an hyperlink to trigger open in new
             // window and an input text to easily copy/paste the link.
-            var links = Ext.query('div.md-links > a', Ext.get('resultsPanel').dom.body);// TODO restrict to results panel only, resultPanel.dom.body);
+            var links = Ext.query('div.md-links > a.with-tooltip', Ext.get('resultsPanel').dom);// TODO restrict to results panel only, resultPanel.dom.body);
             Ext.each(links, function(item) {
                 var el = Ext.get(item);
                 var href = el.getAttribute('href')
@@ -833,8 +833,21 @@ GeoNetwork.app = function () {
                                 //autoHide: false,
                                 dismissDelay: 3000,
                                 hideDelay: 4000,
-                                html: '<a target="_blank" href="' + href + '">Open in new window</a> or copy link below<br/>' +
-                                    '<input type="text" value="' + href + '" size="36"/>'
+                                html: '<span><a target="_blank" href="' + href + '">Open in new window</a> or copy link below<br/>' +
+                                    '<input type="text" value="' + href + '" size="32"/></span>',
+                                listeners: {
+                                    show: function() {
+                                        // When tooltip is displayed
+                                        // select the text and focus in order to
+                                        // quickly copy the link
+                                        var input = Ext.query('input', Ext.get(href).dom);
+                                        if (input && input.length===1) {
+                                            input[0].focus();
+                                            input[0].select();
+                                        }
+                                    },
+                                    scope: this
+                                }
                             });
                         item.setAttribute('title', '');
                         t.setVisible(true);
