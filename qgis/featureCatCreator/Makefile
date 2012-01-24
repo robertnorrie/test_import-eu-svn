@@ -57,6 +57,7 @@ deploy: compile
 	cp -vf $(RESOURCE_FILES) $(HOME)/.qgis/python/plugins/$(PLUGINNAME)
 	cp -vf $(EXTRAS) $(HOME)/.qgis/python/plugins/$(PLUGINNAME)
 	cp -vfr $(HELP_FILES) $(HOME)/.qgis/python/plugins/$(PLUGINNAME)
+	find $(HOME)/.qgis/python/plugins/$(PLUGINNAME) -type d -iname ".svn" -prune -exec rm -fr {} \;
 
 # Create a zip package of the plugin named $(PLUGINNAME).zip. 
 # This requires use of git (your plugin development directory must be a 
