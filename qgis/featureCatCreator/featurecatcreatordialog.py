@@ -32,6 +32,9 @@ import iso19110
 class featureCatCreatorDialog(QDialog):
     def __init__(self, iface):
         QDialog.__init__(self)
+        # get paths
+        self.user_plugin_dir = QFileInfo(QgsApplication.qgisUserDbFilePath()).path() + "/python/plugins"
+        self.plugin_dir = self.user_plugin_dir + "/featurecatcreator"
         # keep qgis interface reference
         self.iface = iface
         self.currentLayer = None
@@ -46,6 +49,9 @@ class featureCatCreatorDialog(QDialog):
 
         # default is first tab
         self.ui.tabWidget.setCurrentIndex(0)
+
+        # load documentation
+        self.ui.helpContent.setUrl(QUrl(self.plugin_dir + "/help/featurecatcreator_help.html"))
 
         # update data source combobox content
         self.updateDatasourceBox()
