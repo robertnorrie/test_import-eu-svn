@@ -29,6 +29,8 @@ UI_FILES = ui_featurecatcreator.py
 
 RESOURCE_FILES = resources_rc.py
 
+HELP_FILES = help
+
 default: compile
 
 compile: $(UI_FILES) $(RESOURCE_FILES)
@@ -48,6 +50,7 @@ deploy: compile
 	cp -vf $(UI_FILES) $(HOME)/.qgis/python/plugins/$(PLUGINNAME)
 	cp -vf $(RESOURCE_FILES) $(HOME)/.qgis/python/plugins/$(PLUGINNAME)
 	cp -vf $(EXTRAS) $(HOME)/.qgis/python/plugins/$(PLUGINNAME)
+	cp -vfr $(HELP_FILES) $(HOME)/.qgis/python/plugins/$(PLUGINNAME)
 
 # Create a zip package of the plugin named $(PLUGINNAME).zip. 
 # This requires use of git (your plugin development directory must be a 
