@@ -46,6 +46,7 @@ class featureCatCreatorDialog(QDialog):
         self.currentLayer = None
         self.currentFields = []
         self.nodataValues = []
+        self.savedState = False
         # reference to the iso19110Doc instance
         self.isoDoc = None
 
@@ -69,7 +70,7 @@ class featureCatCreatorDialog(QDialog):
 
     def connectSignals(self):
         # connect save button to file save dialog
-        self.connect(self.ui.buttonBox, SIGNAL('accepted()'), self.saveXML)        
+        self.connect(self.ui.buttonBox, SIGNAL('clicked(QAbstractButton *)'), self.bboxClicked)        
         # connect browse button to file search dialog
         self.connect(self.ui.browseTemplateButton, SIGNAL('clicked()'), self.updateTemplateFile)
         # connect analyze button to the analysis
@@ -154,6 +155,7 @@ class featureCatCreatorDialog(QDialog):
                 self.isoDoc = iso19110.iso19110Doc(self.ui.templateText.text())
                 self.isoDoc.updateWithParams(self.getParams())
                 self.ui.xmlEditor.setPlainText(self.isoDoc.toString())
+                self.savedState = False
             except IOError, e:
                 self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
             except ValueError, e:
@@ -419,4 +421,20 @@ class featureCatCreatorDialog(QDialog):
         # selected a valid path
         if filePath and self.isoDoc:
             self.isoDoc.save(filePath)
+            self.savedState = True
 
+
+    def bboxClicked(self, button):
+        # check which button was clicked
+        if self.ui.buttonBox.standardButton(button) == QDialogButtonBox.Save:
+            self.saveXML()
+        elif self.ui.buttonBox.standardButton(button) == QDialogButtonBox.Close:
+            if self.savedState is False:
+                res = QMessageBox.warning(self, "Feature Catalog Creator",
+                        "The document has been modified.\nDo you really want to close ?",
+                        QMessageBox.Cancel | QMessageBox.Ok,
+                        QMessageBox.Cancel)
+                if res == QMessageBox.Ok:
+                    self.close()
+            else:
+                self.close()
