@@ -1,13 +1,19 @@
 #/***************************************************************************
 # featureCatCreator
-# 
-#   Generates, for a selected datasource, a feature catalogue metadata record in XML format compliant with ISO19110 standard.
+#                                 A QGIS plugin
+#    Generates, for a selected datasource, a feature catalogue metadata
+#    record in XML format compliant with ISO19110 standard.
+#    This project has been funded by the EEA (European Environment Agency) :
+#    http://www.eea.europa.eu
+#    The project has been developped by Neogeo and Oslandia :
+#    http://www.neogeo-online.net/
+#    http://www.oslandia.com
 #                             -------------------
 #        begin                : 2012-01-17
-#        copyright            : (C) 2012 by Vincent Picavet (Oslandia) for EEA
+#        copyright            : (C) 2012 Neogeo & Oslandia, funded by EEA
 #        email                : vincent.picavet@oslandia.com
 # ***************************************************************************/
-# 
+#
 #/***************************************************************************
 # *                                                                         *
 # *   This program is free software; you can redistribute it and/or modify  *
