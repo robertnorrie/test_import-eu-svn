@@ -36,7 +36,7 @@ GML_NS = "http://www.opengis.net/gml"
 GMD_NS = "http://www.isotc211.org/2005/gmd"
 XSI_NS = "http://www.w3.org/2001/XMLSchema-instance"
 
-from PyQt4 import QtGui
+#from PyQt4 import QtGui
 from PyQt4 import QtXml # Used only to prettyfy the xml doc content
 from PyQt4 import QtCore
 
@@ -664,7 +664,7 @@ class iso19110Doc:
         fieldElement = self.getFieldElement(fieldName, True)
 
         # Update definition
-        element = fieldElement.find("./{%s}FC_FeatureAttribute/{%s}definition/{%s}CharacterString" % (GFC_NS, GFC_NS, GCO_NS))
+        element = fieldElement.find("./{%s}definition/{%s}CharacterString" % (GFC_NS, GCO_NS))
         if element != None: element.text = unicode(paramField["definition"])
 
         # Update cardinality
@@ -684,12 +684,12 @@ class iso19110Doc:
                 upper = cardValues[1]
         
         # lower
-        lowerElement = fieldElement.find("./{%s}FC_FeatureAttribute/{%s}cardinality/{%s}Multiplicity/{%s}range/{%s}MultiplicityRange/{%s}lower/{%s}Integer" % (GFC_NS, GFC_NS, GCO_NS, GCO_NS, GCO_NS, GCO_NS, GCO_NS))
+        lowerElement = fieldElement.find("./{%s}cardinality/{%s}Multiplicity/{%s}range/{%s}MultiplicityRange/{%s}lower/{%s}Integer" % (GFC_NS, GCO_NS, GCO_NS, GCO_NS, GCO_NS, GCO_NS))
         if lowerElement != None:
             lowerElement.text = lower
 
         # upper
-        upperElement = fieldElement.find("./{%s}FC_FeatureAttribute/{%s}cardinality/{%s}Multiplicity/{%s}range/{%s}MultiplicityRange/{%s}upper/{%s}UnlimitedInteger" % (GFC_NS, GFC_NS, GCO_NS, GCO_NS, GCO_NS, GCO_NS, GCO_NS))
+        upperElement = fieldElement.find("./{%s}cardinality/{%s}Multiplicity/{%s}range/{%s}MultiplicityRange/{%s}upper/{%s}UnlimitedInteger" % (GFC_NS, GCO_NS, GCO_NS, GCO_NS, GCO_NS, GCO_NS))
         if upperElement != None:
             if upper == "1":
                 upperElement.text = "1"
@@ -702,12 +702,11 @@ class iso19110Doc:
 
         # Update listed values
         # Remove all listed values
-        listedValuesElements = fieldElement.findall("./{%s}FC_FeatureAttribute/{%s}listedValue" % (GFC_NS, GCO_NS))
+        listedValuesElements = fieldElement.findall("./{%s}listedValue" % (GFC_NS))
         for listedValue in listedValuesElements:
             fieldElement.remove(listedValue)
         
         # Insert the new values
-        parentElement = fieldElement.find("./{%s}FC_FeatureAttribute" % (GFC_NS))
         for paramListedValue in paramField['values']:
             lv = etree.Element("{%s}listedValue" % (GFC_NS))
             lvlv = etree.SubElement(lv, "{%s}FC_ListedValue" % (GFC_NS))
@@ -720,7 +719,7 @@ class iso19110Doc:
             lvlvdef = etree.SubElement(lvlv, "{%s}definition" % (GFC_NS))
             lvlvdefcs = etree.SubElement(lvlvdef, "{%s}CharacterString" % (GCO_NS))
             lvlvdefcs.text = unicode(paramListedValue["definition"])
-            parentElement.insert(len(parentElement.getchildren())-1, lv)
+            fieldElement.insert(len(fieldElement.getchildren()), lv)
         
         # Update value type
         element = fieldElement.find("./{%s}FC_FeatureAttribute/{%s}valueType/{%s}TypeName/{%s}aName/{%s}CharacterString" % (GFC_NS, GFC_NS, GCO_NS, GCO_NS, GCO_NS))
