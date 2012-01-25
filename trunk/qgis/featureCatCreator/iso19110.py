@@ -152,6 +152,9 @@ def normalizeNamespaces(xmlDocContent):
     return newDoc.toxml()
 
 
+def insertSubElementAt():
+    pass
+
 def removeSubElements(etreeElement, subElementsTag, numberOfElementsToBeLeft):
     subElements = etreeElement.findall(subElementsTag)
     for subElement in subElements[numberOfElementsToBeLeft:]:
@@ -235,7 +238,10 @@ class iso19110Doc:
 
 
     def getFcName(self):
-        fcName = self.etDoc.findall("./{%s}name/{%s}CharacterString" % (GFC_NS, GCO_NS))[0].text
+        try:
+            fcName = self.etDoc.findall("./{%s}name/{%s}CharacterString" % (GFC_NS, GCO_NS))[0].text
+        except IndexError, e:
+            fcName = ""
         return fcName
 
     def setFcName(self, newName):
@@ -267,7 +273,10 @@ class iso19110Doc:
 
    
     def getFcScope(self):
-        fcScope = self.etDoc.findall("./{%s}scope/{%s}CharacterString" % (GFC_NS, GCO_NS))[0].text
+        try:
+            fcScope = self.etDoc.findall("./{%s}scope/{%s}CharacterString" % (GFC_NS, GCO_NS))[0].text
+        except IndexError, e:
+            fcScope = ""
         return fcScope
 
     def setFcScope(self, newScope):
@@ -288,7 +297,7 @@ class iso19110Doc:
         if len(fcScopes) == 0:
             sc = etree.Element("{%s}scope" % (GFC_NS))
             sccs = etree.SubElement(sc, "{%s}CharacterString" % (GCO_NS))
-            self.etDoc.insert(1, sc)
+            insertSubElementAfter(self.etDoc, sc, ("{%s}name" % (GFC_NS)))
         
         fcScope = self.etDoc.find("./{%s}scope" % (GFC_NS))
         fcScopeCss = fcScope.findall("./{%s}CharacterString" % (GCO_NS))
@@ -299,7 +308,10 @@ class iso19110Doc:
 
 
     def getFcVersionNumber(self):
-        fcVersion = self.etDoc.findall("./{%s}versionNumber/{%s}CharacterString" % (GFC_NS, GCO_NS))[0].text
+        try:
+            fcVersion = self.etDoc.findall("./{%s}versionNumber/{%s}CharacterString" % (GFC_NS, GCO_NS))[0].text
+        except IndexError, e:
+            fcVersion = ""
         return fcVersion
 
     def setFcVersionNumber(self, newVersionNumber):
@@ -320,7 +332,7 @@ class iso19110Doc:
         if len(fcVersions) == 0:
             vn = etree.Element("{%s}versionNumber" % (GFC_NS))
             vncs = etree.SubElement(vn, "{%s}CharacterString" % (GCO_NS))
-            self.etDoc.insert(2, vn)
+            insertSubElementAfter(self.etDoc, vn, ("{%s}name" % (GFC_NS), "{%s}scope" % (GFC_NS)))
         
         fcVersion = self.etDoc.find("./{%s}versionNumber" % (GFC_NS))
         fcVersionCss = fcVersion.findall("./{%s}CharacterString" % (GCO_NS))
@@ -355,7 +367,7 @@ class iso19110Doc:
         if len(fcDates) == 0:
             vd = etree.Element("{%s}versionDate" % (GFC_NS))
             vddt= etree.SubElement(vd, "{%s}Date" % (GCO_NS))
-            self.etDoc.insert(3, vd)
+            insertSubElementAfter(self.etDoc, vd, ("{%s}name" % (GFC_NS), "{%s}scope" % (GFC_NS), "{%s}versionNumber" % (GFC_NS)))
         
         fcDate = self.etDoc.find("./{%s}versionDate" % (GFC_NS))
         fcDateCss = fcDate.findall("./{%s}Date" % (GCO_NS))
@@ -421,7 +433,7 @@ class iso19110Doc:
         if len(ftftdfs) == 0:
             ftftdf = etree.Element("{%s}definition" % (GFC_NS))
             ftftdfcs = etree.SubElement(ftftdf, "{%s}CharacterString" % (GCO_NS))
-            ftft.insert(1, ftftdf)
+            insertSubElementAfter(ftft, ftftdf, ("{%s}typeName" % (GFC_NS)))
         
         ftftdf = ftft.find("./{%s}definition" % (GFC_NS))
         ftftdfcss = ftftdf.findall("./{%s}CharacterString" % (GCO_NS))
@@ -438,7 +450,7 @@ class iso19110Doc:
         if len(ftftias) == 0:
             ftftia = etree.Element("{%s}isAbstract" % (GFC_NS))
             ftftiabo = etree.SubElement(ftftia, "{%s}Boolean" % (GCO_NS))
-            ftft.insert(2, ftftia)
+            insertSubElementAfter(ftft, ftftia, ("{%s}typeName" % (GFC_NS), "{%s}definition" % (GFC_NS)))
         
         ftftia = ftft.find("./{%s}isAbstract" % (GFC_NS))
         ftftiabos = ftftia.findall("./{%s}Boolean" % (GCO_NS))
@@ -455,7 +467,7 @@ class iso19110Doc:
             removeSubElements(ftft, "{%s}featureCatalogue" % (GFC_NS), 1)
         if len(ftftfcs) == 0:
             ftftfc = etree.Element("{%s}featureCatalogue" % (GFC_NS))
-            ftft.insert(3, ftftfc)
+            insertSubElementAfter(ftft, ftftfc, ("{%s}typeName" % (GFC_NS), "{%s}definition" % (GFC_NS), "{%s}isAbstract" % (GFC_NS)))
 
     def cleanFt(self):
         fts = self.etDoc.findall("./{%s}featureType" % (GFC_NS))
