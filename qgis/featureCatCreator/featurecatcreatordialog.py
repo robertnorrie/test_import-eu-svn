@@ -105,21 +105,21 @@ class featureCatCreatorDialog(QDialog):
         self.connect(self.ui.deleteValueButton, SIGNAL('clicked()'), self.deleteValueRow)
 
     def loadSettings(self):
-        self.ui.templateText.setText(self.settings.value("atlas/template", "").toString())
+        self.ui.templateText.setText(self.settings.value("featurecatcreator/template", "").toString())
         self.last_used_dir = QFileInfo(self.ui.templateText.text()).absolutePath()
         self.templateFileEditingFinished()
-        if self.settings.value("atlas/classification", False).toBool():
+        if self.settings.value("featurecatcreator/classification", False).toBool():
             self.ui.classification.setChecked(True)
-        self.ui.rowNb.setValue(self.settings.value("atlas/rownb", 1000).toInt()[0])
-        self.ui.requiredValuesNb.setValue(self.settings.value("atlas/requiredvaluesnb", 5).toInt()[0])
-        self.last_used_dir = self.settings.value("atlas/lastuseddir", QDir.homePath()).toString()
+        self.ui.rowNb.setValue(self.settings.value("featurecatcreator/rownb", 1000).toInt()[0])
+        self.ui.requiredValuesNb.setValue(self.settings.value("featurecatcreator/requiredvaluesnb", 5).toInt()[0])
+        self.last_used_dir = self.settings.value("featurecatcreator/lastuseddir", QDir.homePath()).toString()
 
     def saveSettings(self):
-        self.settings.setValue("atlas/template", self.ui.templateText.text())
-        self.settings.setValue("atlas/classification", self.ui.classification.isChecked())
-        self.settings.setValue("atlas/rownb", self.ui.rowNb.value())
-        self.settings.setValue("atlas/requiredvaluesnb", self.ui.requiredValuesNb.value())
-        self.settings.setValue("atlis/lastuseddir", self.last_used_dir)
+        self.settings.setValue("featurecatcreator/template", self.ui.templateText.text())
+        self.settings.setValue("featurecatcreator/classification", self.ui.classification.isChecked())
+        self.settings.setValue("featurecatcreator/rownb", self.ui.rowNb.value())
+        self.settings.setValue("featurecatcreator/requiredvaluesnb", self.ui.requiredValuesNb.value())
+        self.settings.setValue("featurecatcreator/lastuseddir", self.last_used_dir)
 
     def showAttributeTable(self):
         if self.currentLayer and self.currentLayer.type() == QgsMapLayer.VectorLayer:
