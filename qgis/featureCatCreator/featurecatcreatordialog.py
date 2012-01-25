@@ -153,17 +153,15 @@ class featureCatCreatorDialog(QDialog):
     def tabChanged(self, tabIndex):
         # do we focus on XML tab ?
         if tabIndex == 2 and self.isoDoc != None:
-            #try:
-            #self.isoDoc = iso19110.iso19110Doc(self.ui.templateText.text())
-            #QMessageBox.warning(self, "00", unicode(self.ui.xmlEditor.toPlainText())[:1000])
-            self.isoDoc.updateWithXmlContent(self.ui.xmlEditor.toPlainText())
-            self.isoDoc.updateWithParams(self.getParams())
-            self.ui.xmlEditor.setPlainText(self.isoDoc.toString())
-            self.savedState = False
-            #except IOError, e:
-            #    self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
-            #except ValueError, e:
-            #    self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
+            try:
+                self.isoDoc.updateWithXmlContent(self.ui.xmlEditor.toPlainText())
+                self.isoDoc.updateWithParams(self.getParams())
+                self.ui.xmlEditor.setPlainText(self.isoDoc.toString())
+                self.savedState = False
+            except IOError, e:
+                self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
+            except ValueError, e:
+                self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
 
     def refreshButtonPushed(self):
         self.updateFieldList()
