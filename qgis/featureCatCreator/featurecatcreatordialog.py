@@ -151,19 +151,27 @@ class featureCatCreatorDialog(QDialog):
         self.updateFieldList()
 
     def tabChanged(self, tabIndex):
-        # do we focus on XML tab ?
-        if tabIndex == 2 and self.isoDoc != None:
-            try:
-                self.isoDoc.updateWithXmlContent(self.ui.xmlEditor.toPlainText())
-                self.isoDoc.updateWithParams(self.getParams())
-                self.ui.xmlEditor.setPlainText(self.isoDoc.toString())
-                self.savedState = False
-            except IOError, e:
-                self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
-            except ValueError, e:
-                self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
-            
-            # FIXME : should put here an exception catch in case the XML View content is not a valid XML
+        if self.isoDoc != None:
+            # do we focus on XML tab ?
+            if tabIndex == 2:
+                try:
+                    self.isoDoc.updateWithXmlContent(self.ui.xmlEditor.toPlainText())
+                    self.isoDoc.updateWithParams(self.getParams())
+                    self.ui.xmlEditor.setPlainText(self.isoDoc.toString())
+                    self.savedState = False
+                except IOError, e:
+                    self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
+                except ValueError, e:
+                    self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
+            elif tabIndex in (0,1):
+                xmlViewContent = self.ui.xmlEditor.toPlainText()
+                if self.isoDoc and xmlViewContent != None and not xmlViewContent.isEmpty():
+                    try:
+                        self.isoDoc.updateWithXmlContent(xmlViewContent)
+                        params = self.isoDoc.extractParamsFromContent()
+                        #self.updateFormWithParams(params)
+                    except ValueError, e:
+                        QMessageBox.critical(self, "Error", e.message)
 
     def refreshButtonPushed(self):
         self.updateFieldList()

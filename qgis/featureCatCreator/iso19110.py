@@ -151,8 +151,24 @@ def normalizeNamespaces(xmlDocContent):
     return newDoc.toxml()
 
 
-def insertSubElementAt():
-    pass
+def getIndexOfLastSubElement(parentEl, subElNames):
+    result = 0
+    
+    subEls = parentEl.getchildren()
+    nbSubEls = len(subEls)
+    if len(subEls) > 0:
+        for i in range(nbSubEls-1,-1,-1):
+            if subEls[i].tag in subElNames:
+                result = i+1
+                break
+    
+    return result
+
+
+def insertSubElementAfter(parentEl, childEl, subElNames):
+    index = getIndexOfLastSubElement(parentEl, subElNames)
+    parentEl.insert(index, childEl)
+
 
 def removeSubElements(etreeElement, subElementsTag, numberOfElementsToBeLeft):
     subElements = etreeElement.findall(subElementsTag)
@@ -241,6 +257,118 @@ class iso19110Doc:
         for field in params["fields"]:
             self.updateField(field)
 
+    def extractParamsFromContent(self):
+        params = {}
+        
+        # Feature catalogue properties
+        fcName = self.getFcName()
+        if fcName != None:
+            params["fc_name"] = QtCore.QString(fcName)
+        else:
+            params["fc_name"] = None
+
+        fcScope = self.getFcScope()
+        if fcScope != None:
+            params["fc_scope"] = QtCore.QString(fcScope)
+        else:
+            params["fc_scope"] = None
+
+        fcVersionNumber = self.getFcVersionNumber()
+        if fcVersionNumber != None:
+            params["fc_versionNumber"] = QtCore.QString(fcVersionNumber)
+        else:
+            params["fc_versionNumber"] = None
+        
+        # Feature type general properties
+        ftName = self.getFtName()
+        if ftName != None:
+            params["ft_name"] = QtCore.QString(ftName)
+        else:
+            params["ft_name"] = None
+        
+        ftDefinition = self.getFtDefinition()
+        if ftDefinition != None:
+            params["ft_definition"] = QtCore.QString(ftDefinition)
+        else:
+            params["ft_definition"] = None
+        
+        # Attributes properties
+        params["fields"] = []
+        ft = self.etDoc.find("./{%s}featureType" % (GFC_NS))
+        cocs = ft.findall("./{%s}FC_FeatureType/{%s}carrierOfCharacteristics" % (GFC_NS, GFC_NS))
+        
+        fieldIndex = 0
+        for coc in cocs:
+            paramField = {}
+            
+            # Index
+            paramField["index"] = fieldIndex
+            
+            # Name
+            namEl = coc.find("./{%s}FC_FeatureAttribute/{%s}memberName/{%s}LocalName" % (GFC_NS, GFC_NS, GCO_NS))
+            if namEl != None and namEl.text != None:
+                paramField["name"] = QtCore.QString(namEl.text)
+            else:
+                paramField["name"] = None
+            
+            # Definition
+            defEl = coc.find("./{%s}FC_FeatureAttribute/{%s}definition/{%s}CharacterString" % (GFC_NS, GFC_NS, GCO_NS))
+            if defEl != None and defEl.text != None:
+                paramField["definition"] = QtCore.QString(defEl.text)
+            else:
+                paramField["definition"] = None
+            
+            # Cardinality
+            lower = "0"
+            upper = "1"
+            lowerEl = coc.find("./{%s}FC_FeatureAttribute/{%s}cardinality/{%s}Multiplicity/{%s}range/{%s}MultiplicityRange/{%s}lower/{%s}Integer" % (GFC_NS, GFC_NS, GCO_NS, GCO_NS, GCO_NS, GCO_NS, GCO_NS))
+            if lowerEl != None and lowerEl.text in ("0", "1"):
+                lower = lowerEl.text
+            upperEl = coc.find("./{%s}FC_FeatureAttribute/{%s}cardinality/{%s}Multiplicity/{%s}range/{%s}MultiplicityRange/{%s}upper/{%s}UnlimitedInteger" % (GFC_NS, GFC_NS, GCO_NS, GCO_NS, GCO_NS, GCO_NS, GCO_NS))
+            if upperEl != None and upperEl.text != "1":
+                upper = "n"
+            paramField["cardinality"] = QtCore.QString("%s..%s" % (lower, upper))
+
+            # Type
+            typEl = coc.find("./{%s}FC_FeatureAttribute/{%s}valueType/{%s}TypeName/{%s}aName/{%s}CharacterString" % (GFC_NS, GFC_NS, GCO_NS, GCO_NS, GCO_NS))
+            if typEl != None and typEl.text != None:
+                paramField["type"] = QtCore.QString(typEl.text)
+            else:
+                paramField["type"] = None
+
+            # Values
+            paramField["values"] = []
+            valEls = coc.findall("./{%s}FC_FeatureAttribute/{%s}listedValue/{%s}FC_ListedValue" % (GFC_NS, GFC_NS, GFC_NS))
+            for valEl in valEls:
+                paramValue = {}
+                
+                # Code
+                codEl = valEl.find("./{%s}code/{%s}CharacterString" % (GFC_NS, GCO_NS))
+                if codEl != None and codEl.text != None:
+                    paramValue["code"] = QtCore.QString(codEl.text)
+                else:
+                    paramValue["code"] = None
+                
+                # Definition
+                defEl = valEl.find("./{%s}definition/{%s}CharacterString" % (GFC_NS, GCO_NS))
+                if defEl != None and defEl.text != None:
+                    paramValue["definition"] = QtCore.QString(defEl.text)
+                else:
+                    paramValue["definition"] = None
+                
+                # Label
+                labEl = valEl.find("./{%s}label/{%s}CharacterString" % (GFC_NS, GCO_NS))
+                if labEl != None and labEl.text != None:
+                    paramValue["label"] = QtCore.QString(labEl.text)
+                else:
+                    paramValue["label"] = None
+                
+                paramField["values"].append(paramValue)
+
+            params["fields"].append(paramField)
+            fieldIndex = fieldIndex + 1
+            
+        return params
 
     def getFcName(self):
         try:
