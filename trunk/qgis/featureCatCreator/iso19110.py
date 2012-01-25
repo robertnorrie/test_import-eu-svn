@@ -47,6 +47,7 @@ import xml.dom.minidom as minidom # Used to normalize the naamespaces
 import codecs
 import copy
 import uuid # Used for the gml:id attributes
+from xml.parsers.expat import ExpatError # Used for accessing the ExpatError exception members
 
 
 def getTemplateContent(templatePath):
@@ -212,7 +213,10 @@ class iso19110Doc:
         file.close()
 
     def updateWithXmlContent(self, xmlViewContent):
-        self.etDoc = etree.fromstring(unicode(xmlViewContent).encode('utf-8'))
+        try:
+            self.etDoc = etree.fromstring(unicode(xmlViewContent).encode('utf-8'))
+        except ExpatError, e:
+            raise ValueError("The content of the XML document is not valid:\n\nError : %s" % (e.message))
 
     def updateWithParams(self, params):
         # update the feature catalogue name, scope and version number

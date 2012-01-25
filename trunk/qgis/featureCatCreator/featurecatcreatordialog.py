@@ -162,6 +162,8 @@ class featureCatCreatorDialog(QDialog):
                 self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
             except ValueError, e:
                 self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
+            
+            # FIXME : should put here an exception catch in case the XML View content is not a valid XML
 
     def refreshButtonPushed(self):
         self.updateFieldList()
@@ -412,15 +414,38 @@ class featureCatCreatorDialog(QDialog):
         return params
 
     def saveXML(self):
-        # Initialize the file path with the one used the last time
-        filePath = QFileDialog.getSaveFileName(self, \
-                "Save XML feature catalog file", "", "XML file (*.xml)")
+        xmlViewContent = self.ui.xmlEditor.toPlainText()
+        xmlViewContentCanBeSaved = False
         
-        # Save the XML doc in a file if the isoDoc exists and if the user
-        # selected a valid path
-        if filePath and self.isoDoc:
-            self.isoDoc.save(filePath)
-            self.savedState = True
+        if not self.isoDoc:
+            QMessageBox.critical(self, "Error", "An iso 191110 template need to be selected first.")
+        elif xmlViewContent is None or xmlViewContent.isEmpty():
+            QMessageBox.critical(self, "Error", "The content of the XML view is empty. It must contain an XML iso19110 document.")
+        else:
+            try:
+                # If the tab of the XML view is not active refresh the XML view
+                if self.ui.tabWidget.currentIndex() != 2:
+                    self.isoDoc.updateWithXmlContent(xmlViewContent)
+                    self.isoDoc.updateWithParams(self.getParams())
+                    self.ui.xmlEditor.setPlainText(self.isoDoc.toString())
+                else:
+                    self.isoDoc.updateWithXmlContent(xmlViewContent)
+                    self.ui.xmlEditor.setPlainText(self.isoDoc.toString())
+                    
+                xmlViewContentCanBeSaved = True
+            except ValueError, e:
+                QMessageBox.critical(self, "Error", e.message)
+        
+        if xmlViewContentCanBeSaved:
+            # Initialize the file path with the one used the last time
+            filePath = QFileDialog.getSaveFileName(self, \
+                    "Save XML feature catalog file", "", "XML file (*.xml)")
+            
+            # Save the content of the XML view in a file if the isoDoc exists and if the user
+            # selected a valid path
+            if filePath:
+                self.isoDoc.save(filePath)
+                self.savedState = True
 
 
     def bboxClicked(self, button):
