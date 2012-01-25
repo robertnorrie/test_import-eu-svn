@@ -45,6 +45,7 @@ import xml.etree.ElementTree as etree
 import xml.dom.minidom as minidom # Used to normalize the naamespaces
 import codecs
 import copy
+import uuid # Used for the gml:id attributes
 
 
 def getTemplateContent(templatePath):
@@ -627,7 +628,7 @@ class iso19110Doc:
         cocfacarmrmruu.attrib["{%s}nil" % XSI_NS] = "false"
         cocfaun = etree.SubElement(cocfa, "{%s}valueMeasurementUnit" % (GFC_NS))
         cocfaunun = etree.SubElement(cocfaun, "{%s}UnitDefinition" % (GML_NS))
-        cocfaunun.attrib["{%s}id" % GML_NS] = "unknown"
+        cocfaunun.attrib["{%s}id" % GML_NS] = "unknown-%s" % uuid.uuid1()
         cocfaunundes = etree.SubElement(cocfaunun, "{%s}description" % (GML_NS))
         cocfaununid = etree.SubElement(cocfaunun, "{%s}identifier" % (GML_NS))
         cocfaununid.attrib["codeSpace"] = "unknown"
