@@ -42,7 +42,9 @@ from PyQt4 import QtCore
 import os.path
 import urllib2
 import xml.etree.ElementTree as etree
+import xml.dom.minidom as minidom # Used to normalize the naamespaces
 import codecs
+import copy
 
 
 def getTemplateContent(templatePath):
@@ -82,11 +84,78 @@ def getTemplateContent(templatePath):
     if not (isAFileSystemPath or isAFileUrlPath):
         raise ValueError, "The path of the template is not a valid file system path nor a valid URL."
 
+
+
+def cloneElementAndCleanNs(oldEl, newDoc, uriNsMap, declNs = []):
+    # Create the new element
+    namespace = oldEl.namespaceURI
+    newEl = newDoc.createElementNS(namespace, "%s:%s" % (uriNsMap[namespace], oldEl.localName))
     
+    # Clone attributes
+    nbAttrs = oldEl.attributes.length
+    for i in range(nbAttrs):
+        attr = oldEl.attributes.item(i)
+        #print attr.prefix, attr.localName, attr.name, attr.value, attr.namespaceURI
+        
+        if attr.prefix == "xmlns":
+            if attr.value in declNs:
+                # If the namespace is already declared we don't declare it once again
+                pass
+            elif attr.value in uriNsMap:
+                # If the namespace is known one we change its prefix
+                newEl.setAttribute("%s:%s" % (attr.prefix, uriNsMap[attr.value]), attr.value)
+            
+            # The namespace is added to the declared namespace list if it's not already in it
+            if attr.value not in declNs:
+                print attr.value
+                declNs.append(attr.value)
+        elif attr.namespaceURI != None:
+            newEl.setAttributeNS(attr.namespaceURI, "%s:%s" % (uriNsMap[attr.namespaceURI], attr.localName), attr.value)
+        else:
+            newEl.setAttribute("%s" % attr.localName, attr.value)
+    
+    # If some of the namespaces of the uriNsMap dictionary are not yet declared we declare them
+    for ns in uriNsMap:
+        if ns not in declNs:
+            #print ns, declNs
+            newEl.setAttribute("%s:%s" % ("xmlns", uriNsMap[ns]), ns)
+            declNs.append(ns)
+    
+    # Clone subelements
+    for child in oldEl.childNodes:
+        if child.nodeType == child.TEXT_NODE:
+            if len(child.nodeValue.strip()) > 0:
+                newChild = child.cloneNode(False)
+                newChild.nodeValue = newChild.nodeValue.strip()
+                newEl.appendChild(newChild)
+        elif child.nodeType == child.ELEMENT_NODE:
+            newChild = cloneElementAndCleanNs(child, newDoc, uriNsMap, copy.copy(declNs))
+            newEl.appendChild(newChild)
+        else:
+            newChild = child.cloneNode(False)
+            newEl.appendChild(newChild)
+    
+    return newEl
+
+
+def normalizeNamespaces(xmlDocContent):
+    nsmap = {GFC_NS: "gfc", GCO_NS:"gco", GML_NS:"gml", GMD_NS:"gmd", XSI_NS:"xsi"}
+    oldDoc = minidom.parseString(xmlDocContent)
+    oldRoot = oldDoc.documentElement
+
+    newDoc = minidom.Document()
+    newRoot = cloneElementAndCleanNs(oldRoot, newDoc, nsmap)
+    newDoc.appendChild(newRoot)
+
+    #return newDoc.toprettyxml(indent="  ")
+    return newDoc.toxml()
+
+
 def removeSubElements(etreeElement, subElementsTag, numberOfElementsToBeLeft):
     subElements = etreeElement.findall(subElementsTag)
     for subElement in subElements[numberOfElementsToBeLeft:]:
         etreeElement.remove(subElement)
+
 
 class iso19110Doc:
     
@@ -95,7 +164,8 @@ class iso19110Doc:
         self.templateContent = templateContent.decode('utf-8')
         self.checkTemplateValidity()
         
-        self.etDoc = etree.fromstring(self.templateContent)
+        #self.etDoc = etree.fromstring(self.templateContent)
+        self.etDoc = etree.fromstring(self.templateContent.encode('utf-8'))
 
     
     def checkTemplateValidity(self):
@@ -108,7 +178,8 @@ class iso19110Doc:
         
         # check the presence and cardinality of required elements
         # gfc:FC_FeatureCatalogue
-        etDoc = etree.fromstring(self.templateContent)
+        etDoc = etree.fromstring(self.templateContent.encode('utf-8'))
+        #etDoc = etree.fromstring(self.templateContent)
         if etDoc.tag != "{%s}FC_FeatureCatalogue" % GFC_NS:
             raise ValueError, "The selected iso19110 template is not a valid: the root element name is not %s:FC_FeatureCatalogue" % GFC_NS
         
@@ -123,9 +194,12 @@ class iso19110Doc:
     def toString(self):
         docContent = etree.tostring(self.etDoc, encoding="utf-8")
         
+        docContent = normalizeNamespaces(docContent)
+        
         # Prettyfy the xml doc content
         qDomDoc = QtXml.QDomDocument()
-        qDomDoc.setContent(QtCore.QString(docContent.decode('utf-8')))
+        #qDomDoc.setContent(QtCore.QString(docContent.decode('utf-8')))
+        qDomDoc.setContent(QtCore.QString(docContent))
         docContent = unicode(qDomDoc.toString(2))
         
         return docContent
@@ -373,6 +447,14 @@ class iso19110Doc:
             ftftiabo = etree.SubElement(ftftia, "{%s}Boolean" % (GCO_NS))
             ftftiabo.text = "false"
 
+    def cleanFtFc(self):
+        ftft = self.etDoc.find("./{%s}featureType/{%s}FC_FeatureType" % (GFC_NS, GFC_NS))
+        ftftfcs = ftft.findall("./{%s}featureCatalogue" % (GFC_NS))
+        if len(ftftfcs) > 1:
+            removeSubElements(ftft, "{%s}featureCatalogue" % (GFC_NS), 1)
+        if len(ftftfcs) == 0:
+            ftftfc = etree.Element("{%s}featureCatalogue" % (GFC_NS))
+            ftft.insert(3, ftftfc)
 
     def cleanFt(self):
         fts = self.etDoc.findall("./{%s}featureType" % (GFC_NS))
@@ -393,6 +475,7 @@ class iso19110Doc:
         self.cleanFtName()
         self.cleanFtDefinition()
         self.cleanFtIsAbstract()
+        self.cleanFtFc()
 
         # For each carrierOfCharacteristics remove extra FC_FeatureAttribute
         cocs = ft.findall("./{%s}FC_FeatureType/{%s}carrierOfCharacteristics" % (GFC_NS, GFC_NS))
