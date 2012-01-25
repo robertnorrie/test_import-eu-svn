@@ -41,6 +41,8 @@ class featureCatCreatorDialog(QDialog):
         # get paths
         self.user_plugin_dir = QFileInfo(QgsApplication.qgisUserDbFilePath()).path() + "/python/plugins"
         self.plugin_dir = self.user_plugin_dir + "/featurecatcreator"
+        self.last_used_dir = QDir.homePath()
+
         # keep qgis interface reference
         self.iface = iface
         self.currentLayer = None
@@ -50,9 +52,15 @@ class featureCatCreatorDialog(QDialog):
         # reference to the iso19110Doc instance
         self.isoDoc = None
 
+        # Plugin settings
+        self.settings = QSettings()
+
         # Set up the user interface from Designer.
         self.ui = Ui_featureCatCreator()
         self.ui.setupUi(self)
+
+        # Set UI from saved settings
+        self.loadSettings()
 
         # default is first tab
         self.ui.tabWidget.setCurrentIndex(0)
@@ -96,6 +104,22 @@ class featureCatCreatorDialog(QDialog):
         self.connect(self.ui.newValueButton, SIGNAL('clicked()'), self.newValueRow)
         self.connect(self.ui.deleteValueButton, SIGNAL('clicked()'), self.deleteValueRow)
 
+    def loadSettings(self):
+        self.ui.templateText.setText(self.settings.value("atlas/template", "").toString())
+        self.last_used_dir = QFileInfo(self.ui.templateText.text()).absolutePath()
+        self.templateFileEditingFinished()
+        if self.settings.value("atlas/classification", False).toBool():
+            self.ui.classification.setChecked(True)
+        self.ui.rowNb.setValue(self.settings.value("atlas/rownb", 1000).toInt()[0])
+        self.ui.requiredValuesNb.setValue(self.settings.value("atlas/requiredvaluesnb", 5).toInt()[0])
+        self.last_used_dir = self.settings.value("atlas/lastuseddir", QDir.homePath()).toString()
+
+    def saveSettings(self):
+        self.settings.setValue("atlas/template", self.ui.templateText.text())
+        self.settings.setValue("atlas/classification", self.ui.classification.isChecked())
+        self.settings.setValue("atlas/rownb", self.ui.rowNb.value())
+        self.settings.setValue("atlas/requiredvaluesnb", self.ui.requiredValuesNb.value())
+        self.settings.setValue("atlis/lastuseddir", self.last_used_dir)
 
     def showAttributeTable(self):
         if self.currentLayer and self.currentLayer.type() == QgsMapLayer.VectorLayer:
@@ -117,9 +141,10 @@ class featureCatCreatorDialog(QDialog):
 
     def updateTemplateFile(self):
         filename = QFileDialog.getOpenFileName(self, \
-                "Open XML template file", "", "Template file (*.xml)")
+                "Open XML template file", self.last_used_dir, "Template file (*.xml)")
         if filename:
             self.ui.templateText.setText(filename)
+            self.last_used_dir = QFileInfo(filename).absolutePath()
             self.templateFileEditingFinished()
 
     def templateFileEditingFinished(self):
@@ -447,11 +472,12 @@ class featureCatCreatorDialog(QDialog):
         if xmlViewContentCanBeSaved:
             # Initialize the file path with the one used the last time
             filePath = QFileDialog.getSaveFileName(self, \
-                    "Save XML feature catalog file", "", "XML file (*.xml)")
+                    "Save XML feature catalog file", self.last_used_dir, "XML file (*.xml)")
             
             # Save the content of the XML view in a file if the isoDoc exists and if the user
             # selected a valid path
             if filePath:
+                self.last_used_dir = QFileInfo(filePath).absolutePath()
                 self.isoDoc.save(filePath)
                 self.savedState = True
 
@@ -467,6 +493,8 @@ class featureCatCreatorDialog(QDialog):
                         QMessageBox.Cancel | QMessageBox.Ok,
                         QMessageBox.Cancel)
                 if res == QMessageBox.Ok:
+                    self.saveSettings()
                     self.close()
             else:
+                self.saveSettings()
                 self.close()
