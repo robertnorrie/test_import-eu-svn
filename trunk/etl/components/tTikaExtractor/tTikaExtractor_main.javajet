@@ -1,0 +1,78 @@
+<%@ jet 
+imports="
+    org.talend.core.model.process.INode 
+    org.talend.core.model.process.ElementParameterParser
+    org.talend.designer.codegen.config.CodeGeneratorArgument
+"
+%>
+
+<%
+CodeGeneratorArgument codeGenArgument = (CodeGeneratorArgument) argument;
+INode node = (INode)codeGenArgument.getArgument();
+String cid = node.getUniqueName();
+
+String filename = ElementParameterParser.getValue(node, "__FILENAME__");
+String write_limit = ElementParameterParser.getValue(node, "__WRITE_LIMIT__");
+%>
+
+try {
+	// Load stream
+	java.io.InputStream stream_<%=cid %> = null;
+	String pathOrUrl_<%=cid %> = <%=filename %>;
+	if (pathOrUrl_<%=cid %>.startsWith("http")) {
+	    java.net.URL url_<%=cid %> = new java.net.URL(pathOrUrl_<%=cid %>);
+	    stream_<%=cid %> = url_<%=cid %>.openConnection().getInputStream();
+	} else {
+	    java.io.File file_<%=cid %> = new java.io.File(pathOrUrl_<%=cid %>);
+	    stream_<%=cid %> = new java.io.FileInputStream(file_<%=cid %>);
+	}
+
+	// Tika handler for text
+	int writeLimit_<%=cid %> = Integer.parseInt(<%=write_limit %>);
+	org.apache.tika.parser.Parser parser_<%=cid %> = new org.apache.tika.parser.AutoDetectParser();
+	org.xml.sax.ContentHandler handler_<%=cid %> = new org.apache.tika.sax.BodyContentHandler(writeLimit_<%=cid %>);
+
+
+	// Tika handler for xhtml
+	java.io.StringWriter writer_<%=cid %> = new java.io.StringWriter(); 
+	javax.xml.transform.sax.SAXTransformerFactory factory_<%=cid %> = 
+					(javax.xml.transform.sax.SAXTransformerFactory)  			javax.xml.transform.sax.SAXTransformerFactory.newInstance();
+	javax.xml.transform.sax.TransformerHandler handlerXHTML_<%=cid %> = factory_<%=cid %>.newTransformerHandler();
+	handlerXHTML_<%=cid %>.getTransformer().setOutputProperty(javax.xml.transform.OutputKeys.METHOD, "xml");
+	handlerXHTML_<%=cid %>.setResult(new javax.xml.transform.stream.StreamResult(writer_<%=cid %>));
+	      
+
+	// Combine Tika Handlers
+	org.xml.sax.ContentHandler handlerTee_<%=cid %> = new org.apache.tika.sax.TeeContentHandler(
+		handler_<%=cid %>, handlerXHTML_<%=cid %>		
+	);
+
+
+	org.apache.tika.metadata.Metadata metadata_<%=cid %> 
+				= new org.apache.tika.metadata.Metadata();
+	org.apache.tika.parser.ParseContext ctx_<%=cid %> = new org.apache.tika.parser.ParseContext();
+
+	// Parse
+	try {
+		parser_<%=cid %>.parse(stream_<%=cid %>, handlerTee_<%=cid %>, metadata_<%=cid %>, ctx_<%=cid %>);
+
+		// Populate properties
+		String content_<%=cid %> = handler_<%=cid %>.toString();
+		String xhtml_<%=cid %> = writer_<%=cid %>.toString();
+		 
+		globalMap.put("<%=cid %>_METADATA_OBJ", metadata_<%=cid %>);    
+		globalMap.put("<%=cid %>_METADATA", metadata_<%=cid %>.toString());    
+		globalMap.put("<%=cid %>_CONTENT", content_<%=cid %>);    
+		globalMap.put("<%=cid %>_CONTENT_XHTML", xhtml_<%=cid %>);    
+
+	} catch (Exception e) {                   
+		globalMap.put("<%=cid %>_PARSE_ERROR", e.getMessage());    
+		e.printStackTrace();
+	} finally {
+		stream_<%=cid %>.close();
+	}
+} catch (Exception e) {
+	globalMap.put("<%=cid %>_ERROR", e.getMessage());
+	e.printStackTrace();
+}
+

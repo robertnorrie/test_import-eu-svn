@@ -1,0 +1,20 @@
+== Apache TIKA parser component ==
+
+Author: fx.prunayre@gmail.com
+Tested with: TOS-DI 5.0
+
+tTikaExtractor use Apache TIKA parsers to easily extract information from many different formats like (html, pdf, doc, odt, image, audio, video, ...). See http://tika.apache.org/1.0/formats.html for more information about available parsers.
+
+=== What is produced by TIKA parsers ? ===
+
+ * TIKA Metadata object (METADATA_OBJ property)
+ * TIKA Metadata as as text (METADATA property)
+ * Resource content as text (CONTENT property)
+ * Resource content as XHTML (CONTENT_XHTML property) which could be used in tExtractXMLField for further extraction
+
+=== How-to access TIKA metadata in a job ? ===
+
+Use:
+((org.apache.tika.metadata.Metadata)globalMap.get("tTikaExtractor_1_METADATA_OBJ")).get("title")
+
+
