@@ -36,6 +36,7 @@ GML_NS = "http://www.opengis.net/gml"
 GMD_NS = "http://www.isotc211.org/2005/gmd"
 XSI_NS = "http://www.w3.org/2001/XMLSchema-instance"
 
+from PyQt4 import QtGui
 from PyQt4 import QtXml # Used only to prettyfy the xml doc content
 from PyQt4 import QtCore
 
@@ -87,7 +88,7 @@ def getTemplateContent(templatePath):
 
 
 
-def cloneElementAndCleanNs(oldEl, newDoc, uriNsMap, declNs = []):
+def cloneElementAndCleanNs(oldEl, newDoc, uriNsMap, declNs):
     # Create the new element
     namespace = oldEl.namespaceURI
     newEl = newDoc.createElementNS(namespace, "%s:%s" % (uriNsMap[namespace], oldEl.localName))
@@ -96,7 +97,6 @@ def cloneElementAndCleanNs(oldEl, newDoc, uriNsMap, declNs = []):
     nbAttrs = oldEl.attributes.length
     for i in range(nbAttrs):
         attr = oldEl.attributes.item(i)
-        #print attr.prefix, attr.localName, attr.name, attr.value, attr.namespaceURI
         
         if attr.prefix == "xmlns":
             if attr.value in declNs:
@@ -108,7 +108,6 @@ def cloneElementAndCleanNs(oldEl, newDoc, uriNsMap, declNs = []):
             
             # The namespace is added to the declared namespace list if it's not already in it
             if attr.value not in declNs:
-                print attr.value
                 declNs.append(attr.value)
         elif attr.namespaceURI != None:
             newEl.setAttributeNS(attr.namespaceURI, "%s:%s" % (uriNsMap[attr.namespaceURI], attr.localName), attr.value)
@@ -118,7 +117,6 @@ def cloneElementAndCleanNs(oldEl, newDoc, uriNsMap, declNs = []):
     # If some of the namespaces of the uriNsMap dictionary are not yet declared we declare them
     for ns in uriNsMap:
         if ns not in declNs:
-            #print ns, declNs
             newEl.setAttribute("%s:%s" % ("xmlns", uriNsMap[ns]), ns)
             declNs.append(ns)
     
@@ -145,7 +143,7 @@ def normalizeNamespaces(xmlDocContent):
     oldRoot = oldDoc.documentElement
 
     newDoc = minidom.Document()
-    newRoot = cloneElementAndCleanNs(oldRoot, newDoc, nsmap)
+    newRoot = cloneElementAndCleanNs(oldRoot, newDoc, nsmap, declNs=[])
     newDoc.appendChild(newRoot)
 
     #return newDoc.toprettyxml(indent="  ")
@@ -171,7 +169,7 @@ class iso19110Doc:
         #self.etDoc = etree.fromstring(self.templateContent)
         self.etDoc = etree.fromstring(self.templateContent.encode('utf-8'))
 
-    
+        
     def checkTemplateValidity(self):
         templateDomDoc = QtXml.QDomDocument()
         
@@ -212,6 +210,9 @@ class iso19110Doc:
         file = codecs.open(filePath, 'w', "utf-8")
         file.write(self.toString())
         file.close()
+
+    def updateWithXmlContent(self, xmlViewContent):
+        self.etDoc = etree.fromstring(unicode(xmlViewContent).encode('utf-8'))
 
     def updateWithParams(self, params):
         # update the feature catalogue name, scope and version number
