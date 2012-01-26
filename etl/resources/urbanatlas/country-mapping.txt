@@ -1,0 +1,27 @@
+fr;France
+ro;Romania
+dk;Denmark
+gr;Greece
+lu;Luxembourg
+fi;Finland
+gb;United Kingdom
+bg;Bulgaria
+ie;Ireland
+pl;Poland
+lv;Latvia
+pt;Portugal
+cz;Czech Republic
+lt;Lithuania
+hu;Hungary
+mt;Malta
+es;Estonia
+be;Belgium
+de;Germany
+cy;Cyprus
+si;Slovenia
+it;Italy
+at;Austria
+se;Sweden
+sk;Slovakia
+nl;Netherlands
+sp;Spain

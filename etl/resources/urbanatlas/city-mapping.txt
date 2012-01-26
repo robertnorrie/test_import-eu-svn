@@ -1,0 +1,3 @@
+saint_etienne;Saint-Etienne
+limoges;Limoges
+targu_mures;Targu Mures
