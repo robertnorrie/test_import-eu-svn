@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:DelimitedFileConnection xmi:id="_LbEesUgOEeGbPv3jw0iz_g" name="repository.metadataFileDelimited" dataPackage="_LbEeskgOEeGbPv3jw0iz_g" Server="Localhost 127.0.0.1" FilePath="/home/francois/Project/2011/eea/contract01/cms-keywords.txt" Encoding="UTF-8" FieldSeparatorValue="&quot;;&quot;" RowSeparatorValue="&quot;\n&quot;" HeaderValue="0" FooterValue="0" LimitValue="" RemoveEmptyRow="true" EscapeChar="&quot;&quot;&quot;" TextEnclosure="&quot;&quot;&quot;"/>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_LbEeskgOEeGbPv3jw0iz_g" name="repository.metadataFileDelimited" dataManager="_LbEesUgOEeGbPv3jw0iz_g">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_LbEes0gOEeGbPv3jw0iz_g" id="_qeHF4ENhEeGcq6voYY19sg" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_LbEetEgOEeGbPv3jw0iz_g" label="Keyword" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

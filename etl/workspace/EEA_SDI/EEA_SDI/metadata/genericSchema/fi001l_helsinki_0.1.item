@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010">
+  <TalendMetadata:GenericSchemaConnection xmi:id="_LcYGQ0gOEeGbPv3jw0iz_g" dataPackage="_LcYGREgOEeGbPv3jw0iz_g"/>
+  <TalendMetadata:GenericPackage xmi:id="_LcYGREgOEeGbPv3jw0iz_g" dataManager="_LcYGQ0gOEeGbPv3jw0iz_g">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_LcYGRUgOEeGbPv3jw0iz_g" id="_FWK7MEXYEeGZyfxFRdvStw" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_LcYGRkgOEeGbPv3jw0iz_g" label="the_geom" talendType="id_Geometry"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_LcYGR0gOEeGbPv3jw0iz_g" label="CITIES" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_LcYGSEgOEeGbPv3jw0iz_g" label="LUZ_OR_CIT" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_LcYGSUgOEeGbPv3jw0iz_g" label="CODE" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_LcYGSkgOEeGbPv3jw0iz_g" label="ITEM" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_LcYGS0gOEeGbPv3jw0iz_g" label="PROD_DATE" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_LcYGTEgOEeGbPv3jw0iz_g" label="SHAPE_LEN" talendType="id_Double"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_LcYGTUgOEeGbPv3jw0iz_g" label="SHAPE_AREA" talendType="id_Double"/>
+    </ownedElement>
+  </TalendMetadata:GenericPackage>
+</xmi:XMI>

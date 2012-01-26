@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd">
+  <talendfile:ContextType xmi:id="_LcO8U0gOEeGbPv3jw0iz_g" confirmationNeeded="false" name="eea_paul">
+    <contextParameter xmi:id="_LcO8VEgOEeGbPv3jw0iz_g" comment="" name="geonetwork_url" prompt="geonetwork_url?" promptNeeded="false" type="id_String" value="&quot;http://gaur.eea.europa.eu/catalogue&quot;"/>
+    <contextParameter xmi:id="_LcO8VUgOEeGbPv3jw0iz_g" comment="" name="geonetwork_appurl" prompt="geonetwork_appurl?" promptNeeded="false" type="id_String" value="&quot;http://gaur.eea.europa.eu/catalogue/eea/search&quot;"/>
+    <contextParameter xmi:id="_LcO8VkgOEeGbPv3jw0iz_g" comment="" name="dir_temp" prompt="dir_temp?" promptNeeded="false" type="id_String" value="&quot;/tmp/&quot;"/>
+    <contextParameter xmi:id="_LcO8V0gOEeGbPv3jw0iz_g" comment="Output directory" name="urbanAtlasListDir" prompt="urbanAtlasListDir?" promptNeeded="false" type="id_Directory" value="/tmp/urbanatlas"/>
+    <contextParameter xmi:id="_LcO8WEgOEeGbPv3jw0iz_g" comment="Output XML file" name="urbanAtlasListFile" prompt="urbanAtlasListFile?" promptNeeded="false" type="id_File" value="/tmp/urbanatlas/city.xml"/>
+    <contextParameter xmi:id="_LcO8WUgOEeGbPv3jw0iz_g" comment="ISO19139 XSL Template" name="urbanAtlasXSL" prompt="urbanAtlasXSL?" promptNeeded="false" type="id_File" value="/home/francois/Workspace/geonetwork/eea/trunk/etl/resources/urbanatlas/urbanatlas.xsl"/>
+    <contextParameter xmi:id="_LcO8WkgOEeGbPv3jw0iz_g" comment="Directory with UrbanAtlas data (PDF and DOC)" name="urbanAtlasDataDir" prompt="urbanAtlasDataDir?" promptNeeded="false" type="id_Directory" value="/usr/local/GeoData/urbanatlas"/>
+  </talendfile:ContextType>
+  <talendfile:ContextType xmi:id="_LcO8W0gOEeGbPv3jw0iz_g" confirmationNeeded="false" name="karukera">
+    <contextParameter xmi:id="_LcO8XEgOEeGbPv3jw0iz_g" comment="" name="geonetwork_url" prompt="geonetwork_url?" promptNeeded="false" type="id_String" value="&quot;http://gaur.eea.europa.eu/catalogue&quot;"/>
+    <contextParameter xmi:id="_LcO8XUgOEeGbPv3jw0iz_g" comment="" name="geonetwork_appurl" prompt="geonetwork_appurl?" promptNeeded="false" type="id_String" value="&quot;http://gaur.eea.europa.eu/catalogue/eea/search&quot;"/>
+    <contextParameter xmi:id="_LcO8XkgOEeGbPv3jw0iz_g" comment="" name="dir_temp" prompt="dir_temp?" promptNeeded="false" type="id_String" value="&quot;/tmp/&quot;"/>
+    <contextParameter xmi:id="_LcO8X0gOEeGbPv3jw0iz_g" comment="Output directory" name="urbanAtlasListDir" prompt="urbanAtlasListDir?" promptNeeded="false" type="id_Directory" value="/tmp/urbanatlas"/>
+    <contextParameter xmi:id="_LcO8YEgOEeGbPv3jw0iz_g" comment="Output XML file" name="urbanAtlasListFile" prompt="urbanAtlasListFile?" promptNeeded="false" type="id_File" value="/tmp/urbanatlas/city.xml"/>
+    <contextParameter xmi:id="_LcO8YUgOEeGbPv3jw0iz_g" comment="ISO19139 XSL Template" name="urbanAtlasXSL" prompt="urbanAtlasXSL?" promptNeeded="false" type="id_File" value="/home/francois/Workspace/geonetwork/eea/trunk/etl/resources/urbanatlas/urbanatlas.xsl"/>
+    <contextParameter xmi:id="_LcO8YkgOEeGbPv3jw0iz_g" comment="Directory with UrbanAtlas data (PDF and DOC)" name="urbanAtlasDataDir" prompt="urbanAtlasDataDir?" promptNeeded="false" type="id_Directory" value="/usr/local/GeoData/urbanatlas"/>
+  </talendfile:ContextType>
+</xmi:XMI>
