@@ -29,7 +29,7 @@ PLUGINNAME = featurecatcreator
 
 PY_FILES = featurecatcreator.py featurecatcreatordialog.py __init__.py iso19110.py
 
-EXTRAS = icon.png mActionOpenTable.png
+EXTRAS = icon.png mActionOpenTable.png fc_template_01.xml
 
 UI_FILES = ui_featurecatcreator.py
 
