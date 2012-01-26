@@ -1,0 +1,1419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.talend.org/mapper" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmi:id="_LcpMA0gOEeGbPv3jw0iz_g" defaultContext="karukera">
+  <context xmi:id="_LcpMBEgOEeGbPv3jw0iz_g" confirmationNeeded="false" name="karukera">
+    <contextParameter xmi:id="_LcpMBUgOEeGbPv3jw0iz_g" comment="Output XML file" name="urbanAtlasListFile" prompt="urbanAtlasListFile?" promptNeeded="false" repositoryContextId="_t5GcQB9VEeGrxIZ7LESbtg" type="id_File" value="/tmp/urbanatlas/city.xml"/>
+    <contextParameter xmi:id="_LcpMBkgOEeGbPv3jw0iz_g" comment="Output directory" name="urbanAtlasListDir" prompt="urbanAtlasListDir?" promptNeeded="false" repositoryContextId="_t5GcQB9VEeGrxIZ7LESbtg" type="id_Directory" value="/tmp/urbanatlas"/>
+    <contextParameter xmi:id="_LcpMB0gOEeGbPv3jw0iz_g" comment="" name="seriesUUID" prompt="seriesUUID?" promptNeeded="false" type="id_String" value="UUID_TOSET_FROMJOBCONTEXT"/>
+  </context>
+  <context xmi:id="_LcpMCEgOEeGbPv3jw0iz_g" confirmationNeeded="false" name="eea_paul">
+    <contextParameter xmi:id="_LcpMCUgOEeGbPv3jw0iz_g" comment="" name="seriesUUID" prompt="seriesUUID?" promptNeeded="false" type="id_String" value="UUID_TOSET_FROMJOBCONTEXT"/>
+    <contextParameter xmi:id="_LcpMCkgOEeGbPv3jw0iz_g" comment="Output directory" name="urbanAtlasListDir" prompt="urbanAtlasListDir?" promptNeeded="false" repositoryContextId="_t5GcQB9VEeGrxIZ7LESbtg" type="id_Directory" value="/tmp/urbanatlas"/>
+    <contextParameter xmi:id="_LcpMC0gOEeGbPv3jw0iz_g" comment="Output XML file" name="urbanAtlasListFile" prompt="urbanAtlasListFile?" promptNeeded="false" repositoryContextId="_t5GcQB9VEeGrxIZ7LESbtg" type="id_File" value="/tmp/urbanatlas/city.xml"/>
+  </context>
+  <parameters xmi:id="_LcpMDEgOEeGbPv3jw0iz_g">
+    <elementParameter xmi:id="_LcpMDUgOEeGbPv3jw0iz_g" field="DIRECTORY" name="COMP_DEFAULT_FILE_DIR" value="/usr/local/App/talend/TOS_DI-r72978-V5.0.0/workspace"/>
+    <elementParameter xmi:id="_LcpMDkgOEeGbPv3jw0iz_g" field="DIRECTORY" name="PRODUCT_ROOT_DIR" value="/usr/local/App/talend/TOS_DI-r72978-V5.0.0"/>
+    <elementParameter xmi:id="_LcpMD0gOEeGbPv3jw0iz_g" field="DIRECTORY" name="COMP_DEFAULT_PROJECT_DIR" value="/usr/local/App/talend/TOS_DI-r72978-V5.0.0/workspace/EEA_SDI"/>
+    <elementParameter xmi:id="_LcpMEEgOEeGbPv3jw0iz_g" field="TEXT" name="JOB_RUN_VM_ARGUMENTS" value=" -Xms256M -Xmx1024M"/>
+    <elementParameter xmi:id="_LcpMEUgOEeGbPv3jw0iz_g" field="CHECK" name="JOB_RUN_VM_ARGUMENTS_OPTION" value="false"/>
+    <elementParameter xmi:id="_LcpMEkgOEeGbPv3jw0iz_g" field="TEXT" name="AUTHOR" value="test@talend.com"/>
+    <elementParameter xmi:id="_LcpME0gOEeGbPv3jw0iz_g" field="TEXT" name="STATUS" value=""/>
+    <elementParameter xmi:id="_LcpMFEgOEeGbPv3jw0iz_g" field="TEXT" name="NAME" value="urbanAtlasExtractTableInfo"/>
+    <elementParameter xmi:id="_LcpMFUgOEeGbPv3jw0iz_g" field="TEXT" name="VERSION" value="0.1"/>
+    <elementParameter xmi:id="_LcpMFkgOEeGbPv3jw0iz_g" field="TEXT" name="PURPOSE" value=""/>
+    <elementParameter xmi:id="_LcpMF0gOEeGbPv3jw0iz_g" field="TEXT" name="DESCRIPTION" value="Retrieve tables from DB and create one simple XML file per table"/>
+    <elementParameter xmi:id="_LcpMGEgOEeGbPv3jw0iz_g" field="TEXT" name="SCREEN_OFFSET_X" value="0"/>
+    <elementParameter xmi:id="_LcpMGUgOEeGbPv3jw0iz_g" field="TEXT" name="SCREEN_OFFSET_Y" value="0"/>
+    <elementParameter xmi:id="_LcpMGkgOEeGbPv3jw0iz_g" field="TEXT" name="SCHEMA_OPTIONS" value="none"/>
+    <elementParameter xmi:id="_LcpMG0gOEeGbPv3jw0iz_g" field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" value="true"/>
+    <elementParameter xmi:id="_LcpMHEgOEeGbPv3jw0iz_g" field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" value="true"/>
+    <elementParameter xmi:id="_LcpMHUgOEeGbPv3jw0iz_g" field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
+    <elementParameter xmi:id="_LcpMHkgOEeGbPv3jw0iz_g" field="CHECK" name="IMPLICIT_TCONTEXTLOAD" value="false"/>
+    <elementParameter xmi:id="_LcpMH0gOEeGbPv3jw0iz_g" field="RADIO" name="FROM_FILE_FLAG_IMPLICIT_CONTEXT" value="false"/>
+    <elementParameter xmi:id="_LcpMIEgOEeGbPv3jw0iz_g" field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" value="false"/>
+    <elementParameter xmi:id="_LcpMIUgOEeGbPv3jw0iz_g" field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpMIkgOEeGbPv3jw0iz_g" field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpMI0gOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:PROPERTY_TYPE" value=""/>
+    <elementParameter xmi:id="_LcpMJEgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:REPOSITORY_PROPERTY_TYPE" value=""/>
+    <elementParameter xmi:id="_LcpMJUgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value=""/>
+    <elementParameter xmi:id="_LcpMJkgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value=""/>
+    <elementParameter xmi:id="_LcpMJ0gOEeGbPv3jw0iz_g" field="TEXT" name="URL_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpMKEgOEeGbPv3jw0iz_g" field="TABLE" name="DRIVER_JAR_IMPLICIT_CONTEXT"/>
+    <elementParameter xmi:id="_LcpMKUgOEeGbPv3jw0iz_g" field="TEXT" name="DRIVER_CLASS_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpMKkgOEeGbPv3jw0iz_g" field="TEXT" name="HOST_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpMK0gOEeGbPv3jw0iz_g" field="TEXT" name="PORT_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpMLEgOEeGbPv3jw0iz_g" field="TEXT" name="DBNAME_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpMLUgOEeGbPv3jw0iz_g" field="TEXT" name="LOCAL_SERVICE_NAME_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpMLkgOEeGbPv3jw0iz_g" field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpML0gOEeGbPv3jw0iz_g" field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpMMEgOEeGbPv3jw0iz_g" field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpMMUgOEeGbPv3jw0iz_g" field="TEXT" name="PASS_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpMMkgOEeGbPv3jw0iz_g" field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzEEgOEeGbPv3jw0iz_g" field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzEUgOEeGbPv3jw0iz_g" field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzEkgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="LOAD_NEW_VARIABLE" value=""/>
+    <elementParameter xmi:id="_LcpzE0gOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="NOT_LOAD_OLD_VARIABLE" value=""/>
+    <elementParameter xmi:id="_LcpzFEgOEeGbPv3jw0iz_g" field="CHECK" name="PRINT_OPERATIONS" value="false"/>
+    <elementParameter xmi:id="_LcpzFUgOEeGbPv3jw0iz_g" field="CHECK" name="DISABLE_ERROR" value="false"/>
+    <elementParameter xmi:id="_LcpzFkgOEeGbPv3jw0iz_g" field="CHECK" name="DISABLE_WARNINGS" value="false"/>
+    <elementParameter xmi:id="_LcpzF0gOEeGbPv3jw0iz_g" field="CHECK" name="DISABLE_INFO" value="false"/>
+    <elementParameter xmi:id="_LcpzGEgOEeGbPv3jw0iz_g" field="CHECK" name="ON_STATCATCHER_FLAG" value="false"/>
+    <elementParameter xmi:id="_LcpzGUgOEeGbPv3jw0iz_g" field="CHECK" name="ON_LOGCATCHER_FLAG" value="false"/>
+    <elementParameter xmi:id="_LcpzGkgOEeGbPv3jw0iz_g" field="CHECK" name="ON_METERCATCHER_FLAG" value="false"/>
+    <elementParameter xmi:id="_LcpzG0gOEeGbPv3jw0iz_g" field="CHECK" name="ON_CONSOLE_FLAG" value="false"/>
+    <elementParameter xmi:id="_LcpzHEgOEeGbPv3jw0iz_g" field="CHECK" name="ON_FILES_FLAG" value="false"/>
+    <elementParameter xmi:id="_LcpzHUgOEeGbPv3jw0iz_g" field="DIRECTORY" name="FILE_PATH" value="&quot;/home/francois/App/talend/TOS_DI-r72978-V5.0.0/workspace/.metadata&quot;"/>
+    <elementParameter xmi:id="_LcpzHkgOEeGbPv3jw0iz_g" field="TEXT" name="FILENAME_STATS" value="&quot;stats_file.txt&quot;"/>
+    <elementParameter xmi:id="_LcpzH0gOEeGbPv3jw0iz_g" field="TEXT" name="FILENAME_LOGS" value="&quot;logs_file.txt&quot;"/>
+    <elementParameter xmi:id="_LcpzIEgOEeGbPv3jw0iz_g" field="TEXT" name="FILENAME_METTER" value="&quot;meter_file.txt&quot;"/>
+    <elementParameter xmi:id="_LcpzIUgOEeGbPv3jw0iz_g" field="ENCODING_TYPE" name="ENCODING" value="ISO-8859-15"/>
+    <elementParameter xmi:id="_LcpzIkgOEeGbPv3jw0iz_g" field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter xmi:id="_LcpzI0gOEeGbPv3jw0iz_g" field="CHECK" name="ON_DATABASE_FLAG" value="false"/>
+    <elementParameter xmi:id="_LcpzJEgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="DB_TYPE" value="tJDBCOutput"/>
+    <elementParameter xmi:id="_LcpzJUgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="DB_VERSION" value="ojdbc14-10g.jar"/>
+    <elementParameter xmi:id="_LcpzJkgOEeGbPv3jw0iz_g" field="TEXT" name="URL" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzJ0gOEeGbPv3jw0iz_g" field="TABLE" name="DRIVER_JAR"/>
+    <elementParameter xmi:id="_LcpzKEgOEeGbPv3jw0iz_g" field="TEXT" name="DRIVER_CLASS" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzKUgOEeGbPv3jw0iz_g" field="TEXT" name="HOST" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzKkgOEeGbPv3jw0iz_g" field="TEXT" name="PORT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzK0gOEeGbPv3jw0iz_g" field="TEXT" name="DATASOURCE" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzLEgOEeGbPv3jw0iz_g" field="TEXT" name="DBNAME" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzLUgOEeGbPv3jw0iz_g" field="TEXT" name="LOCAL_SERVICE_NAME" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzLkgOEeGbPv3jw0iz_g" field="TEXT" name="PROPERTIES" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzL0gOEeGbPv3jw0iz_g" field="TEXT" name="SCHEMA_DB" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzMEgOEeGbPv3jw0iz_g" field="TEXT" name="USER" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzMUgOEeGbPv3jw0iz_g" field="TEXT" name="PASS" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzMkgOEeGbPv3jw0iz_g" field="FILE" name="DBFILE" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzM0gOEeGbPv3jw0iz_g" field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzNEgOEeGbPv3jw0iz_g" field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzNUgOEeGbPv3jw0iz_g" field="DBTABLE" name="TABLE_METER" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzNkgOEeGbPv3jw0iz_g" field="CHECK" name="CATCH_RUNTIME_ERRORS" value="true"/>
+    <elementParameter xmi:id="_LcpzN0gOEeGbPv3jw0iz_g" field="CHECK" name="CATCH_USER_ERRORS" value="true"/>
+    <elementParameter xmi:id="_LcpzOEgOEeGbPv3jw0iz_g" field="CHECK" name="CATCH_USER_WARNING" value="true"/>
+    <elementParameter xmi:id="_LcpzOUgOEeGbPv3jw0iz_g" field="CHECK" name="CATCH_REALTIME_STATS" value="false"/>
+    <elementParameter xmi:id="_LcpzOkgOEeGbPv3jw0iz_g" field="TEXT" name="HEADERFOOTER_HEADERID" value=""/>
+    <elementParameter xmi:id="_LcpzO0gOEeGbPv3jw0iz_g" field="CHECK" name="HEADER_ENABLED" value="false"/>
+    <elementParameter xmi:id="_LcpzPEgOEeGbPv3jw0iz_g" field="TEXT" name="HEADER_LIBRARY" value=""/>
+    <elementParameter xmi:id="_LcpzPUgOEeGbPv3jw0iz_g" field="TEXT" name="HEADER_CODE" value=""/>
+    <elementParameter xmi:id="_LcpzPkgOEeGbPv3jw0iz_g" field="TEXT" name="HEADER_IMPORT" value=""/>
+    <elementParameter xmi:id="_LcpzP0gOEeGbPv3jw0iz_g" field="TEXT" name="HEADERFOOTER_FOOTERID" value=""/>
+    <elementParameter xmi:id="_LcpzQEgOEeGbPv3jw0iz_g" field="CHECK" name="FOOTER_ENABLED" value="false"/>
+    <elementParameter xmi:id="_LcpzQUgOEeGbPv3jw0iz_g" field="TEXT" name="FOOTER_LIBRARY" value=""/>
+    <elementParameter xmi:id="_LcpzQkgOEeGbPv3jw0iz_g" field="TEXT" name="FOOTER_CODE" value=""/>
+    <elementParameter xmi:id="_LcpzQ0gOEeGbPv3jw0iz_g" field="TEXT" name="FOOTER_IMPORT" value=""/>
+    <routinesParameter xmi:id="_LcpzREgOEeGbPv3jw0iz_g" id="_OflbsB9VEeGrxIZ7LESbtg" name="DataOperation"/>
+    <routinesParameter xmi:id="_LcpzRUgOEeGbPv3jw0iz_g" id="_wjBEEENgEeGcq6voYY19sg" name="GeoOperation"/>
+    <routinesParameter xmi:id="_LcpzRkgOEeGbPv3jw0iz_g" id="_wjKOAENgEeGcq6voYY19sg" name="GeometryOperation"/>
+    <routinesParameter xmi:id="_LcpzR0gOEeGbPv3jw0iz_g" id="_weizwENgEeGcq6voYY19sg" name="GeometryUtility"/>
+    <routinesParameter xmi:id="_LcpzSEgOEeGbPv3jw0iz_g" id="_Ofn38B9VEeGrxIZ7LESbtg" name="Mathematical"/>
+    <routinesParameter xmi:id="_LcpzSUgOEeGbPv3jw0iz_g" id="_OfkNkB9VEeGrxIZ7LESbtg" name="Numeric"/>
+    <routinesParameter xmi:id="_LcpzSkgOEeGbPv3jw0iz_g" id="_wjMDMENgEeGcq6voYY19sg" name="OpenStreetMap"/>
+    <routinesParameter xmi:id="_LcpzS0gOEeGbPv3jw0iz_g" id="_Off8IB9VEeGrxIZ7LESbtg" name="Relational"/>
+    <routinesParameter xmi:id="_LcpzTEgOEeGbPv3jw0iz_g" id="_Ofmp0B9VEeGrxIZ7LESbtg" name="StringHandling"/>
+    <routinesParameter xmi:id="_LcpzTUgOEeGbPv3jw0iz_g" id="_Ofi_cB9VEeGrxIZ7LESbtg" name="TalendDataGenerator"/>
+    <routinesParameter xmi:id="_LcpzTkgOEeGbPv3jw0iz_g" id="_OfhxUB9VEeGrxIZ7LESbtg" name="TalendDate"/>
+    <routinesParameter xmi:id="_LcpzT0gOEeGbPv3jw0iz_g" id="_OdslUB9VEeGrxIZ7LESbtg" name="TalendString"/>
+  </parameters>
+  <node xmi:id="_LcpzUEgOEeGbPv3jw0iz_g" componentName="tPostgresqlConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="128">
+    <elementParameter xmi:id="_LcpzUUgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tPostgresqlConnection_1"/>
+    <elementParameter xmi:id="_LcpzUkgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter xmi:id="_LcpzU0gOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_7jg0wEUbEeGZyfxFRdvStw"/>
+    <elementParameter xmi:id="_LcpzVEgOEeGbPv3jw0iz_g" field="TEXT" name="HOST" value="&quot;localhost&quot;"/>
+    <elementParameter xmi:id="_LcpzVUgOEeGbPv3jw0iz_g" field="TEXT" name="TYPE" value="POSTGRESQL"/>
+    <elementParameter xmi:id="_LcpzVkgOEeGbPv3jw0iz_g" field="TEXT" name="PORT" value="&quot;5432&quot;"/>
+    <elementParameter xmi:id="_LcpzV0gOEeGbPv3jw0iz_g" field="TEXT" name="DBNAME" value="&quot;eea_sdi&quot;"/>
+    <elementParameter xmi:id="_LcpzWEgOEeGbPv3jw0iz_g" field="TEXT" name="SCHEMA_DB" value="&quot;public&quot;"/>
+    <elementParameter xmi:id="_LcpzWUgOEeGbPv3jw0iz_g" field="TEXT" name="USER" value="&quot;www-data&quot;"/>
+    <elementParameter xmi:id="_LcpzWkgOEeGbPv3jw0iz_g" field="TEXT" name="PASS" value="&quot;www-data&quot;"/>
+    <elementParameter xmi:id="_LcpzW0gOEeGbPv3jw0iz_g" field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter xmi:id="_LcpzXEgOEeGbPv3jw0iz_g" field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter xmi:id="_LcpzXUgOEeGbPv3jw0iz_g" field="CHECK" name="USE_SHARED_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_LcpzXkgOEeGbPv3jw0iz_g" field="TEXT" name="SHARED_CONNECTION_NAME" value=""/>
+    <elementParameter xmi:id="_LcpzX0gOEeGbPv3jw0iz_g" field="CHECK" name="AUTO_COMMIT" value="false"/>
+    <elementParameter xmi:id="_LcpzYEgOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_LcpzYUgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_LcpzYkgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_LcpzY0gOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+  </node>
+  <node xmi:id="_LcpzZEgOEeGbPv3jw0iz_g" componentName="tPostgresqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="384">
+    <elementParameter xmi:id="_LcpzZUgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tPostgresqlInput_1"/>
+    <elementParameter xmi:id="_LcpzZkgOEeGbPv3jw0iz_g" field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter xmi:id="_LcpzZ0gOEeGbPv3jw0iz_g" field="COMPONENT_LIST" name="CONNECTION" value="tPostgresqlConnection_1"/>
+    <elementParameter xmi:id="_LcpzaEgOEeGbPv3jw0iz_g" field="TEXT" name="HOST" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzaUgOEeGbPv3jw0iz_g" field="TEXT" name="TYPE" value="PostgreSQL"/>
+    <elementParameter xmi:id="_LcpzakgOEeGbPv3jw0iz_g" field="TEXT" name="PORT" value="&quot;5432&quot;"/>
+    <elementParameter xmi:id="_Lcpza0gOEeGbPv3jw0iz_g" field="TEXT" name="DBNAME" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzbEgOEeGbPv3jw0iz_g" field="TEXT" name="SCHEMA_DB" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzbUgOEeGbPv3jw0iz_g" field="TEXT" name="USER" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzbkgOEeGbPv3jw0iz_g" field="TEXT" name="PASS" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcpzb0gOEeGbPv3jw0iz_g" field="DBTABLE" name="TABLE" value="&quot;geometry_columns&quot;"/>
+    <elementParameter xmi:id="_LcpzcEgOEeGbPv3jw0iz_g" field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzcUgOEeGbPv3jw0iz_g" field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value=""/>
+    <elementParameter xmi:id="_LcpzckgOEeGbPv3jw0iz_g" field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter xmi:id="_Lcpzc0gOEeGbPv3jw0iz_g" field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzdEgOEeGbPv3jw0iz_g" field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  \&quot;geometry_columns\&quot;.\&quot;f_table_name\&quot;, &#xA;  \&quot;geometry_columns\&quot;.\&quot;f_table_schema\&quot;, &#xA;  \&quot;geometry_columns\&quot;.\&quot;f_geometry_column\&quot;, &#xA;  \&quot;geometry_columns\&quot;.\&quot;srid\&quot;&#xA;FROM \&quot;geometry_columns\&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzdUgOEeGbPv3jw0iz_g" field="MAPPING_TYPE" name="MAPPING" value="postgres_id"/>
+    <elementParameter xmi:id="_LcpzdkgOEeGbPv3jw0iz_g" field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter xmi:id="_Lcpzd0gOEeGbPv3jw0iz_g" field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter xmi:id="_LcpzeEgOEeGbPv3jw0iz_g" field="CHECK" name="USE_CURSOR" value="false"/>
+    <elementParameter xmi:id="_LcpzeUgOEeGbPv3jw0iz_g" field="TEXT" name="CURSOR_SIZE" value="1000"/>
+    <elementParameter xmi:id="_LcpzekgOEeGbPv3jw0iz_g" field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
+    <elementParameter xmi:id="_Lcpze0gOEeGbPv3jw0iz_g" field="TABLE" name="TRIM_COLUMN">
+      <elementValue xmi:id="_LcpzfEgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_LcpzfUgOEeGbPv3jw0iz_g" elementRef="TRIM" value="false"/>
+      <elementValue xmi:id="_LcpzfkgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_Lcpzf0gOEeGbPv3jw0iz_g" elementRef="TRIM" value="false"/>
+      <elementValue xmi:id="_LcpzgEgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_geometry_column"/>
+      <elementValue xmi:id="_LcpzgUgOEeGbPv3jw0iz_g" elementRef="TRIM" value="false"/>
+      <elementValue xmi:id="_LcpzgkgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="srid"/>
+      <elementValue xmi:id="_Lcpzg0gOEeGbPv3jw0iz_g" elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter xmi:id="_LcpzhEgOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_LcpzhUgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_LcpzhkgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Lcpzh0gOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_LcpziEgOEeGbPv3jw0iz_g" connector="FLOW" name="tPostgresqlInput_1">
+      <column xmi:id="_LcpziUgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_name" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_LcpzikgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_schema" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpzi0gOEeGbPv3jw0iz_g" comment="" key="false" name="f_geometry_column" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_LcpzjEgOEeGbPv3jw0iz_g" comment="" key="false" name="srid" nullable="true" pattern="" sourceType="INT4" type="id_Integer"/>
+    </metadata>
+  </node>
+  <node xmi:id="_LcpzjUgOEeGbPv3jw0iz_g" componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="256" posY="384">
+    <elementParameter xmi:id="_LcpzjkgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tLogRow_1"/>
+    <elementParameter xmi:id="_Lcpzj0gOEeGbPv3jw0iz_g" field="RADIO" name="BASIC_MODE" value="true"/>
+    <elementParameter xmi:id="_LcpzkEgOEeGbPv3jw0iz_g" field="RADIO" name="TABLE_PRINT" value="false"/>
+    <elementParameter xmi:id="_LcpzkUgOEeGbPv3jw0iz_g" field="RADIO" name="VERTICAL" value="false"/>
+    <elementParameter xmi:id="_LcpzkkgOEeGbPv3jw0iz_g" field="RADIO" name="PRINT_UNIQUE" value="true"/>
+    <elementParameter xmi:id="_Lcpzk0gOEeGbPv3jw0iz_g" field="RADIO" name="PRINT_LABEL" value="false"/>
+    <elementParameter xmi:id="_LcpzlEgOEeGbPv3jw0iz_g" field="RADIO" name="PRINT_UNIQUE_LABEL" value="false"/>
+    <elementParameter xmi:id="_LcpzlUgOEeGbPv3jw0iz_g" field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;"/>
+    <elementParameter xmi:id="_LcpzlkgOEeGbPv3jw0iz_g" field="CHECK" name="PRINT_HEADER" value="false"/>
+    <elementParameter xmi:id="_Lcpzl0gOEeGbPv3jw0iz_g" field="CHECK" name="PRINT_UNIQUE_NAME" value="false"/>
+    <elementParameter xmi:id="_LcpzmEgOEeGbPv3jw0iz_g" field="CHECK" name="PRINT_COLNAMES" value="false"/>
+    <elementParameter xmi:id="_LcpzmUgOEeGbPv3jw0iz_g" field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
+    <elementParameter xmi:id="_LcpzmkgOEeGbPv3jw0iz_g" field="TABLE" name="LENGTHS">
+      <elementValue xmi:id="_Lcpzm0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_LcpznEgOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_LcpznUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_LcpznkgOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcpzn0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_geometry_column"/>
+      <elementValue xmi:id="_LcpzoEgOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_LcpzoUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="srid"/>
+      <elementValue xmi:id="_LcpzokgOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcpzo0gOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_LcpzpEgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_LcpzpUgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_LcpzpkgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lcpzp0gOEeGbPv3jw0iz_g" connector="FLOW" name="tLogRow_1">
+      <column xmi:id="_LcpzqEgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_name" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_LcpzqUgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_schema" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_LcpzqkgOEeGbPv3jw0iz_g" comment="" key="false" name="f_geometry_column" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpzq0gOEeGbPv3jw0iz_g" comment="" key="false" name="srid" nullable="true" pattern="" sourceType="INT4" type="id_Integer"/>
+    </metadata>
+  </node>
+  <node xmi:id="_LcpzrEgOEeGbPv3jw0iz_g" componentName="tPostgresqlRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="576" posY="384">
+    <elementParameter xmi:id="_LcpzrUgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tPostgresqlRow_1"/>
+    <elementParameter xmi:id="_LcpzrkgOEeGbPv3jw0iz_g" field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter xmi:id="_Lcpzr0gOEeGbPv3jw0iz_g" field="COMPONENT_LIST" name="CONNECTION" value="tPostgresqlConnection_1"/>
+    <elementParameter xmi:id="_LcpzsEgOEeGbPv3jw0iz_g" field="TEXT" name="HOST" value="&quot;localhost&quot;"/>
+    <elementParameter xmi:id="_LcpzsUgOEeGbPv3jw0iz_g" field="TEXT" name="PORT" value="&quot;5432&quot;"/>
+    <elementParameter xmi:id="_LcpzskgOEeGbPv3jw0iz_g" field="TEXT" name="DBNAME" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcpzs0gOEeGbPv3jw0iz_g" field="TEXT" name="SCHEMA_DB" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpztEgOEeGbPv3jw0iz_g" field="TEXT" name="TYPE" value="PostgreSQL"/>
+    <elementParameter xmi:id="_LcpztUgOEeGbPv3jw0iz_g" field="TEXT" name="USER" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpztkgOEeGbPv3jw0iz_g" field="TEXT" name="PASS" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcpzt0gOEeGbPv3jw0iz_g" field="DBTABLE" name="TABLE" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzuEgOEeGbPv3jw0iz_g" field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LcpzuUgOEeGbPv3jw0iz_g" field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value=""/>
+    <elementParameter xmi:id="_LcpzukgOEeGbPv3jw0iz_g" field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter xmi:id="_Lcpzu0gOEeGbPv3jw0iz_g" field="MEMO_SQL" name="QUERY" value="&quot;SELECT ST_AsText(&#xA;ST_Extent(&#xA; ST_Transform(&#xA;   ST_SetSRID(&#xA;     st_collect(ARRAY(SELECT &quot; + out.f_geometry_column + &quot; FROM &quot; + out.f_table_schema + &quot;.&quot; + out.f_table_name + &quot;))&#xA;     , &quot; + out.srid + &quot;),&#xA; 4326)&#xA;)) as bbox&quot;"/>
+    <elementParameter xmi:id="_LcpzvEgOEeGbPv3jw0iz_g" field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter xmi:id="_LcpzvUgOEeGbPv3jw0iz_g" field="CHECK" name="PROPAGATE_RECORD_SET" value="true"/>
+    <elementParameter xmi:id="_LcpzvkgOEeGbPv3jw0iz_g" field="COLUMN_LIST" name="RECORD_SET_COLUMN" value="recordset"/>
+    <elementParameter xmi:id="_Lcpzv0gOEeGbPv3jw0iz_g" field="CHECK" name="USE_PREPAREDSTATEMENT" value="false"/>
+    <elementParameter xmi:id="_LcpzwEgOEeGbPv3jw0iz_g" field="TABLE" name="SET_PREPAREDSTATEMENT_PARAMETERS">
+      <elementValue xmi:id="_LcpzwUgOEeGbPv3jw0iz_g" elementRef="PARAMETER_INDEX" value="1"/>
+      <elementValue xmi:id="_LcpzwkgOEeGbPv3jw0iz_g" elementRef="PARAMETER_TYPE" value="Int"/>
+      <elementValue xmi:id="_Lcpzw0gOEeGbPv3jw0iz_g" elementRef="PARAMETER_VALUE" value="out.srid"/>
+    </elementParameter>
+    <elementParameter xmi:id="_LcpzxEgOEeGbPv3jw0iz_g" field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter xmi:id="_LcpzxUgOEeGbPv3jw0iz_g" field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter xmi:id="_LcpzxkgOEeGbPv3jw0iz_g" field="TEXT" name="COMMIT_EVERY" value="10000"/>
+    <elementParameter xmi:id="_Lcpzx0gOEeGbPv3jw0iz_g" field="TEXT" name="LABEL" value="boxEstimate"/>
+    <elementParameter xmi:id="_LcpzyEgOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_LcpzyUgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_LcpzykgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Lcpzy0gOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_LcpzzEgOEeGbPv3jw0iz_g" connector="FLOW" name="tPostgresqlRow_1">
+      <column xmi:id="_LcpzzUgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_name" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_LcpzzkgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_schema" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpzz0gOEeGbPv3jw0iz_g" comment="" key="false" name="f_geometry_column" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz0EgOEeGbPv3jw0iz_g" comment="" key="false" name="srid" nullable="true" pattern="" sourceType="INT4" type="id_Integer"/>
+      <column xmi:id="_Lcpz0UgOEeGbPv3jw0iz_g" comment="" key="false" name="recordset" nullable="true" pattern="" sourceType="" type="id_Object"/>
+      <column xmi:id="_Lcpz0kgOEeGbPv3jw0iz_g" comment="" key="false" name="bbox" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz00gOEeGbPv3jw0iz_g" comment="" key="false" name="countryid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz1EgOEeGbPv3jw0iz_g" comment="" key="false" name="cityid" nullable="true" pattern="" sourceType="" type="id_String"/>
+    </metadata>
+    <metadata xmi:id="_Lcpz1UgOEeGbPv3jw0iz_g" connector="REJECT" name="REJECT">
+      <column xmi:id="_Lcpz1kgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_name" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz10gOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_schema" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz2EgOEeGbPv3jw0iz_g" comment="" key="false" name="f_geometry_column" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz2UgOEeGbPv3jw0iz_g" comment="" key="false" name="srid" nullable="true" pattern="" sourceType="INT4" type="id_Integer"/>
+      <column xmi:id="_Lcpz2kgOEeGbPv3jw0iz_g" comment="" key="false" name="recordset" nullable="true" pattern="" sourceType="" type="id_Object"/>
+      <column xmi:id="_Lcpz20gOEeGbPv3jw0iz_g" comment="" key="false" name="bbox" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz3EgOEeGbPv3jw0iz_g" comment="" key="false" name="countryid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz3UgOEeGbPv3jw0iz_g" comment="" key="false" name="cityid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz3kgOEeGbPv3jw0iz_g" defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz30gOEeGbPv3jw0iz_g" defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String"/>
+    </metadata>
+  </node>
+  <node xmi:id="_Lcpz4EgOEeGbPv3jw0iz_g" componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="416" posY="384">
+    <elementParameter xmi:id="_Lcpz4UgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tMap_1"/>
+    <elementParameter xmi:id="_Lcpz4kgOEeGbPv3jw0iz_g" field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter xmi:id="_Lcpz40gOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter xmi:id="_Lcpz5EgOEeGbPv3jw0iz_g" field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter xmi:id="_Lcpz5UgOEeGbPv3jw0iz_g" field="IMAGE" name="PREVIEW" value="_uRpxMETbEeGZyfxFRdvStw-tMap_1-PREVIEW.bmp"/>
+    <elementParameter xmi:id="_Lcpz5kgOEeGbPv3jw0iz_g" field="CHECK" name="DIE_ON_ERROR" value="true"/>
+    <elementParameter xmi:id="_Lcpz50gOEeGbPv3jw0iz_g" field="CHECK" name="LKUP_PARALLELIZE" value="false"/>
+    <elementParameter xmi:id="_Lcpz6EgOEeGbPv3jw0iz_g" field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter xmi:id="_Lcpz6UgOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_Lcpz6kgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_Lcpz60gOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Lcpz7EgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lcpz7UgOEeGbPv3jw0iz_g" connector="FLOW" name="out">
+      <column xmi:id="_Lcpz7kgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_name" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz70gOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_schema" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz8EgOEeGbPv3jw0iz_g" comment="" key="false" name="f_geometry_column" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz8UgOEeGbPv3jw0iz_g" comment="" key="false" name="srid" nullable="true" pattern="" sourceType="INT4" type="id_Integer"/>
+      <column xmi:id="_Lcpz8kgOEeGbPv3jw0iz_g" comment="" key="false" name="recordset" nullable="true" pattern="" sourceType="" type="id_Object"/>
+      <column xmi:id="_Lcpz80gOEeGbPv3jw0iz_g" comment="" key="false" name="bbox" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz9EgOEeGbPv3jw0iz_g" comment="" key="false" name="countryid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcpz9UgOEeGbPv3jw0iz_g" comment="" key="false" name="cityid" nullable="true" pattern="" sourceType="" type="id_String"/>
+    </metadata>
+    <nodeData xsi:type="MapperData" xmi:id="_Lcpz9kgOEeGbPv3jw0iz_g">
+      <uiProperties xmi:id="_Lcpz90gOEeGbPv3jw0iz_g"/>
+      <varTables xmi:id="_Lcpz-EgOEeGbPv3jw0iz_g" sizeState="INTERMEDIATE" name="Var" minimized="true"/>
+      <outputTables xmi:id="_Lcpz-UgOEeGbPv3jw0iz_g" sizeState="INTERMEDIATE" name="out">
+        <mapperTableEntries xmi:id="_Lcpz-kgOEeGbPv3jw0iz_g" name="f_table_name" expression="row2.f_table_name" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcpz-0gOEeGbPv3jw0iz_g" name="f_table_schema" expression="row2.f_table_schema" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcpz_EgOEeGbPv3jw0iz_g" name="f_geometry_column" expression="row2.f_geometry_column" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcpz_UgOEeGbPv3jw0iz_g" name="srid" expression="row2.srid" type="id_Integer" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcpz_kgOEeGbPv3jw0iz_g" name="recordset" type="id_Object" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcpz_0gOEeGbPv3jw0iz_g" name="bbox" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0AEgOEeGbPv3jw0iz_g" name="countryid" expression="row2.f_table_name.substring(0, 2)" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0AUgOEeGbPv3jw0iz_g" name="cityid" expression="row2.f_table_name.substring(7, row2.f_table_name.length())" type="id_String" nullable="true"/>
+      </outputTables>
+      <inputTables xmi:id="_Lcp0AkgOEeGbPv3jw0iz_g" sizeState="INTERMEDIATE" name="row2" matchingMode="ALL_ROWS" lookupMode="LOAD_ONCE">
+        <mapperTableEntries xmi:id="_Lcp0A0gOEeGbPv3jw0iz_g" name="f_table_name" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0BEgOEeGbPv3jw0iz_g" name="f_table_schema" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0BUgOEeGbPv3jw0iz_g" name="f_geometry_column" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0BkgOEeGbPv3jw0iz_g" name="srid" type="id_Integer" nullable="true"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node xmi:id="_Lcp0B0gOEeGbPv3jw0iz_g" componentName="tParseRecordSet" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="768" posY="384">
+    <elementParameter xmi:id="_Lcp0CEgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tParseRecordSet_1"/>
+    <elementParameter xmi:id="_Lcp0CUgOEeGbPv3jw0iz_g" field="PREV_COLUMN_LIST" name="RECORDSET_FIELD" value="recordset"/>
+    <elementParameter xmi:id="_Lcp0CkgOEeGbPv3jw0iz_g" field="TABLE" name="ATTRIBUTE_TABLE">
+      <elementValue xmi:id="_Lcp0C0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_Lcp0DEgOEeGbPv3jw0iz_g" elementRef="VALUE" value=""/>
+      <elementValue xmi:id="_Lcp0DUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_Lcp0DkgOEeGbPv3jw0iz_g" elementRef="VALUE" value=""/>
+      <elementValue xmi:id="_Lcp0D0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_geometry_column"/>
+      <elementValue xmi:id="_Lcp0EEgOEeGbPv3jw0iz_g" elementRef="VALUE" value=""/>
+      <elementValue xmi:id="_Lcp0EUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="srid"/>
+      <elementValue xmi:id="_Lcp0EkgOEeGbPv3jw0iz_g" elementRef="VALUE" value=""/>
+      <elementValue xmi:id="_Lcp0E0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="recordset"/>
+      <elementValue xmi:id="_Lcp0FEgOEeGbPv3jw0iz_g" elementRef="VALUE" value=""/>
+      <elementValue xmi:id="_Lcp0FUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="bbox"/>
+      <elementValue xmi:id="_Lcp0FkgOEeGbPv3jw0iz_g" elementRef="VALUE" value="&quot;bbox&quot;"/>
+      <elementValue xmi:id="_Lcp0F0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="countryid"/>
+      <elementValue xmi:id="_Lcp0GEgOEeGbPv3jw0iz_g" elementRef="VALUE" value=""/>
+      <elementValue xmi:id="_Lcp0GUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="cityid"/>
+      <elementValue xmi:id="_Lcp0GkgOEeGbPv3jw0iz_g" elementRef="VALUE" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp0G0gOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_Lcp0HEgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_Lcp0HUgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Lcp0HkgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lcp0H0gOEeGbPv3jw0iz_g" connector="FLOW" name="tParseRecordSet_1">
+      <column xmi:id="_Lcp0IEgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_name" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0IUgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_schema" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0IkgOEeGbPv3jw0iz_g" comment="" key="false" name="f_geometry_column" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0I0gOEeGbPv3jw0iz_g" comment="" key="false" name="srid" nullable="true" pattern="" sourceType="INT4" type="id_Integer"/>
+      <column xmi:id="_Lcp0JEgOEeGbPv3jw0iz_g" comment="" key="false" name="recordset" nullable="true" pattern="" sourceType="" type="id_Object"/>
+      <column xmi:id="_Lcp0JUgOEeGbPv3jw0iz_g" comment="" key="false" name="bbox" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0JkgOEeGbPv3jw0iz_g" comment="" key="false" name="countryid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0J0gOEeGbPv3jw0iz_g" comment="" key="false" name="cityid" nullable="true" pattern="" sourceType="" type="id_String"/>
+    </metadata>
+  </node>
+  <node xmi:id="_Lcp0KEgOEeGbPv3jw0iz_g" componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="768" posY="256">
+    <elementParameter xmi:id="_Lcp0KUgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tMap_3"/>
+    <elementParameter xmi:id="_Lcp0KkgOEeGbPv3jw0iz_g" field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter xmi:id="_Lcp0K0gOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter xmi:id="_Lcp0LEgOEeGbPv3jw0iz_g" field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter xmi:id="_Lcp0LUgOEeGbPv3jw0iz_g" field="IMAGE" name="PREVIEW" value="_uRpxMETbEeGZyfxFRdvStw-tMap_3-PREVIEW.bmp"/>
+    <elementParameter xmi:id="_Lcp0LkgOEeGbPv3jw0iz_g" field="CHECK" name="DIE_ON_ERROR" value="true"/>
+    <elementParameter xmi:id="_Lcp0L0gOEeGbPv3jw0iz_g" field="CHECK" name="LKUP_PARALLELIZE" value="false"/>
+    <elementParameter xmi:id="_Lcp0MEgOEeGbPv3jw0iz_g" field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter xmi:id="_Lcp0MUgOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_Lcp0MkgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_Lcp0M0gOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Lcp0NEgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lcp0NUgOEeGbPv3jw0iz_g" connector="FLOW" name="out_with_geom">
+      <column xmi:id="_Lcp0NkgOEeGbPv3jw0iz_g" comment="" key="false" name="uuid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0N0gOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_name" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0OEgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_schema" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0OUgOEeGbPv3jw0iz_g" comment="" key="false" name="f_geometry_column" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0OkgOEeGbPv3jw0iz_g" comment="" key="false" name="srid" nullable="true" pattern="" sourceType="INT4" type="id_Integer"/>
+      <column xmi:id="_Lcp0O0gOEeGbPv3jw0iz_g" comment="" key="false" name="countryid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0PEgOEeGbPv3jw0iz_g" comment="" key="false" name="countryname" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0PUgOEeGbPv3jw0iz_g" comment="" key="false" name="bbox" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0PkgOEeGbPv3jw0iz_g" comment="" defaultValue="" key="false" name="west" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp0P0gOEeGbPv3jw0iz_g" comment="" defaultValue="" key="false" name="south" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp0QEgOEeGbPv3jw0iz_g" comment="" defaultValue="" key="false" name="east" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp0QUgOEeGbPv3jw0iz_g" comment="" key="false" name="north" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp0QkgOEeGbPv3jw0iz_g" comment="" key="false" name="cityid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0Q0gOEeGbPv3jw0iz_g" comment="" key="false" name="cityname" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0REgOEeGbPv3jw0iz_g" comment="" key="false" name="the_geom" nullable="true" pattern="" sourceType="" type="id_Geometry"/>
+      <column xmi:id="_Lcp0RUgOEeGbPv3jw0iz_g" comment="" key="false" name="seriesuuid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0RkgOEeGbPv3jw0iz_g" comment="" key="false" name="docPath" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0R0gOEeGbPv3jw0iz_g" comment="" key="false" name="id" nullable="true" pattern="" sourceType="" type="id_String"/>
+    </metadata>
+    <metadata xmi:id="_Lcp0SEgOEeGbPv3jw0iz_g" connector="FLOW" name="ghostscript">
+      <column xmi:id="_Lcp0SUgOEeGbPv3jw0iz_g" comment="" key="false" name="shellCmd" nullable="true" pattern="" sourceType="" type="id_String"/>
+    </metadata>
+    <metadata xmi:id="_Lcp0SkgOEeGbPv3jw0iz_g" connector="FLOW" name="cityUuidMap">
+      <column xmi:id="_Lcp0S0gOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_name" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0TEgOEeGbPv3jw0iz_g" comment="" key="false" name="uuid" nullable="false" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0TUgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_schema" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0TkgOEeGbPv3jw0iz_g" comment="" key="false" name="srid" nullable="true" pattern="" sourceType="INT4" type="id_Integer"/>
+    </metadata>
+    <nodeData xsi:type="MapperData" xmi:id="_Lcp0T0gOEeGbPv3jw0iz_g">
+      <uiProperties xmi:id="_Lcp0UEgOEeGbPv3jw0iz_g"/>
+      <varTables xmi:id="_Lcp0UUgOEeGbPv3jw0iz_g" sizeState="INTERMEDIATE" name="Var">
+        <mapperTableEntries xmi:id="_Lcp0UkgOEeGbPv3jw0iz_g" name="geom" expression="new org.talend.sdi.geometry.Geometry(row4.bbox)" type="id_Geometry"/>
+        <mapperTableEntries xmi:id="_Lcp0U0gOEeGbPv3jw0iz_g" name="uuid" expression="java.util.UUID.randomUUID().toString()" type="id_String"/>
+        <mapperTableEntries xmi:id="_Lcp0VEgOEeGbPv3jw0iz_g" name="id" expression="&quot;regio_v_&quot; + row4.srid  + &quot;_50_k_urban-atlas-&quot; + row4.f_table_name + &quot;_2005-2007&quot;" type="id_String"/>
+      </varTables>
+      <outputTables xmi:id="_Lcp0VUgOEeGbPv3jw0iz_g" sizeState="INTERMEDIATE" name="out_with_geom">
+        <mapperTableEntries xmi:id="_Lcp0VkgOEeGbPv3jw0iz_g" name="uuid" expression="Var.uuid " type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0V0gOEeGbPv3jw0iz_g" name="f_table_name" expression="row4.f_table_name" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0WEgOEeGbPv3jw0iz_g" name="f_table_schema" expression="row4.f_table_schema" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0WUgOEeGbPv3jw0iz_g" name="f_geometry_column" expression="row4.f_geometry_column" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0WkgOEeGbPv3jw0iz_g" name="srid" expression="row4.srid" type="id_Integer" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0W0gOEeGbPv3jw0iz_g" name="countryid" expression="row4.countryid " type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0XEgOEeGbPv3jw0iz_g" name="countryname" expression="row6.name " type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0XUgOEeGbPv3jw0iz_g" name="bbox" expression="row4.bbox" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0XkgOEeGbPv3jw0iz_g" name="west" expression="GeometryOperation.GETCOORDINATE(Var.geom,0,&quot;X&quot;) " type="id_Double" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0X0gOEeGbPv3jw0iz_g" name="south" expression="GeometryOperation.GETCOORDINATE(Var.geom,0,&quot;Y&quot;) " type="id_Double" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0YEgOEeGbPv3jw0iz_g" name="east" expression="GeometryOperation.GETCOORDINATE(Var.geom,2,&quot;X&quot;) " type="id_Double" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0YUgOEeGbPv3jw0iz_g" name="north" expression="GeometryOperation.GETCOORDINATE(Var.geom,2,&quot;Y&quot;) " type="id_Double" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0YkgOEeGbPv3jw0iz_g" name="cityid" expression="row4.cityid " type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0Y0gOEeGbPv3jw0iz_g" name="cityname" expression="row7.name != null ? row7.name : row4.cityid " type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0ZEgOEeGbPv3jw0iz_g" name="the_geom" expression="Var.geom " type="id_Geometry" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0ZUgOEeGbPv3jw0iz_g" name="seriesuuid" expression="context.seriesUUID" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0ZkgOEeGbPv3jw0iz_g" name="docPath" expression="&quot;/local/&quot; + row4.countryid + &quot;/urban/&quot; + Var.id" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0Z0gOEeGbPv3jw0iz_g" name="id" expression="Var.id" type="id_String" nullable="true"/>
+      </outputTables>
+      <outputTables xmi:id="_Lcp0aEgOEeGbPv3jw0iz_g" sizeState="INTERMEDIATE" name="ghostscript" minimized="true">
+        <mapperTableEntries xmi:id="_Lcp0aUgOEeGbPv3jw0iz_g" name="shellCmd" expression="&quot;ghostscript -dSAFER -dBATCH -dNOPAUSE -r60 -dGraphicsAlphaBits=4 -dTextAlphaBits=4 -sDEVICE=png16m \&quot;-sOutputFile=$OUT/&quot; + Var.uuid + &quot;.png\&quot; $IN/&quot; + row4.f_table_name + &quot;.pdf&quot;  " type="id_String" nullable="true"/>
+      </outputTables>
+      <outputTables xmi:id="_Lcp0akgOEeGbPv3jw0iz_g" sizeState="INTERMEDIATE" name="cityUuidMap">
+        <mapperTableEntries xmi:id="_Lcp0a0gOEeGbPv3jw0iz_g" name="f_table_name" expression="row4.f_table_name" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0bEgOEeGbPv3jw0iz_g" name="uuid" expression="Var.uuid " type="id_String"/>
+        <mapperTableEntries xmi:id="_Lcp0bUgOEeGbPv3jw0iz_g" name="f_table_schema" expression="row4.f_table_schema " type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0bkgOEeGbPv3jw0iz_g" name="srid" expression="row4.srid " type="id_Integer" nullable="true"/>
+      </outputTables>
+      <inputTables xmi:id="_Lcp0b0gOEeGbPv3jw0iz_g" sizeState="INTERMEDIATE" name="row4" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+        <mapperTableEntries xmi:id="_Lcp0cEgOEeGbPv3jw0iz_g" name="f_table_name" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0cUgOEeGbPv3jw0iz_g" name="f_table_schema" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0ckgOEeGbPv3jw0iz_g" name="f_geometry_column" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0c0gOEeGbPv3jw0iz_g" name="srid" type="id_Integer" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0dEgOEeGbPv3jw0iz_g" name="recordset" type="id_Object" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0dUgOEeGbPv3jw0iz_g" name="bbox" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0dkgOEeGbPv3jw0iz_g" name="countryid" type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0d0gOEeGbPv3jw0iz_g" name="cityid" type="id_String" nullable="true"/>
+      </inputTables>
+      <inputTables xmi:id="_Lcp0eEgOEeGbPv3jw0iz_g" sizeState="INTERMEDIATE" name="row6" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+        <mapperTableEntries xmi:id="_Lcp0eUgOEeGbPv3jw0iz_g" name="iso2code" expression="row4.countryid " type="id_String" nullable="true" operator="="/>
+        <mapperTableEntries xmi:id="_Lcp0ekgOEeGbPv3jw0iz_g" name="name" type="id_String" nullable="true"/>
+      </inputTables>
+      <inputTables xmi:id="_Lcp0e0gOEeGbPv3jw0iz_g" sizeState="INTERMEDIATE" name="row7" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+        <mapperTableEntries xmi:id="_Lcp0fEgOEeGbPv3jw0iz_g" name="id" expression="row4.cityid " type="id_String" nullable="true"/>
+        <mapperTableEntries xmi:id="_Lcp0fUgOEeGbPv3jw0iz_g" name="name" type="id_String" nullable="true"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node xmi:id="_Lcp0fkgOEeGbPv3jw0iz_g" componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1056" posY="256">
+    <elementParameter xmi:id="_Lcp0f0gOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tLogRow_2"/>
+    <elementParameter xmi:id="_Lcp0gEgOEeGbPv3jw0iz_g" field="RADIO" name="BASIC_MODE" value="true"/>
+    <elementParameter xmi:id="_Lcp0gUgOEeGbPv3jw0iz_g" field="RADIO" name="TABLE_PRINT" value="false"/>
+    <elementParameter xmi:id="_Lcp0gkgOEeGbPv3jw0iz_g" field="RADIO" name="VERTICAL" value="false"/>
+    <elementParameter xmi:id="_Lcp0g0gOEeGbPv3jw0iz_g" field="RADIO" name="PRINT_UNIQUE" value="true"/>
+    <elementParameter xmi:id="_Lcp0hEgOEeGbPv3jw0iz_g" field="RADIO" name="PRINT_LABEL" value="false"/>
+    <elementParameter xmi:id="_Lcp0hUgOEeGbPv3jw0iz_g" field="RADIO" name="PRINT_UNIQUE_LABEL" value="false"/>
+    <elementParameter xmi:id="_Lcp0hkgOEeGbPv3jw0iz_g" field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;"/>
+    <elementParameter xmi:id="_Lcp0h0gOEeGbPv3jw0iz_g" field="CHECK" name="PRINT_HEADER" value="false"/>
+    <elementParameter xmi:id="_Lcp0iEgOEeGbPv3jw0iz_g" field="CHECK" name="PRINT_UNIQUE_NAME" value="false"/>
+    <elementParameter xmi:id="_Lcp0iUgOEeGbPv3jw0iz_g" field="CHECK" name="PRINT_COLNAMES" value="false"/>
+    <elementParameter xmi:id="_Lcp0ikgOEeGbPv3jw0iz_g" field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
+    <elementParameter xmi:id="_Lcp0i0gOEeGbPv3jw0iz_g" field="TABLE" name="LENGTHS">
+      <elementValue xmi:id="_Lcp0jEgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="uuid"/>
+      <elementValue xmi:id="_Lcp0jUgOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0jkgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_Lcp0j0gOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0kEgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_Lcp0kUgOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0kkgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_geometry_column"/>
+      <elementValue xmi:id="_Lcp0k0gOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0lEgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="srid"/>
+      <elementValue xmi:id="_Lcp0lUgOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0lkgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="countryid"/>
+      <elementValue xmi:id="_Lcp0l0gOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0mEgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="countryname"/>
+      <elementValue xmi:id="_Lcp0mUgOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0mkgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="bbox"/>
+      <elementValue xmi:id="_Lcp0m0gOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0nEgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="west"/>
+      <elementValue xmi:id="_Lcp0nUgOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0nkgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="south"/>
+      <elementValue xmi:id="_Lcp0n0gOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0oEgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="east"/>
+      <elementValue xmi:id="_Lcp0oUgOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0okgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="north"/>
+      <elementValue xmi:id="_Lcp0o0gOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0pEgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="cityid"/>
+      <elementValue xmi:id="_Lcp0pUgOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0pkgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="cityname"/>
+      <elementValue xmi:id="_Lcp0p0gOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0qEgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="the_geom"/>
+      <elementValue xmi:id="_Lcp0qUgOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0qkgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="seriesuuid"/>
+      <elementValue xmi:id="_Lcp0q0gOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0rEgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="docPath"/>
+      <elementValue xmi:id="_Lcp0rUgOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+      <elementValue xmi:id="_Lcp0rkgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="id"/>
+      <elementValue xmi:id="_Lcp0r0gOEeGbPv3jw0iz_g" elementRef="LENGTH" value="10"/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp0sEgOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_Lcp0sUgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_Lcp0skgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Lcp0s0gOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lcp0tEgOEeGbPv3jw0iz_g" connector="FLOW" name="tLogRow_2">
+      <column xmi:id="_Lcp0tUgOEeGbPv3jw0iz_g" comment="" key="false" name="uuid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0tkgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_name" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0t0gOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_schema" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0uEgOEeGbPv3jw0iz_g" comment="" key="false" name="f_geometry_column" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0uUgOEeGbPv3jw0iz_g" comment="" key="false" name="srid" nullable="true" pattern="" sourceType="INT4" type="id_Integer"/>
+      <column xmi:id="_Lcp0ukgOEeGbPv3jw0iz_g" comment="" key="false" name="countryid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0u0gOEeGbPv3jw0iz_g" comment="" key="false" name="countryname" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0vEgOEeGbPv3jw0iz_g" comment="" key="false" name="bbox" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0vUgOEeGbPv3jw0iz_g" comment="" defaultValue="" key="false" name="west" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp0vkgOEeGbPv3jw0iz_g" comment="" defaultValue="" key="false" name="south" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp0v0gOEeGbPv3jw0iz_g" comment="" defaultValue="" key="false" name="east" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp0wEgOEeGbPv3jw0iz_g" comment="" key="false" name="north" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp0wUgOEeGbPv3jw0iz_g" comment="" key="false" name="cityid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0wkgOEeGbPv3jw0iz_g" comment="" key="false" name="cityname" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0w0gOEeGbPv3jw0iz_g" comment="" key="false" name="the_geom" nullable="true" pattern="" sourceType="" type="id_Geometry"/>
+      <column xmi:id="_Lcp0xEgOEeGbPv3jw0iz_g" comment="" key="false" name="seriesuuid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0xUgOEeGbPv3jw0iz_g" comment="" key="false" name="docPath" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp0xkgOEeGbPv3jw0iz_g" comment="" key="false" name="id" nullable="true" pattern="" sourceType="" type="id_String"/>
+    </metadata>
+  </node>
+  <node xmi:id="_Lcp0x0gOEeGbPv3jw0iz_g" componentName="tFileOutputXML" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1056" posY="384">
+    <elementParameter xmi:id="_Lcp0yEgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tFileOutputXML_1"/>
+    <elementParameter xmi:id="_Lcp0yUgOEeGbPv3jw0iz_g" field="FILE" name="FILENAME" value="context.urbanAtlasListFile"/>
+    <elementParameter xmi:id="_Lcp0ykgOEeGbPv3jw0iz_g" field="TEXT" name="ROW_TAG" value="&quot;city&quot;"/>
+    <elementParameter xmi:id="_Lcp0y0gOEeGbPv3jw0iz_g" field="CHECK" name="SPLIT" value="true"/>
+    <elementParameter xmi:id="_Lcp0zEgOEeGbPv3jw0iz_g" field="TEXT" name="SPLIT_EVERY" value="1"/>
+    <elementParameter xmi:id="_Lcp0zUgOEeGbPv3jw0iz_g" field="CHECK" name="CREATE" value="true"/>
+    <elementParameter xmi:id="_Lcp0zkgOEeGbPv3jw0iz_g" field="TABLE" name="ROOT_TAGS">
+      <elementValue xmi:id="_Lcp0z0gOEeGbPv3jw0iz_g" elementRef="TAG" value="&quot;root&quot;"/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp00EgOEeGbPv3jw0iz_g" field="TABLE" name="MAPPING">
+      <elementValue xmi:id="_Lcp00UgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="uuid"/>
+      <elementValue xmi:id="_Lcp00kgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp000gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp01EgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp01UgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_Lcp01kgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp010gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp02EgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp02UgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_Lcp02kgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp020gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp03EgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp03UgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="f_geometry_column"/>
+      <elementValue xmi:id="_Lcp03kgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp030gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp04EgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp04UgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="srid"/>
+      <elementValue xmi:id="_Lcp04kgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp040gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp05EgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp05UgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="countryid"/>
+      <elementValue xmi:id="_Lcp05kgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp050gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp06EgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp06UgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="countryname"/>
+      <elementValue xmi:id="_Lcp06kgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp060gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp07EgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp07UgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="bbox"/>
+      <elementValue xmi:id="_Lcp07kgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp070gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp08EgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp08UgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="west"/>
+      <elementValue xmi:id="_Lcp08kgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp080gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp09EgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp09UgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="south"/>
+      <elementValue xmi:id="_Lcp09kgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp090gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp0-EgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp0-UgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="east"/>
+      <elementValue xmi:id="_Lcp0-kgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp0-0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp0_EgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp0_UgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="north"/>
+      <elementValue xmi:id="_Lcp0_kgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp0_0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp1AEgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp1AUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="cityid"/>
+      <elementValue xmi:id="_Lcp1AkgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp1A0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp1BEgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp1BUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="cityname"/>
+      <elementValue xmi:id="_Lcp1BkgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp1B0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp1CEgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp1CUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="the_geom"/>
+      <elementValue xmi:id="_Lcp1CkgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp1C0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp1DEgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp1DUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="seriesuuid"/>
+      <elementValue xmi:id="_Lcp1DkgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp1D0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp1EEgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp1EUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="docPath"/>
+      <elementValue xmi:id="_Lcp1EkgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp1E0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp1FEgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+      <elementValue xmi:id="_Lcp1FUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="id"/>
+      <elementValue xmi:id="_Lcp1FkgOEeGbPv3jw0iz_g" elementRef="AS_ATTRIBUTE" value="false"/>
+      <elementValue xmi:id="_Lcp1F0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN_NAME" value="true"/>
+      <elementValue xmi:id="_Lcp1GEgOEeGbPv3jw0iz_g" elementRef="LABEL" value="label"/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp1GUgOEeGbPv3jw0iz_g" field="CHECK" name="USE_DYNAMIC_GROUPING" value="false"/>
+    <elementParameter xmi:id="_Lcp1GkgOEeGbPv3jw0iz_g" field="TABLE" name="GROUP_BY"/>
+    <elementParameter xmi:id="_Lcp1G0gOEeGbPv3jw0iz_g" field="CHECK" name="FLUSHONROW" value="false"/>
+    <elementParameter xmi:id="_Lcp1HEgOEeGbPv3jw0iz_g" field="TEXT" name="FLUSHONROW_NUM" value="1"/>
+    <elementParameter xmi:id="_Lcp1HUgOEeGbPv3jw0iz_g" field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter xmi:id="_Lcp1HkgOEeGbPv3jw0iz_g" field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;"/>
+    <elementParameter xmi:id="_Lcp1H0gOEeGbPv3jw0iz_g" field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;"/>
+    <elementParameter xmi:id="_Lcp1IEgOEeGbPv3jw0iz_g" field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter xmi:id="_Lcp1IUgOEeGbPv3jw0iz_g" field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter xmi:id="_Lcp1IkgOEeGbPv3jw0iz_g" field="CHECK" name="DELETE_EMPTYFILE" value="false"/>
+    <elementParameter xmi:id="_Lcp1I0gOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_Lcp1JEgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_Lcp1JUgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Lcp1JkgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lcp1J0gOEeGbPv3jw0iz_g" connector="FLOW" name="tFileOutputXML_1">
+      <column xmi:id="_Lcp1KEgOEeGbPv3jw0iz_g" comment="" key="false" name="uuid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1KUgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_name" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1KkgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_schema" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1K0gOEeGbPv3jw0iz_g" comment="" key="false" name="f_geometry_column" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1LEgOEeGbPv3jw0iz_g" comment="" key="false" name="srid" nullable="true" pattern="" sourceType="INT4" type="id_Integer"/>
+      <column xmi:id="_Lcp1LUgOEeGbPv3jw0iz_g" comment="" key="false" name="countryid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1LkgOEeGbPv3jw0iz_g" comment="" key="false" name="countryname" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1L0gOEeGbPv3jw0iz_g" comment="" key="false" name="bbox" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1MEgOEeGbPv3jw0iz_g" comment="" defaultValue="" key="false" name="west" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp1MUgOEeGbPv3jw0iz_g" comment="" defaultValue="" key="false" name="south" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp1MkgOEeGbPv3jw0iz_g" comment="" defaultValue="" key="false" name="east" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp1M0gOEeGbPv3jw0iz_g" comment="" key="false" name="north" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp1NEgOEeGbPv3jw0iz_g" comment="" key="false" name="cityid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1NUgOEeGbPv3jw0iz_g" comment="" key="false" name="cityname" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1NkgOEeGbPv3jw0iz_g" comment="" key="false" name="the_geom" nullable="true" pattern="" sourceType="" type="id_Geometry"/>
+      <column xmi:id="_Lcp1N0gOEeGbPv3jw0iz_g" comment="" key="false" name="seriesuuid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1OEgOEeGbPv3jw0iz_g" comment="" key="false" name="docPath" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1OUgOEeGbPv3jw0iz_g" comment="" key="false" name="id" nullable="true" pattern="" sourceType="" type="id_String"/>
+    </metadata>
+  </node>
+  <node xmi:id="_Lcp1OkgOEeGbPv3jw0iz_g" componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="608" posY="256">
+    <elementParameter xmi:id="_Lcp1O0gOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tFileInputDelimited_1"/>
+    <elementParameter xmi:id="_Lcp1PEgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter xmi:id="_Lcp1PUgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_TXAXUEWZEeGZyfxFRdvStw"/>
+    <elementParameter xmi:id="_Lcp1PkgOEeGbPv3jw0iz_g" field="LABEL" name="FILENAMETEXT" value="&quot;When the input source is a stream or a zip file,footer and random shouldn't be bigger than 0.&quot;"/>
+    <elementParameter xmi:id="_Lcp1P0gOEeGbPv3jw0iz_g" field="FILE" name="FILENAME" value="&quot;/home/francois/Project/2011/eea/contract01/etl/country-mapping.txt&quot;"/>
+    <elementParameter xmi:id="_Lcp1QEgOEeGbPv3jw0iz_g" field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter xmi:id="_Lcp1QUgOEeGbPv3jw0iz_g" field="OPENED_LIST" name="CSVROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter xmi:id="_Lcp1QkgOEeGbPv3jw0iz_g" field="TEXT" name="FIELDSEPARATOR" value="&quot;;&quot;"/>
+    <elementParameter xmi:id="_Lcp1Q0gOEeGbPv3jw0iz_g" field="CHECK" name="CSV_OPTION" value="false"/>
+    <elementParameter xmi:id="_Lcp1REgOEeGbPv3jw0iz_g" field="TEXT" name="ESCAPE_CHAR" value="&quot;&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcp1RUgOEeGbPv3jw0iz_g" field="TEXT" name="TEXT_ENCLOSURE" value="&quot;&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcp1RkgOEeGbPv3jw0iz_g" field="TEXT" name="HEADER" value="0"/>
+    <elementParameter xmi:id="_Lcp1R0gOEeGbPv3jw0iz_g" field="TEXT" name="FOOTER" value="0"/>
+    <elementParameter xmi:id="_Lcp1SEgOEeGbPv3jw0iz_g" field="TEXT" name="LIMIT" value=""/>
+    <elementParameter xmi:id="_Lcp1SUgOEeGbPv3jw0iz_g" field="CHECK" name="REMOVE_EMPTY_ROW" value="false"/>
+    <elementParameter xmi:id="_Lcp1SkgOEeGbPv3jw0iz_g" field="CHECK" name="UNCOMPRESS" value="false"/>
+    <elementParameter xmi:id="_Lcp1S0gOEeGbPv3jw0iz_g" field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter xmi:id="_Lcp1TEgOEeGbPv3jw0iz_g" field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" value="REPOSITORY"/>
+    <elementParameter xmi:id="_Lcp1TUgOEeGbPv3jw0iz_g" field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" value="_TXAXUEWZEeGZyfxFRdvStw - metadata"/>
+    <elementParameter xmi:id="_Lcp1TkgOEeGbPv3jw0iz_g" field="TECHNICAL" name="SCHEMA_REJECT:SCHEMA_TYPE" value="REPOSITORY"/>
+    <elementParameter xmi:id="_Lcp1T0gOEeGbPv3jw0iz_g" field="TECHNICAL" name="SCHEMA_REJECT:REPOSITORY_SCHEMA_TYPE" value="_TXAXUEWZEeGZyfxFRdvStw - metadata"/>
+    <elementParameter xmi:id="_Lcp1UEgOEeGbPv3jw0iz_g" field="DIRECTORY" name="TEMP_DIR" value="&quot;/usr/local/App/talend/TOS_DI-r72978-V5.0.0/workspace&quot;"/>
+    <elementParameter xmi:id="_Lcp1UUgOEeGbPv3jw0iz_g" field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter xmi:id="_Lcp1UkgOEeGbPv3jw0iz_g" field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;"/>
+    <elementParameter xmi:id="_Lcp1U0gOEeGbPv3jw0iz_g" field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;"/>
+    <elementParameter xmi:id="_Lcp1VEgOEeGbPv3jw0iz_g" field="CHECK" name="RANDOM" value="false"/>
+    <elementParameter xmi:id="_Lcp1VUgOEeGbPv3jw0iz_g" field="TEXT" name="NB_RANDOM" value="10"/>
+    <elementParameter xmi:id="_Lcp1VkgOEeGbPv3jw0iz_g" field="CHECK" name="TRIMALL" value="false"/>
+    <elementParameter xmi:id="_Lcp1V0gOEeGbPv3jw0iz_g" field="TABLE" name="TRIMSELECT">
+      <elementValue xmi:id="_Lcp1WEgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="iso2code"/>
+      <elementValue xmi:id="_Lcp1WUgOEeGbPv3jw0iz_g" elementRef="TRIM" value="false"/>
+      <elementValue xmi:id="_Lcp1WkgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="name"/>
+      <elementValue xmi:id="_Lcp1W0gOEeGbPv3jw0iz_g" elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp1XEgOEeGbPv3jw0iz_g" field="CHECK" name="CHECK_FIELDS_NUM" value="false"/>
+    <elementParameter xmi:id="_Lcp1XUgOEeGbPv3jw0iz_g" field="CHECK" name="CHECK_DATE" value="false"/>
+    <elementParameter xmi:id="_Lcp1XkgOEeGbPv3jw0iz_g" field="ENCODING_TYPE" name="ENCODING" value="&quot;UTF-8&quot;"/>
+    <elementParameter xmi:id="_Lcp1X0gOEeGbPv3jw0iz_g" field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="CUSTOM"/>
+    <elementParameter xmi:id="_Lcp1YEgOEeGbPv3jw0iz_g" field="CHECK" name="SPLITRECORD" value="false"/>
+    <elementParameter xmi:id="_Lcp1YUgOEeGbPv3jw0iz_g" field="TEXT" name="DESTINATION" value=""/>
+    <elementParameter xmi:id="_Lcp1YkgOEeGbPv3jw0iz_g" field="TEXT" name="LABEL" value="country_mapping"/>
+    <elementParameter xmi:id="_Lcp1Y0gOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_Lcp1ZEgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_Lcp1ZUgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Lcp1ZkgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lcp1Z0gOEeGbPv3jw0iz_g" connector="FLOW" label="metadata" name="tFileInputDelimited_1">
+      <column xmi:id="_Lcp1aEgOEeGbPv3jw0iz_g" comment="" key="false" length="2" name="iso2code" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String"/>
+      <column xmi:id="_Lcp1aUgOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="name" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String"/>
+    </metadata>
+    <metadata xmi:id="_Lcp1akgOEeGbPv3jw0iz_g" connector="REJECT" label="metadata" name="REJECT">
+      <column xmi:id="_Lcp1a0gOEeGbPv3jw0iz_g" comment="" key="false" length="2" name="iso2code" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String"/>
+      <column xmi:id="_Lcp1bEgOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="name" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String"/>
+      <column xmi:id="_Lcp1bUgOEeGbPv3jw0iz_g" defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1bkgOEeGbPv3jw0iz_g" defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String"/>
+    </metadata>
+  </node>
+  <node xmi:id="_Lcp1b0gOEeGbPv3jw0iz_g" componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="608" posY="96">
+    <elementParameter xmi:id="_Lcp1cEgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tFileInputDelimited_2"/>
+    <elementParameter xmi:id="_Lcp1cUgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter xmi:id="_Lcp1ckgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_Y41oMEWZEeGZyfxFRdvStw"/>
+    <elementParameter xmi:id="_Lcp1c0gOEeGbPv3jw0iz_g" field="LABEL" name="FILENAMETEXT" value="&quot;When the input source is a stream or a zip file,footer and random shouldn't be bigger than 0.&quot;"/>
+    <elementParameter xmi:id="_Lcp1dEgOEeGbPv3jw0iz_g" field="FILE" name="FILENAME" value="&quot;/home/francois/Project/2011/eea/contract01/etl/city-mapping.txt&quot;"/>
+    <elementParameter xmi:id="_Lcp1dUgOEeGbPv3jw0iz_g" field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter xmi:id="_Lcp1dkgOEeGbPv3jw0iz_g" field="OPENED_LIST" name="CSVROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter xmi:id="_Lcp1d0gOEeGbPv3jw0iz_g" field="TEXT" name="FIELDSEPARATOR" value="&quot;;&quot;"/>
+    <elementParameter xmi:id="_Lcp1eEgOEeGbPv3jw0iz_g" field="CHECK" name="CSV_OPTION" value="false"/>
+    <elementParameter xmi:id="_Lcp1eUgOEeGbPv3jw0iz_g" field="TEXT" name="ESCAPE_CHAR" value="&quot;&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcp1ekgOEeGbPv3jw0iz_g" field="TEXT" name="TEXT_ENCLOSURE" value="&quot;&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcp1e0gOEeGbPv3jw0iz_g" field="TEXT" name="HEADER" value="0"/>
+    <elementParameter xmi:id="_Lcp1fEgOEeGbPv3jw0iz_g" field="TEXT" name="FOOTER" value="0"/>
+    <elementParameter xmi:id="_Lcp1fUgOEeGbPv3jw0iz_g" field="TEXT" name="LIMIT" value=""/>
+    <elementParameter xmi:id="_Lcp1fkgOEeGbPv3jw0iz_g" field="CHECK" name="REMOVE_EMPTY_ROW" value="false"/>
+    <elementParameter xmi:id="_Lcp1f0gOEeGbPv3jw0iz_g" field="CHECK" name="UNCOMPRESS" value="false"/>
+    <elementParameter xmi:id="_Lcp1gEgOEeGbPv3jw0iz_g" field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter xmi:id="_Lcp1gUgOEeGbPv3jw0iz_g" field="TECHNICAL" name="SCHEMA_REJECT:SCHEMA_TYPE" value="REPOSITORY"/>
+    <elementParameter xmi:id="_Lcp1gkgOEeGbPv3jw0iz_g" field="TECHNICAL" name="SCHEMA_REJECT:REPOSITORY_SCHEMA_TYPE" value="_Y41oMEWZEeGZyfxFRdvStw - metadata"/>
+    <elementParameter xmi:id="_Lcp1g0gOEeGbPv3jw0iz_g" field="DIRECTORY" name="TEMP_DIR" value="&quot;/usr/local/App/talend/TOS_DI-r72978-V5.0.0/workspace&quot;"/>
+    <elementParameter xmi:id="_Lcp1hEgOEeGbPv3jw0iz_g" field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter xmi:id="_Lcp1hUgOEeGbPv3jw0iz_g" field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;"/>
+    <elementParameter xmi:id="_Lcp1hkgOEeGbPv3jw0iz_g" field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;"/>
+    <elementParameter xmi:id="_Lcp1h0gOEeGbPv3jw0iz_g" field="CHECK" name="RANDOM" value="false"/>
+    <elementParameter xmi:id="_Lcp1iEgOEeGbPv3jw0iz_g" field="TEXT" name="NB_RANDOM" value="10"/>
+    <elementParameter xmi:id="_Lcp1iUgOEeGbPv3jw0iz_g" field="CHECK" name="TRIMALL" value="false"/>
+    <elementParameter xmi:id="_Lcp1ikgOEeGbPv3jw0iz_g" field="TABLE" name="TRIMSELECT">
+      <elementValue xmi:id="_Lcp1i0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="id"/>
+      <elementValue xmi:id="_Lcp1jEgOEeGbPv3jw0iz_g" elementRef="TRIM" value="false"/>
+      <elementValue xmi:id="_Lcp1jUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="name"/>
+      <elementValue xmi:id="_Lcp1jkgOEeGbPv3jw0iz_g" elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp1j0gOEeGbPv3jw0iz_g" field="CHECK" name="CHECK_FIELDS_NUM" value="false"/>
+    <elementParameter xmi:id="_Lcp1kEgOEeGbPv3jw0iz_g" field="CHECK" name="CHECK_DATE" value="false"/>
+    <elementParameter xmi:id="_Lcp1kUgOEeGbPv3jw0iz_g" field="ENCODING_TYPE" name="ENCODING" value="&quot;UTF-8&quot;"/>
+    <elementParameter xmi:id="_Lcp1kkgOEeGbPv3jw0iz_g" field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="CUSTOM"/>
+    <elementParameter xmi:id="_Lcp1k0gOEeGbPv3jw0iz_g" field="CHECK" name="SPLITRECORD" value="false"/>
+    <elementParameter xmi:id="_Lcp1lEgOEeGbPv3jw0iz_g" field="TEXT" name="DESTINATION" value=""/>
+    <elementParameter xmi:id="_Lcp1lUgOEeGbPv3jw0iz_g" field="TEXT" name="LABEL" value="city_mapping"/>
+    <elementParameter xmi:id="_Lcp1lkgOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_Lcp1l0gOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_Lcp1mEgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Lcp1mUgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lcp1mkgOEeGbPv3jw0iz_g" connector="FLOW" label="metadata" name="tFileInputDelimited_2">
+      <column xmi:id="_Lcp1m0gOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="id" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String"/>
+      <column xmi:id="_Lcp1nEgOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="name" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String"/>
+    </metadata>
+    <metadata xmi:id="_Lcp1nUgOEeGbPv3jw0iz_g" connector="REJECT" label="metadata" name="REJECT">
+      <column xmi:id="_Lcp1nkgOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="id" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String"/>
+      <column xmi:id="_Lcp1n0gOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="name" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String"/>
+      <column xmi:id="_Lcp1oEgOEeGbPv3jw0iz_g" defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1oUgOEeGbPv3jw0iz_g" defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String"/>
+    </metadata>
+  </node>
+  <node xmi:id="_Lcp1okgOEeGbPv3jw0iz_g" componentName="sShapefileOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1248" posY="384">
+    <elementParameter xmi:id="_Lcp1o0gOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="sShapefileOutput_1"/>
+    <elementParameter xmi:id="_Lcp1pEgOEeGbPv3jw0iz_g" field="FILE" name="FILENAME" value="context.urbanAtlasListFile + &quot;.shp&quot;"/>
+    <elementParameter xmi:id="_Lcp1pUgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="GEOMETRY_TYPE" value="com.vividsolutions.jts.geom.Polygon"/>
+    <elementParameter xmi:id="_Lcp1pkgOEeGbPv3jw0iz_g" field="TEXT" name="FORMAT_TYPE" value="SHAPEFILE"/>
+    <elementParameter xmi:id="_Lcp1p0gOEeGbPv3jw0iz_g" field="CHECK" name="FORCE_CRS" value="false"/>
+    <elementParameter xmi:id="_Lcp1qEgOEeGbPv3jw0iz_g" field="TEXT" name="CRS" value="&quot;EPSG:4326&quot;"/>
+    <elementParameter xmi:id="_Lcp1qUgOEeGbPv3jw0iz_g" field="CHECK" name="MD" value="false"/>
+    <elementParameter xmi:id="_Lcp1qkgOEeGbPv3jw0iz_g" field="TEXT" name="MDTITLE" value="&quot;Metadata title&quot;"/>
+    <elementParameter xmi:id="_Lcp1q0gOEeGbPv3jw0iz_g" field="TEXT" name="MDABSTRACT" value="&quot;Metadata abstract&quot;"/>
+    <elementParameter xmi:id="_Lcp1rEgOEeGbPv3jw0iz_g" field="TEXT" name="MDPURPOSE" value="&quot;Metadata Purpose&quot;"/>
+    <elementParameter xmi:id="_Lcp1rUgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="MDTOPICCATEGORY" value=""/>
+    <elementParameter xmi:id="_Lcp1rkgOEeGbPv3jw0iz_g" field="CHECK" name="MDTPLCK" value="false"/>
+    <elementParameter xmi:id="_Lcp1r0gOEeGbPv3jw0iz_g" field="FILE" name="MDTPL" value="&#xA;        &quot;/usr/local/App/talend/TOS_DI-r72978-V5.0.0/workspace/.spatial/md/template/iso19139.xml&quot;&#xA;      "/>
+    <elementParameter xmi:id="_Lcp1sEgOEeGbPv3jw0iz_g" field="CHECK" name="APPEND" value="false"/>
+    <elementParameter xmi:id="_Lcp1sUgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="LOG_LEVEL" value="org.apache.log4j.Level.ERROR"/>
+    <elementParameter xmi:id="_Lcp1skgOEeGbPv3jw0iz_g" field="MEMO_IMPORT" name="IMPORT" value="import org.talend.sdi.geometry.Geometry;"/>
+    <elementParameter xmi:id="_Lcp1s0gOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_Lcp1tEgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_Lcp1tUgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Lcp1tkgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lcp1t0gOEeGbPv3jw0iz_g" connector="FLOW" name="sShapefileOutput_1">
+      <column xmi:id="_Lcp1uEgOEeGbPv3jw0iz_g" comment="" key="false" name="uuid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1uUgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_name" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1ukgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_schema" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1u0gOEeGbPv3jw0iz_g" comment="" key="false" name="f_geometry_column" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1vEgOEeGbPv3jw0iz_g" comment="" key="false" name="srid" nullable="true" pattern="" sourceType="INT4" type="id_Integer"/>
+      <column xmi:id="_Lcp1vUgOEeGbPv3jw0iz_g" comment="" key="false" name="countryid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1vkgOEeGbPv3jw0iz_g" comment="" key="false" name="countryname" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1v0gOEeGbPv3jw0iz_g" comment="" key="false" name="bbox" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1wEgOEeGbPv3jw0iz_g" comment="" defaultValue="" key="false" name="west" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp1wUgOEeGbPv3jw0iz_g" comment="" defaultValue="" key="false" name="south" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp1wkgOEeGbPv3jw0iz_g" comment="" defaultValue="" key="false" name="east" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp1w0gOEeGbPv3jw0iz_g" comment="" key="false" name="north" nullable="true" pattern="" sourceType="" type="id_Double"/>
+      <column xmi:id="_Lcp1xEgOEeGbPv3jw0iz_g" comment="" key="false" name="cityid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1xUgOEeGbPv3jw0iz_g" comment="" key="false" name="cityname" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1xkgOEeGbPv3jw0iz_g" comment="" key="false" name="the_geom" nullable="true" pattern="" sourceType="" type="id_Geometry"/>
+      <column xmi:id="_Lcp1x0gOEeGbPv3jw0iz_g" comment="" key="false" name="seriesuuid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1yEgOEeGbPv3jw0iz_g" comment="" key="false" name="docPath" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp1yUgOEeGbPv3jw0iz_g" comment="" key="false" name="id" nullable="true" pattern="" sourceType="" type="id_String"/>
+    </metadata>
+  </node>
+  <node xmi:id="_Lcp1ykgOEeGbPv3jw0iz_g" componentName="tFileOutputDelimited" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1056" posY="96">
+    <elementParameter xmi:id="_Lcp1y0gOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tFileOutputDelimited_1"/>
+    <elementParameter xmi:id="_Lcp1zEgOEeGbPv3jw0iz_g" field="CHECK" name="USESTREAM" value="false"/>
+    <elementParameter xmi:id="_Lcp1zUgOEeGbPv3jw0iz_g" field="TEXT" name="STREAMNAME" value="outputStream"/>
+    <elementParameter xmi:id="_Lcp1zkgOEeGbPv3jw0iz_g" field="FILE" name="FILENAME" value="context.urbanAtlasListDir + &quot;ua_ghostscript.sh&quot;"/>
+    <elementParameter xmi:id="_Lcp1z0gOEeGbPv3jw0iz_g" field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter xmi:id="_Lcp10EgOEeGbPv3jw0iz_g" field="OPENED_LIST" name="CSVROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter xmi:id="_Lcp10UgOEeGbPv3jw0iz_g" field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcp10kgOEeGbPv3jw0iz_g" field="CHECK" name="APPEND" value="false"/>
+    <elementParameter xmi:id="_Lcp100gOEeGbPv3jw0iz_g" field="CHECK" name="INCLUDEHEADER" value="false"/>
+    <elementParameter xmi:id="_Lcp11EgOEeGbPv3jw0iz_g" field="CHECK" name="COMPRESS" value="false"/>
+    <elementParameter xmi:id="_Lcp11UgOEeGbPv3jw0iz_g" field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter xmi:id="_Lcp11kgOEeGbPv3jw0iz_g" field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;"/>
+    <elementParameter xmi:id="_Lcp110gOEeGbPv3jw0iz_g" field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;"/>
+    <elementParameter xmi:id="_Lcp12EgOEeGbPv3jw0iz_g" field="CHECK" name="CSV_OPTION" value="false"/>
+    <elementParameter xmi:id="_Lcp12UgOEeGbPv3jw0iz_g" field="TEXT" name="ESCAPE_CHAR" value="&quot;&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcp12kgOEeGbPv3jw0iz_g" field="TEXT" name="TEXT_ENCLOSURE" value="&quot;&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcp120gOEeGbPv3jw0iz_g" field="CHECK" name="CREATE" value="true"/>
+    <elementParameter xmi:id="_Lcp13EgOEeGbPv3jw0iz_g" field="CHECK" name="SPLIT" value="false"/>
+    <elementParameter xmi:id="_Lcp13UgOEeGbPv3jw0iz_g" field="TEXT" name="SPLIT_EVERY" value="1000"/>
+    <elementParameter xmi:id="_Lcp13kgOEeGbPv3jw0iz_g" field="CHECK" name="FLUSHONROW" value="false"/>
+    <elementParameter xmi:id="_Lcp130gOEeGbPv3jw0iz_g" field="TEXT" name="FLUSHONROW_NUM" value="1"/>
+    <elementParameter xmi:id="_Lcp14EgOEeGbPv3jw0iz_g" field="CHECK" name="ROW_MODE" value="false"/>
+    <elementParameter xmi:id="_Lcp14UgOEeGbPv3jw0iz_g" field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter xmi:id="_Lcp14kgOEeGbPv3jw0iz_g" field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter xmi:id="_Lcp140gOEeGbPv3jw0iz_g" field="CHECK" name="DELETE_EMPTYFILE" value="false"/>
+    <elementParameter xmi:id="_Lcp15EgOEeGbPv3jw0iz_g" field="TEXT" name="LABEL" value="ghostcriptHelper"/>
+    <elementParameter xmi:id="_Lcp15UgOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_Lcp15kgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_Lcp150gOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Lcp16EgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lcp16UgOEeGbPv3jw0iz_g" connector="FLOW" name="tFileOutputDelimited_1">
+      <column xmi:id="_Lcp16kgOEeGbPv3jw0iz_g" comment="" key="false" name="shellCmd" nullable="true" pattern="" sourceType="" type="id_String"/>
+    </metadata>
+  </node>
+  <node xmi:id="_Lcp160gOEeGbPv3jw0iz_g" componentName="tFileOutputDelimited" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="768" posY="480">
+    <elementParameter xmi:id="_Lcp17EgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tFileOutputDelimited_2"/>
+    <elementParameter xmi:id="_Lcp17UgOEeGbPv3jw0iz_g" field="CHECK" name="USESTREAM" value="false"/>
+    <elementParameter xmi:id="_Lcp17kgOEeGbPv3jw0iz_g" field="TEXT" name="STREAMNAME" value="outputStream"/>
+    <elementParameter xmi:id="_Lcp170gOEeGbPv3jw0iz_g" field="FILE" name="FILENAME" value="context.urbanAtlasListDir + &quot;ua_bbox_error.csv&quot;"/>
+    <elementParameter xmi:id="_Lcp18EgOEeGbPv3jw0iz_g" field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter xmi:id="_Lcp18UgOEeGbPv3jw0iz_g" field="OPENED_LIST" name="CSVROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter xmi:id="_Lcp18kgOEeGbPv3jw0iz_g" field="TEXT" name="FIELDSEPARATOR" value="&quot;;&quot;"/>
+    <elementParameter xmi:id="_Lcp180gOEeGbPv3jw0iz_g" field="CHECK" name="APPEND" value="false"/>
+    <elementParameter xmi:id="_Lcp19EgOEeGbPv3jw0iz_g" field="CHECK" name="INCLUDEHEADER" value="false"/>
+    <elementParameter xmi:id="_Lcp19UgOEeGbPv3jw0iz_g" field="CHECK" name="COMPRESS" value="false"/>
+    <elementParameter xmi:id="_Lcp19kgOEeGbPv3jw0iz_g" field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter xmi:id="_Lcp190gOEeGbPv3jw0iz_g" field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;"/>
+    <elementParameter xmi:id="_Lcp1-EgOEeGbPv3jw0iz_g" field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;"/>
+    <elementParameter xmi:id="_Lcp1-UgOEeGbPv3jw0iz_g" field="CHECK" name="CSV_OPTION" value="false"/>
+    <elementParameter xmi:id="_Lcp1-kgOEeGbPv3jw0iz_g" field="TEXT" name="ESCAPE_CHAR" value="&quot;&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcp1-0gOEeGbPv3jw0iz_g" field="TEXT" name="TEXT_ENCLOSURE" value="&quot;&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcp1_EgOEeGbPv3jw0iz_g" field="CHECK" name="CREATE" value="true"/>
+    <elementParameter xmi:id="_Lcp1_UgOEeGbPv3jw0iz_g" field="CHECK" name="SPLIT" value="false"/>
+    <elementParameter xmi:id="_Lcp1_kgOEeGbPv3jw0iz_g" field="TEXT" name="SPLIT_EVERY" value="1000"/>
+    <elementParameter xmi:id="_Lcp1_0gOEeGbPv3jw0iz_g" field="CHECK" name="FLUSHONROW" value="false"/>
+    <elementParameter xmi:id="_Lcp2AEgOEeGbPv3jw0iz_g" field="TEXT" name="FLUSHONROW_NUM" value="1"/>
+    <elementParameter xmi:id="_Lcp2AUgOEeGbPv3jw0iz_g" field="CHECK" name="ROW_MODE" value="false"/>
+    <elementParameter xmi:id="_Lcp2AkgOEeGbPv3jw0iz_g" field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter xmi:id="_Lcp2A0gOEeGbPv3jw0iz_g" field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter xmi:id="_Lcp2BEgOEeGbPv3jw0iz_g" field="CHECK" name="DELETE_EMPTYFILE" value="false"/>
+    <elementParameter xmi:id="_Lcp2BUgOEeGbPv3jw0iz_g" field="TEXT" name="LABEL" value="bbox_sql_error"/>
+    <elementParameter xmi:id="_Lcp2BkgOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_Lcp2B0gOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_Lcp2CEgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Lcp2CUgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lcp2CkgOEeGbPv3jw0iz_g" connector="FLOW" name="tFileOutputDelimited_2">
+      <column xmi:id="_Lcp2C0gOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_name" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp2DEgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_schema" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp2DUgOEeGbPv3jw0iz_g" comment="" key="false" name="f_geometry_column" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp2DkgOEeGbPv3jw0iz_g" comment="" key="false" name="srid" nullable="true" pattern="" sourceType="INT4" type="id_Integer"/>
+      <column xmi:id="_Lcp2D0gOEeGbPv3jw0iz_g" comment="" key="false" name="recordset" nullable="true" pattern="" sourceType="" type="id_Object"/>
+      <column xmi:id="_Lcp2EEgOEeGbPv3jw0iz_g" comment="" key="false" name="bbox" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp2EUgOEeGbPv3jw0iz_g" comment="" key="false" name="countryid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp2EkgOEeGbPv3jw0iz_g" comment="" key="false" name="cityid" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp2E0gOEeGbPv3jw0iz_g" defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp2FEgOEeGbPv3jw0iz_g" defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String"/>
+    </metadata>
+  </node>
+  <node xmi:id="_Lcp2FUgOEeGbPv3jw0iz_g" componentName="tFileOutputDelimited" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1056" posY="192">
+    <elementParameter xmi:id="_Lcp2FkgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tFileOutputDelimited_3"/>
+    <elementParameter xmi:id="_Lcp2F0gOEeGbPv3jw0iz_g" field="CHECK" name="USESTREAM" value="false"/>
+    <elementParameter xmi:id="_Lcp2GEgOEeGbPv3jw0iz_g" field="TEXT" name="STREAMNAME" value="outputStream"/>
+    <elementParameter xmi:id="_Lcp2GUgOEeGbPv3jw0iz_g" field="FILE" name="FILENAME" value="context.urbanAtlasListDir + &quot;ua_uuidmap.csv&quot;"/>
+    <elementParameter xmi:id="_Lcp2GkgOEeGbPv3jw0iz_g" field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter xmi:id="_Lcp2G0gOEeGbPv3jw0iz_g" field="OPENED_LIST" name="CSVROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter xmi:id="_Lcp2HEgOEeGbPv3jw0iz_g" field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcp2HUgOEeGbPv3jw0iz_g" field="CHECK" name="APPEND" value="false"/>
+    <elementParameter xmi:id="_Lcp2HkgOEeGbPv3jw0iz_g" field="CHECK" name="INCLUDEHEADER" value="false"/>
+    <elementParameter xmi:id="_Lcp2H0gOEeGbPv3jw0iz_g" field="CHECK" name="COMPRESS" value="false"/>
+    <elementParameter xmi:id="_Lcp2IEgOEeGbPv3jw0iz_g" field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter xmi:id="_Lcp2IUgOEeGbPv3jw0iz_g" field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;"/>
+    <elementParameter xmi:id="_Lcp2IkgOEeGbPv3jw0iz_g" field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;"/>
+    <elementParameter xmi:id="_Lcp2I0gOEeGbPv3jw0iz_g" field="CHECK" name="CSV_OPTION" value="false"/>
+    <elementParameter xmi:id="_Lcp2JEgOEeGbPv3jw0iz_g" field="TEXT" name="ESCAPE_CHAR" value="&quot;&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcp2JUgOEeGbPv3jw0iz_g" field="TEXT" name="TEXT_ENCLOSURE" value="&quot;&quot;&quot;"/>
+    <elementParameter xmi:id="_Lcp2JkgOEeGbPv3jw0iz_g" field="CHECK" name="CREATE" value="true"/>
+    <elementParameter xmi:id="_Lcp2J0gOEeGbPv3jw0iz_g" field="CHECK" name="SPLIT" value="false"/>
+    <elementParameter xmi:id="_Lcp2KEgOEeGbPv3jw0iz_g" field="TEXT" name="SPLIT_EVERY" value="1000"/>
+    <elementParameter xmi:id="_Lcp2KUgOEeGbPv3jw0iz_g" field="CHECK" name="FLUSHONROW" value="false"/>
+    <elementParameter xmi:id="_Lcp2KkgOEeGbPv3jw0iz_g" field="TEXT" name="FLUSHONROW_NUM" value="1"/>
+    <elementParameter xmi:id="_Lcp2K0gOEeGbPv3jw0iz_g" field="CHECK" name="ROW_MODE" value="false"/>
+    <elementParameter xmi:id="_Lcp2LEgOEeGbPv3jw0iz_g" field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter xmi:id="_Lcp2LUgOEeGbPv3jw0iz_g" field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter xmi:id="_Lcp2LkgOEeGbPv3jw0iz_g" field="CHECK" name="DELETE_EMPTYFILE" value="false"/>
+    <elementParameter xmi:id="_Lcp2L0gOEeGbPv3jw0iz_g" field="TEXT" name="LABEL" value="uuid_mapping"/>
+    <elementParameter xmi:id="_Lcp2MEgOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_Lcp2MUgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_Lcp2MkgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Lcp2M0gOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lcp2NEgOEeGbPv3jw0iz_g" connector="FLOW" name="tFileOutputDelimited_3">
+      <column xmi:id="_Lcp2NUgOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_name" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp2NkgOEeGbPv3jw0iz_g" comment="" key="false" name="uuid" nullable="false" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp2N0gOEeGbPv3jw0iz_g" comment="" key="false" name="f_table_schema" nullable="true" pattern="" sourceType="" type="id_String"/>
+      <column xmi:id="_Lcp2OEgOEeGbPv3jw0iz_g" comment="" key="false" name="srid" nullable="true" pattern="" sourceType="INT4" type="id_Integer"/>
+    </metadata>
+  </node>
+  <node xmi:id="_Lcp2OUgOEeGbPv3jw0iz_g" componentName="sGeomTxtInput" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="416" posY="128" sizeX="35" sizeY="32">
+    <elementParameter xmi:id="_Lcp2OkgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="sGeomTxtInput_1"/>
+    <elementParameter xmi:id="_Lcp2O0gOEeGbPv3jw0iz_g" field="CHECK" name="START" value="true"/>
+    <elementParameter xmi:id="_Lcp2PEgOEeGbPv3jw0iz_g" field="MEMO" name="GEOM" value="&quot;POINT(6 10)&quot;"/>
+    <elementParameter xmi:id="_Lcp2PUgOEeGbPv3jw0iz_g" field="MEMO_IMPORT" name="IMPORT" value="import org.talend.sdi.geometry.Geometry;"/>
+    <elementParameter xmi:id="_Lcp2PkgOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_Lcp2P0gOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_Lcp2QEgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Lcp2QUgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lcp2QkgOEeGbPv3jw0iz_g" connector="FLOW" name="sGeomTxtInput_1">
+      <column xmi:id="_Lcp2Q0gOEeGbPv3jw0iz_g" defaultValue="" key="false" length="0" name="the_geom" nullable="true" precision="0" sourceType="" type="id_Geometry"/>
+    </metadata>
+  </node>
+  <connection xmi:id="_Lcp2REgOEeGbPv3jw0iz_g" connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPostgresqlConnection_1" offsetLabelX="0" offsetLabelY="0" source="tPostgresqlConnection_1" target="tPostgresqlInput_1">
+    <elementParameter xmi:id="_Lcp2RUgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Lcp2RkgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="OnComponentOk1"/>
+  </connection>
+  <connection xmi:id="_Lcp2R0gOEeGbPv3jw0iz_g" connectorName="FLOW" label="row1" lineStyle="0" metaname="tPostgresqlInput_1" offsetLabelX="0" offsetLabelY="0" source="tPostgresqlInput_1" target="tLogRow_1">
+    <elementParameter xmi:id="_Lcp2SEgOEeGbPv3jw0iz_g" field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter xmi:id="_Lcp2SUgOEeGbPv3jw0iz_g" field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue xmi:id="_Lcp2SkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_Lcp2S0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2TEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2TUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_Lcp2TkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2T0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2UEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="srid"/>
+      <elementValue xmi:id="_Lcp2UUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2UkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2U0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_geometry_column"/>
+      <elementValue xmi:id="_Lcp2VEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2VUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp2VkgOEeGbPv3jw0iz_g" field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_Lcp2V0gOEeGbPv3jw0iz_g" field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter xmi:id="_Lcp2WEgOEeGbPv3jw0iz_g" field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter xmi:id="_Lcp2WUgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter xmi:id="_Lcp2WkgOEeGbPv3jw0iz_g" field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter xmi:id="_Lcp2W0gOEeGbPv3jw0iz_g" field="TABLE" name="THRESHLODS"/>
+    <elementParameter xmi:id="_Lcp2XEgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Lcp2XUgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="row1"/>
+  </connection>
+  <connection xmi:id="_Lcp2XkgOEeGbPv3jw0iz_g" connectorName="FLOW" label="row2" lineStyle="0" metaname="tLogRow_1" offsetLabelX="0" offsetLabelY="0" source="tLogRow_1" target="tMap_1">
+    <elementParameter xmi:id="_Lcp2X0gOEeGbPv3jw0iz_g" field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter xmi:id="_Lcp2YEgOEeGbPv3jw0iz_g" field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue xmi:id="_Lcp2YUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_Lcp2YkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2Y0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2ZEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_Lcp2ZUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2ZkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2Z0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_geometry_column"/>
+      <elementValue xmi:id="_Lcp2aEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2aUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2akgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="srid"/>
+      <elementValue xmi:id="_Lcp2a0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2bEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp2bUgOEeGbPv3jw0iz_g" field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_Lcp2bkgOEeGbPv3jw0iz_g" field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter xmi:id="_Lcp2b0gOEeGbPv3jw0iz_g" field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter xmi:id="_Lcp2cEgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter xmi:id="_Lcp2cUgOEeGbPv3jw0iz_g" field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter xmi:id="_Lcp2ckgOEeGbPv3jw0iz_g" field="TABLE" name="THRESHLODS"/>
+    <elementParameter xmi:id="_Lcp2c0gOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Lcp2dEgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="row2"/>
+  </connection>
+  <connection xmi:id="_Lcp2dUgOEeGbPv3jw0iz_g" connectorName="FLOW" label="row3" lineStyle="0" metaname="tPostgresqlRow_1" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tPostgresqlRow_1" target="tParseRecordSet_1">
+    <elementParameter xmi:id="_Lcp2dkgOEeGbPv3jw0iz_g" field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter xmi:id="_Lcp2d0gOEeGbPv3jw0iz_g" field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue xmi:id="_Lcp2eEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_Lcp2eUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2ekgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2e0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_Lcp2fEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2fUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2fkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_geometry_column"/>
+      <elementValue xmi:id="_Lcp2f0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2gEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2gUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="srid"/>
+      <elementValue xmi:id="_Lcp2gkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2g0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2hEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="box"/>
+      <elementValue xmi:id="_Lcp2hUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2hkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp2h0gOEeGbPv3jw0iz_g" field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_Lcp2iEgOEeGbPv3jw0iz_g" field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter xmi:id="_Lcp2iUgOEeGbPv3jw0iz_g" field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter xmi:id="_Lcp2ikgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter xmi:id="_Lcp2i0gOEeGbPv3jw0iz_g" field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter xmi:id="_Lcp2jEgOEeGbPv3jw0iz_g" field="TABLE" name="THRESHLODS"/>
+    <elementParameter xmi:id="_Lcp2jUgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Lcp2jkgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="row3"/>
+  </connection>
+  <connection xmi:id="_Lcp2j0gOEeGbPv3jw0iz_g" connectorName="REJECT" label="row9" lineStyle="0" metaname="REJECT" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tPostgresqlRow_1" target="tFileOutputDelimited_2">
+    <elementParameter xmi:id="_Lcp2kEgOEeGbPv3jw0iz_g" field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter xmi:id="_Lcp2kUgOEeGbPv3jw0iz_g" field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue xmi:id="_Lcp2kkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_Lcp2k0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2lEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2lUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_Lcp2lkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2l0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2mEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_geometry_column"/>
+      <elementValue xmi:id="_Lcp2mUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2mkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2m0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="srid"/>
+      <elementValue xmi:id="_Lcp2nEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2nUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2nkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="recordset"/>
+      <elementValue xmi:id="_Lcp2n0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2oEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2oUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="bbox"/>
+      <elementValue xmi:id="_Lcp2okgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2o0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2pEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="countryid"/>
+      <elementValue xmi:id="_Lcp2pUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2pkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2p0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="cityid"/>
+      <elementValue xmi:id="_Lcp2qEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2qUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2qkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="errorCode"/>
+      <elementValue xmi:id="_Lcp2q0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2rEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2rUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="errorMessage"/>
+      <elementValue xmi:id="_Lcp2rkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2r0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp2sEgOEeGbPv3jw0iz_g" field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_Lcp2sUgOEeGbPv3jw0iz_g" field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter xmi:id="_Lcp2skgOEeGbPv3jw0iz_g" field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter xmi:id="_Lcp2s0gOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter xmi:id="_Lcp2tEgOEeGbPv3jw0iz_g" field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter xmi:id="_Lcp2tUgOEeGbPv3jw0iz_g" field="TABLE" name="THRESHLODS"/>
+    <elementParameter xmi:id="_Lcp2tkgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Lcp2t0gOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="row9"/>
+  </connection>
+  <connection xmi:id="_Lcp2uEgOEeGbPv3jw0iz_g" connectorName="FLOW" label="out" lineStyle="0" metaname="out" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tPostgresqlRow_1">
+    <elementParameter xmi:id="_Lcp2uUgOEeGbPv3jw0iz_g" field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter xmi:id="_Lcp2ukgOEeGbPv3jw0iz_g" field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue xmi:id="_Lcp2u0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_Lcp2vEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2vUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2vkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_Lcp2v0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2wEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2wUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_geometry_column"/>
+      <elementValue xmi:id="_Lcp2wkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2w0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2xEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="srid"/>
+      <elementValue xmi:id="_Lcp2xUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2xkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2x0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="recordset"/>
+      <elementValue xmi:id="_Lcp2yEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2yUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2ykgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="bbox"/>
+      <elementValue xmi:id="_Lcp2y0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2zEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp2zUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="countryid"/>
+      <elementValue xmi:id="_Lcp2zkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp2z0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp20EgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="cityid"/>
+      <elementValue xmi:id="_Lcp20UgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp20kgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp200gOEeGbPv3jw0iz_g" field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_Lcp21EgOEeGbPv3jw0iz_g" field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter xmi:id="_Lcp21UgOEeGbPv3jw0iz_g" field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter xmi:id="_Lcp21kgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter xmi:id="_Lcp210gOEeGbPv3jw0iz_g" field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter xmi:id="_Lcp22EgOEeGbPv3jw0iz_g" field="TABLE" name="THRESHLODS"/>
+    <elementParameter xmi:id="_Lcp22UgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Lcp22kgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="out"/>
+  </connection>
+  <connection xmi:id="_Lcp220gOEeGbPv3jw0iz_g" connectorName="FLOW" label="row4" lineStyle="0" metaname="tParseRecordSet_1" offsetLabelX="0" offsetLabelY="0" source="tParseRecordSet_1" target="tMap_3">
+    <elementParameter xmi:id="_Lcp23EgOEeGbPv3jw0iz_g" field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter xmi:id="_Lcp23UgOEeGbPv3jw0iz_g" field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue xmi:id="_Lcp23kgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_Lcp230gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp24EgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp24UgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_Lcp24kgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp240gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp25EgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_geometry_column"/>
+      <elementValue xmi:id="_Lcp25UgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp25kgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp250gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="srid"/>
+      <elementValue xmi:id="_Lcp26EgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp26UgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp26kgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="recordset"/>
+      <elementValue xmi:id="_Lcp260gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp27EgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp27UgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="bbox"/>
+      <elementValue xmi:id="_Lcp27kgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp270gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp28EgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="countryid"/>
+      <elementValue xmi:id="_Lcp28UgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp28kgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp280gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="cityid"/>
+      <elementValue xmi:id="_Lcp29EgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp29UgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp29kgOEeGbPv3jw0iz_g" field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_Lcp290gOEeGbPv3jw0iz_g" field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter xmi:id="_Lcp2-EgOEeGbPv3jw0iz_g" field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter xmi:id="_Lcp2-UgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter xmi:id="_Lcp2-kgOEeGbPv3jw0iz_g" field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter xmi:id="_Lcp2-0gOEeGbPv3jw0iz_g" field="TABLE" name="THRESHLODS"/>
+    <elementParameter xmi:id="_Lcp2_EgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Lcp2_UgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="row4"/>
+  </connection>
+  <connection xmi:id="_Lcp2_kgOEeGbPv3jw0iz_g" connectorName="FLOW" label="out_with_geom" lineStyle="0" metaname="out_with_geom" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tMap_3" target="tLogRow_2">
+    <elementParameter xmi:id="_Lcp2_0gOEeGbPv3jw0iz_g" field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter xmi:id="_Lcp3AEgOEeGbPv3jw0iz_g" field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue xmi:id="_Lcp3AUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_Lcp3AkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3A0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3BEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_Lcp3BUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3BkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3B0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_geometry_column"/>
+      <elementValue xmi:id="_Lcp3CEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3CUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3CkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="srid"/>
+      <elementValue xmi:id="_Lcp3C0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3DEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3DUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="recordset"/>
+      <elementValue xmi:id="_Lcp3DkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3D0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3EEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="bbox"/>
+      <elementValue xmi:id="_Lcp3EUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3EkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3E0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="south"/>
+      <elementValue xmi:id="_Lcp3FEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3FUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3FkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="north"/>
+      <elementValue xmi:id="_Lcp3F0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3GEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3GUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="east"/>
+      <elementValue xmi:id="_Lcp3GkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3G0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3HEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="west"/>
+      <elementValue xmi:id="_Lcp3HUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3HkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3H0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="uuid"/>
+      <elementValue xmi:id="_Lcp3IEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3IUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3IkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="country"/>
+      <elementValue xmi:id="_Lcp3I0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3JEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3JUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="cityname"/>
+      <elementValue xmi:id="_Lcp3JkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3J0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3KEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="cityid"/>
+      <elementValue xmi:id="_Lcp3KUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3KkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3K0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="countryname"/>
+      <elementValue xmi:id="_Lcp3LEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3LUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3LkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="countryid"/>
+      <elementValue xmi:id="_Lcp3L0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3MEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3MUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="the_geom"/>
+      <elementValue xmi:id="_Lcp3MkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3M0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3NEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="seriesuuid"/>
+      <elementValue xmi:id="_Lcp3NUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3NkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3N0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="docPath"/>
+      <elementValue xmi:id="_Lcp3OEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3OUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3OkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="id"/>
+      <elementValue xmi:id="_Lcp3O0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3PEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp3PUgOEeGbPv3jw0iz_g" field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_Lcp3PkgOEeGbPv3jw0iz_g" field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter xmi:id="_Lcp3P0gOEeGbPv3jw0iz_g" field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter xmi:id="_Lcp3QEgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter xmi:id="_Lcp3QUgOEeGbPv3jw0iz_g" field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter xmi:id="_Lcp3QkgOEeGbPv3jw0iz_g" field="TABLE" name="THRESHLODS"/>
+    <elementParameter xmi:id="_Lcp3Q0gOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Lcp3REgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="out_with_geom"/>
+  </connection>
+  <connection xmi:id="_Lcp3RUgOEeGbPv3jw0iz_g" connectorName="FLOW" label="ghostscript" lineStyle="0" metaname="ghostscript" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tMap_3" target="tFileOutputDelimited_1">
+    <elementParameter xmi:id="_Lcp3RkgOEeGbPv3jw0iz_g" field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter xmi:id="_Lcp3R0gOEeGbPv3jw0iz_g" field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue xmi:id="_Lcp3SEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="shellCmd"/>
+      <elementValue xmi:id="_Lcp3SUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3SkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp3S0gOEeGbPv3jw0iz_g" field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_Lcp3TEgOEeGbPv3jw0iz_g" field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter xmi:id="_Lcp3TUgOEeGbPv3jw0iz_g" field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter xmi:id="_Lcp3TkgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter xmi:id="_Lcp3T0gOEeGbPv3jw0iz_g" field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter xmi:id="_Lcp3UEgOEeGbPv3jw0iz_g" field="TABLE" name="THRESHLODS"/>
+    <elementParameter xmi:id="_Lcp3UUgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Lcp3UkgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="ghostscript"/>
+  </connection>
+  <connection xmi:id="_Lcp3U0gOEeGbPv3jw0iz_g" connectorName="FLOW" label="cityUuidMap" lineStyle="0" metaname="cityUuidMap" offsetLabelX="0" offsetLabelY="0" outputId="3" source="tMap_3" target="tFileOutputDelimited_3">
+    <elementParameter xmi:id="_Lcp3VEgOEeGbPv3jw0iz_g" field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter xmi:id="_Lcp3VUgOEeGbPv3jw0iz_g" field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue xmi:id="_Lcp3VkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_Lcp3V0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3WEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3WUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="uuid"/>
+      <elementValue xmi:id="_Lcp3WkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3W0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3XEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_Lcp3XUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3XkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3X0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="srid"/>
+      <elementValue xmi:id="_Lcp3YEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3YUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp3YkgOEeGbPv3jw0iz_g" field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_Lcp3Y0gOEeGbPv3jw0iz_g" field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter xmi:id="_Lcp3ZEgOEeGbPv3jw0iz_g" field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter xmi:id="_Lcp3ZUgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter xmi:id="_Lcp3ZkgOEeGbPv3jw0iz_g" field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter xmi:id="_Lcp3Z0gOEeGbPv3jw0iz_g" field="TABLE" name="THRESHLODS"/>
+    <elementParameter xmi:id="_Lcp3aEgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Lcp3aUgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="cityUuidMap"/>
+  </connection>
+  <connection xmi:id="_Lcp3akgOEeGbPv3jw0iz_g" connectorName="FLOW" label="row5" lineStyle="0" metaname="tLogRow_2" offsetLabelX="0" offsetLabelY="0" source="tLogRow_2" target="tFileOutputXML_1">
+    <elementParameter xmi:id="_Lcp3a0gOEeGbPv3jw0iz_g" field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter xmi:id="_Lcp3bEgOEeGbPv3jw0iz_g" field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue xmi:id="_Lcp3bUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_Lcp3bkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3b0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3cEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_Lcp3cUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3ckgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3c0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_geometry_column"/>
+      <elementValue xmi:id="_Lcp3dEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3dUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3dkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="srid"/>
+      <elementValue xmi:id="_Lcp3d0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3eEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3eUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="recordset"/>
+      <elementValue xmi:id="_Lcp3ekgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3e0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3fEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="bbox"/>
+      <elementValue xmi:id="_Lcp3fUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3fkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3f0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="west"/>
+      <elementValue xmi:id="_Lcp3gEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3gUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3gkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="south"/>
+      <elementValue xmi:id="_Lcp3g0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3hEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3hUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="east"/>
+      <elementValue xmi:id="_Lcp3hkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3h0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3iEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="north"/>
+      <elementValue xmi:id="_Lcp3iUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3ikgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp3i0gOEeGbPv3jw0iz_g" field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_Lcp3jEgOEeGbPv3jw0iz_g" field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter xmi:id="_Lcp3jUgOEeGbPv3jw0iz_g" field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter xmi:id="_Lcp3jkgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter xmi:id="_Lcp3j0gOEeGbPv3jw0iz_g" field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter xmi:id="_Lcp3kEgOEeGbPv3jw0iz_g" field="TABLE" name="THRESHLODS"/>
+    <elementParameter xmi:id="_Lcp3kUgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Lcp3kkgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="row5"/>
+  </connection>
+  <connection xmi:id="_Lcp3k0gOEeGbPv3jw0iz_g" connectorName="FLOW" label="row8" lineStyle="0" metaname="tFileOutputXML_1" offsetLabelX="0" offsetLabelY="0" source="tFileOutputXML_1" target="sShapefileOutput_1">
+    <elementParameter xmi:id="_Lcp3lEgOEeGbPv3jw0iz_g" field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter xmi:id="_Lcp3lUgOEeGbPv3jw0iz_g" field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue xmi:id="_Lcp3lkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="uuid"/>
+      <elementValue xmi:id="_Lcp3l0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3mEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3mUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_name"/>
+      <elementValue xmi:id="_Lcp3mkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3m0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3nEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_table_schema"/>
+      <elementValue xmi:id="_Lcp3nUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3nkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3n0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="f_geometry_column"/>
+      <elementValue xmi:id="_Lcp3oEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3oUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3okgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="srid"/>
+      <elementValue xmi:id="_Lcp3o0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3pEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3pUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="countryid"/>
+      <elementValue xmi:id="_Lcp3pkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3p0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3qEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="countryname"/>
+      <elementValue xmi:id="_Lcp3qUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3qkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3q0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="bbox"/>
+      <elementValue xmi:id="_Lcp3rEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3rUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3rkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="west"/>
+      <elementValue xmi:id="_Lcp3r0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3sEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3sUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="south"/>
+      <elementValue xmi:id="_Lcp3skgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3s0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3tEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="east"/>
+      <elementValue xmi:id="_Lcp3tUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3tkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3t0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="north"/>
+      <elementValue xmi:id="_Lcp3uEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3uUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3ukgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="cityid"/>
+      <elementValue xmi:id="_Lcp3u0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3vEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3vUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="cityname"/>
+      <elementValue xmi:id="_Lcp3vkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3v0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp3wEgOEeGbPv3jw0iz_g" field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_Lcp3wUgOEeGbPv3jw0iz_g" field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter xmi:id="_Lcp3wkgOEeGbPv3jw0iz_g" field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter xmi:id="_Lcp3w0gOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter xmi:id="_Lcp3xEgOEeGbPv3jw0iz_g" field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter xmi:id="_Lcp3xUgOEeGbPv3jw0iz_g" field="TABLE" name="THRESHLODS"/>
+    <elementParameter xmi:id="_Lcp3xkgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Lcp3x0gOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="row8"/>
+  </connection>
+  <connection xmi:id="_Lcp3yEgOEeGbPv3jw0iz_g" connectorName="FLOW" label="row6" lineStyle="8" metaname="tFileInputDelimited_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputDelimited_1" target="tMap_3">
+    <elementParameter xmi:id="_Lcp3yUgOEeGbPv3jw0iz_g" field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter xmi:id="_Lcp3ykgOEeGbPv3jw0iz_g" field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue xmi:id="_Lcp3y0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="iso2code"/>
+      <elementValue xmi:id="_Lcp3zEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp3zUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp3zkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="name"/>
+      <elementValue xmi:id="_Lcp3z0gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp30EgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lcp30UgOEeGbPv3jw0iz_g" field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_Lcp30kgOEeGbPv3jw0iz_g" field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter xmi:id="_Lcp300gOEeGbPv3jw0iz_g" field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter xmi:id="_Lcp31EgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter xmi:id="_Lcp31UgOEeGbPv3jw0iz_g" field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter xmi:id="_Lcp31kgOEeGbPv3jw0iz_g" field="TABLE" name="THRESHLODS"/>
+    <elementParameter xmi:id="_Lcp310gOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Lcp32EgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="row6"/>
+  </connection>
+  <connection xmi:id="_Lcp32UgOEeGbPv3jw0iz_g" connectorName="FLOW" label="row7" lineStyle="8" metaname="tFileInputDelimited_2" offsetLabelX="0" offsetLabelY="0" source="tFileInputDelimited_2" target="tMap_3">
+    <elementParameter xmi:id="_Lcp32kgOEeGbPv3jw0iz_g" field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter xmi:id="_Lcp320gOEeGbPv3jw0iz_g" field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue xmi:id="_Lcp33EgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="id"/>
+      <elementValue xmi:id="_Lcp33UgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp33kgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_Lcp330gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="name"/>
+      <elementValue xmi:id="_Lcp34EgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lcp34UgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue xmi:id="_LcqaIEgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="cityid"/>
+      <elementValue xmi:id="_LcqaIUgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_LcqaIkgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_LcqaI0gOEeGbPv3jw0iz_g" field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_LcqaJEgOEeGbPv3jw0iz_g" field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter xmi:id="_LcqaJUgOEeGbPv3jw0iz_g" field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter xmi:id="_LcqaJkgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter xmi:id="_LcqaJ0gOEeGbPv3jw0iz_g" field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter xmi:id="_LcqaKEgOEeGbPv3jw0iz_g" field="TABLE" name="THRESHLODS"/>
+    <elementParameter xmi:id="_LcqaKUgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_LcqaKkgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="row7"/>
+  </connection>
+  <connection xmi:id="_LcqaK0gOEeGbPv3jw0iz_g" connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="sGeomTxtInput_1" offsetLabelX="0" offsetLabelY="0" source="sGeomTxtInput_1" target="tPostgresqlConnection_1">
+    <elementParameter xmi:id="_LcqaLEgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_LcqaLUgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="OnComponentOk2"/>
+  </connection>
+  <note xmi:id="_LcqaLkgOEeGbPv3jw0iz_g" opaque="true" posX="352" posY="448" sizeHeight="161" sizeWidth="321" text="Or use PreparedStatement with &#xA;&quot;SELECT ST_AsText(&#xA;ST_Extent(&#xA; ST_Transform(&#xA;   ST_SetSRID(&#xA;     ST_Estimated_extent(?, ?, ?), ?),&#xA; 4326)&#xA;)) as bbox&quot;">
+    <elementParameter xmi:id="_LcqaL0gOEeGbPv3jw0iz_g" field="COLOR" name="NOTE_COLOR" value="255;255;203"/>
+    <elementParameter xmi:id="_LcqaMEgOEeGbPv3jw0iz_g" field="COLOR" name="NOTETXT_COLOR" value="0;0;0"/>
+    <elementParameter xmi:id="_LcqaMUgOEeGbPv3jw0iz_g" field="RADIO" name="NOTETXT_LEFT" value="false"/>
+    <elementParameter xmi:id="_LcqaMkgOEeGbPv3jw0iz_g" field="RADIO" name="NOTETXT_RIGHT" value="false"/>
+    <elementParameter xmi:id="_LcqaM0gOEeGbPv3jw0iz_g" field="RADIO" name="NOTETXT_CENTER" value="true"/>
+    <elementParameter xmi:id="_LcqaNEgOEeGbPv3jw0iz_g" field="RADIO" name="NOTELABEL_CENTER" value="true"/>
+    <elementParameter xmi:id="_LcqaNUgOEeGbPv3jw0iz_g" field="RADIO" name="NOTETXT_TOP" value="false"/>
+    <elementParameter xmi:id="_LcqaNkgOEeGbPv3jw0iz_g" field="RADIO" name="NOTETXT_BOTTOM" value="false"/>
+    <elementParameter xmi:id="_LcqaN0gOEeGbPv3jw0iz_g" field="TEXT" name="NOTE_FONT" value="Time New Roman"/>
+    <elementParameter xmi:id="_LcqaOEgOEeGbPv3jw0iz_g" field="TEXT" name="FONT_SIZE" value="10"/>
+    <elementParameter xmi:id="_LcqaOUgOEeGbPv3jw0iz_g" field="CHECK" name="FONT_BOLD" value="false"/>
+    <elementParameter xmi:id="_LcqaOkgOEeGbPv3jw0iz_g" field="CHECK" name="FONT_ITALIC" value="false"/>
+    <elementParameter xmi:id="_LcqaO0gOEeGbPv3jw0iz_g" field="COLOR" name="NOTE_LINECOLOR" value="237;201;122"/>
+  </note>
+  <subjob xmi:id="_LcqaPEgOEeGbPv3jw0iz_g">
+    <elementParameter xmi:id="_LcqaPUgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tPostgresqlConnection_1"/>
+    <elementParameter xmi:id="_LcqaPkgOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter xmi:id="_LcqaP0gOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob xmi:id="_LcqaQEgOEeGbPv3jw0iz_g">
+    <elementParameter xmi:id="_LcqaQUgOEeGbPv3jw0iz_g" field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
+    <elementParameter xmi:id="_LcqaQkgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tPostgresqlInput_1"/>
+    <elementParameter xmi:id="_LcqaQ0gOEeGbPv3jw0iz_g" field="TEXT" name="SUBJOB_TITLE" value="Retrieve tables from DB and create one simple XML file per table"/>
+    <elementParameter xmi:id="_LcqaREgOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter xmi:id="_LcqaRUgOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob xmi:id="_LcqaRkgOEeGbPv3jw0iz_g">
+    <elementParameter xmi:id="_LcqaR0gOEeGbPv3jw0iz_g" field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
+    <elementParameter xmi:id="_LcqaSEgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="sGeomTxtInput_1"/>
+    <elementParameter xmi:id="_LcqaSUgOEeGbPv3jw0iz_g" field="TEXT" name="SUBJOB_TITLE" value="Force load of Talend Spatial libs"/>
+    <elementParameter xmi:id="_LcqaSkgOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter xmi:id="_LcqaS0gOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+</talendfile:ProcessType>

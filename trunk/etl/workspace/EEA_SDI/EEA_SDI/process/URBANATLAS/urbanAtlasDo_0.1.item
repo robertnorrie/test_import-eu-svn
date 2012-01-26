@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmi:id="_LaoZ00gOEeGbPv3jw0iz_g" defaultContext="Default">
+  <context xmi:id="_LaoZ1EgOEeGbPv3jw0iz_g" confirmationNeeded="false" name="Default"/>
+  <parameters xmi:id="_LaoZ1UgOEeGbPv3jw0iz_g">
+    <elementParameter xmi:id="_LaoZ1kgOEeGbPv3jw0iz_g" field="DIRECTORY" name="COMP_DEFAULT_FILE_DIR" value="/usr/local/App/talend/TOS_DI-r72978-V5.0.0/workspace"/>
+    <elementParameter xmi:id="_LaoZ10gOEeGbPv3jw0iz_g" field="DIRECTORY" name="PRODUCT_ROOT_DIR" value="/usr/local/App/talend/TOS_DI-r72978-V5.0.0"/>
+    <elementParameter xmi:id="_LaoZ2EgOEeGbPv3jw0iz_g" field="DIRECTORY" name="COMP_DEFAULT_PROJECT_DIR" value="/usr/local/App/talend/TOS_DI-r72978-V5.0.0/workspace/EEA_SDI"/>
+    <elementParameter xmi:id="_LaoZ2UgOEeGbPv3jw0iz_g" field="TEXT" name="JOB_RUN_VM_ARGUMENTS" value=" -Xms256M -Xmx1024M"/>
+    <elementParameter xmi:id="_LaoZ2kgOEeGbPv3jw0iz_g" field="CHECK" name="JOB_RUN_VM_ARGUMENTS_OPTION" value="false"/>
+    <elementParameter xmi:id="_LaoZ20gOEeGbPv3jw0iz_g" field="TEXT" name="AUTHOR" value="test@talend.com"/>
+    <elementParameter xmi:id="_LaoZ3EgOEeGbPv3jw0iz_g" field="TEXT" name="STATUS" value=""/>
+    <elementParameter xmi:id="_LaoZ3UgOEeGbPv3jw0iz_g" field="TEXT" name="NAME" value="urbanAtlasDo"/>
+    <elementParameter xmi:id="_LaoZ3kgOEeGbPv3jw0iz_g" field="TEXT" name="VERSION" value="0.1"/>
+    <elementParameter xmi:id="_LaoZ30gOEeGbPv3jw0iz_g" field="TEXT" name="PURPOSE" value=""/>
+    <elementParameter xmi:id="_LaoZ4EgOEeGbPv3jw0iz_g" field="TEXT" name="DESCRIPTION" value=""/>
+    <elementParameter xmi:id="_LaoZ4UgOEeGbPv3jw0iz_g" field="TEXT" name="SCREEN_OFFSET_X" value="0"/>
+    <elementParameter xmi:id="_LaoZ4kgOEeGbPv3jw0iz_g" field="TEXT" name="SCREEN_OFFSET_Y" value="0"/>
+    <elementParameter xmi:id="_LaoZ40gOEeGbPv3jw0iz_g" field="TEXT" name="SCHEMA_OPTIONS" value="none"/>
+    <elementParameter xmi:id="_LaoZ5EgOEeGbPv3jw0iz_g" field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" value="true"/>
+    <elementParameter xmi:id="_LaoZ5UgOEeGbPv3jw0iz_g" field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" value="true"/>
+    <elementParameter xmi:id="_LaoZ5kgOEeGbPv3jw0iz_g" field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
+    <elementParameter xmi:id="_LaoZ50gOEeGbPv3jw0iz_g" field="CHECK" name="IMPLICIT_TCONTEXTLOAD" value="false"/>
+    <elementParameter xmi:id="_LaoZ6EgOEeGbPv3jw0iz_g" field="RADIO" name="FROM_FILE_FLAG_IMPLICIT_CONTEXT" value="false"/>
+    <elementParameter xmi:id="_LaoZ6UgOEeGbPv3jw0iz_g" field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" value="false"/>
+    <elementParameter xmi:id="_LaoZ6kgOEeGbPv3jw0iz_g" field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ60gOEeGbPv3jw0iz_g" field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ7EgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:PROPERTY_TYPE" value=""/>
+    <elementParameter xmi:id="_LaoZ7UgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:REPOSITORY_PROPERTY_TYPE" value=""/>
+    <elementParameter xmi:id="_LaoZ7kgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value=""/>
+    <elementParameter xmi:id="_LaoZ70gOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value=""/>
+    <elementParameter xmi:id="_LaoZ8EgOEeGbPv3jw0iz_g" field="TEXT" name="URL_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ8UgOEeGbPv3jw0iz_g" field="TABLE" name="DRIVER_JAR_IMPLICIT_CONTEXT"/>
+    <elementParameter xmi:id="_LaoZ8kgOEeGbPv3jw0iz_g" field="TEXT" name="DRIVER_CLASS_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ80gOEeGbPv3jw0iz_g" field="TEXT" name="HOST_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ9EgOEeGbPv3jw0iz_g" field="TEXT" name="PORT_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ9UgOEeGbPv3jw0iz_g" field="TEXT" name="DBNAME_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ9kgOEeGbPv3jw0iz_g" field="TEXT" name="LOCAL_SERVICE_NAME_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ90gOEeGbPv3jw0iz_g" field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ-EgOEeGbPv3jw0iz_g" field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ-UgOEeGbPv3jw0iz_g" field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ-kgOEeGbPv3jw0iz_g" field="TEXT" name="PASS_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ-0gOEeGbPv3jw0iz_g" field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ_EgOEeGbPv3jw0iz_g" field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ_UgOEeGbPv3jw0iz_g" field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoZ_kgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="LOAD_NEW_VARIABLE" value=""/>
+    <elementParameter xmi:id="_LaoZ_0gOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="NOT_LOAD_OLD_VARIABLE" value=""/>
+    <elementParameter xmi:id="_LaoaAEgOEeGbPv3jw0iz_g" field="CHECK" name="PRINT_OPERATIONS" value="false"/>
+    <elementParameter xmi:id="_LaoaAUgOEeGbPv3jw0iz_g" field="CHECK" name="DISABLE_ERROR" value="false"/>
+    <elementParameter xmi:id="_LaoaAkgOEeGbPv3jw0iz_g" field="CHECK" name="DISABLE_WARNINGS" value="false"/>
+    <elementParameter xmi:id="_LaoaA0gOEeGbPv3jw0iz_g" field="CHECK" name="DISABLE_INFO" value="false"/>
+    <elementParameter xmi:id="_LaoaBEgOEeGbPv3jw0iz_g" field="CHECK" name="ON_STATCATCHER_FLAG" value="false"/>
+    <elementParameter xmi:id="_LaoaBUgOEeGbPv3jw0iz_g" field="CHECK" name="ON_LOGCATCHER_FLAG" value="false"/>
+    <elementParameter xmi:id="_LaoaBkgOEeGbPv3jw0iz_g" field="CHECK" name="ON_METERCATCHER_FLAG" value="false"/>
+    <elementParameter xmi:id="_LaoaB0gOEeGbPv3jw0iz_g" field="CHECK" name="ON_CONSOLE_FLAG" value="false"/>
+    <elementParameter xmi:id="_LaoaCEgOEeGbPv3jw0iz_g" field="CHECK" name="ON_FILES_FLAG" value="false"/>
+    <elementParameter xmi:id="_LaoaCUgOEeGbPv3jw0iz_g" field="DIRECTORY" name="FILE_PATH" value="&quot;/home/francois/App/talend/TOS_DI-r72978-V5.0.0/workspace/.metadata&quot;"/>
+    <elementParameter xmi:id="_LaoaCkgOEeGbPv3jw0iz_g" field="TEXT" name="FILENAME_STATS" value="&quot;stats_file.txt&quot;"/>
+    <elementParameter xmi:id="_LaoaC0gOEeGbPv3jw0iz_g" field="TEXT" name="FILENAME_LOGS" value="&quot;logs_file.txt&quot;"/>
+    <elementParameter xmi:id="_LaoaDEgOEeGbPv3jw0iz_g" field="TEXT" name="FILENAME_METTER" value="&quot;meter_file.txt&quot;"/>
+    <elementParameter xmi:id="_LaoaDUgOEeGbPv3jw0iz_g" field="ENCODING_TYPE" name="ENCODING" value="ISO-8859-15"/>
+    <elementParameter xmi:id="_LaoaDkgOEeGbPv3jw0iz_g" field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter xmi:id="_LaoaD0gOEeGbPv3jw0iz_g" field="CHECK" name="ON_DATABASE_FLAG" value="false"/>
+    <elementParameter xmi:id="_LaoaEEgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="DB_TYPE" value="tJDBCOutput"/>
+    <elementParameter xmi:id="_LaoaEUgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="DB_VERSION" value="ojdbc14-10g.jar"/>
+    <elementParameter xmi:id="_LaoaEkgOEeGbPv3jw0iz_g" field="TEXT" name="URL" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaE0gOEeGbPv3jw0iz_g" field="TABLE" name="DRIVER_JAR"/>
+    <elementParameter xmi:id="_LaoaFEgOEeGbPv3jw0iz_g" field="TEXT" name="DRIVER_CLASS" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaFUgOEeGbPv3jw0iz_g" field="TEXT" name="HOST" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaFkgOEeGbPv3jw0iz_g" field="TEXT" name="PORT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaF0gOEeGbPv3jw0iz_g" field="TEXT" name="DATASOURCE" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaGEgOEeGbPv3jw0iz_g" field="TEXT" name="DBNAME" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaGUgOEeGbPv3jw0iz_g" field="TEXT" name="LOCAL_SERVICE_NAME" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaGkgOEeGbPv3jw0iz_g" field="TEXT" name="PROPERTIES" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaG0gOEeGbPv3jw0iz_g" field="TEXT" name="SCHEMA_DB" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaHEgOEeGbPv3jw0iz_g" field="TEXT" name="USER" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaHUgOEeGbPv3jw0iz_g" field="TEXT" name="PASS" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaHkgOEeGbPv3jw0iz_g" field="FILE" name="DBFILE" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaH0gOEeGbPv3jw0iz_g" field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaIEgOEeGbPv3jw0iz_g" field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaIUgOEeGbPv3jw0iz_g" field="DBTABLE" name="TABLE_METER" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LaoaIkgOEeGbPv3jw0iz_g" field="CHECK" name="CATCH_RUNTIME_ERRORS" value="true"/>
+    <elementParameter xmi:id="_LaoaI0gOEeGbPv3jw0iz_g" field="CHECK" name="CATCH_USER_ERRORS" value="true"/>
+    <elementParameter xmi:id="_LaoaJEgOEeGbPv3jw0iz_g" field="CHECK" name="CATCH_USER_WARNING" value="true"/>
+    <elementParameter xmi:id="_LaoaJUgOEeGbPv3jw0iz_g" field="CHECK" name="CATCH_REALTIME_STATS" value="false"/>
+    <elementParameter xmi:id="_LaoaJkgOEeGbPv3jw0iz_g" field="TEXT" name="HEADERFOOTER_HEADERID" value=""/>
+    <elementParameter xmi:id="_LaoaJ0gOEeGbPv3jw0iz_g" field="CHECK" name="HEADER_ENABLED" value="false"/>
+    <elementParameter xmi:id="_LaoaKEgOEeGbPv3jw0iz_g" field="TEXT" name="HEADER_LIBRARY" value=""/>
+    <elementParameter xmi:id="_LaoaKUgOEeGbPv3jw0iz_g" field="TEXT" name="HEADER_CODE" value=""/>
+    <elementParameter xmi:id="_LaoaKkgOEeGbPv3jw0iz_g" field="TEXT" name="HEADER_IMPORT" value=""/>
+    <elementParameter xmi:id="_LaoaK0gOEeGbPv3jw0iz_g" field="TEXT" name="HEADERFOOTER_FOOTERID" value=""/>
+    <elementParameter xmi:id="_LaoaLEgOEeGbPv3jw0iz_g" field="CHECK" name="FOOTER_ENABLED" value="false"/>
+    <elementParameter xmi:id="_LaoaLUgOEeGbPv3jw0iz_g" field="TEXT" name="FOOTER_LIBRARY" value=""/>
+    <elementParameter xmi:id="_LaoaLkgOEeGbPv3jw0iz_g" field="TEXT" name="FOOTER_CODE" value=""/>
+    <elementParameter xmi:id="_LaoaL0gOEeGbPv3jw0iz_g" field="TEXT" name="FOOTER_IMPORT" value=""/>
+    <routinesParameter xmi:id="_LaoaMEgOEeGbPv3jw0iz_g" id="_OflbsB9VEeGrxIZ7LESbtg" name="DataOperation"/>
+    <routinesParameter xmi:id="_LaoaMUgOEeGbPv3jw0iz_g" id="_wjBEEENgEeGcq6voYY19sg" name="GeoOperation"/>
+    <routinesParameter xmi:id="_LaoaMkgOEeGbPv3jw0iz_g" id="_wjKOAENgEeGcq6voYY19sg" name="GeometryOperation"/>
+    <routinesParameter xmi:id="_LaoaM0gOEeGbPv3jw0iz_g" id="_weizwENgEeGcq6voYY19sg" name="GeometryUtility"/>
+    <routinesParameter xmi:id="_LaoaNEgOEeGbPv3jw0iz_g" id="_Ofn38B9VEeGrxIZ7LESbtg" name="Mathematical"/>
+    <routinesParameter xmi:id="_LaoaNUgOEeGbPv3jw0iz_g" id="_OfkNkB9VEeGrxIZ7LESbtg" name="Numeric"/>
+    <routinesParameter xmi:id="_LaoaNkgOEeGbPv3jw0iz_g" id="_wjMDMENgEeGcq6voYY19sg" name="OpenStreetMap"/>
+    <routinesParameter xmi:id="_LaoaN0gOEeGbPv3jw0iz_g" id="_Off8IB9VEeGrxIZ7LESbtg" name="Relational"/>
+    <routinesParameter xmi:id="_LaoaOEgOEeGbPv3jw0iz_g" id="_Ofmp0B9VEeGrxIZ7LESbtg" name="StringHandling"/>
+    <routinesParameter xmi:id="_LaoaOUgOEeGbPv3jw0iz_g" id="_Ofi_cB9VEeGrxIZ7LESbtg" name="TalendDataGenerator"/>
+    <routinesParameter xmi:id="_LaoaOkgOEeGbPv3jw0iz_g" id="_OfhxUB9VEeGrxIZ7LESbtg" name="TalendDate"/>
+    <routinesParameter xmi:id="_LaoaO0gOEeGbPv3jw0iz_g" id="_OdslUB9VEeGrxIZ7LESbtg" name="TalendString"/>
+  </parameters>
+  <node xmi:id="_LaoaPEgOEeGbPv3jw0iz_g" componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="512" posY="320">
+    <elementParameter xmi:id="_LaoaPUgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tRunJob_1"/>
+    <elementParameter xmi:id="_LaoaPkgOEeGbPv3jw0iz_g" field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
+    <elementParameter xmi:id="_LaoaP0gOEeGbPv3jw0iz_g" field="TEXT" name="CONTEXT_JOB" value=""/>
+    <elementParameter xmi:id="_LaoaQEgOEeGbPv3jw0iz_g" field="PROCESS_TYPE" name="PROCESS" value="urbanAtlasCreateMetadata"/>
+    <elementParameter xmi:id="_LaoaQUgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="_hsQl0EW-EeGZyfxFRdvStw"/>
+    <elementParameter xmi:id="_LaoaQkgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
+    <elementParameter xmi:id="_LaoaQ0gOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Default"/>
+    <elementParameter xmi:id="_LaoaREgOEeGbPv3jw0iz_g" field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
+    <elementParameter xmi:id="_LaoaRUgOEeGbPv3jw0iz_g" field="CHECK" name="DIE_ON_CHILD_ERROR" value="true"/>
+    <elementParameter xmi:id="_LaoaRkgOEeGbPv3jw0iz_g" field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="false"/>
+    <elementParameter xmi:id="_LaoaR0gOEeGbPv3jw0iz_g" field="TABLE" name="CONTEXTPARAMS"/>
+    <elementParameter xmi:id="_LaoaSEgOEeGbPv3jw0iz_g" field="CHECK" name="PRINT_PARAMETER" value="false"/>
+    <elementParameter xmi:id="_LaoaSUgOEeGbPv3jw0iz_g" field="CHECK" name="TRANSMIT_ORIGINAL_CONTEXT" value="true"/>
+    <elementParameter xmi:id="_LaoaSkgOEeGbPv3jw0iz_g" field="TEXT" name="LABEL" value="__PROCESS__"/>
+    <elementParameter xmi:id="_LaoaS0gOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_LaoaTEgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_LaoaTUgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_LaoaTkgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_LaoaT0gOEeGbPv3jw0iz_g" connector="FLOW" name="tRunJob_1"/>
+  </node>
+  <node xmi:id="_LaoaUEgOEeGbPv3jw0iz_g" componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="160" posY="320">
+    <elementParameter xmi:id="_LaoaUUgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tRunJob_2"/>
+    <elementParameter xmi:id="_LaoaUkgOEeGbPv3jw0iz_g" field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
+    <elementParameter xmi:id="_LaoaU0gOEeGbPv3jw0iz_g" field="TEXT" name="CONTEXT_JOB" value=""/>
+    <elementParameter xmi:id="_LaoaVEgOEeGbPv3jw0iz_g" field="PROCESS_TYPE" name="PROCESS" value="urbanAtlasExtractTableInfo"/>
+    <elementParameter xmi:id="_LaoaVUgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="_uRpxMETbEeGZyfxFRdvStw"/>
+    <elementParameter xmi:id="_LaoaVkgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
+    <elementParameter xmi:id="_LaoaV0gOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Default"/>
+    <elementParameter xmi:id="_LaoaWEgOEeGbPv3jw0iz_g" field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
+    <elementParameter xmi:id="_LaoaWUgOEeGbPv3jw0iz_g" field="CHECK" name="DIE_ON_CHILD_ERROR" value="true"/>
+    <elementParameter xmi:id="_LaoaWkgOEeGbPv3jw0iz_g" field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="false"/>
+    <elementParameter xmi:id="_LaoaW0gOEeGbPv3jw0iz_g" field="TABLE" name="CONTEXTPARAMS"/>
+    <elementParameter xmi:id="_LaoaXEgOEeGbPv3jw0iz_g" field="CHECK" name="PRINT_PARAMETER" value="false"/>
+    <elementParameter xmi:id="_LaoaXUgOEeGbPv3jw0iz_g" field="CHECK" name="TRANSMIT_ORIGINAL_CONTEXT" value="true"/>
+    <elementParameter xmi:id="_LaoaXkgOEeGbPv3jw0iz_g" field="TEXT" name="LABEL" value="__PROCESS__"/>
+    <elementParameter xmi:id="_LaoaX0gOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_LaoaYEgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_LaoaYUgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_LaoaYkgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_LaoaY0gOEeGbPv3jw0iz_g" connector="FLOW" name="tRunJob_2"/>
+  </node>
+  <node xmi:id="_LaoaZEgOEeGbPv3jw0iz_g" componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="160" posY="64">
+    <elementParameter xmi:id="_LaoaZUgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tRunJob_3"/>
+    <elementParameter xmi:id="_LaoaZkgOEeGbPv3jw0iz_g" field="CHECK" name="START" value="true"/>
+    <elementParameter xmi:id="_LaoaZ0gOEeGbPv3jw0iz_g" field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
+    <elementParameter xmi:id="_LaoaaEgOEeGbPv3jw0iz_g" field="TEXT" name="CONTEXT_JOB" value=""/>
+    <elementParameter xmi:id="_LaoaaUgOEeGbPv3jw0iz_g" field="PROCESS_TYPE" name="PROCESS" value="urbanAtlasWordDocumentAnalyzer"/>
+    <elementParameter xmi:id="_LaoaakgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="_pQW6cEawEeG9X9NucT-ENw"/>
+    <elementParameter xmi:id="_Laoaa0gOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
+    <elementParameter xmi:id="_LaoabEgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="karukera"/>
+    <elementParameter xmi:id="_LaoabUgOEeGbPv3jw0iz_g" field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
+    <elementParameter xmi:id="_LaoabkgOEeGbPv3jw0iz_g" field="CHECK" name="DIE_ON_CHILD_ERROR" value="true"/>
+    <elementParameter xmi:id="_Laoab0gOEeGbPv3jw0iz_g" field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="false"/>
+    <elementParameter xmi:id="_LaoacEgOEeGbPv3jw0iz_g" field="TABLE" name="CONTEXTPARAMS"/>
+    <elementParameter xmi:id="_LaoacUgOEeGbPv3jw0iz_g" field="CHECK" name="PRINT_PARAMETER" value="false"/>
+    <elementParameter xmi:id="_LaoackgOEeGbPv3jw0iz_g" field="CHECK" name="TRANSMIT_ORIGINAL_CONTEXT" value="true"/>
+    <elementParameter xmi:id="_Laoac0gOEeGbPv3jw0iz_g" field="TEXT" name="LABEL" value="__PROCESS__"/>
+    <elementParameter xmi:id="_LaoadEgOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_LaoadUgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_LaoadkgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Laoad0gOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_LaoaeEgOEeGbPv3jw0iz_g" connector="FLOW" name="tRunJob_3"/>
+  </node>
+  <node xmi:id="_LaoaeUgOEeGbPv3jw0iz_g" componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="160" posY="192">
+    <elementParameter xmi:id="_LaoaekgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tRunJob_4"/>
+    <elementParameter xmi:id="_Laoae0gOEeGbPv3jw0iz_g" field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
+    <elementParameter xmi:id="_LaoafEgOEeGbPv3jw0iz_g" field="TEXT" name="CONTEXT_JOB" value=""/>
+    <elementParameter xmi:id="_LaoafUgOEeGbPv3jw0iz_g" field="PROCESS_TYPE" name="PROCESS" value="urbanAtlasWordInfoConversionToXML"/>
+    <elementParameter xmi:id="_LaoafkgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="_5vNUMEf9EeGbPv3jw0iz_g"/>
+    <elementParameter xmi:id="_Laoaf0gOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
+    <elementParameter xmi:id="_LaoagEgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="karukera"/>
+    <elementParameter xmi:id="_LaoagUgOEeGbPv3jw0iz_g" field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
+    <elementParameter xmi:id="_LaoagkgOEeGbPv3jw0iz_g" field="CHECK" name="DIE_ON_CHILD_ERROR" value="true"/>
+    <elementParameter xmi:id="_Laoag0gOEeGbPv3jw0iz_g" field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="false"/>
+    <elementParameter xmi:id="_LaoahEgOEeGbPv3jw0iz_g" field="TABLE" name="CONTEXTPARAMS"/>
+    <elementParameter xmi:id="_LaoahUgOEeGbPv3jw0iz_g" field="CHECK" name="PRINT_PARAMETER" value="false"/>
+    <elementParameter xmi:id="_LaoahkgOEeGbPv3jw0iz_g" field="CHECK" name="TRANSMIT_ORIGINAL_CONTEXT" value="true"/>
+    <elementParameter xmi:id="_Laoah0gOEeGbPv3jw0iz_g" field="TEXT" name="LABEL" value="__PROCESS__"/>
+    <elementParameter xmi:id="_LaoaiEgOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_LaoaiUgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_LaoaikgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_Laoai0gOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_LaoajEgOEeGbPv3jw0iz_g" connector="FLOW" name="tRunJob_4"/>
+  </node>
+  <connection xmi:id="_LaoajUgOEeGbPv3jw0iz_g" connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tRunJob_2" offsetLabelX="0" offsetLabelY="0" source="tRunJob_2" target="tRunJob_1">
+    <elementParameter xmi:id="_LaoajkgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Laoaj0gOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="OnComponentOk1"/>
+  </connection>
+  <connection xmi:id="_LaoakEgOEeGbPv3jw0iz_g" connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tRunJob_3" offsetLabelX="0" offsetLabelY="0" source="tRunJob_3" target="tRunJob_4">
+    <elementParameter xmi:id="_LaoakUgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_LaoakkgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="OnComponentOk2"/>
+  </connection>
+  <connection xmi:id="_Laoak0gOEeGbPv3jw0iz_g" connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tRunJob_4" offsetLabelX="0" offsetLabelY="0" source="tRunJob_4" target="tRunJob_2">
+    <elementParameter xmi:id="_LaoalEgOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_LaoalUgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="OnComponentOk3"/>
+  </connection>
+  <subjob xmi:id="_LaoalkgOEeGbPv3jw0iz_g">
+    <elementParameter xmi:id="_Laoal0gOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tRunJob_1"/>
+    <elementParameter xmi:id="_LaoamEgOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter xmi:id="_LaoamUgOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob xmi:id="_LaoamkgOEeGbPv3jw0iz_g">
+    <elementParameter xmi:id="_Laoam0gOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tRunJob_2"/>
+    <elementParameter xmi:id="_LaoanEgOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter xmi:id="_LaoanUgOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob xmi:id="_LaoankgOEeGbPv3jw0iz_g">
+    <elementParameter xmi:id="_Laoan0gOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tRunJob_3"/>
+    <elementParameter xmi:id="_LaoaoEgOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter xmi:id="_LaoaoUgOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob xmi:id="_LaoaokgOEeGbPv3jw0iz_g">
+    <elementParameter xmi:id="_Laoao0gOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tRunJob_4"/>
+    <elementParameter xmi:id="_LaoapEgOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter xmi:id="_LaoapUgOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+</talendfile:ProcessType>

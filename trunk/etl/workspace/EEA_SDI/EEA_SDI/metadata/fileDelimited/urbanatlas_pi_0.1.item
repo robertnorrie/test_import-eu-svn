@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:DelimitedFileConnection xmi:id="_Lat5Y0gOEeGbPv3jw0iz_g" name="repository.metadataFileDelimited" dataPackage="_Lat5ZEgOEeGbPv3jw0iz_g" Server="Localhost 127.0.0.1" FilePath="/tmp/urbanatlas/doc/urban_atlas_pi.csv" Encoding="UTF-8" FieldSeparatorValue="&quot;;&quot;" RowSeparatorValue="&quot;\n&quot;" UseHeader="true" HeaderValue="1" FirstLineCaption="true"/>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_Lat5ZEgOEeGbPv3jw0iz_g" name="repository.metadataFileDelimited" dataManager="_Lat5Y0gOEeGbPv3jw0iz_g">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_Lat5ZUgOEeGbPv3jw0iz_g" id="_4NTugEf7EeGbPv3jw0iz_g" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_Lat5ZkgOEeGbPv3jw0iz_g" label="NAME" length="255" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_Lat5Z0gOEeGbPv3jw0iz_g" label="START" length="25" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_Lat5aEgOEeGbPv3jw0iz_g" label="END" length="25" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_Lat5aUgOEeGbPv3jw0iz_g" label="COMMENT" length="2000" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_Lat5akgOEeGbPv3jw0iz_g" label="FILENAME" length="20" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

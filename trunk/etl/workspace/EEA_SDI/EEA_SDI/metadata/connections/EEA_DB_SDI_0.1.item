@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.relational="http:///orgomg/cwm/resource/relational.ecore">
+  <TalendMetadata:DatabaseConnection xmi:id="_LcgpIUgOEeGbPv3jw0iz_g" name="EEA_DB_SDI" label="EEA_DB_SDI" dataPackage="_LcgpKkgOEeGbPv3jw0iz_g" DatabaseType="PostgreSQL" DriverClass="org.postgresql.Driver" URL="jdbc:postgresql://localhost:5432/eea_sdi" Port="5432" Username="www-data" Password="31KH1z5s5FW/GM/S+upAEQ==" ServerName="localhost" DatasourceName="" FileFieldName="" SID="eea_sdi" SqlSynthax="SQL Syntax" DbmsId="postgres_id" ProductId="POSTGRESQL" AdditionalParams="" StandardSQL="true" SQLMode="false" UiSchema="public">
+    <taggedValue xmi:id="_LcgpIkgOEeGbPv3jw0iz_g" tag="Using URL" value="jdbc:postgresql://localhost:5432/eea_sdi"/>
+    <taggedValue xmi:id="_LcgpI0gOEeGbPv3jw0iz_g" tag="Status" value=""/>
+    <taggedValue xmi:id="_LcgpJEgOEeGbPv3jw0iz_g" tag="Version" value="0.1"/>
+    <taggedValue xmi:id="_LcgpJUgOEeGbPv3jw0iz_g" tag="Purpose" value=""/>
+    <taggedValue xmi:id="_LcgpJkgOEeGbPv3jw0iz_g" tag="Description" value=""/>
+    <taggedValue xmi:id="_LcgpJ0gOEeGbPv3jw0iz_g" tag="Author" value=""/>
+    <taggedValue xmi:id="_LcgpKEgOEeGbPv3jw0iz_g" tag="otherParameter" value=""/>
+    <taggedValue xmi:id="_LcgpKUgOEeGbPv3jw0iz_g" tag="DB IdentifierQuoteString" value="&quot;"/>
+  </TalendMetadata:DatabaseConnection>
+  <orgomg.cwm.resource.relational:Catalog xmi:id="_LcgpKkgOEeGbPv3jw0iz_g" name="eea_sdi" dataManager="_LcgpIUgOEeGbPv3jw0iz_g">
+    <ownedElement xsi:type="orgomg.cwm.resource.relational:Schema" xmi:id="_LcgpK0gOEeGbPv3jw0iz_g" name="public"/>
+  </orgomg.cwm.resource.relational:Catalog>
+</xmi:XMI>

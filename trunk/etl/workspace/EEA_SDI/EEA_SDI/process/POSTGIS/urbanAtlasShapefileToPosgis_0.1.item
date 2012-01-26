@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmi:id="_LageA0gOEeGbPv3jw0iz_g" defaultContext="Default">
+  <context xmi:id="_LageBEgOEeGbPv3jw0iz_g" confirmationNeeded="false" name="Default"/>
+  <parameters xmi:id="_LageBUgOEeGbPv3jw0iz_g">
+    <elementParameter xmi:id="_LageBkgOEeGbPv3jw0iz_g" field="DIRECTORY" name="COMP_DEFAULT_FILE_DIR" value="/usr/local/App/talend/TOS_DI-r72978-V5.0.0/workspace"/>
+    <elementParameter xmi:id="_LageB0gOEeGbPv3jw0iz_g" field="DIRECTORY" name="PRODUCT_ROOT_DIR" value="/usr/local/App/talend/TOS_DI-r72978-V5.0.0"/>
+    <elementParameter xmi:id="_LageCEgOEeGbPv3jw0iz_g" field="DIRECTORY" name="COMP_DEFAULT_PROJECT_DIR" value="/usr/local/App/talend/TOS_DI-r72978-V5.0.0/workspace/EEA_SDI"/>
+    <elementParameter xmi:id="_LageCUgOEeGbPv3jw0iz_g" field="TEXT" name="JOB_RUN_VM_ARGUMENTS" value=" -Xms256M -Xmx1024M"/>
+    <elementParameter xmi:id="_LageCkgOEeGbPv3jw0iz_g" field="CHECK" name="JOB_RUN_VM_ARGUMENTS_OPTION" value="false"/>
+    <elementParameter xmi:id="_LageC0gOEeGbPv3jw0iz_g" field="TEXT" name="AUTHOR" value="test@talend.com"/>
+    <elementParameter xmi:id="_LageDEgOEeGbPv3jw0iz_g" field="TEXT" name="STATUS" value=""/>
+    <elementParameter xmi:id="_LageDUgOEeGbPv3jw0iz_g" field="TEXT" name="NAME" value="urbanAtlasShapefileToPosgis"/>
+    <elementParameter xmi:id="_LageDkgOEeGbPv3jw0iz_g" field="TEXT" name="VERSION" value="0.1"/>
+    <elementParameter xmi:id="_LageD0gOEeGbPv3jw0iz_g" field="TEXT" name="PURPOSE" value=""/>
+    <elementParameter xmi:id="_LageEEgOEeGbPv3jw0iz_g" field="TEXT" name="DESCRIPTION" value=""/>
+    <elementParameter xmi:id="_LageEUgOEeGbPv3jw0iz_g" field="TEXT" name="SCREEN_OFFSET_X" value="0"/>
+    <elementParameter xmi:id="_LageEkgOEeGbPv3jw0iz_g" field="TEXT" name="SCREEN_OFFSET_Y" value="0"/>
+    <elementParameter xmi:id="_LageE0gOEeGbPv3jw0iz_g" field="TEXT" name="SCHEMA_OPTIONS" value="none"/>
+    <elementParameter xmi:id="_LageFEgOEeGbPv3jw0iz_g" field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" value="true"/>
+    <elementParameter xmi:id="_LageFUgOEeGbPv3jw0iz_g" field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" value="true"/>
+    <elementParameter xmi:id="_LageFkgOEeGbPv3jw0iz_g" field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
+    <elementParameter xmi:id="_LageF0gOEeGbPv3jw0iz_g" field="CHECK" name="IMPLICIT_TCONTEXTLOAD" value="false"/>
+    <elementParameter xmi:id="_LageGEgOEeGbPv3jw0iz_g" field="RADIO" name="FROM_FILE_FLAG_IMPLICIT_CONTEXT" value="false"/>
+    <elementParameter xmi:id="_LageGUgOEeGbPv3jw0iz_g" field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" value="false"/>
+    <elementParameter xmi:id="_LageGkgOEeGbPv3jw0iz_g" field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageG0gOEeGbPv3jw0iz_g" field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageHEgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:PROPERTY_TYPE" value=""/>
+    <elementParameter xmi:id="_LageHUgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:REPOSITORY_PROPERTY_TYPE" value=""/>
+    <elementParameter xmi:id="_LageHkgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value=""/>
+    <elementParameter xmi:id="_LageH0gOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value=""/>
+    <elementParameter xmi:id="_LageIEgOEeGbPv3jw0iz_g" field="TEXT" name="URL_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageIUgOEeGbPv3jw0iz_g" field="TABLE" name="DRIVER_JAR_IMPLICIT_CONTEXT"/>
+    <elementParameter xmi:id="_LageIkgOEeGbPv3jw0iz_g" field="TEXT" name="DRIVER_CLASS_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageI0gOEeGbPv3jw0iz_g" field="TEXT" name="HOST_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageJEgOEeGbPv3jw0iz_g" field="TEXT" name="PORT_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageJUgOEeGbPv3jw0iz_g" field="TEXT" name="DBNAME_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageJkgOEeGbPv3jw0iz_g" field="TEXT" name="LOCAL_SERVICE_NAME_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageJ0gOEeGbPv3jw0iz_g" field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageKEgOEeGbPv3jw0iz_g" field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageKUgOEeGbPv3jw0iz_g" field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageKkgOEeGbPv3jw0iz_g" field="TEXT" name="PASS_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageK0gOEeGbPv3jw0iz_g" field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageLEgOEeGbPv3jw0iz_g" field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageLUgOEeGbPv3jw0iz_g" field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageLkgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="LOAD_NEW_VARIABLE" value=""/>
+    <elementParameter xmi:id="_LageL0gOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="NOT_LOAD_OLD_VARIABLE" value=""/>
+    <elementParameter xmi:id="_LageMEgOEeGbPv3jw0iz_g" field="CHECK" name="PRINT_OPERATIONS" value="false"/>
+    <elementParameter xmi:id="_LageMUgOEeGbPv3jw0iz_g" field="CHECK" name="DISABLE_ERROR" value="false"/>
+    <elementParameter xmi:id="_LageMkgOEeGbPv3jw0iz_g" field="CHECK" name="DISABLE_WARNINGS" value="false"/>
+    <elementParameter xmi:id="_LageM0gOEeGbPv3jw0iz_g" field="CHECK" name="DISABLE_INFO" value="false"/>
+    <elementParameter xmi:id="_LageNEgOEeGbPv3jw0iz_g" field="CHECK" name="ON_STATCATCHER_FLAG" value="false"/>
+    <elementParameter xmi:id="_LageNUgOEeGbPv3jw0iz_g" field="CHECK" name="ON_LOGCATCHER_FLAG" value="false"/>
+    <elementParameter xmi:id="_LageNkgOEeGbPv3jw0iz_g" field="CHECK" name="ON_METERCATCHER_FLAG" value="false"/>
+    <elementParameter xmi:id="_LageN0gOEeGbPv3jw0iz_g" field="CHECK" name="ON_CONSOLE_FLAG" value="false"/>
+    <elementParameter xmi:id="_LageOEgOEeGbPv3jw0iz_g" field="CHECK" name="ON_FILES_FLAG" value="false"/>
+    <elementParameter xmi:id="_LageOUgOEeGbPv3jw0iz_g" field="DIRECTORY" name="FILE_PATH" value="&quot;/home/francois/App/talend/TOS_DI-r72978-V5.0.0/workspace/.metadata&quot;"/>
+    <elementParameter xmi:id="_LageOkgOEeGbPv3jw0iz_g" field="TEXT" name="FILENAME_STATS" value="&quot;stats_file.txt&quot;"/>
+    <elementParameter xmi:id="_LageO0gOEeGbPv3jw0iz_g" field="TEXT" name="FILENAME_LOGS" value="&quot;logs_file.txt&quot;"/>
+    <elementParameter xmi:id="_LagePEgOEeGbPv3jw0iz_g" field="TEXT" name="FILENAME_METTER" value="&quot;meter_file.txt&quot;"/>
+    <elementParameter xmi:id="_LagePUgOEeGbPv3jw0iz_g" field="ENCODING_TYPE" name="ENCODING" value="ISO-8859-15"/>
+    <elementParameter xmi:id="_LagePkgOEeGbPv3jw0iz_g" field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter xmi:id="_LageP0gOEeGbPv3jw0iz_g" field="CHECK" name="ON_DATABASE_FLAG" value="false"/>
+    <elementParameter xmi:id="_LageQEgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="DB_TYPE" value="tJDBCOutput"/>
+    <elementParameter xmi:id="_LageQUgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="DB_VERSION" value="ojdbc14-10g.jar"/>
+    <elementParameter xmi:id="_LageQkgOEeGbPv3jw0iz_g" field="TEXT" name="URL" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageQ0gOEeGbPv3jw0iz_g" field="TABLE" name="DRIVER_JAR"/>
+    <elementParameter xmi:id="_LageREgOEeGbPv3jw0iz_g" field="TEXT" name="DRIVER_CLASS" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageRUgOEeGbPv3jw0iz_g" field="TEXT" name="HOST" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageRkgOEeGbPv3jw0iz_g" field="TEXT" name="PORT" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageR0gOEeGbPv3jw0iz_g" field="TEXT" name="DATASOURCE" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageSEgOEeGbPv3jw0iz_g" field="TEXT" name="DBNAME" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageSUgOEeGbPv3jw0iz_g" field="TEXT" name="LOCAL_SERVICE_NAME" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageSkgOEeGbPv3jw0iz_g" field="TEXT" name="PROPERTIES" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageS0gOEeGbPv3jw0iz_g" field="TEXT" name="SCHEMA_DB" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageTEgOEeGbPv3jw0iz_g" field="TEXT" name="USER" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageTUgOEeGbPv3jw0iz_g" field="TEXT" name="PASS" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageTkgOEeGbPv3jw0iz_g" field="FILE" name="DBFILE" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageT0gOEeGbPv3jw0iz_g" field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageUEgOEeGbPv3jw0iz_g" field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageUUgOEeGbPv3jw0iz_g" field="DBTABLE" name="TABLE_METER" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LageUkgOEeGbPv3jw0iz_g" field="CHECK" name="CATCH_RUNTIME_ERRORS" value="true"/>
+    <elementParameter xmi:id="_LageU0gOEeGbPv3jw0iz_g" field="CHECK" name="CATCH_USER_ERRORS" value="true"/>
+    <elementParameter xmi:id="_LageVEgOEeGbPv3jw0iz_g" field="CHECK" name="CATCH_USER_WARNING" value="true"/>
+    <elementParameter xmi:id="_LageVUgOEeGbPv3jw0iz_g" field="CHECK" name="CATCH_REALTIME_STATS" value="false"/>
+    <elementParameter xmi:id="_LageVkgOEeGbPv3jw0iz_g" field="TEXT" name="HEADERFOOTER_HEADERID" value=""/>
+    <elementParameter xmi:id="_LageV0gOEeGbPv3jw0iz_g" field="CHECK" name="HEADER_ENABLED" value="false"/>
+    <elementParameter xmi:id="_LageWEgOEeGbPv3jw0iz_g" field="TEXT" name="HEADER_LIBRARY" value=""/>
+    <elementParameter xmi:id="_LageWUgOEeGbPv3jw0iz_g" field="TEXT" name="HEADER_CODE" value=""/>
+    <elementParameter xmi:id="_LageWkgOEeGbPv3jw0iz_g" field="TEXT" name="HEADER_IMPORT" value=""/>
+    <elementParameter xmi:id="_LageW0gOEeGbPv3jw0iz_g" field="TEXT" name="HEADERFOOTER_FOOTERID" value=""/>
+    <elementParameter xmi:id="_LageXEgOEeGbPv3jw0iz_g" field="CHECK" name="FOOTER_ENABLED" value="false"/>
+    <elementParameter xmi:id="_LageXUgOEeGbPv3jw0iz_g" field="TEXT" name="FOOTER_LIBRARY" value=""/>
+    <elementParameter xmi:id="_LageXkgOEeGbPv3jw0iz_g" field="TEXT" name="FOOTER_CODE" value=""/>
+    <elementParameter xmi:id="_LageX0gOEeGbPv3jw0iz_g" field="TEXT" name="FOOTER_IMPORT" value=""/>
+    <routinesParameter xmi:id="_LageYEgOEeGbPv3jw0iz_g" id="_OflbsB9VEeGrxIZ7LESbtg" name="DataOperation"/>
+    <routinesParameter xmi:id="_LageYUgOEeGbPv3jw0iz_g" id="_wjBEEENgEeGcq6voYY19sg" name="GeoOperation"/>
+    <routinesParameter xmi:id="_LageYkgOEeGbPv3jw0iz_g" id="_wjKOAENgEeGcq6voYY19sg" name="GeometryOperation"/>
+    <routinesParameter xmi:id="_LageY0gOEeGbPv3jw0iz_g" id="_weizwENgEeGcq6voYY19sg" name="GeometryUtility"/>
+    <routinesParameter xmi:id="_LageZEgOEeGbPv3jw0iz_g" id="_Ofn38B9VEeGrxIZ7LESbtg" name="Mathematical"/>
+    <routinesParameter xmi:id="_LageZUgOEeGbPv3jw0iz_g" id="_OfkNkB9VEeGrxIZ7LESbtg" name="Numeric"/>
+    <routinesParameter xmi:id="_LageZkgOEeGbPv3jw0iz_g" id="_wjMDMENgEeGcq6voYY19sg" name="OpenStreetMap"/>
+    <routinesParameter xmi:id="_LageZ0gOEeGbPv3jw0iz_g" id="_Off8IB9VEeGrxIZ7LESbtg" name="Relational"/>
+    <routinesParameter xmi:id="_LageaEgOEeGbPv3jw0iz_g" id="_Ofmp0B9VEeGrxIZ7LESbtg" name="StringHandling"/>
+    <routinesParameter xmi:id="_LageaUgOEeGbPv3jw0iz_g" id="_Ofi_cB9VEeGrxIZ7LESbtg" name="TalendDataGenerator"/>
+    <routinesParameter xmi:id="_LageakgOEeGbPv3jw0iz_g" id="_OfhxUB9VEeGrxIZ7LESbtg" name="TalendDate"/>
+    <routinesParameter xmi:id="_Lagea0gOEeGbPv3jw0iz_g" id="_OdslUB9VEeGrxIZ7LESbtg" name="TalendString"/>
+  </parameters>
+  <node xmi:id="_LagebEgOEeGbPv3jw0iz_g" componentName="sShapefileInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="192" posY="128">
+    <elementParameter xmi:id="_LagebUgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="sShapefileInput_1"/>
+    <elementParameter xmi:id="_LagebkgOEeGbPv3jw0iz_g" field="CHECK" name="START" value="true"/>
+    <elementParameter xmi:id="_Lageb0gOEeGbPv3jw0iz_g" field="FILE" name="FILENAME" value="&quot;/tmp/test/fi001l_helsinki/fi001l_helsinki.shp&quot;"/>
+    <elementParameter xmi:id="_LagecEgOEeGbPv3jw0iz_g" field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" value="REPOSITORY"/>
+    <elementParameter xmi:id="_LagecUgOEeGbPv3jw0iz_g" field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" value="_FWJGAEXYEeGZyfxFRdvStw - metadata"/>
+    <elementParameter xmi:id="_LageckgOEeGbPv3jw0iz_g" field="CHECK" name="FORCE_CRS" value="true"/>
+    <elementParameter xmi:id="_Lagec0gOEeGbPv3jw0iz_g" field="TEXT" name="CRS" value="&quot;EPSG:3035&quot;"/>
+    <elementParameter xmi:id="_LagedEgOEeGbPv3jw0iz_g" field="TEXT" name="FORMAT_TYPE" value="SHAPEFILE"/>
+    <elementParameter xmi:id="_LagedUgOEeGbPv3jw0iz_g" field="TEXT" name="CQL" value="&quot;&quot;"/>
+    <elementParameter xmi:id="_LagedkgOEeGbPv3jw0iz_g" field="MEMO_IMPORT" name="IMPORT" value="import org.talend.sdi.geometry.Geometry;"/>
+    <elementParameter xmi:id="_Laged0gOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_LageeEgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_LageeUgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_LageekgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lagee0gOEeGbPv3jw0iz_g" connector="FLOW" label="metadata" name="sShapefileInput_1">
+      <column xmi:id="_LagefEgOEeGbPv3jw0iz_g" key="false" length="0" name="the_geom" nullable="true" precision="0" sourceType="" type="id_Geometry"/>
+      <column xmi:id="_LagefUgOEeGbPv3jw0iz_g" comment="" key="false" length="0" name="CITIES" nullable="true" pattern="" precision="0" type="id_String"/>
+      <column xmi:id="_LagefkgOEeGbPv3jw0iz_g" comment="" key="false" length="0" name="LUZ_OR_CIT" nullable="true" pattern="" precision="0" type="id_String"/>
+      <column xmi:id="_Lagef0gOEeGbPv3jw0iz_g" comment="" key="false" length="0" name="CODE" nullable="true" pattern="" precision="0" type="id_String"/>
+      <column xmi:id="_LagegEgOEeGbPv3jw0iz_g" comment="" key="false" length="0" name="ITEM" nullable="true" pattern="" precision="0" type="id_String"/>
+      <column xmi:id="_LagegUgOEeGbPv3jw0iz_g" comment="" key="false" length="0" name="PROD_DATE" nullable="true" pattern="" precision="0" type="id_String"/>
+      <column xmi:id="_LagegkgOEeGbPv3jw0iz_g" comment="" key="false" length="0" name="SHAPE_LEN" nullable="true" pattern="" precision="0" type="id_Double"/>
+      <column xmi:id="_Lageg0gOEeGbPv3jw0iz_g" comment="" key="false" length="0" name="SHAPE_AREA" nullable="true" pattern="" precision="0" type="id_Double"/>
+    </metadata>
+  </node>
+  <node xmi:id="_LagehEgOEeGbPv3jw0iz_g" componentName="tPostgresqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="448" posY="128">
+    <elementParameter xmi:id="_LagehUgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="tPostgresqlOutput_1"/>
+    <elementParameter xmi:id="_LagehkgOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter xmi:id="_Lageh0gOEeGbPv3jw0iz_g" field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_7jg0wEUbEeGZyfxFRdvStw"/>
+    <elementParameter xmi:id="_LageiEgOEeGbPv3jw0iz_g" field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_LageiUgOEeGbPv3jw0iz_g" field="COMPONENT_LIST" name="CONNECTION" value=""/>
+    <elementParameter xmi:id="_LageikgOEeGbPv3jw0iz_g" field="TEXT" name="HOST" value="&quot;localhost&quot;"/>
+    <elementParameter xmi:id="_Lagei0gOEeGbPv3jw0iz_g" field="TEXT" name="PORT" value="&quot;5432&quot;"/>
+    <elementParameter xmi:id="_LagejEgOEeGbPv3jw0iz_g" field="TEXT" name="DBNAME" value="&quot;eea_sdi&quot;"/>
+    <elementParameter xmi:id="_LagejUgOEeGbPv3jw0iz_g" field="TEXT" name="TYPE" value="POSTGRESQL"/>
+    <elementParameter xmi:id="_LagejkgOEeGbPv3jw0iz_g" field="TEXT" name="SCHEMA_DB" value="&quot;public&quot;"/>
+    <elementParameter xmi:id="_Lagej0gOEeGbPv3jw0iz_g" field="TEXT" name="USER" value="&quot;www-data&quot;"/>
+    <elementParameter xmi:id="_LagekEgOEeGbPv3jw0iz_g" field="TEXT" name="PASS" value="&quot;www-data&quot;"/>
+    <elementParameter xmi:id="_LagekUgOEeGbPv3jw0iz_g" field="DBTABLE" name="TABLE" value="&quot;fi001l_helsinki&quot;"/>
+    <elementParameter xmi:id="_LagekkgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="TABLE_ACTION" value="CREATE_IF_NOT_EXISTS"/>
+    <elementParameter xmi:id="_Lagek0gOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
+    <elementParameter xmi:id="_LagelEgOEeGbPv3jw0iz_g" field="CHECK" name="USE_SPATIAL_OPTIONS" value="true"/>
+    <elementParameter xmi:id="_LagelUgOEeGbPv3jw0iz_g" field="CHECK" name="SPATIAL_INDEX" value="true"/>
+    <elementParameter xmi:id="_LagelkgOEeGbPv3jw0iz_g" field="CHECK" name="GEOMETRY_COLUMNS" value="true"/>
+    <elementParameter xmi:id="_Lagel0gOEeGbPv3jw0iz_g" field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter xmi:id="_LagemEgOEeGbPv3jw0iz_g" field="MAPPING_TYPE" name="MAPPING" value="postgres_id"/>
+    <elementParameter xmi:id="_LagemUgOEeGbPv3jw0iz_g" field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter xmi:id="_LagemkgOEeGbPv3jw0iz_g" field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter xmi:id="_Lagem0gOEeGbPv3jw0iz_g" field="TEXT" name="COMMIT_EVERY" value="10000"/>
+    <elementParameter xmi:id="_LagenEgOEeGbPv3jw0iz_g" field="TABLE" name="ADD_COLS"/>
+    <elementParameter xmi:id="_LagenUgOEeGbPv3jw0iz_g" field="CHECK" name="USE_FIELD_OPTIONS" value="false"/>
+    <elementParameter xmi:id="_LagenkgOEeGbPv3jw0iz_g" field="TABLE" name="FIELD_OPTIONS">
+      <elementValue xmi:id="_Lagen0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="the_geom"/>
+      <elementValue xmi:id="_LageoEgOEeGbPv3jw0iz_g" elementRef="UPDATE_KEY" value="false"/>
+      <elementValue xmi:id="_LageoUgOEeGbPv3jw0iz_g" elementRef="DELETE_KEY" value="false"/>
+      <elementValue xmi:id="_LageokgOEeGbPv3jw0iz_g" elementRef="UPDATABLE" value="true"/>
+      <elementValue xmi:id="_Lageo0gOEeGbPv3jw0iz_g" elementRef="INSERTABLE" value="true"/>
+      <elementValue xmi:id="_LagepEgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="CITIES"/>
+      <elementValue xmi:id="_LagepUgOEeGbPv3jw0iz_g" elementRef="UPDATE_KEY" value="false"/>
+      <elementValue xmi:id="_LagepkgOEeGbPv3jw0iz_g" elementRef="DELETE_KEY" value="false"/>
+      <elementValue xmi:id="_Lagep0gOEeGbPv3jw0iz_g" elementRef="UPDATABLE" value="true"/>
+      <elementValue xmi:id="_LageqEgOEeGbPv3jw0iz_g" elementRef="INSERTABLE" value="true"/>
+      <elementValue xmi:id="_LageqUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="LUZ_OR_CIT"/>
+      <elementValue xmi:id="_LageqkgOEeGbPv3jw0iz_g" elementRef="UPDATE_KEY" value="false"/>
+      <elementValue xmi:id="_Lageq0gOEeGbPv3jw0iz_g" elementRef="DELETE_KEY" value="false"/>
+      <elementValue xmi:id="_LagerEgOEeGbPv3jw0iz_g" elementRef="UPDATABLE" value="true"/>
+      <elementValue xmi:id="_LagerUgOEeGbPv3jw0iz_g" elementRef="INSERTABLE" value="true"/>
+      <elementValue xmi:id="_LagerkgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="CODE"/>
+      <elementValue xmi:id="_Lager0gOEeGbPv3jw0iz_g" elementRef="UPDATE_KEY" value="false"/>
+      <elementValue xmi:id="_LagesEgOEeGbPv3jw0iz_g" elementRef="DELETE_KEY" value="false"/>
+      <elementValue xmi:id="_LagesUgOEeGbPv3jw0iz_g" elementRef="UPDATABLE" value="true"/>
+      <elementValue xmi:id="_LageskgOEeGbPv3jw0iz_g" elementRef="INSERTABLE" value="true"/>
+      <elementValue xmi:id="_Lages0gOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="ITEM"/>
+      <elementValue xmi:id="_LagetEgOEeGbPv3jw0iz_g" elementRef="UPDATE_KEY" value="false"/>
+      <elementValue xmi:id="_LagetUgOEeGbPv3jw0iz_g" elementRef="DELETE_KEY" value="false"/>
+      <elementValue xmi:id="_LagetkgOEeGbPv3jw0iz_g" elementRef="UPDATABLE" value="true"/>
+      <elementValue xmi:id="_Laget0gOEeGbPv3jw0iz_g" elementRef="INSERTABLE" value="true"/>
+      <elementValue xmi:id="_LageuEgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="PROD_DATE"/>
+      <elementValue xmi:id="_LageuUgOEeGbPv3jw0iz_g" elementRef="UPDATE_KEY" value="false"/>
+      <elementValue xmi:id="_LageukgOEeGbPv3jw0iz_g" elementRef="DELETE_KEY" value="false"/>
+      <elementValue xmi:id="_Lageu0gOEeGbPv3jw0iz_g" elementRef="UPDATABLE" value="true"/>
+      <elementValue xmi:id="_LagevEgOEeGbPv3jw0iz_g" elementRef="INSERTABLE" value="true"/>
+      <elementValue xmi:id="_LagevUgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="SHAPE_LEN"/>
+      <elementValue xmi:id="_LagevkgOEeGbPv3jw0iz_g" elementRef="UPDATE_KEY" value="false"/>
+      <elementValue xmi:id="_Lagev0gOEeGbPv3jw0iz_g" elementRef="DELETE_KEY" value="false"/>
+      <elementValue xmi:id="_LagewEgOEeGbPv3jw0iz_g" elementRef="UPDATABLE" value="true"/>
+      <elementValue xmi:id="_LagewUgOEeGbPv3jw0iz_g" elementRef="INSERTABLE" value="true"/>
+      <elementValue xmi:id="_LagewkgOEeGbPv3jw0iz_g" elementRef="SCHEMA_COLUMN" value="SHAPE_AREA"/>
+      <elementValue xmi:id="_Lagew0gOEeGbPv3jw0iz_g" elementRef="UPDATE_KEY" value="false"/>
+      <elementValue xmi:id="_LagexEgOEeGbPv3jw0iz_g" elementRef="DELETE_KEY" value="false"/>
+      <elementValue xmi:id="_LagexUgOEeGbPv3jw0iz_g" elementRef="UPDATABLE" value="true"/>
+      <elementValue xmi:id="_LagexkgOEeGbPv3jw0iz_g" elementRef="INSERTABLE" value="true"/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lagex0gOEeGbPv3jw0iz_g" field="CHECK" name="ENABLE_DEBUG_MODE" value="false"/>
+    <elementParameter xmi:id="_LageyEgOEeGbPv3jw0iz_g" field="CHECK" name="SUPPORT_NULL_WHERE" value="false"/>
+    <elementParameter xmi:id="_LageyUgOEeGbPv3jw0iz_g" field="CHECK" name="USE_BATCH_SIZE" value="true"/>
+    <elementParameter xmi:id="_LageykgOEeGbPv3jw0iz_g" field="TEXT" name="BATCH_SIZE" value="10000"/>
+    <elementParameter xmi:id="_Lagey0gOEeGbPv3jw0iz_g" field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter xmi:id="_LagezEgOEeGbPv3jw0iz_g" field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter xmi:id="_LagezUgOEeGbPv3jw0iz_g" field="MEMO" name="COMMENT" value=""/>
+    <elementParameter xmi:id="_LagezkgOEeGbPv3jw0iz_g" field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata xmi:id="_Lagez0gOEeGbPv3jw0iz_g" connector="FLOW" label="metadata" name="tPostgresqlOutput_1">
+      <column xmi:id="_Lage0EgOEeGbPv3jw0iz_g" comment="" key="false" length="0" name="the_geom" nullable="true" pattern="" precision="0" sourceType="GEOMETRY" type="id_Geometry"/>
+      <column xmi:id="_Lage0UgOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="CITIES" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String"/>
+      <column xmi:id="_Lage0kgOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="LUZ_OR_CIT" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String"/>
+      <column xmi:id="_Lage00gOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String"/>
+      <column xmi:id="_Lage1EgOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="ITEM" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String"/>
+      <column xmi:id="_Lage1UgOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="PROD_DATE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String"/>
+      <column xmi:id="_Lage1kgOEeGbPv3jw0iz_g" comment="" key="false" length="0" name="SHAPE_LEN" nullable="true" pattern="" precision="0" sourceType="FLOAT8" type="id_Double"/>
+      <column xmi:id="_Lage10gOEeGbPv3jw0iz_g" comment="" key="false" length="0" name="SHAPE_AREA" nullable="true" pattern="" precision="0" sourceType="FLOAT8" type="id_Double"/>
+    </metadata>
+    <metadata xmi:id="_Lage2EgOEeGbPv3jw0iz_g" connector="REJECT" label="metadata" name="REJECT">
+      <column xmi:id="_Lage2UgOEeGbPv3jw0iz_g" comment="" key="false" length="0" name="the_geom" nullable="true" pattern="" precision="0" sourceType="GEOMETRY" type="id_Geometry"/>
+      <column xmi:id="_Lage2kgOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="CITIES" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String"/>
+      <column xmi:id="_Lage20gOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="LUZ_OR_CIT" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String"/>
+      <column xmi:id="_Lage3EgOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String"/>
+      <column xmi:id="_Lage3UgOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="ITEM" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String"/>
+      <column xmi:id="_Lage3kgOEeGbPv3jw0iz_g" comment="" key="false" length="255" name="PROD_DATE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String"/>
+      <column xmi:id="_Lage30gOEeGbPv3jw0iz_g" comment="" key="false" length="0" name="SHAPE_LEN" nullable="true" pattern="" precision="0" sourceType="FLOAT8" type="id_Double"/>
+      <column xmi:id="_Lage4EgOEeGbPv3jw0iz_g" comment="" key="false" length="0" name="SHAPE_AREA" nullable="true" pattern="" precision="0" sourceType="FLOAT8" type="id_Double"/>
+      <column xmi:id="_Lage4UgOEeGbPv3jw0iz_g" defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String"/>
+      <column xmi:id="_Lage4kgOEeGbPv3jw0iz_g" defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String"/>
+    </metadata>
+  </node>
+  <connection xmi:id="_Lage40gOEeGbPv3jw0iz_g" connectorName="FLOW" label="row1" lineStyle="0" metaname="sShapefileInput_1" offsetLabelX="0" offsetLabelY="0" source="sShapefileInput_1" target="tPostgresqlOutput_1">
+    <elementParameter xmi:id="_Lage5EgOEeGbPv3jw0iz_g" field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter xmi:id="_Lage5UgOEeGbPv3jw0iz_g" field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue xmi:id="_Lage5kgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN" value="the_geom"/>
+      <elementValue xmi:id="_Lage50gOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue xmi:id="_Lage6EgOEeGbPv3jw0iz_g" elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter xmi:id="_Lage6UgOEeGbPv3jw0iz_g" field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter xmi:id="_Lage6kgOEeGbPv3jw0iz_g" field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter xmi:id="_Lage60gOEeGbPv3jw0iz_g" field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter xmi:id="_Lage7EgOEeGbPv3jw0iz_g" field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter xmi:id="_Lage7UgOEeGbPv3jw0iz_g" field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter xmi:id="_Lage7kgOEeGbPv3jw0iz_g" field="TABLE" name="THRESHLODS"/>
+    <elementParameter xmi:id="_Lage70gOEeGbPv3jw0iz_g" field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter xmi:id="_Lage8EgOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="row1"/>
+  </connection>
+  <subjob xmi:id="_Lage8UgOEeGbPv3jw0iz_g">
+    <elementParameter xmi:id="_Lage8kgOEeGbPv3jw0iz_g" field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
+    <elementParameter xmi:id="_Lage80gOEeGbPv3jw0iz_g" field="TEXT" name="UNIQUE_NAME" value="sShapefileInput_1"/>
+    <elementParameter xmi:id="_Lage9EgOEeGbPv3jw0iz_g" field="TEXT" name="SUBJOB_TITLE" value="Load a Urban Atlas shapefile into PostGIS"/>
+    <elementParameter xmi:id="_Lage9UgOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter xmi:id="_Lage9kgOEeGbPv3jw0iz_g" field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+</talendfile:ProcessType>
