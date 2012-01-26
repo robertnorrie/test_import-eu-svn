@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<root>
+  <city>
+    <uuid>b6512eef-9f2d-4a04-a058-b3156dd13b0e</uuid>
+    <f_table_name>fr011c_saint_etienne</f_table_name>
+    <f_table_schema>public</f_table_schema>
+    <f_geometry_column>wkb_geometry</f_geometry_column>
+    <srid>32631</srid>
+    <countryid>fr</countryid>
+    <countryname>France</countryname>
+    <bbox>POLYGON((4.21804419908052 45.3556826977962,4.21804419908052
+      45.587810700384,4.68811720012394 45.587810700384,4.68811720012394
+      45.3556826977962,4.21804419908052 45.3556826977962))</bbox>
+    <west>4.21804419908052</west>
+    <south>45.3556826977962</south>
+    <east>4.68811720012394</east>
+    <north>45.587810700384</north>
+    <cityid>saint_etienne</cityid>
+    <cityname>Saint-Etienne</cityname>
+    <the_geom>POLYGON ((4.21804419908052 45.3556826977962, 4.21804419908052 45.587810700384,
+      4.68811720012394 45.587810700384, 4.68811720012394 45.3556826977962, 4.21804419908052
+      45.3556826977962))</the_geom>
+    <seriesuuid>UUID_TOSET_FROMJOBCONTEXT</seriesuuid>
+    <docPath>/local/fr/urban/regio_v_32631_50_k_urban-atlas-fr011c_saint_etienne_2005-2007</docPath>
+    <id>regio_v_32631_50_k_urban-atlas-fr011c_saint_etienne_2005-2007</id>
+  </city>
+</root>
