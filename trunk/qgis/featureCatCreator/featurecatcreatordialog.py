@@ -62,7 +62,10 @@ class featureCatCreatorDialog(QDialog):
         # Set UI from saved settings
         self.loadSettings()
 
-        # default is first tab
+        # init isoDoc
+        self.updateIsoDocFromXml()
+
+        # default is first tab (XML)
         self.ui.tabWidget.setCurrentIndex(0)
 
         # load documentation
@@ -71,31 +74,38 @@ class featureCatCreatorDialog(QDialog):
         # update data source combobox content
         self.updateDatasourceBox()
 
-        # update initial field list
-        self.updateFieldList()
-
         self.connectSignals()
 
     def connectSignals(self):
-        # connect save button to file save dialog
+        # connect close button
         self.connect(self.ui.buttonBox, SIGNAL('clicked(QAbstractButton *)'), self.bboxClicked)        
+        # connect save button
+        self.connect(self.ui.saveButton, SIGNAL('clicked()'), self.saveXML)        
         # connect browse button to file search dialog
         self.connect(self.ui.browseTemplateButton, SIGNAL('clicked()'), self.updateTemplateFile)
+        # connect Load XML button to loading the file
+        self.connect(self.ui.loadTemplate, SIGNAL('clicked()'), self.loadTemplateFile)
+        # current layer change
+        self.connect(self.ui.dataSourceBox, SIGNAL('currentIndexChanged(int)'), self.changeCurrentLayer)
         # connect analyze button to the analysis
         self.connect(self.ui.analyzeButton, SIGNAL('clicked()'), self.analyzeButtonClicked)
         # connect nodata button to input values
         self.connect(self.ui.nodataButton, SIGNAL('clicked()'), self.getNodataInput)
         # connect attribute table button to show attribute table
         self.connect(self.ui.attributeTableButton, SIGNAL('clicked()'), self.showAttributeTable)
-        # change current layer
-        self.connect(self.ui.dataSourceBox, SIGNAL('currentIndexChanged(int)'), self.changeCurrentLayer)
+        # connect load fc and ft from XML
+        self.connect(self.ui.loadFcFromXML, SIGNAL('clicked()'), self.fillFcForm)
+        self.connect(self.ui.loadFtFromXML, SIGNAL('clicked()'), self.fillFtForm)
 
-        # when tab change to XML tab, generate result
+        # connect refresh XML button
+        self.connect(self.ui.refreshButton, SIGNAL('clicked()'), self.refreshXML)
+        # when user go out of XML tab, update internal xml doc
         self.connect(self.ui.tabWidget, SIGNAL('currentChanged(int)'), self.tabChanged)
-        # when template name is set, fill fc and ft fields
-        self.connect(self.ui.templateText, SIGNAL('editingFinished()'), self.templateFileEditingFinished)
-        # when refresh button is clicked, reload field list
-        self.connect(self.ui.refreshButton, SIGNAL('clicked()'), self.refreshButtonPushed)
+
+        # connect load fields from layer button
+        self.connect(self.ui.loadFromLayer, SIGNAL('clicked()'), self.updateFieldList)
+        # connect load fields from XML button
+        self.connect(self.ui.loadFromXML, SIGNAL('clicked()'), self.loadFieldsFromXML)
         # when current field changes, fill form
         self.connect(self.ui.currentFieldBox, SIGNAL('currentIndexChanged(int)'), self.updateFieldForm)
         # attribute field form are active. connect them
@@ -105,9 +115,10 @@ class featureCatCreatorDialog(QDialog):
         self.connect(self.ui.deleteValueButton, SIGNAL('clicked()'), self.deleteValueRow)
 
     def loadSettings(self):
-        self.ui.templateText.setText(self.settings.value("featurecatcreator/template", "").toString())
+        self.ui.templateText.setText(self.settings.value("featurecatcreator/template",\
+                self.plugin_dir + "/fc_template_01.xml").toString())
         self.last_used_dir = QFileInfo(self.ui.templateText.text()).absolutePath()
-        self.templateFileEditingFinished()
+        self.loadTemplateFile()
         if self.settings.value("featurecatcreator/classification", False).toBool():
             self.ui.classification.setChecked(True)
         self.ui.rowNb.setValue(self.settings.value("featurecatcreator/rownb", 1000).toInt()[0])
@@ -139,19 +150,42 @@ class featureCatCreatorDialog(QDialog):
             self.disconnect(self.ui.f_cardinalityText, SIGNAL('editTextChanged ( const QString &)'), self.saveFieldComponent)
             self.disconnect(self.ui.valuesTable, SIGNAL('cellChanged(int, int)'), self.saveFieldComponent)
 
+    def resetInternals(self):
+        self.currentLayer = None
+        self.currentFields = []
+        self.nodataValues = []
+        self.savedState = False
+
+    def resetGlobal(self):
+        self.ui.fc_nameText.clear()
+        self.ui.fc_scopeText.clear()
+        self.ui.fc_versionNbText.clear()
+        self.ui.ft_nameText.clear()
+        self.ui.ft_definitionText.clear()
+
+    def resetFields(self):
+        self.ui.currentFieldBox.clear()
+        self.ui.f_typeText.setCurrentIndex(-1)
+        self.ui.f_nameText.clear()
+        self.ui.f_definitionText.clear()
+        self.ui.f_cardinalityText.setCurrentIndex(-1)
+        self.ui.valuesTable.clear()
+        self.updateDataSourceBox(self)
+
     def updateTemplateFile(self):
         filename = QFileDialog.getOpenFileName(self, \
                 "Open XML template file", self.last_used_dir, "Template file (*.xml)")
         if filename:
             self.ui.templateText.setText(filename)
             self.last_used_dir = QFileInfo(filename).absolutePath()
-            self.templateFileEditingFinished()
+            self.loadTemplateFile()
 
-    def templateFileEditingFinished(self):
+    def loadTemplateFile(self):
         self.isoDoc = iso19110.iso19110Doc(self.ui.templateText.text())
-        self.fillFcForm()
         self.ui.xmlEditor.setPlainText(self.isoDoc.toString())
-
+        self.resetInternals()
+        self.resetGlobal()
+        self.resetFields()
 
     def updateDatasourceBox(self):
         self.ui.dataSourceBox.clear()
@@ -166,42 +200,69 @@ class featureCatCreatorDialog(QDialog):
             self.currentLayer = self.ui.dataSourceBox.itemData(index).toPyObject()
             # activate attribute table button only for vectors
             if self.currentLayer:
-                self.ui.ft_nameText.setText(self.currentLayer.name())
+                # self.ui.ft_nameText.setText(self.currentLayer.name())
                 if self.currentLayer.type() == QgsMapLayer.VectorLayer:
                     self.ui.attributeTableButton.setEnabled(True)
                 else:
                     self.ui.attributeTableButton.setEnabled(False)
         else:
             self.currentLayer = None
-        self.updateFieldList()
+
+    def refreshXML(self):
+        # when refresh xml button is hit, update content with internal struct
+        if self.isoDoc is not None:
+            try:
+                # FIXME this should already be ok since we do it entering the tab
+                self.isoDoc.updateWithParams(self.getParams())
+                self.ui.xmlEditor.setPlainText(self.isoDoc.toString())
+            except ValueError, e:
+                QMessageBox.critical(self, "Error", e.message)
+
+    def updateIsoDocFromXml(self):
+        if self.isoDoc:
+            try:
+                # iso doc is set from xml
+                self.isoDoc.updateWithXmlContent(self.ui.xmlEditor.toPlainText())
+                params = self.isoDoc.extractParamsFromContent()
+                if params['fields']:
+                    self.currentFields = params['fields']
+                #self.isoDoc.updateWithParams(self.getParams())
+                # rewrite editor content to the one from internal struct
+                self.ui.xmlEditor.setPlainText(self.isoDoc.toString())
+                self.savedState = False
+            except IOError, e:
+                self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
+            except ValueError, e:
+                self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
+
 
     def tabChanged(self, tabIndex):
-        if self.isoDoc != None:
-            # do we focus on XML tab ?
-            if tabIndex == 2:
-                try:
-                    self.isoDoc.updateWithXmlContent(self.ui.xmlEditor.toPlainText())
-                    self.isoDoc.updateWithParams(self.getParams())
-                    self.ui.xmlEditor.setPlainText(self.isoDoc.toString())
-                    self.savedState = False
-                except IOError, e:
-                    self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
-                except ValueError, e:
-                    self.ui.xmlEditor.setText("Error parsing/reading XML: %s" % e.message)
-            elif tabIndex in (0,1):
-                xmlViewContent = self.ui.xmlEditor.toPlainText()
-                if self.isoDoc and xmlViewContent != None and not xmlViewContent.isEmpty():
-                    try:
-                        self.isoDoc.updateWithXmlContent(xmlViewContent)
-                        params = self.isoDoc.extractParamsFromContent()
-                        #self.updateFormWithParams(params)
-                    except ValueError, e:
-                        QMessageBox.critical(self, "Error", e.message)
+        # when tab changes, we set internal values to the ones from the xml content
+        # do we go out of XML tab ?
+        # FIXME : we should only do that when going out of xml tab
+        # when we go to the XML tab, we update iso doc with current data from other tabs
+        if tabIndex == 0:
+            try:
+                self.isoDoc.updateWithParams(self.getParams())
+            except ValueError, e:
+                QMessageBox.critical(self, "Error", e.message)
+        elif self.isoDoc:
+            self.updateIsoDocFromXml()
 
-    def refreshButtonPushed(self):
-        self.updateFieldList()
-        self.updateFieldForm()
-
+    def loadFieldsFromXML(self):
+        # XML internal is up to date compared to XML in widget
+        # as soon as we get out of XML tab
+        try:
+            params = self.isoDoc.extractParamsFromContent()
+            if params['fields']:
+                self.currentFields = params['fields']
+        except IOError, e:
+            QMessageBox.warning(self, "Error parsing/reading XML",\
+                    "Error parsing/reading XML: %s" % e.message)
+        except ValueError, e:
+            QMessageBox.warning(self, "Error parsing/reading XML",\
+                    "Error parsing/reading XML: %s" % e.message)
+    
     def updateVectorFieldList(self):
         # clear internal representation
         self.currentFields = []
@@ -436,6 +497,12 @@ class featureCatCreatorDialog(QDialog):
             self.ui.fc_scopeText.setPlainText(self.isoDoc.getFcScope())
             self.ui.fc_versionNbText.setText(self.isoDoc.getFcVersionNumber())
 
+    def fillFtForm(self):
+        if self.isoDoc:
+            # Feature type properties
+            self.ui.ft_nameText.setText(self.isoDoc.getFtName())
+            self.ui.ft_definitionText.setPlainText(self.isoDoc.getFtDefinition())
+
     def getParams(self):
         params = {}
         params['fc_name'] = self.ui.fc_nameText.text()
@@ -445,6 +512,16 @@ class featureCatCreatorDialog(QDialog):
         params['ft_definition'] = self.ui.ft_definitionText.toPlainText()
         params['fields'] = self.currentFields
         return params
+
+    def updateFormWithParams(self, params):
+        # set values
+        self.ui.fc_nameText.setText(params['fc_name'])
+        self.ui.fc_scopeText.setPlainText(params['fc_scope'])
+        self.ui.fc_versionNbText.setText(params['fc_versionNumber'])
+        self.ui.ft_nameText.setText(params['ft_name'])
+        self.ui.ft_definitionText.setPlainText(params['ft_definition'])
+        self.currentFields = params['fields']
+        self.updateFieldForm()
 
     def saveXML(self):
         xmlViewContent = self.ui.xmlEditor.toPlainText()
@@ -483,10 +560,7 @@ class featureCatCreatorDialog(QDialog):
 
 
     def bboxClicked(self, button):
-        # check which button was clicked
-        if self.ui.buttonBox.standardButton(button) == QDialogButtonBox.Save:
-            self.saveXML()
-        elif self.ui.buttonBox.standardButton(button) == QDialogButtonBox.Close:
+        if self.ui.buttonBox.standardButton(button) == QDialogButtonBox.Close:
             if self.savedState is False:
                 res = QMessageBox.warning(self, "Feature Catalog Creator",
                         "The document has been modified.\nDo you really want to close ?",
