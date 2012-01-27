@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<print>
+
+    <settings>
+        
+        <printtitle>EEA DataBrowser</printtitle>
+        
+        <!-- Settings for HTML print output -->
+        <html>
+            <format papersize="A4" orientation="P">
+                <map width="620" height="540" type="normal" css="config/eea/custom.css"/>
+            </format>
+            
+            <format papersize="A4" orientation="L">
+                <map width="620" height="540" type="normal" css="templates/print/a4l.css"/>
+            </format>
+            
+            <format papersize="A3" orientation="P">
+                <map width="620" height="540" type="normal" css="templates/print/a3p.css"/>
+            </format>
+            
+            <format papersize="A3" orientation="L">
+                <map width="620" height="540" type="normal" css="templates/print/a3l.css"/>
+            </format>
+            
+        </html>
+        
+        
+        <!-- Settings for PDF print output -->
+        <pdf>
+            <author>EEA</author>
+            <pdftitle>EEA DataBrowser</pdftitle>
+            
+            <defFont>FreeSans</defFont>
+            <defFontSize>9</defFontSize>
+            <defFontColor>0,0,0</defFontColor>
+            
+            <printCategory>1</printCategory>
+
+            <top_height>62</top_height>
+            <top_color>255,255,255</top_color>
+            <top_bgcolor>149,178,41</top_bgcolor>
+            <top_logo>./config/eea/img/eea_logo.png</top_logo>
+            <title_xoffs>300</title_xoffs>
+            <title_yoffs>23</title_yoffs>
+            
+            <format papersize="A4" orientation="P">
+                <map width="700" height="540" type="normal"/>
+                <map width="750" height="540" type="full"/>
+            </format>
+            
+            <format papersize="A4" orientation="L">
+                <map width="700" height="540"/>
+            </format>
+            
+            <format papersize="A3" orientation="P">
+                <map width="700" height="540"/>
+            </format>
+            
+            <format papersize="A3" orientation="L">
+                <map width="700" height="540"/>
+            </format>
+        </pdf>
+    
+    
+    </settings>
+    
+    <html>
+        <body>    
+            <div id="print_main">
+                <!--
+                    predefined variables: $$printTitle, $$printScale, $$printLegend
+                                          $$printUrlList[0], $$printUrlList[1], $$printUrlList[2]
+                -->
+                
+                <div id="print_titlebar">
+                    <div id="print_logo_header"><img src="config/eea/img/eea_logo.png" alt="logo" /></div>
+                    <div id="print_title_text">$$printTitle</div>
+                </div>
+                
+                <div id="print_mapzone">
+                    <div id="print_map_image"><img src="$$printUrlList[0]" alt="map" /></div>
+                    <div id="print_map_refimage"><img src="$$printUrlList[1]" alt="refmap" /></div>
+                    <div id="print_map_scalebar"><img src="$$printUrlList[2]" alt="scalebar" /></div>
+                </div>
+               
+                <div id="print_scale_text">@[Scale]@ 1: $$printScale</div>
+
+                <div id="print_legendzone">
+                    <div id="print_legend_table">$$printLegend</div>
+                </div>
+                
+            </div>
+        </body>
+    </html>
+
+
+    <pdf>
+
+
+    </pdf>
+    
+    
+    
+    <printdlg>
+        <div id="printdlg" class="printdlg">
+            <div class="printdlg_main" style="display:inline">
+                <div>@[Print Settings]@</div>
+                <div style="position:absolute; top:25px; right:15px"><img src="images/print.gif" alt="ico" width="35" height="35" /></div>
+            </div>
+        <!--
+            <div class="printdlg_advanced">
+                @[Print Title]@
+                <input type="text" name="printtitle" size="35" value="$$printTitle" />
+            </div>
+        -->    
+            <div>@[Scale]@ 1: <input type="text" name="printscale" size="10" value="$$printScale" /></div>
+            <div>
+                <input type="checkbox" name="printrefmap" value="on" checked="checked">@[With Overview Map]@</input>
+            </div>
+            <div>
+                <input type="checkbox" name="docformat" value="pdf">@[Create PDF Document]@</input>
+            </div>
+
+        <!--
+            <div class="printdlg_advanced">
+                @[Paper size]@
+                <input type="radio" name="papersize" value="A4" checked="checked">A4</input>
+                <input type="radio" name="papersize" value="A3">A3</input>
+            </div>
+            
+            <div class="printdlg_advanced">
+                @[Page orientation]@
+                <input type="radio" name="orientation" value="P" checked="checked">@[Portrait]@</input>
+                <input type="radio" name="orientation" value="L">@[Landscape]@</input>
+            </div>
+            
+            <div class="printdlg_button">
+                <input id="printdlg_button_advanced" type="button"  value="@@Advanced"  onclick="printDlgShowAdvanced()" />
+                <input id="printdlg_button_normal" type="button"  value="@@Standard"  onclick="printDlgHideAdvanced()" style="display:none"/>
+            </div>
+        -->    
+            <div class="printdlg_button" style="text-align:center">
+                <input type="button"  value="@@Create Print Page"  onclick="submit();$('#pmDlgContainer').hide()" />
+            </div>
+        </div>
+
+
+    </printdlg>
+    
+
+</print>

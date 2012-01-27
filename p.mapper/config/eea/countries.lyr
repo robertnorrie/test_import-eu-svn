@@ -1,0 +1,21 @@
+  TYPE polygon
+  DATA "countries"
+  #TRANSPARENCY 30
+  TEMPLATE void
+  PROJECTION
+    #"init=epsg:4326"
+    "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs  no_defs"
+  END
+  METADATA 
+    "DESCRIPTION" "Countries"
+    ## ADAPTED TO MULTILINGUAL SHAPEFILE
+    "RESULT_FIELDS" "ISOCODE,@default:NAME_EN@de:NAME_DE@it:NAME_IT@fr:NAME_FR@br:NAME_BR@es:NAME_ES,@default:CAPITAL_EN@de:CAPITAL_DE@it:CAPITAL_IT@fr:CAPITAL_FR@br:CAPITAL_BR@es:CAPITAL_ES,AREA_KM2,POPULATION"
+    "RESULT_HEADERS" "ISO Code,Name,Capital,Area,Population"
+    "ows_title"      "countries"
+  END  # Metadata 
+  CLASS
+    Name 'Countries'
+    #COLOR 200 254 199
+    OUTLINECOLOR 255 0 0 #51 51 #51
+  END  # Class
+

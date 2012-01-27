@@ -1,0 +1,666 @@
+################################################################################################ 
+# Adapt settings in map file <tt>pmapper_demo.map</tt> for the following tags to match settings
+# on your machine (see additionally MapServer documentation for detailed information):
+#
+#  MAP
+#    SHAPEPATH 
+#    FONTSET
+#    SYMBOLSET
+#  
+#  WEB
+#    IMAGEPATH  
+#    IMAGEURL    
+#
+##################################################################################################
+
+#
+# Start of map file  
+#
+MAP
+EXTENT  1000000 0 7200000 5600000 
+ 
+UNITS meters
+#EXTENT -15 30 40 70
+#UNITS dd
+SIZE 600 500
+SHAPEPATH "/var/www/mapserver/pmapper_demodata"
+SYMBOLSET "/var/www/mapserver/common/symbols/symbols-pmapper.sym"   
+FONTSET "/var/www/mapserver/common/fonts/msfontset.txt" 
+RESOLUTION 96
+IMAGETYPE png
+INTERLACE OFF
+#CONFIG "PROJ_LIB" "C:/proj/nad/"
+CONFIG "PROJ_LIB" "/usr/share/proj/"
+PROJECTION
+  # ETRS-LAEA
+  "init=epsg:3035"
+  #"+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs"
+   #"+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs  no_defs"
+END  
+
+
+#
+# Image formates for GD
+#
+OUTPUTFORMAT
+  NAME "png"
+  DRIVER "GD/PNG"
+  MIMETYPE "image/png"
+  IMAGEMODE RGB
+  FORMATOPTION  INTERLACE=OFF
+  TRANSPARENT OFF
+  EXTENSION "png"
+END
+
+OUTPUTFORMAT
+  NAME "png8"
+  DRIVER "GD/PNG"
+  MIMETYPE "image/png"
+  IMAGEMODE PC256
+  FORMATOPTION  INTERLACE=OFF
+  TRANSPARENT OFF
+  EXTENSION "png"
+END
+
+OUTPUTFORMAT
+  NAME "jpeg"
+  DRIVER "GD/JPEG"
+  MIMETYPE "image/jpeg"
+  IMAGEMODE RGB
+  FORMATOPTION "QUALITY=70"
+  EXTENSION "jpg"
+END
+
+#
+# Image formats for AGG
+#
+# OUTPUTFORMAT   ### 24 bit PNG
+  # NAME 'agg_png'
+  # DRIVER AGG/PNG
+  # IMAGEMODE RGB
+# END
+
+# OUTPUTFORMAT  ### 32 bit PNG with alpha channel from transparency
+  # NAME 'agg_pnga'
+  # DRIVER AGG/PNG
+  # IMAGEMODE RGBA
+# END
+
+# OUTPUTFORMAT  ### 8 bit PNG
+  # NAME 'agg_png8'  
+  # DRIVER AGG/PNG
+  # IMAGEMODE RGB
+  # FORMATOPTION "QUANTIZE_FORCE=ON"
+  # FORMATOPTION "QUANTIZE_DITHER=OFF"
+  # FORMATOPTION "QUANTIZE_COLORS=256"
+# END
+
+# OUTPUTFORMAT
+  # NAME 'agg_jpeg'
+  # DRIVER AGG/JPEG
+  # IMAGEMODE RGB
+# END
+
+
+OUTPUTFORMAT
+  NAME GTiff
+  DRIVER "GDAL/GTiff"
+  MIMETYPE "image/tiff"
+  IMAGEMODE RGB
+  #FORMATOPTION "TFW=YES"
+  #FORMATOPTION "COMPRESS=PACKBITS"
+  EXTENSION "tif"
+END
+
+OUTPUTFORMAT
+  NAME imagemap
+  MIMETYPE "text/html"
+  FORMATOPTION SKIPENDTAG=OFF
+  DRIVER imagemap
+END
+
+#
+# Start of web interface definition
+#
+WEB
+  TEMPLATE "map.html"
+  IMAGEPATH "/var/www/tmp/"
+  IMAGEURL "/tmp/"
+  METADATA
+    #"MAPFILE_ENCODING" "ISO-8859-1" 
+    #"ows_title"     "WMS Demo Server"  
+    #"ows_onlineresource" "http://wms.yourserver.org?owskey=test&"   
+    #"ows_srs"       "EPSG:3035 EPSG:4326"  
+  END  # Metadata
+END  # Web
+
+#
+# Start of Reference map definition
+#
+REFERENCE
+  EXTENT 1136460 530803 7228336 5472200
+  IMAGE "../../images/bluemarble_eea_laea_reference.png"
+  SIZE 161 131
+  COLOR -1 -1 -1
+  OUTLINECOLOR 255 0 0
+END  # Reference
+
+LEGEND
+END
+
+#
+# Start of ScaleBar definition
+#
+SCALEBAR
+  STATUS off
+  TRANSPARENT off
+  INTERVALS 4
+  SIZE 200 3
+  UNITS kilometers
+  COLOR 250 250 250
+  OUTLINECOLOR 0 0 0
+  BACKGROUNDCOLOR 100 100 100
+  STYLE 0
+  POSTLABELCACHE true
+  LABEL
+    COLOR 0 0 90
+    #OUTLINECOLOR 200 200 200
+    SIZE small
+  END  # Label
+END  # Reference
+
+
+
+# SYMBOLS USED IN PMAPPER
+# - 'circle' always necessary (used e.g. for highlight)
+# - 'square' used in currecnt map file
+# Symbols can also be defined via tag SYMBOLSET (see above)
+Symbol
+  Name 'circle'
+  Type ELLIPSE
+  Filled TRUE
+  Points
+    1 1
+  END
+END 
+
+Symbol
+  Name 'square'
+  Type VECTOR
+  Filled TRUE
+  Points
+    0 1
+    0 0
+    1 0
+    1 1
+    0 1
+  END
+END
+
+
+#================== START OF LAYER SECTION =====================#
+
+
+
+
+#
+# LAYER DGM
+#
+LAYER
+  NAME "bluemarble"
+  TYPE Raster
+  STATUS OFF
+  DATA 'bluemarble_eea_laea_10perc.tif'
+  MINSCALE 3000000
+  PROJECTION
+    "+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=WGS84 +units=m +no_defs  no_defs"
+  END
+  METADATA
+    "DESCRIPTION"   "NASA Blue Marble"
+    "LEGENDICON"    "images/legend/dem.png"
+    "ows_title"     "dem"
+  END
+END
+
+#
+# LAYERS Natural Earth
+#
+LAYER
+  NAME "NE_background_wms"
+  TYPE RASTER
+  STATUS OFF
+  CONNECTION "http://sdi.eea.europa.eu/cgi-bin/mapserv?map=/var/local/gis_sdi_msl/mapserver/base_hydro_admin.map&"
+  CONNECTIONTYPE WMS
+  METADATA
+    "DESCRIPTION" "Base map (image)"
+    "wms_srs"             "EPSG:4326"
+    "wms_name"            "NE1_HR_LC_SR_W_DR,NE_Hydrography,10m_admin_0_countries"
+    "wms_server_version"  "1.1.1"
+    "wms_format"          "image/jpeg"
+  END
+END
+
+LAYER
+  NAME "NE_hydrography_boundaries_wms"
+  TYPE RASTER
+  STATUS OFF
+  CONNECTION "http://sdi.eea.europa.eu/cgi-bin/mapserv?map=/var/local/gis_sdi_msl/mapserver/base_hydro_admin.map&"
+  CONNECTIONTYPE WMS
+  METADATA
+    "DESCRIPTION" "Base map (boundaries and rivers)"
+    "wms_srs"             "EPSG:4326"
+    "wms_name"            "NE_Hydrography,10m_admin_0_countries"
+    "wms_server_version"  "1.1.1"
+    "wms_format"          "image/png"
+  END
+END
+
+  LAYER
+    NAME 'NE1_HR_LC_SR_W_DR'
+    TYPE RASTER
+	GROUP "ne_background"
+    DUMP true
+    TEMPLATE fooOnlyForWMSGetFeatureInfo
+   # EXTENT -180 -90 180 90
+    DATA '/var/www/natural_earth/ne_r_4326_60_arcsec_ne1-hr-lc-sr-w-dr_2011_rev1-3/NE1_HR_LC_SR_W_DR.tif'
+    METADATA
+      "DESCRIPTION" "Base map (image)"
+    END
+    STATUS OFF
+    TRANSPARENCY 100
+	PROJECTION
+	"init=epsg:4326"   ##required
+	END
+  END
+
+  LAYER
+    NAME "NE_boundaries_group"
+    TYPE POLYGON
+    DUMP true
+	GROUP "ne_background"
+    TEMPLATE fooOnlyForWMSGetFeatureInfo
+   # EXTENT -180 -90 180 90
+     DATA '/var/www/natural_earth/ne_10m_admin_0_countries.shp'
+    METADATA
+     "DESCRIPTION" "Boundaries (Natural Earth)"
+    END
+    STATUS OFF
+    TRANSPARENCY 100
+    PROJECTION
+		"init=epsg:4326"   ##required
+    END
+    CLASS
+       NAME 'Boundaries' 
+       STYLE
+         WIDTH 1.05 
+         OUTLINECOLOR 184 134 11
+       END
+    END
+  END
+
+    LAYER
+    NAME "NE_boundaries_bg"
+    TYPE POLYGON
+    DUMP true
+    TEMPLATE fooOnlyForWMSGetFeatureInfo
+   # EXTENT -180 -90 180 90
+    DATA '/var/www/natural_earth/ne_10m_admin_0_countries.shp'
+    METADATA
+     "DESCRIPTION" "Boundaries (Natural Earth)"
+    END
+    STATUS OFF
+    TRANSPARENCY 100
+    PROJECTION
+		"init=epsg:4326"   ##required
+    END
+    CLASS
+       NAME 'Boundaries' 
+       STYLE
+         WIDTH 1.6 
+         OUTLINECOLOR 184 134 11
+       END
+    END
+  END
+
+  LAYER
+    NAME 'lakes'
+    TYPE POLYGON
+	GROUP "hydrography"
+    DUMP true
+    TEMPLATE fooOnlyForWMSGetFeatureInfo
+ # EXTENT -180 -90 180 90
+    DATA '/var/www/natural_earth/ne_10m_lakes.shp'
+    METADATA
+      "DESCRIPTION" "Hydrography (Natural Earth)"
+    END
+    STATUS OFF
+    TRANSPARENCY 100
+    PROJECTION
+		"init=epsg:4326"   ##required
+    END
+    CLASS
+       NAME 'Lakes' 
+       STYLE
+         WIDTH 0.91 
+         OUTLINECOLOR 0 0 0
+         COLOR 0 0 255
+       END
+    END
+  END
+
+  LAYER
+    NAME '10m_rivers_lake_centerlines_scale_ranks'
+    TYPE LINE
+	GROUP "hydrography"
+    DUMP true
+    TEMPLATE fooOnlyForWMSGetFeatureInfo
+ #   EXTENT -180 -90 180 90
+    DATA '/var/www/natural_earth/ne_10m_rivers_lake_centerlines_scale_ranks.shp'
+    METADATA
+      "DESCRIPTION" "Hydrography"
+    END
+    STATUS OFF
+    TRANSPARENCY 100
+    PROJECTION
+		"init=epsg:4326"   ##required
+    END
+    CLASS
+      EXPRESSION ([StrokeWeig] = 0) 
+       STYLE
+         WIDTH 0.91 
+         COLOR 0 0 255
+       END
+    END
+    CLASS
+      EXPRESSION (([StrokeWeig] > 0) and ([StrokeWeig] <= 0.16))
+       STYLE
+         WIDTH 0.525 
+         COLOR 0 0 255
+       END
+    END
+    CLASS
+      EXPRESSION (([StrokeWeig] > 0.16) and ([StrokeWeig] <= 0.21))
+       STYLE
+         WIDTH 0.7 
+         COLOR 0 0 255
+       END
+    END  
+    CLASS
+      EXPRESSION (([StrokeWeig] > 0.21) and ([StrokeWeig] <= 0.26))
+       STYLE
+         WIDTH 0.875 
+         COLOR 0 0 255
+       END
+    END	
+    CLASS
+      EXPRESSION (([StrokeWeig] > 0.26) and ([StrokeWeig] <= 0.31))
+       STYLE
+         WIDTH 1.05 
+         COLOR 0 0 255
+       END
+    END
+    CLASS
+      NAME "Rivers" 
+      EXPRESSION (([StrokeWeig] > 0.31) and ([StrokeWeig] <= 0.36))
+       STYLE
+         WIDTH 1.225 
+         COLOR 0 0 255
+       END
+    END	
+    CLASS
+      EXPRESSION (([StrokeWeig] > 0.36) and ([StrokeWeig] <= 0.41))
+       STYLE
+         WIDTH 1.4 
+         COLOR 0 0 255
+       END
+    END	
+    CLASS
+      EXPRESSION (([StrokeWeig] > 0.41) and ([StrokeWeig] <= 0.46))
+       STYLE
+         WIDTH 1.575 
+         COLOR 0 0 255
+       END
+    END	
+    CLASS
+      EXPRESSION (([StrokeWeig] > 0.46) and ([StrokeWeig] <= 0.61))
+       STYLE
+         WIDTH 2.1 
+         COLOR 0 0 255
+       END
+    END	
+    CLASS
+      EXPRESSION (([StrokeWeig] > 0.61) and ([StrokeWeig] <= 0.81))
+       STYLE
+         WIDTH 2.8 
+         COLOR 0 0 255
+       END
+    END	
+    CLASS
+      EXPRESSION ([StrokeWeig] = 1)
+       STYLE
+         WIDTH 3.5 
+         COLOR 0 0 255
+       END
+    END	
+    CLASS
+      EXPRESSION ([StrokeWeig] = 1.25) 
+       STYLE
+         WIDTH 4.2 
+         COLOR 0 0 255
+       END
+    END
+    CLASS
+      EXPRESSION ([StrokeWeig] = 1.5)
+       STYLE
+         WIDTH 5
+         COLOR 0 0 255
+       END
+    END
+    CLASS
+      EXPRESSION ([StrokeWeig] = 2)
+       STYLE
+         WIDTH 7 
+         COLOR 0 0 255
+       END
+    END	
+  END  
+
+LAYER
+  NAME "NE_boundaries"
+    TYPE POLYGON
+    DUMP true
+    TEMPLATE fooOnlyForWMSGetFeatureInfo
+   # EXTENT -180 -90 180 90
+    DATA '/var/www/natural_earth/ne_10m_admin_0_countries.shp'
+    METADATA
+     "DESCRIPTION" "Boundaries (Natural Earth)"
+    END
+    STATUS OFF
+    TRANSPARENCY 100
+    PROJECTION
+		"init=epsg:4326"   ##required
+    END
+    CLASS
+       NAME 'Boundaries' 
+       STYLE
+         WIDTH 1.05 
+         OUTLINECOLOR 184 134 11
+       END
+    END
+END
+
+LAYER
+    NAME 'NE_coastline'
+    TYPE LINE
+    DUMP true
+    TEMPLATE fooOnlyForWMSGetFeatureInfo
+ # EXTENT -180 -90 180 90
+    DATA '/var/www/natural_earth/10m_coastline.shp'
+    STATUS OFF
+	POSTLABELCACHE true
+    TRANSPARENCY 100
+	METADATA
+	  "DESCRIPTION" "Coastline (Natural Earth)"
+	END
+    PROJECTION
+	"init=epsg:4326"   ##required
+    END
+    CLASS
+       NAME 'NE_coastline' 
+       STYLE
+         WIDTH 0.91 
+         COLOR 0 0 127
+       END
+    END
+END
+  
+#
+# Start of Layer Countries.shp
+#
+LAYER
+  NAME "countries"
+  TYPE polygon
+  DATA "countries"
+  #TRANSPARENCY 30
+  TEMPLATE void
+  PROJECTION
+    #"init=epsg:4326"
+    "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs  no_defs"
+  END
+  METADATA 
+    "DESCRIPTION" "Countries"
+    ## ADAPTED TO MULTILINGUAL SHAPEFILE
+    "RESULT_FIELDS" "ISOCODE,@default:NAME_EN@de:NAME_DE@it:NAME_IT@fr:NAME_FR@br:NAME_BR@es:NAME_ES,@default:CAPITAL_EN@de:CAPITAL_DE@it:CAPITAL_IT@fr:CAPITAL_FR@br:CAPITAL_BR@es:CAPITAL_ES,AREA_KM2,POPULATION"
+    "RESULT_HEADERS" "ISO Code,Name,Capital,Area,Population"
+    "ows_title"      "countries"
+  END  # Metadata 
+  CLASS
+    Name 'Countries'
+    #COLOR 200 254 199
+    OUTLINECOLOR 255 0 0 #51 51 #51
+  END  # Class
+END  # Layer
+
+
+LAYER
+  NAME "cities10000eu" 
+  TYPE point
+  DATA "cities10000eu"
+  TOLERANCE 6
+  TOLERANCEUNITS pixels
+  LABELITEM "NAME"
+  LABELMAXSCALE 8000000
+  TEMPLATE void
+  PROJECTION
+    #"init=epsg:4326"
+    "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs  no_defs"
+  END
+  METADATA 
+    "DESCRIPTION" "Cities"
+    "RESULT_FIELDS" "NAME, ISO2_CODE, POPULATION, GTOPO30"
+    "RESULT_HEADERS" "Name,Country,Inhabitants,Altitude"
+    "RESULT_HYPERLINK" "NAME"
+    "LAYER_ENCODING" "UTF-8"
+    "ows_title"      "cities1000"
+  END  # Metadata  
+  
+  CLASS
+    NAME "> 1'000'000"
+    EXPRESSION ([POPULATION] > 1000000)
+    COLOR 255 0 0 
+    OUTLINECOLOR 0 0 0 
+    SYMBOL 'square' 
+    SIZE 9
+    LABEL
+      POSITION Auto
+      COLOR 0 0 150 
+      BACKGROUNDCOLOR 255 255 128
+      BACKGROUNDSHADOWCOLOR 150 150 150
+      BACKGROUNDSHADOWSIZE 2 2
+      BUFFER 2
+      TYPE truetype
+      ENCODING "UTF-8"
+      FONT FreeSans
+      SIZE 8
+      MAXSIZE 9
+      #SIZE small
+    END #Label  
+  END  # Class
+  CLASS
+    NAME "500'000 - 1'000'000"
+    EXPRESSION ([POPULATION] <= 1000000 AND [POPULATION] > 500000)
+    COLOR 255 0 0
+    SYMBOL 'circle' 
+    SIZE 8
+    LABEL
+      POSITION Auto
+      COLOR 0 0 150 
+      BACKGROUNDCOLOR 255 255 128
+      BACKGROUNDSHADOWCOLOR 150 150 150
+      BACKGROUNDSHADOWSIZE 2 2
+      BUFFER 2
+      TYPE truetype
+      ENCODING "UTF-8"
+      FONT FreeSans
+      SIZE 8
+      MAXSIZE 9
+      #SIZE small
+    END #Label  
+  END  # Class
+  CLASS
+    NAME "100'000 - 500'000"
+    EXPRESSION ([POPULATION] <= 500000 AND [POPULATION] > 100000)
+    COLOR 255 0 0
+    SYMBOL 'square' 
+    SIZE 5
+  END  # Class
+  CLASS
+    NAME "50'000 - 100'000"
+    EXPRESSION ([POPULATION] <= 100000 AND [POPULATION] > 50000)
+    COLOR 0 0 0
+    SYMBOL 'square' 
+    SIZE 4
+    #MAXSCALE 20000000
+  END  # Class
+  CLASS
+    NAME "10'000 - 50'000"
+    EXPRESSION ([POPULATION] <= 50000 AND [POPULATION] > 10000)
+    COLOR 100 100 100
+    SYMBOL 'circle' 
+    SIZE 3
+    #MAXSCALE 10000000
+  END  # Class
+
+END  # Layer
+
+
+#
+# Start of Layer Rivers.shp
+#
+LAYER
+  NAME "rivers"
+  TYPE line
+  DATA "rivers"
+  TOLERANCE 3
+  TOLERANCEUNITS pixels
+  TEMPLATE void
+  PROJECTION
+    #"init=epsg:4326"
+    "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs  no_defs"
+  END
+  METADATA 
+    "DESCRIPTION" "Rivers"
+    "RESULT_FIELDS" "NAME"
+    "RESULT_HEADERS" "Name"
+    "ows_title"      "cities"
+  END  # Metadata 
+  CLASS
+    Name 'Rivers'
+    COLOR 0 0 255
+  END  # Class
+END  # Layer
+
+
+
+
+END  #Map

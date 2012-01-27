@@ -1,0 +1,194 @@
+<pmapper>
+  <ini>
+    <pmapper>
+      <pmTitle>EEA DataBrowser</pmTitle>
+      <pmHeading>EEA DataBrowser</pmHeading>
+      <pmLogoSrc>config/eea/img/eea_logo.png</pmLogoSrc>
+      <pmLogoTitle>EEA</pmLogoTitle>
+      <pmLogoUrl>http://www.eea.europa.eu/</pmLogoUrl>
+
+      <debugLevel>3</debugLevel>
+      <plugins>export</plugins>
+      <plugins>scalebar</plugins>
+      <plugins>transparency</plugins>
+      <plugins>dynlayercat</plugins>
+      <plugins>coordinates</plugins>
+      <plugins>queryeditor</plugins>
+      <plugins>proj4js</plugins>
+    </pmapper>
+    <config>
+      <pm_config_location>eea</pm_config_location>
+      <pm_javascript_location>javascript</pm_javascript_location>
+      <pm_javascript_optional>optional/ui</pm_javascript_optional>
+      <pm_print_configfile>eea/print.xml</pm_print_configfile>
+      <pm_search_configfile>inline</pm_search_configfile>
+      <pm_resetsession>ALL</pm_resetsession>
+    </config>
+    <map>
+      <mapFile>eea_databrowser.map</mapFile>
+      <tplMapFile>common/template.map</tplMapFile>
+      <categories>
+        <category name="cat_eea" description="EEA Layer"> </category>
+        <category name="cat_ov" description="Overlay Layer">
+          <group>NE_boundaries</group>
+          <group>cities10000eu</group>
+          <group>hydrography</group>
+          <group>NE_coastline</group>
+          <group>countries</group>
+        </category>
+        <category name="cat_bg" description="Background Layer (Natural Earth data)">
+          <group>NE_boundaries_bg</group>
+          <group>ne_background</group>
+        </category>
+      </categories>
+      <allGroups>
+        <group>NE_boundaries_bg</group>
+        <group>NE_boundaries</group>
+        <group>cities10000eu</group>
+        <group>ne_background</group>
+        <group>hydrography</group>
+        <group>NE_coastline</group>
+        <group>countries</group>
+      </allGroups>
+      <defGroups>
+        <group>NE_boundaries_bg</group>
+      </defGroups>
+      <mutualDisableList>
+        <group>NE_boundaries_bg</group>
+        <group>ne_background</group>
+      </mutualDisableList>
+      <layerAutoRefresh>1</layerAutoRefresh>
+      <imgFormat>png</imgFormat>
+      <altImgFormat>jpeg</altImgFormat>
+      <altImgFormatLayers>
+        <group>ne_background</group>
+      </altImgFormatLayers>
+      <sliderMax>max</sliderMax>
+      <sliderMin>100000</sliderMin>
+    </map>
+    <query>
+      <limitResult>1000</limitResult>
+      <highlightColor>0 255 255</highlightColor>
+      <highlightSelected>1</highlightSelected>
+      <autoZoom>nquery</autoZoom>
+      <autoZoom>search</autoZoom>
+      <zoomAll>search</zoomAll>
+      <zoomAll>nquery</zoomAll>
+      <infoWin>dynwin</infoWin>
+      <alignQueryResults>1</alignQueryResults>
+      <pointBuffer>10000</pointBuffer>
+      <shapeQueryBuffer>0.02</shapeQueryBuffer>
+    </query>
+    <ui>
+      <tocStyle>tree</tocStyle>
+      <legendStyle>attached</legendStyle>
+      <useCategories>1</useCategories>
+      <catWithCheckbox>1</catWithCheckbox>
+      <scaleLayers>1</scaleLayers>
+      <icoW>18</icoW>
+      <icoH>14</icoH>
+    </ui>
+    <locale>
+      <defaultLanguage>en</defaultLanguage>
+      <defaultCharset>UTF-8</defaultCharset>
+      <map2unicode>1</map2unicode>
+    </locale>
+    <print>
+      <printImgFormat>png</printImgFormat>
+      <printAltImgFormat>jpeg</printAltImgFormat>
+      <pdfres>2</pdfres>
+    </print>
+    <download>
+      <dpiLevels>150</dpiLevels>
+      <dpiLevels>200</dpiLevels>
+      <dpiLevels>300</dpiLevels>
+    </download>
+    <php>
+      <pearDbClass>MDB2</pearDbClass>
+      <defaultTimeZone>Europe/Vienna</defaultTimeZone>
+    </php>
+    <pluginsConfig>
+      <export>
+        <formats>XLS</formats>
+        <formats>CSV</formats>
+        <formats>PDF</formats>
+      </export>
+      <!--  CHANGE HERE -->
+      <dynlayercat>
+        <!-- CSW server URL -->
+        <!--<csw_url>http://swordfish:8080/geonetwork/srv/en/csw</csw_url>-->
+        <!--<csw_url>https://francpru:technical34@sdi.eea.europa.eu/internal-catalogue/srv/en/csw</csw_url>-->
+        <csw_url>http://localhost:8080/geonetwork/srv/en/csw</csw_url>
+        
+        <!-- Layer index -->
+        <layeridx>6</layeridx>
+        
+        <!-- Layer category name -->
+        <layer_category>cat_eea</layer_category>
+        
+        <!-- (optional) Prefix path if metadata does not contain full data path. 
+        -->
+        <data_path_prefix>/var/www/tmp/</data_path_prefix>
+        
+        
+        <!-- (optional) Protocols used in the online section of the metadata record to identify
+          file on the network or DB connection. Default is FILE:GEO, FILE:RASTER, DB:POSTGIS
+        -->
+        <protocols>EEA:FILEPATH,EEA:DBPG</protocols>
+        
+        <!-- (optional) List of authority to search for in projection code.
+        Default is EPSG-->
+        <proj_authority>EPSG,EEA</proj_authority>
+        
+        <!-- Default projection code to use if not found in the metadata record. -->
+        <default_proj>init=epsg:3035</default_proj>
+        
+        <!-- Set the folder in order to dump mapfile to a custom folder -->
+        <mapfile_dir>/tmp/</mapfile_dir>
+      </dynlayercat>
+      <coordinates>
+        <mapPrj name="EEA Layer projection" roundTo="2"> </mapPrj>
+        <prj name="lat/lon WGS84" roundTo="4">
+          <definition>init=epsg:4326</definition>
+        </prj>
+        <prj name="ETRS89/LAEA" roundTo="0">
+          <definition>init=epsg:3035</definition>
+        </prj>
+      </coordinates>
+      <queryeditor>
+        <layersType>3</layersType>
+        <dlgType>dynwin</dlgType>
+      </queryeditor>
+    </pluginsConfig>
+  </ini>
+
+
+
+  <searchlist version="1.0">
+    <dataroot>$</dataroot>
+    <searchitem name="cities" description="City">
+      <layer type="shape" name="cities10000eu">
+        <field type="s" name="NAME" description="City" wildcard="0"/>
+      </layer>
+    </searchitem>
+    <searchitem name="countries" description="Country">
+      <layer type="shape" name="countries">
+        <field type="s" name="ISOCODE" description="Country" wildcard="2">
+          <definition type="options" connectiontype="ms" sort="asc" firstoption="*">
+            <mslayer encoding="ISO-8859-1" keyfield="ISOCODE" showfield="NAME_EN"/>
+          </definition>
+        </field>
+      </layer>
+    </searchitem>
+    <!-- Sample for suggest function -->
+    <searchitem name="cities_suggest_ms" description="Cities Suggest MS">
+      <layer type="ms" name="cities10000eu">
+        <field type="s" name="NAME" description="City" wildcard="2">
+          <definition type="suggest" connectiontype="ms" minlength="1" startleft="1" sort="asc">
+            <mslayer encoding="UTF-8"/>
+          </definition>
+        </field>
+      </layer>
+    </searchitem>
+  </searchlist>
+</pmapper>
