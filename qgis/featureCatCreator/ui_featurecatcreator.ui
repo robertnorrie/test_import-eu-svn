@@ -29,11 +29,11 @@
      <property name="tabsClosable">
       <bool>false</bool>
      </property>
-     <widget class="QWidget" name="editTab">
+     <widget class="QWidget" name="xmlTab">
       <attribute name="title">
-       <string>Global</string>
+       <string>XML</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_6" stretch="1,3,3">
+      <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
         <widget class="QGroupBox" name="groupBox_3">
          <property name="maximumSize">
@@ -43,39 +43,42 @@
           </size>
          </property>
          <property name="title">
-          <string>Data</string>
+          <string>XML</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <layout class="QFormLayout" name="formLayout_4">
+           <layout class="QGridLayout" name="gridLayout_3">
             <item row="0" column="0">
-             <widget class="QLabel" name="dataSourceLabel">
-              <property name="text">
-               <string>Data source</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QComboBox" name="dataSourceBox"/>
-            </item>
-            <item row="1" column="0">
              <widget class="QLabel" name="templateLabel">
               <property name="text">
                <string>Template</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
+            <item row="0" column="1">
              <widget class="QLineEdit" name="templateText">
               <property name="text">
                <string>D:\sync\projets\EEA - QGIS Plugin\svn_project\data_sample\fc_template_01.xml</string>
               </property>
              </widget>
             </item>
-            <item row="2" column="1">
+            <item row="1" column="1">
              <widget class="QPushButton" name="browseTemplateButton">
+              <property name="maximumSize">
+               <size>
+                <width>70</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
                <string>Browse...</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QPushButton" name="loadTemplate">
+              <property name="text">
+               <string>Load</string>
               </property>
              </widget>
             </item>
@@ -84,6 +87,55 @@
          </layout>
         </widget>
        </item>
+       <item>
+        <widget class="QTextEdit" name="xmlEditor"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
+         <property name="spacing">
+          <number>-1</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="refreshButton">
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::RightToLeft</enum>
+           </property>
+           <property name="text">
+            <string>Refresh XML</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="saveButton">
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::RightToLeft</enum>
+           </property>
+           <property name="text">
+            <string>Save...</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="editTab">
+      <attribute name="title">
+       <string>Global</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_6" stretch="3,3">
        <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="sizePolicy">
@@ -98,24 +150,24 @@
          <layout class="QVBoxLayout" name="verticalLayout_7">
           <item>
            <layout class="QFormLayout" name="formLayout_5">
-            <item row="0" column="0">
+            <item row="2" column="0">
              <widget class="QLabel" name="fc_nameLabel">
               <property name="text">
                <string>Name</string>
               </property>
              </widget>
             </item>
-            <item row="0" column="1">
+            <item row="2" column="1">
              <widget class="QLineEdit" name="fc_nameText"/>
             </item>
-            <item row="1" column="0">
+            <item row="3" column="0">
              <widget class="QLabel" name="fc_scopeLabel">
               <property name="text">
                <string>Scope</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
+            <item row="3" column="1">
              <widget class="QPlainTextEdit" name="fc_scopeText">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -125,15 +177,22 @@
               </property>
              </widget>
             </item>
-            <item row="2" column="0">
+            <item row="4" column="0">
              <widget class="QLabel" name="fc_versionNbLabel">
               <property name="text">
                <string>Version number</string>
               </property>
              </widget>
             </item>
-            <item row="2" column="1">
+            <item row="4" column="1">
              <widget class="QLineEdit" name="fc_versionNbText"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="loadFcFromXML">
+              <property name="text">
+               <string>Load from XML</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -154,30 +213,37 @@
          <layout class="QVBoxLayout" name="verticalLayout_8">
           <item>
            <layout class="QFormLayout" name="formLayout_6">
-            <item row="0" column="0">
+            <item row="1" column="0">
              <widget class="QLabel" name="ft_nameLabel">
               <property name="text">
                <string>Name</string>
               </property>
              </widget>
             </item>
-            <item row="0" column="1">
+            <item row="1" column="1">
              <widget class="QLineEdit" name="ft_nameText"/>
             </item>
-            <item row="1" column="0">
+            <item row="2" column="0">
              <widget class="QLabel" name="ft_definitionLabel">
               <property name="text">
                <string>Definition</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
+            <item row="2" column="1">
              <widget class="QPlainTextEdit" name="ft_definitionText">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                 <horstretch>0</horstretch>
                 <verstretch>60</verstretch>
                </sizepolicy>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QPushButton" name="loadFtFromXML">
+              <property name="text">
+               <string>Load from XML</string>
               </property>
              </widget>
             </item>
@@ -194,8 +260,52 @@
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2" columnstretch="2,0,3">
        <item row="0" column="0" colspan="3">
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="2" column="1">
+          <widget class="QLabel" name="currentFieldLabel">
+           <property name="text">
+            <string>Current field : </string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QComboBox" name="currentFieldBox"/>
+         </item>
+         <item row="2" column="3">
+          <widget class="QPushButton" name="loadFromLayer">
+           <property name="text">
+            <string>Load from Layer</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4">
+          <widget class="QCheckBox" name="classification">
+           <property name="text">
+            <string>Classification</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QPushButton" name="loadFromXML">
+           <property name="text">
+            <string>Load from XML</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="dataSourceLabel">
+           <property name="text">
+            <string>Data source :</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
           <widget class="QToolButton" name="attributeTableButton">
            <property name="text">
             <string>...</string>
@@ -206,30 +316,19 @@
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QLabel" name="currentFieldLabel">
-           <property name="text">
-            <string>Current field : </string>
+         <item row="1" column="2">
+          <widget class="QComboBox" name="dataSourceBox">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="currentFieldBox"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="refreshButton">
-           <property name="text">
-            <string>Reset List</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="classification">
-           <property name="text">
-            <string>Classification</string>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>16777215</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -565,16 +664,6 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="xmlTab">
-      <attribute name="title">
-       <string>XML</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_5">
-       <item>
-        <widget class="QTextEdit" name="xmlEditor"/>
-       </item>
-      </layout>
-     </widget>
      <widget class="QWidget" name="helpTab">
       <attribute name="icon">
        <iconset resource="resources.qrc">
@@ -603,7 +692,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Close|QDialogButtonBox::Save</set>
+      <set>QDialogButtonBox::Close</set>
      </property>
     </widget>
    </item>
@@ -618,16 +707,13 @@
  </customwidgets>
  <tabstops>
   <tabstop>tabWidget</tabstop>
-  <tabstop>dataSourceBox</tabstop>
-  <tabstop>templateText</tabstop>
-  <tabstop>browseTemplateButton</tabstop>
   <tabstop>fc_nameText</tabstop>
   <tabstop>fc_scopeText</tabstop>
   <tabstop>fc_versionNbText</tabstop>
   <tabstop>ft_nameText</tabstop>
   <tabstop>ft_definitionText</tabstop>
   <tabstop>currentFieldBox</tabstop>
-  <tabstop>refreshButton</tabstop>
+  <tabstop>loadFromLayer</tabstop>
   <tabstop>classification</tabstop>
   <tabstop>f_nameText</tabstop>
   <tabstop>f_typeText</tabstop>
@@ -640,7 +726,6 @@
   <tabstop>valuesTable</tabstop>
   <tabstop>newValueButton</tabstop>
   <tabstop>deleteValueButton</tabstop>
-  <tabstop>attributeTableButton</tabstop>
   <tabstop>xmlEditor</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
