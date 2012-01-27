@@ -1,0 +1,62 @@
+#showcoords div{
+    display:inline;
+    margin-left:20px;
+}
+/* Position of UI Elements */
+.ui-layout-north {
+    background-color:#95b229;
+    padding:0;
+    height: 70px !important;
+}
+
+.ui-layout-south {
+    background-color:#95b229;
+}
+
+
+#sliderArea {
+    top:50px;
+}
+
+/*#scaleArea {
+    top:5px;
+}
+*/
+.pm-map-link {
+    top:2px;
+}
+
+
+/* Color of dialog top bar */
+div.jqmdTC {
+    background-color:#95B229;
+}
+
+
+/* HTML Print */
+#print_titlebar {
+    background-color:#95b229;
+    height:62px;
+}
+
+
+#print_mapzone {
+    top: 62px;
+}
+
+#print_title_text {
+    top: 13px;
+    position:absolute;
+}
+
+#print_legendzone {
+    top: 610px;
+}
+
+#print_scale_text {
+    top: 550px; 
+}    
+
+/*.pm-info td {
+  text-align: right;
+}*/
