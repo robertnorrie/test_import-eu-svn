@@ -170,7 +170,7 @@ class featureCatCreatorDialog(QDialog):
         self.ui.f_definitionText.clear()
         self.ui.f_cardinalityText.setCurrentIndex(-1)
         self.ui.valuesTable.clear()
-        self.updateDataSourceBox(self)
+        self.updateDatasourceBox()
 
     def updateTemplateFile(self):
         filename = QFileDialog.getOpenFileName(self, \
