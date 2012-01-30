@@ -14,9 +14,44 @@
 <div class="middle">
     <h2><a name="overview"></a>Overview</h2>
     <p>
+    The Feature Catalog Creator plugin lets you create XML metadata files with ISO19110 norm, for a given data set.
     </p>
+      <h2><a name="xml"></a>XML tab</h2>
+      <p>
+      The XML tab is the place where you will find the XML metadata file content.
+      You can do the following actions :
+      <ul>
+          <li>Enter a XML template file URL or browse for a local file, and load it</li>
+          <li>See and edit the XML content</li>
+          <li>Refresh the XML content according to informations given in the other tabs</li>
+          <li>Save the XML file</li>
+      </ul> 
+      </p>
     <h2><a name="global"></a>Global tab</h2>
       <p>
+      The global tab enables the user to enter informations about the Feature Catalog and the Feature type.
+      <br />
+      As for Feature catalog, the user can provide the following informations :
+      <ul>
+          <li>Name</li>
+          <li>Scope</li>
+          <li>Version number</li>
+      </ul>
+      </p><p>
+      The name should be relatively short, whereas the scope can be lengthy.<br />
+      You can load name, scope and version number from the XML content in the first tab. If you have loaded a template XML file, clicking on the "load from XML" button enables you not to write those informations by hand.
+      </p>
+      <p>
+      As for Feature type, the user can provide the following informations :
+      <ul>
+          <li>Name</li>
+          <li>Definition</li>
+      </ul>
+      </p><p>
+      The name should be relatively short, whereas the definiton can be lengthy.<br />
+      You can load name, scope and version number from the XML content in the first tab. If you have loaded a template XML file, clicking on the "load from XML" button enables you not to write those informations by hand.
+
+
       <a href="img/"><img src="" width="500"/></a>
       </p>
       <h2><a name="fields"></a>Fields tab</h2>
@@ -24,17 +59,43 @@
       <dl>
           <dt>Attribute table button</dt>
           <dd>This button shows the attribute table of the current layer</dd>
+          <dt>Data source</dt>
+          <dd>This combobox selects the layer you want to extract informations from</dd>
           <dt>Current field</dt>
-          <dd>This combobox selects the layer field you want to define informations of</dd>
-          <dt>Reset list</dt>
-          <dd>This button re-read the field list, type and definition from the data. It zeroes defined values. If classification is checked, it reloads field informations with a classification, otherwise no classification is done.</dd>
+          <dd>This combobox contains the current available fields as defined by the user. By default it is greyed out, until you click on <i>"load from layer"</i> or <i>"load from XML"</i>.</dd>
+          <dt>Load from layer button</dt>
+          <dd>Click this button to load fields informations from selected layer's data</dd>
+          <dt>Load from XML button</dt>
+          <dd>Click this button to load fields informations from XML content (to reload saved informations from an XML file for example)</dd>
           <dt>Classification</dt>
-          <dd>If this checkbox is active, when reading fields informations, extract values from data. Classification parameters are set in the spinboxes just below.</dd>
+          <dd>If this checkbox is active, when loading fields informations from the layer, extract values from data. Classification parameters are set in the spinboxes just below.</dd>
+          <dt>Field part</dt>
+          <dd>This part of the form displays informations about the currently selected fields</dd>
+          <dt>Field name</dt>
+          <dd>Specify the name for the selected field. When loading from layer data, this is the attribute column name.</dd>
+          <dt>Field type</dt>
+          <dd>Specify the type for the selected field. You can specify your own type, or select one of the pre-defined types. When loading from layer data, this is the attribute column type as defined in QGIS.</dd>
+          <dt>Field definition</dt>
+          <dd>Enter a definition for the selected field. When loading from layer data, this is the attribute column's comment as defined in QGIS.</dd>
+          <dt>Field cardinality</dt>
+          <dd>Enter a cardinality for the selected field. You can specify your own cardinality, or select one of the pre-defined cardinalities.</dd>
+          <dt>Values part</dt>
+          <dd>This part of the form displays the values found in the currently selected fields. This part is automatically filled with values found in XML content if <i>"load from XML"</i> is clicked, or with values found in the current layer's data if <i>"load from layer"</i> button is clicked, with classification activated. You can also fill the values from the data values by clicking on the <i>"analyze"</i> button.</dd>
+          <dt>Values number</dt>
+          <dd>This spinbox lets you set the number of values to read from the data source to find values.</dd>
+          <dt>Value occurence</dt>
+          <dd>This spinbox lets you set the number of occurences of a value which should be found to add this value in the table.</dd>
+          <dt>NODATA</dt>
+          <dd>This button lets you enter NODATA value(s), which will be ignored when filling the values table, and set in the XML file</dd>
+          <dt>Analyze</dt>
+          <dd>This button starts the layer's data analysis to find values, and fills the values table.</dd>
+          <dt>Values table</dt>
+          <dd>This table contains values for the current field. You can add a new value, delete a value or clear the table with the buttons below. You can edit values (label, codes and definitions) by double-clicking on an item.</dd>
       </dl>
-          
       </p>
-      <h2><a name="xml"></a>XML tab</h2>
       <p>
+      <strong>Note on classification : </strong> The classification done when analyzing data is done this way. For vector layers, read the nth first lines, and if a value is found with #occ occurences or more, add to in the values table. For raster layers, reading values in order makes no sense, hence nth values are read at random in the current viewport. If a value is found with #occ occurences or more, add it to the values table.
+          
       </p>
 </div>
 <div class="right">
@@ -43,9 +104,9 @@
 <ul>
 
 <li><a href="#overview">Overview</a></li>
+<li><a href="#xml">XML tab</a></li>
 <li><a href="#global">Global tab</a></li>
 <li><a href="#fields">Fields tab</a></li>
-<li><a href="#xml">XML tab</a></li>
 
 </ul>
 		
