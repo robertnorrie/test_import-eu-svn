@@ -21,7 +21,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <property name="documentMode">
       <bool>true</bool>
@@ -657,6 +657,13 @@
           <widget class="QPushButton" name="deleteValueButton">
            <property name="text">
             <string>Delete</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2">
+          <widget class="QPushButton" name="clearValuesButton">
+           <property name="text">
+            <string>Clear</string>
            </property>
           </widget>
          </item>
