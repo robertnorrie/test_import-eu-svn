@@ -516,7 +516,7 @@
                       * <xsl:value-of select="concat(SATELLITE, ' - ', IMAGE, ' (Date: ', DATE, ')')"/><xsl:text> </xsl:text><xsl:value-of select="if (normalize-space(COMMENT)!='') then COMMENT else ''"/>
                     </xsl:for-each>
                   </xsl:if>
-                  
+                  <xsl:if test="false()">
                   <xsl:if test="$ancData//FILENAME[@FILENAME=$cityId]">
                     Ancillary data used:<xsl:for-each select="$ancData//FILENAME[@FILENAME=$cityId]">
                       * <xsl:value-of select="ID"/><xsl:value-of select="if (TYPE!='' and TITLE!='') then concat(TYPE, ' - ', TITLE) else ''"/>
@@ -524,6 +524,7 @@
                       <xsl:value-of select="if (SCALE!='') then concat(' (Scale: ', SCALE, ')') else ''"/>
                         <xsl:text> </xsl:text><xsl:value-of select="if (normalize-space(COMMENT)!='') then COMMENT else ''"/>
                     </xsl:for-each>
+                  </xsl:if>
                   </xsl:if>
                   </gco:CharacterString>
               </gmd:statement>
