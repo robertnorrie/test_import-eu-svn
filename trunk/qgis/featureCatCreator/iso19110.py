@@ -235,6 +235,9 @@ class iso19110Doc:
             raise ValueError("The content of the XML document is not valid:\n\nError : %s" % (e.message))
 
     def updateWithParams(self, params):
+        # udate uuid with a new one
+        self.setFcUuid()
+
         # update the feature catalogue name, scope and version number
         self.setFcName(params["fc_name"])
         self.setFcScope(params["fc_scope"])
@@ -387,6 +390,9 @@ class iso19110Doc:
             fcName.text = unicode(newName)
         else:
             fcName.text = newName
+
+    def setFcUuid(self):
+        self.etDoc.attrib["uuid"] = str(uuid.uuid4())
 
     def cleanFcName(self):
         fcNames = self.etDoc.findall("./{%s}name" % (GFC_NS))
