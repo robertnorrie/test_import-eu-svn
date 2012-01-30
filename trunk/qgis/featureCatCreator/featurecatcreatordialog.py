@@ -113,6 +113,7 @@ class featureCatCreatorDialog(QDialog):
         # values elements
         self.connect(self.ui.newValueButton, SIGNAL('clicked()'), self.newValueRow)
         self.connect(self.ui.deleteValueButton, SIGNAL('clicked()'), self.deleteValueRow)
+        self.connect(self.ui.clearValuesButton, SIGNAL('clicked()'), self.clearValues)
 
     def loadSettings(self):
         self.ui.templateText.setText(self.settings.value("featurecatcreator/template",\
@@ -489,6 +490,10 @@ class featureCatCreatorDialog(QDialog):
         self.ui.valuesTable.setItem(rowcount, 2, QTableWidgetItem(''))
         self.saveFieldComponent()
         self.activeFieldForm(True)
+
+    def clearValues(self):
+        self.ui.valuesTable.clearContents()
+        self.ui.valuesTable.setRowCount(0)
 
     def fillFcForm(self):
         if self.isoDoc:
