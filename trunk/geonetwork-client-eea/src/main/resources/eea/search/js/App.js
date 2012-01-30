@@ -75,15 +75,6 @@ GeoNetwork.app = function () {
         });
     }
     
-    
-    function initMap() {
-        iMap = new GeoNetwork.mapApp();
-        iMap.init(GeoNetwork.map.BACKGROUND_LAYERS, GeoNetwork.map.MAIN_MAP_OPTIONS);
-        metadataResultsView.addMap(iMap.getMap());
-        visualizationModeInitialized = true;
-    }
-    
-    
     /**
      * Create a language switcher mode
      *
