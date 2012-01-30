@@ -5,6 +5,7 @@
   path: file path to load document with extra information provided by Word document
   -->
   <xsl:variable name="path" select="'/tmp/urbanatlas'"/>
+  <xsl:variable name="seriesUUID" select="'UUID_SERIES'"/>
   
   <!-- Load extra info -->
   <xsl:variable name="images" select="document(concat($path, '/doc/urban_atlas_images.xml'))"/>
@@ -24,7 +25,7 @@
             <xsl:if test="position()=1"><xsl:value-of select="replace(., '/', '-')"/></xsl:if>
           </xsl:for-each>
         </xsl:when>
-        <xsl:otherwise>2005-01-01</xsl:otherwise>
+        <xsl:otherwise>YYYY-01-01</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
 
@@ -36,10 +37,35 @@
             <xsl:if test="position()=1"><xsl:value-of select="replace(., '/', '-')"/></xsl:if>
           </xsl:for-each>
         </xsl:when>
-        <xsl:otherwise>2010-12-31</xsl:otherwise>
+        <xsl:otherwise>XXXX-12-31</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:variable name="startYear">
+      <xsl:choose>
+        <xsl:when test="$images//FILENAME[@FILENAME=$cityId]">
+          <xsl:for-each select="$images//FILENAME[@FILENAME=$cityId]/DATE">
+            <xsl:sort data-type="text" order="ascending"/>
+            <xsl:if test="position()=1"><xsl:value-of select="substring(., 1, 4)"/></xsl:if>
+          </xsl:for-each>
+        </xsl:when>
+        <xsl:otherwise>YYYY</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     
+    <xsl:variable name="endYear">
+      <xsl:choose>
+        <xsl:when test="$images//FILENAME[@FILENAME=$cityId]">
+          <xsl:for-each select="$images//FILENAME[@FILENAME=$cityId]/DATE">
+            <xsl:sort data-type="text" order="descending"/>
+            <xsl:if test="position()=1"><xsl:value-of select="substring(., 1, 4)"/></xsl:if>
+          </xsl:for-each>
+        </xsl:when>
+        <xsl:otherwise>XXXX</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    
+
     
     <gmd:MD_Metadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco"
@@ -57,7 +83,7 @@
           codeListValue="utf8"/>
       </gmd:characterSet>
       <gmd:parentIdentifier>
-        <gco:CharacterString><xsl:value-of select="/root/city/seriesuuid"/></gco:CharacterString>
+        <gco:CharacterString><xsl:value-of select="$seriesUUID"/></gco:CharacterString>
       </gmd:parentIdentifier>
       <gmd:hierarchyLevel>
         <gmd:MD_ScopeCode
@@ -161,7 +187,7 @@
               <gmd:identifier>
                 <gmd:RS_Identifier>
                   <gmd:code>
-                    <gco:CharacterString><xsl:value-of select="/root/city/id"/></gco:CharacterString>
+                    <gco:CharacterString><xsl:value-of select="substring(/root/city/id, 0, string-length(/root/city/id) - 8)"/><xsl:value-of select="concat($startYear, '-', $endYear)"/></gco:CharacterString>
                   </gmd:code>
                 </gmd:RS_Identifier>
               </gmd:identifier>
@@ -458,7 +484,7 @@
                 <gmd:onLine>
                   <gmd:CI_OnlineResource>
                     <gmd:linkage>
-                      <gmd:URL><xsl:value-of select="/root/city/docPath"/></gmd:URL>
+                      <gmd:URL><xsl:value-of select="substring(/root/city/docPath, 0, string-length(/root/city/docPath) - 8)"/><xsl:value-of select="concat($startYear, '-', $endYear)"/></gmd:URL>
                     </gmd:linkage>
                     <gmd:protocol>
                       <gco:CharacterString>EEA:FOLDERPATH</gco:CharacterString>
@@ -506,7 +532,7 @@
         </gmd:DQ_DataQuality>
       </gmd:dataQualityInfo>
     </gmd:MD_Metadata>
-
+    <xsl:message><xsl:value-of select="concat($cityId, ';', $startYear, ';', $endYear)"/></xsl:message>
   </xsl:template>
 
 </xsl:stylesheet>
