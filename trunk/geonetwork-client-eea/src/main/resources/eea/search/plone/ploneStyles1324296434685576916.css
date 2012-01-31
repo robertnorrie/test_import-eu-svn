@@ -705,7 +705,7 @@ padding: 0;
 margin: 0.5em 0;
 width: 131px;
 height: 32px;
-background: url(http://www.eea.europa.eu/input_background.gif) repeat-x scroll 0 0 White;
+background: url(input_background.gif) repeat-x scroll 0 0 White;
 border: 1px solid #ccc;
 }
 #smart-view-switch li {
@@ -1065,7 +1065,7 @@ position: relative;
 }
 /* */
 .portal-logo {
-background: url(http://www.eea.europa.eu/logo.gif) no-repeat 0 8px;
+background: url(logo.gif) no-repeat 0 8px;
 border: 0;
 margin: 0px;
 padding: 0;
@@ -1147,7 +1147,7 @@ border: 0px;
 }
 .panel-top, #tip-article-language .panel-top {
 margin: auto auto;
-background: transparent url(http://www.eea.europa.eu/panel_arrow.png);
+background: transparent url(panel_arrow.png);
 width: 50px;
 height: 25px;
 position: relative;
@@ -1157,7 +1157,7 @@ top: 2px;
 margin-top: 1em;
 }
 .panel-content, #tip-article-language .panel-content {
-background: white url(http://www.eea.europa.eu/portlet_bg.png) repeat-x;
+background: white url(portlet_bg.png) repeat-x;
 color: black;
 padding: 10px;
 border: 1px solid #BABBB8;
@@ -1435,7 +1435,7 @@ margin-top: -11px;
 min-height: 10px;
 }
 #portal-personaltools #user-name {
-background: transparent url(http://www.eea.europa.eu/user.gif) center left no-repeat;
+background: transparent url(user.gif) center left no-repeat;
 padding-left: 15px;
 }
 #portal-personaltools .portalNotLoggedIn {
