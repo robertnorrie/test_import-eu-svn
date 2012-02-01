@@ -373,12 +373,17 @@ class iso19110Doc:
             
         return params
 
+    def setFcUuid(self):
+        self.etDoc.attrib["uuid"] = str(uuid.uuid4())
+
     def getFcName(self):
         try:
-            fcName = self.etDoc.findall("./{%s}name/{%s}CharacterString" % (GFC_NS, GCO_NS))[0].text
-        except IndexError, e:
-            fcName = ""
-        return fcName
+            fcName = self.etDoc.find("./{%s}name/{%s}CharacterString" % (GFC_NS, GCO_NS)).text
+            if fcName == None:
+                fcName = ""
+            return fcName
+        except (IndexError, AttributeError), e:
+            return ""
 
     def setFcName(self, newName):
         fcNames = self.etDoc.findall("./{%s}name/{%s}CharacterString" % (GFC_NS, GCO_NS))
@@ -390,9 +395,6 @@ class iso19110Doc:
             fcName.text = unicode(newName)
         else:
             fcName.text = newName
-
-    def setFcUuid(self):
-        self.etDoc.attrib["uuid"] = str(uuid.uuid4())
 
     def cleanFcName(self):
         fcNames = self.etDoc.findall("./{%s}name" % (GFC_NS))
@@ -413,10 +415,12 @@ class iso19110Doc:
    
     def getFcScope(self):
         try:
-            fcScope = self.etDoc.findall("./{%s}scope/{%s}CharacterString" % (GFC_NS, GCO_NS))[0].text
-        except IndexError, e:
-            fcScope = ""
-        return fcScope
+            fcScope = self.etDoc.find("./{%s}scope/{%s}CharacterString" % (GFC_NS, GCO_NS)).text
+            if fcScope == None:
+                fcScope = ""
+            return fcScope
+        except (IndexError, AttributeError), e:
+            return ""
 
     def setFcScope(self, newScope):
         fcScopes = self.etDoc.findall("./{%s}scope/{%s}CharacterString" % (GFC_NS, GCO_NS))
@@ -448,10 +452,12 @@ class iso19110Doc:
 
     def getFcVersionNumber(self):
         try:
-            fcVersion = self.etDoc.findall("./{%s}versionNumber/{%s}CharacterString" % (GFC_NS, GCO_NS))[0].text
-        except IndexError, e:
-            fcVersion = ""
-        return fcVersion
+            fcVersionNumber = self.etDoc.find("./{%s}versionNumber/{%s}CharacterString" % (GFC_NS, GCO_NS)).text
+            if fcVersionNumber == None:
+                fcVersionNumber = ""
+            return fcVersionNumber
+        except (IndexError, AttributeError), e:
+            return ""
 
     def setFcVersionNumber(self, newVersionNumber):
         fcVersions = self.etDoc.findall("./{%s}versionNumber/{%s}CharacterString" % (GFC_NS, GCO_NS))
@@ -517,8 +523,13 @@ class iso19110Doc:
 
 
     def getFtName(self):
-        ftName = self.etDoc.findall("./{%s}featureType/{%s}FC_FeatureType/{%s}typeName/{%s}LocalName" % (GFC_NS, GFC_NS, GFC_NS, GCO_NS))[0].text
-        return ftName
+        try:
+            ftName = self.etDoc.find("./{%s}featureType/{%s}FC_FeatureType/{%s}typeName/{%s}LocalName" % (GFC_NS, GFC_NS, GFC_NS, GCO_NS)).text
+            if ftName == None:
+                ftName = ""
+            return ftName
+        except (IndexError, AttributeError), e:
+            return ""
 
     def setFtName(self, newName):
         ftNames = self.etDoc.findall("./{%s}featureType/{%s}FC_FeatureType/{%s}typeName/{%s}LocalName" % (GFC_NS, GFC_NS, GFC_NS, GCO_NS))
@@ -550,8 +561,13 @@ class iso19110Doc:
 
    
     def getFtDefinition(self):
-        ftDefinition = self.etDoc.findall("./{%s}featureType/{%s}FC_FeatureType/{%s}definition/{%s}CharacterString" % (GFC_NS, GFC_NS, GFC_NS, GCO_NS))[0].text
-        return ftDefinition
+        try:
+            ftDefinition = self.etDoc.find("./{%s}featureType/{%s}FC_FeatureType/{%s}definition/{%s}CharacterString" % (GFC_NS, GFC_NS, GFC_NS, GCO_NS)).text
+            if ftDefinition == None:
+                ftDefinition = ""
+            return ftDefinition
+        except (IndexError, AttributeError), e:
+            return ""
 
     def setFtDefinition(self, newDefinition):
         ftDefinitions = self.etDoc.findall("./{%s}featureType/{%s}FC_FeatureType/{%s}definition/{%s}CharacterString" % (GFC_NS, GFC_NS, GFC_NS, GCO_NS))
@@ -663,7 +679,6 @@ class iso19110Doc:
 
 
     def updateField(self, paramField):
-        
         # Does the field exist?
         # if not create a new one
         fieldName = unicode(paramField["name"])
@@ -671,7 +686,11 @@ class iso19110Doc:
 
         # Update definition
         element = fieldElement.find("./{%s}definition/{%s}CharacterString" % (GFC_NS, GCO_NS))
-        if element != None: element.text = unicode(paramField["definition"])
+        if element != None:
+            if paramField["definition"] != None:
+                element.text = unicode(paramField["definition"])
+            else:
+                element.text = ""
 
         # Update cardinality
         # default values
@@ -725,11 +744,15 @@ class iso19110Doc:
             lvlvdef = etree.SubElement(lvlv, "{%s}definition" % (GFC_NS))
             lvlvdefcs = etree.SubElement(lvlvdef, "{%s}CharacterString" % (GCO_NS))
             lvlvdefcs.text = unicode(paramListedValue["definition"])
-            fieldElement.insert(len(fieldElement.getchildren()), lv)
+            insertSubElementAfter(fieldElement, lv, ("{%s}memberName" % (GFC_NS), "{%s}definition" % (GFC_NS), "{%s}cardinality" % (GFC_NS), "{%s}valueMeasurementUnit" % (GFC_NS)))
         
         # Update value type
-        element = fieldElement.find("./{%s}FC_FeatureAttribute/{%s}valueType/{%s}TypeName/{%s}aName/{%s}CharacterString" % (GFC_NS, GFC_NS, GCO_NS, GCO_NS, GCO_NS))
-        if element!= None: element.text = unicode(paramField["type"])
+        element = fieldElement.find("./{%s}valueType/{%s}TypeName/{%s}aName/{%s}CharacterString" % (GFC_NS, GCO_NS, GCO_NS, GCO_NS))
+        if element!= None:
+            if paramField["type"] != None:
+                element.text = unicode(paramField["type"])
+            else:
+                element.text = ""
 
 
     def getFieldElement(self, fieldName, createEmptyField = False):
@@ -752,7 +775,8 @@ class iso19110Doc:
 
             # Create a new carrierOfCharacteristics element
             if not fieldElement and createEmptyField:
-                fieldElement = self.insertEmptyField(featureTypeElement, fieldName)
+                etreeCoC = self.insertEmptyField(featureTypeElement, fieldName)
+                fieldElement = etreeCoC.find("./{%s}FC_FeatureAttribute" % (GFC_NS))
             
         return fieldElement
 
