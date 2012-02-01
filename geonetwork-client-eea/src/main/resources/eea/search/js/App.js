@@ -525,7 +525,12 @@ GeoNetwork.app = function () {
         });
         
         catalogue.resultsView = metadataResultsView;
-        
+
+        metadataResultsView.layer_style.strokeColor = '#FFFFFF';
+        metadataResultsView.layer_style_hover.strokeColor = '#FFFFFF';
+        metadataResultsView.layer_style_hover.fillColor = '#222222';
+        metadataResultsView.layer_style_hover.strokeWidth = 4;
+
 //        metadataResultsView.getStore().on('load', function(store, records) {
 //            var links = Ext.query('.md-links a', metadataResultsView.el.dom.body);
 //
@@ -646,7 +651,7 @@ GeoNetwork.app = function () {
     function createHeader(){
         var info = catalogue.getInfo();
         document.title = info.name;
-        
+        Ext.get('parent-fieldname-title').dom.innerHTML = info.name;
         // http://www.eea.europa.eu/en/getHeader
         // Load EEA header inf
 //        new Ext.Panel({
@@ -692,7 +697,7 @@ GeoNetwork.app = function () {
             Ext.state.Manager.setProvider(cookie);
             
             Ext.getDom('searchLb').innerHTML = OpenLayers.i18n('search');
-            Ext.getDom('loginLb').innerHTML = OpenLayers.i18n('login');
+            Ext.getDom('loginLb').innerHTML = 'Admin login';//OpenLayers.i18n('login');
             
             // Create connexion to the catalogue
             catalogue = new GeoNetwork.Catalogue({
@@ -815,6 +820,10 @@ GeoNetwork.app = function () {
                         var title = el.getAttribute('title');
                         //var title = GeoNetwork.lang.en[titleId] && GeoNetwork.lang.en[titleId] != titleId ? GeoNetwork.lang.en[titleId] : titleId;
                         // FIXME 
+                        if (href.indexOf('cifs://') != -1) {
+                            href = href.replace(/\//g, '\\');
+                            href = href.replace(/cifs:/, '');
+                        }
                         var t = new Ext.ToolTip({
                                 id: href,   // Identify tooltip by the href which might be unique
                                 target: el,
@@ -850,11 +859,11 @@ GeoNetwork.app = function () {
         }
     };
 };
-
+document.namespaces;
 Ext.onReady(function (){
     var lang = /hl=([a-z]{2})/.exec(location.href);
     GeoNetwork.Util.setLang(lang && lang[1], '..');
-
+    GeoNetwork.lang.en['login'] = 'Admin login';
     Ext.QuickTips.init();
     setTimeout(function () {
       Ext.get('loading').remove();
