@@ -77,6 +77,7 @@
           <jswarn>${minify.verbose}</jswarn>
           <excludes>
             <exclude>**/eea/search/js/App-mini.js</exclude>
+            <exclude>**/eea/search/plone/*.js</exclude>
           </excludes>
           <aggregations>
             <aggregation>
@@ -85,7 +86,6 @@
                 <include>../../../../../../../web-client/target/classes/apps/js/GeoNetwork-mini-nomap.js</include>
                 <include>${project.build.directory}/classes/eea/search/js/Settings.js</include>
                 <include>${project.build.directory}/classes/eea/search/js/map/Settings.js</include>
-                <include>${project.build.directory}/classes/eea/search/js/map/MapApp.js</include>
                 <include>${project.build.directory}/classes/eea/search/js/Shortcuts.js</include>
                 <include>${project.build.directory}/classes/eea/search/js/Templates.js</include>
                 <include>${project.build.directory}/classes/eea/search/js/App.js</include>
