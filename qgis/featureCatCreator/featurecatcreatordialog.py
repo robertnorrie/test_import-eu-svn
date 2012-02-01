@@ -213,7 +213,6 @@ class featureCatCreatorDialog(QDialog):
         # when refresh xml button is hit, update content with internal struct
         if self.isoDoc is not None:
             try:
-                # FIXME this should already be ok since we do it entering the tab
                 self.isoDoc.updateWithParams(self.getParams())
                 self.ui.xmlEditor.setPlainText(self.isoDoc.toString())
             except ValueError, e:
@@ -240,14 +239,7 @@ class featureCatCreatorDialog(QDialog):
     def tabChanged(self, tabIndex):
         # when tab changes, we set internal values to the ones from the xml content
         # do we go out of XML tab ?
-        # FIXME : we should only do that when going out of xml tab
-        # when we go to the XML tab, we update iso doc with current data from other tabs
-        if tabIndex == 0:
-            try:
-                self.isoDoc.updateWithParams(self.getParams())
-            except ValueError, e:
-                QMessageBox.critical(self, "Error", e.message)
-        elif self.isoDoc:
+        if tabIndex != 0 and self.isoDoc:
             self.updateIsoDocFromXml()
 
     def loadFieldsFromXML(self):
@@ -257,6 +249,7 @@ class featureCatCreatorDialog(QDialog):
             params = self.isoDoc.extractParamsFromContent()
             if params['fields']:
                 self.currentFields = params['fields']
+                self.updateFieldForm()
         except IOError, e:
             QMessageBox.warning(self, "Error parsing/reading XML",\
                     "Error parsing/reading XML: %s" % e.message)
@@ -362,9 +355,17 @@ class featureCatCreatorDialog(QDialog):
             self.ui.valuesTable.setRowCount(len(values))
             # fill values in table
             for rownb, value in enumerate(values):
-                self.ui.valuesTable.setItem(rownb, 0, QTableWidgetItem(value['label']))
-                self.ui.valuesTable.setItem(rownb, 1, QTableWidgetItem(value['code']))
-                self.ui.valuesTable.setItem(rownb, 2, QTableWidgetItem(value['definition']))
+                label = value['label']
+                if label == None: label = ""
+                self.ui.valuesTable.setItem(rownb, 0, QTableWidgetItem(label))
+                
+                code = value['code']
+                if code == None: code = ""
+                self.ui.valuesTable.setItem(rownb, 1, QTableWidgetItem(code))
+                
+                definition = value['definition']
+                if definition == None: definition = ""
+                self.ui.valuesTable.setItem(rownb, 2, QTableWidgetItem(definition))
         # reactivate signals
         self.activeFieldForm(True)
 
@@ -394,12 +395,14 @@ class featureCatCreatorDialog(QDialog):
         self.updateFieldForm()
 
     def analyzeCurrentFieldValues(self):
-        # set index list only for current field
-        index_list = [self.ui.currentFieldBox.currentIndex()]
-        if self.currentLayer.type() == QgsMapLayer.VectorLayer:
-            self.analyzeVectorValues(index_list)
-        else:
-            self.analyzeRasterValues(index_list)
+        fieldIndex = self.ui.currentFieldBox.currentIndex()
+        if fieldIndex != -1:
+            # set index list only for current field
+            index_list = [fieldIndex]
+            if self.currentLayer.type() == QgsMapLayer.VectorLayer:
+                self.analyzeVectorValues(index_list)
+            else:
+                self.analyzeRasterValues(index_list)
 
     def analyzeRasterValues(self, index_list = None):
         # raster data analysis is based on random points
