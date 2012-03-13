@@ -8,8 +8,6 @@ require_once("../../incphp/globals.php");
 header("Content-Type: text/javascript; charset=$defCharset");
 
 ?>
-
-
 //<script type="text/javascript">
 
 /*************************************************************
@@ -18,6 +16,18 @@ header("Content-Type: text/javascript; charset=$defCharset");
  *                                                           *
  *************************************************************/
 
+<?php
+$PM_MAP_FILE = $_SESSION['PM_MAP_FILE'];
+$map = ms_newMapObj($PM_MAP_FILE);
+if (isset($_SESSION['DYNLAYERCAT_PROJ'])) 
+  $proj = $_SESSION['DYNLAYERCAT_PROJ'];
+else 
+  $proj = $map->getProjection();
+
+$proj = explode('=', $proj);
+echo "PM.ZoomBox.coordsDisplaySrcPrj = '" . strtoupper($proj[1]) . "';";
+
+?>
 
 /**
  * Set to true if cursor shall change according to active tool (default: true)
@@ -123,12 +133,46 @@ PM.measureObjects = {line: {color:"#FF0000", width:2}};
  * requires loading of "proj4js" plugin in config_default.xml
  */
 Proj4js.defs["EPSG:3035"]="+proj=laea +lat_0=52.00000000 +lon_0=10.0000000 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs ";
+Proj4js.defs["EPSG:32626"]="+proj=utm +zone=26 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+Proj4js.defs["EPSG:32627"]="+proj=utm +zone=27 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+Proj4js.defs["EPSG:32628"]="+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+Proj4js.defs["EPSG:32629"]="+proj=utm +zone=29 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+Proj4js.defs["EPSG:32630"]="+proj=utm +zone=30 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+Proj4js.defs["EPSG:32631"]="+proj=utm +zone=31 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+Proj4js.defs["EPSG:32632"]="+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+Proj4js.defs["EPSG:32633"]="+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+Proj4js.defs["EPSG:32634"]="+proj=utm +zone=34 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+Proj4js.defs["EPSG:32635"]="+proj=utm +zone=35 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+Proj4js.defs["EPSG:32636"]="+proj=utm +zone=36 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+Proj4js.defs["EPSG:32637"]="+proj=utm +zone=37 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+Proj4js.defs["EPSG:32638"]="+proj=utm +zone=38 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+Proj4js.defs["EEA:777100"]="+proj=laea +lat_0=52 +lon_0=20 +x_0=5071000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs";
+Proj4js.defs["EEA:777101"]="+proj=laea +lat_0=48 +lon_0=9 +x_0=0 +y_0=0 +ellps=GRS80 +units=m +no_defs";
+PM.ZoomBox.proj = {};
+PM.ZoomBox.proj["EPSG:32626"] = "UTM zone 26";
+PM.ZoomBox.proj["EPSG:32627"] = "UTM zone 27";
+PM.ZoomBox.proj["EPSG:32628"] = "UTM zone 28";
+PM.ZoomBox.proj["EPSG:32629"] = "UTM zone 29";
+PM.ZoomBox.proj["EPSG:32630"] = "UTM zone 30";
+PM.ZoomBox.proj["EPSG:32631"] = "UTM zone 31";
+PM.ZoomBox.proj["EPSG:32632"] = "UTM zone 32";
+PM.ZoomBox.proj["EPSG:32633"] = "UTM zone 33";
+PM.ZoomBox.proj["EPSG:32634"] = "UTM zone 34";
+PM.ZoomBox.proj["EPSG:32635"] = "UTM zone 35";
+PM.ZoomBox.proj["EPSG:32636"] = "UTM zone 36";
+PM.ZoomBox.proj["EPSG:32637"] = "UTM zone 37";
+PM.ZoomBox.proj["EPSG:32638"] = "UTM zone 38";
+PM.ZoomBox.proj["EEA:777100"] = "User defined LAEA";
+PM.ZoomBox.proj["EEA:777101"] = "User defined LAEA";
+PM.ZoomBox.proj["EPSG:3035"] = "ETRS-LAEA";
+PM.ZoomBox.proj["EPSG:4326"] = "LonLat WGS84";
+
+
 
 /*
 Proj4js.defs["EPSG:3035"]="+proj=laea +lat_0=52.00000000 +lon_0=10.0000000 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs ";
+
 PM.ZoomBox.coordsDisplayReproject = true;
-PM.ZoomBox.coordsDisplaySrcPrj = "EPSG:3035";
-PM.ZoomBox.coordsDisplayDstPrj = "EPSG:4326";
 PM.ZoomBox.coordsDisplayRfactor = 4;
 */
 
