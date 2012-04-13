@@ -842,8 +842,9 @@ GeoNetwork.app = function () {
                                         // quickly copy the link
                                         var input = Ext.query('input', Ext.get(href).dom);
                                         if (input && input.length===1) {
-                                            input[0].focus();
-                                            input[0].select();
+                                            if (!Ext.isIE8) {
+                                                input[0].select();
+                                            }
                                         }
                                     },
                                     scope: this
