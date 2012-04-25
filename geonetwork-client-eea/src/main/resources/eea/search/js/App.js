@@ -92,11 +92,11 @@ GeoNetwork.app = function () {
                 triggerAction: 'all',
                 width: 80,
                 store: new Ext.data.ArrayStore({
-                    idIndex: 0,
-                    fields: ['id', 'name'],
+                    idIndex: 2,
+                    fields: ['id', 'name', 'id2'],
                     data: GeoNetwork.Util.locales
                 }),
-                valueField: 'id',
+                valueField: 'id2',
                 displayField: 'name',
                 value: lang,
                 listeners: {
@@ -287,10 +287,20 @@ GeoNetwork.app = function () {
         var denominatorField = GeoNetwork.util.SearchFormTools.getScaleDenominatorField(true);
         var typeCodeList = GeoNetwork.util.SearchFormTools.getTypesField(null, true);
         
+        // Add hidden fields to be use by quick metadata links from the admin panel (eg. my metadata).
+        var ownerField = new Ext.form.TextField({
+            name: 'E__owner',
+            hidden: true
+        });
+        var isHarvestedField = new Ext.form.TextField({
+            name: 'E__isHarvested',
+            hidden: true
+        });
+        
         advancedCriteria.push(themekeyField, orgNameField, typeCodeList, //categoryField, 
                                 when, spatialTypes, denominatorField, idField,
                                 catalogueField, groupField, 
-                                metadataTypeField, validField);
+                                metadataTypeField, validField, ownerField, isHarvestedField);
         var adv = {
             xtype: 'fieldset',
             title: OpenLayers.i18n('advancedSearchOptions'),
@@ -316,14 +326,24 @@ GeoNetwork.app = function () {
                 defaults: {
                     width: 160
                 },
-                items: GeoNetwork.util.INSPIRESearchFormTools.getINSPIREFields(catalogue.services, true)
+                items: GeoNetwork.util.INSPIRESearchFormTools.getINSPIREFields(catalogue.services, true, {withAnnex: true, withRelated: true, withTheme: true})
             };
-            
-        
         var formItems = [];
-        formItems.push(GeoNetwork.util.SearchFormTools.getSimpleFormFields(catalogue.services, 
-                    GeoNetwork.map.BACKGROUND_LAYERS, GeoNetwork.map.MAP_OPTIONS, false, 
-                    GeoNetwork.searchDefault.activeMapControlExtent, undefined, {width: 290}, false), 
+        
+        var any_or_id = new GeoNetwork.form.OpenSearchSuggestionTextField({
+            hideLabel: true,
+            width: 285,
+            minChars: 2,
+            loadingText: '...',
+            hideTrigger: true,
+            url: services.opensearchSuggest,
+            name: 'E_any_OR_identifier'
+        });
+        var mapField = GeoNetwork.util.SearchFormTools.getSimpleMap(GeoNetwork.map.BACKGROUND_LAYERS, GeoNetwork.map.MAP_OPTIONS, GeoNetwork.searchDefault.activeMapControlExtent, {width: 290}, false);
+        
+        var opts = GeoNetwork.util.SearchFormTools.getOptions(catalogue.services);
+        
+        formItems.push(any_or_id, mapField, opts,
                     inspire, adv);
         // Add advanced mode criteria to simple form - end
         
@@ -346,55 +366,32 @@ GeoNetwork.app = function () {
         });
         
         
-        return new Ext.FormPanel({
+        return new GeoNetwork.SearchFormPanel({
             id: 'searchForm',
+            stateId: 's',
             renderTo: 'search-form',
             border: false,
+            searchCb: function(){
+                if (metadataResultsView && Ext.getCmp('geometryMap')) {
+                   metadataResultsView.addMap(Ext.getCmp('geometryMap').map, true);
+                }
+                var any = Ext.get('E_any_OR_identifier');
+                if (any) {
+                    if (any.getValue() === OpenLayers.i18n('fullTextSearch')) {
+                        any.setValue('');
+                    }
+                }
+                
+                catalogue.startRecord = 1; // Reset start record
+                search();
+            },
             //autoShow : true,
             padding: 5,
             //autoHeight : true,
             defaults: {
                 width : 180
             },
-            listeners: {
-                afterrender: function (){
-                }
-            },
-            items: formItems,
-            buttons: [{
-                tooltip: OpenLayers.i18n('resetSearchForm'),
-                // iconCls: 'md-mn-reset',
-                id: 'resetBt',
-                icon: '../../apps/images/default/cross.png',
-                listeners: {
-                    click: function (){
-                        Ext.getCmp('searchForm').getForm().reset();
-                    }
-                }
-            }, {
-                text: OpenLayers.i18n('search'),
-                id: 'searchBt',
-                icon: '../../apps/js/GeoNetwork/resources/images/default/find.png',
-                // FIXME : iconCls : 'md-mn-find',
-                iconAlign: 'right',
-                listeners: {
-                    click: function (){
-                    
-                        if (Ext.getCmp('geometryMap')) {
-                           metadataResultsView.addMap(Ext.getCmp('geometryMap').map, true);
-                        }
-                        var any = Ext.get('E_any');
-                        if (any) {
-                            if (any.getValue() === OpenLayers.i18n('fullTextSearch')) {
-                                any.setValue('');
-                            }
-                        }
-                        
-                        catalogue.startRecord = 1; // Reset start record
-                        search();
-                    }
-                }
-            }]
+            items: formItems
         });
     }
     function loadCallback(el, success, response, options){
@@ -509,7 +506,7 @@ GeoNetwork.app = function () {
      *
      * @return
      */
-    function createResultsPanel(){
+    function createResultsPanel(permalinkProvider){
         metadataResultsView = new GeoNetwork.MetadataResultsView({
             catalogue: catalogue,
             autoScroll: true,
@@ -521,31 +518,20 @@ GeoNetwork.app = function () {
                 SIMPLE: EEA.Templates.SIMPLE,
                 THUMBNAIL: EEA.Templates.THUMBNAIL,
                 FULL: EEA.Templates.FULL
-            }
+            },
+            featurecolor: GeoNetwork.Settings.results.featurecolor,
+            colormap: GeoNetwork.Settings.results.colormap,
+            featurecolorCSS: GeoNetwork.Settings.results.featurecolorCSS
         });
         
         catalogue.resultsView = metadataResultsView;
-
-        metadataResultsView.layer_style.strokeColor = '#FFFFFF';
-        metadataResultsView.layer_style_hover.strokeColor = '#FFFFFF';
-        metadataResultsView.layer_style_hover.fillColor = '#222222';
-        metadataResultsView.layer_style_hover.strokeWidth = 4;
-
-//        metadataResultsView.getStore().on('load', function(store, records) {
-//            var links = Ext.query('.md-links a', metadataResultsView.el.dom.body);
-//
-//            Ext.each(links, function(a) {
-//                Ext.get(a).hover(function () {
-//                    //console.log(this.getAttribute('href'));
-//                });
-//            });
-//        });
         
         tBar = new GeoNetwork.MetadataResultsToolbar({
             catalogue: catalogue,
             searchBtCmp: Ext.getCmp('searchBt'),
             sortByCmp: Ext.getCmp('E_sortBy'),
-            metadataResultsView: metadataResultsView
+            metadataResultsView: metadataResultsView,
+            permalinkProvider: permalinkProvider
         });
         
         bBar = createBBar();
@@ -599,6 +585,25 @@ GeoNetwork.app = function () {
             baseCls: 'md-view',
             items: tagCloudView
         });
+    }
+
+    function show(uuid, record, url, maximized, width, height){
+        var win = new GeoNetwork.view.ViewWindow({
+            serviceUrl: url,
+            lang: this.lang,
+            currTab: GeoNetwork.defaultViewMode || 'simple',
+            printDefaultForTabs: GeoNetwork.printDefaultForTabs || false,
+            catalogue: catalogue,
+            maximized: maximized || false,
+            metadataUuid: uuid,
+            record: record,
+            resultsView: catalogue.resultsView
+            });
+        
+        win.getPanel().on('aftermetadataload', app.registerTooltipLinks, this)
+        
+        win.show(this.resultsView);
+        win.alignTo(Ext.getBody(), 'tr-tr');
     }
     
     function edit(metadataId, create, group, child){
@@ -681,6 +686,70 @@ GeoNetwork.app = function () {
     
     // public space:
     return {
+        registerTooltipLinks: function () {
+            // Register tooltips for each hyperlink
+            // to easy copy/paste the links. The tooltip
+            // is composed of an hyperlink to trigger open in new
+            // window and an input text to easily copy/paste the link.
+            var links = Ext.query('a.with-tooltip', this.dom);
+            Ext.each(links, function(item) {
+                var el = Ext.get(item);
+                var href = el.getAttribute('href')
+                
+                // Register hover tooltip and remove browser tooltip triggered by title
+                var f = function(){
+                    if (!Ext.get(href)) {
+                        var title = el.getAttribute('title');
+                        //var title = GeoNetwork.lang.en[titleId] && GeoNetwork.lang.en[titleId] != titleId ? GeoNetwork.lang.en[titleId] : titleId;
+                        // FIXME 
+                        var id = href;
+                        if (href.indexOf('cifs://') != -1) {
+                            href = href.replace(/\//g, '\\');
+                            href = href.replace(/cifs:/, '');
+                        }
+                        var t = new Ext.ToolTip({
+                                id: id,   // Identify tooltip by the href which might be unique
+                                target: el,
+                                title: title,
+                                anchor: 'top',
+                                closable: true,
+                                //autoHide: false,
+                                dismissDelay: 3000,
+                                hideDelay: 4000,
+                                html: '<span><a target="_blank" href="' + href + '">Open in new window</a> or copy link below<br/>' +
+                                    '<input type="text" value="' + href + '" size="32"/></span>',
+                                listeners: {
+                                    show: function() {
+                                        // When tooltip is displayed
+                                        // select the text and focus in order to
+                                        // quickly copy the link
+                                        var input = Ext.query('input', Ext.get(href).dom);
+                                        if (input && input.length===1) {
+                                            if (!Ext.isIE8) {
+                                                input[0].select();
+                                            }
+                                        }
+                                    },
+                                    // Short life popup to avoid duplicated popups
+                                    // between search results and different view modes
+                                    hide: function() {
+                                        Ext.getCmp(this) && Ext.getCmp(this).destroy();
+                                    },
+                                    scope: this
+                                }
+                            });
+                        if (!t.isVisible()){
+                            //item.setAttribute('title', '');
+                            t.setVisible(true);
+                        }
+                    } else {
+                        //Ext.getCmp(href) && Ext.getCmp(href).destroy()
+                    }
+                };
+                el.on('mouseover', f, this);
+            
+            });
+        },
         init: function (){
             geonetworkUrl = GeoNetwork.URL || window.location.href.match(/(http.*\/.*)\/eea\/search.*/, '')[1];
 
@@ -711,14 +780,22 @@ GeoNetwork.app = function () {
                 metadataCSWStore : GeoNetwork.data.MetadataCSWResultsStore(),
                 summaryStore: GeoNetwork.data.MetadataSummaryStore(),
                 editMode: 2, // TODO : create constant
-                metadataEditFn: edit
+                metadataEditFn: edit,
+                metadataShowFn: show
             });
+            
+            // set a permalink provider
+            var permalinkProvider = new GeoExt.state.PermalinkProvider({encodeType: false});
+            Ext.state.Manager.setProvider(permalinkProvider);
             
             createHeader();
             
             // Override xml search service value
             catalogue.setServiceUrl('xmlSearch', GeoNetwork.Settings.searchService);
-
+            
+            // Search result
+            resultsPanel = createResultsPanel(permalinkProvider);
+            
             // Search form
             searchForm = createSearchForm();
             
@@ -728,19 +805,10 @@ GeoNetwork.app = function () {
             createTagCloud();
             edit();
             
-            // Search result
-            resultsPanel = createResultsPanel();
 
             createHelpPanel();
             infoPanel = createInfoPanel();
             
-            /* Init form field URL according to URL parameters */
-            GeoNetwork.util.SearchTools.populateFormFromParams(searchForm, urlParameters);
-
-            /* Trigger search if search is in URL parameters */
-            if (urlParameters.search !== undefined) {
-                Ext.getCmp('searchBt').fireEvent('click');
-            }
             if (urlParameters.edit !== undefined && urlParameters.edit !== '') {
                 catalogue.metadataEdit(urlParameters.edit);
             }
@@ -754,8 +822,8 @@ GeoNetwork.app = function () {
             }
             
             // FIXME : should be in Search field configuration
-            Ext.get('E_any').setWidth(285);
-            Ext.get('E_any').setHeight(28);
+            Ext.get('E_any_OR_identifier').setWidth(285);
+           Ext.get('E_any_OR_identifier').setHeight(28);
             if (GeoNetwork.searchDefault.activeMapControlExtent) {
                 Ext.getCmp('geometryMap').setExtent();
             }
@@ -769,10 +837,17 @@ GeoNetwork.app = function () {
             Ext.each(events, function (e) {
                 catalogue.on(e, function (){
                     if (searching === true) {
-                        Ext.getCmp('searchBt').fireEvent('click');
+                        searchForm.fireEvent('search');
                     }
                 });
             });
+            
+            // Hack to run search after all app is rendered within a sec ...
+            // It could have been better to trigger event in SearchFormPanel#applyState
+            // FIXME
+            if (urlParameters.s_search !== undefined) {
+                setTimeout(function(){searchForm.fireEvent('search');}, 500);
+            }
         },
         getCatalogue: function (){
             return catalogue;
@@ -803,66 +878,13 @@ GeoNetwork.app = function () {
             //resultPanel.setHeight(Ext.getCmp('center').getHeight());
             Ext.ux.Lightbox.register('a[rel^=lightbox]');
             
-            
-            // Register tooltips for each hyperlink
-            // to easy copy/paste the links. The tooltip
-            // is composed of an hyperlink to trigger open in new
-            // window and an input text to easily copy/paste the link.
-            var links = Ext.query('div.md-links > a.with-tooltip', Ext.get('resultsPanel').dom);// TODO restrict to results panel only, resultPanel.dom.body);
-            Ext.each(links, function(item) {
-                var el = Ext.get(item);
-                var href = el.getAttribute('href')
-                
-                // Register hover tooltip and remove browser tooltip triggered by title
-                var f = function(){
-                    if (!Ext.get(href)) {
-                        
-                        var title = el.getAttribute('title');
-                        //var title = GeoNetwork.lang.en[titleId] && GeoNetwork.lang.en[titleId] != titleId ? GeoNetwork.lang.en[titleId] : titleId;
-                        // FIXME 
-                        if (href.indexOf('cifs://') != -1) {
-                            href = href.replace(/\//g, '\\');
-                            href = href.replace(/cifs:/, '');
-                        }
-                        var t = new Ext.ToolTip({
-                                id: href,   // Identify tooltip by the href which might be unique
-                                target: el,
-                                title: title,
-                                anchor: 'top',
-                                closable: true,
-                                //autoHide: false,
-                                dismissDelay: 3000,
-                                hideDelay: 4000,
-                                html: '<span><a target="_blank" href="' + href + '">Open in new window</a> or copy link below<br/>' +
-                                    '<input type="text" value="' + href + '" size="32"/></span>',
-                                listeners: {
-                                    show: function() {
-                                        // When tooltip is displayed
-                                        // select the text and focus in order to
-                                        // quickly copy the link
-                                        var input = Ext.query('input', Ext.get(href).dom);
-                                        if (input && input.length===1) {
-                                            if (!Ext.isIE8) {
-                                                input[0].select();
-                                            }
-                                        }
-                                    },
-                                    scope: this
-                                }
-                            });
-                        item.setAttribute('title', '');
-                        t.setVisible(true);
-                    }
-                };
-                el.on('mouseover', f, this);
-            
-            });
+            app.registerTooltipLinks.call(Ext.get('resultsPanel'));
         }
     };
 };
 document.namespaces;
 Ext.onReady(function (){
-    var lang = /hl=([a-z]{2})/.exec(location.href);
+    var lang = /hl=([a-z]{3})/.exec(location.href);
     GeoNetwork.Util.setLang(lang && lang[1], '..');
     GeoNetwork.lang.en['login'] = 'Admin login';
     Ext.QuickTips.init();
@@ -876,6 +898,6 @@ Ext.onReady(function (){
     catalogue = app.getCatalogue();
     
     /* Focus on full text search field */
-    Ext.getDom('E_any').focus(true);
+    Ext.getDom('E_any_OR_identifier').focus(true);
     
 });

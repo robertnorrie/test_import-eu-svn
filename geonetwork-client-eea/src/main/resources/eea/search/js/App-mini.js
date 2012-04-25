@@ -43,9 +43,7 @@ this.store.insert(index,rec);
 this.setValue(rec.data.id);
 this.fireEvent("select",this,rec,index)
 }});
-Ext.reg("twintriggercombo",Ext.ux.form.TwinTriggerComboBox);/*
- * Ext Core Library $version&#xD;&#xA;http://extjs.com/&#xD;&#xA;Copyright(c) 2006-2009, $author.&#xD;&#xA;&#xD;&#xA;The MIT License&#xD;&#xA;&#xD;&#xA;Permission is hereby granted, free of charge, to any person obtaining a copy&#xD;&#xA;of this software and associated documentation files (the &quot;Software&quot;), to deal&#xD;&#xA;in the Software without restriction, including without limitation the rights&#xD;&#xA;to use, copy, modify, merge, publish, distribute, sublicense, and/or sell&#xD;&#xA;copies of the Software, and to permit persons to whom the Software is&#xD;&#xA;furnished to do so, subject to the following conditions:&#xD;&#xA;&#xD;&#xA;The above copyright notice and this permission notice shall be included in&#xD;&#xA;all copies or substantial portions of the Software.&#xD;&#xA;&#xD;&#xA;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR&#xD;&#xA;IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,&#xD;&#xA;FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE&#xD;&#xA;AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER&#xD;&#xA;LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,&#xD;&#xA;OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN&#xD;&#xA;THE SOFTWARE.&#xD;&#xA;
- */
+Ext.reg("twintriggercombo",Ext.ux.form.TwinTriggerComboBox);
 Ext.ns("Ext.ux");
 Ext.ux.RatingItem=Ext.extend(Ext.Component,{starWidth:16,resetValue:"",defaultConfig:{defaultSelected:-1,nbStars:5,split:1,selected:-1,showTitles:true,cls:"",disabled:false},constructor:function(element,config){Ext.apply(this,config);
 Ext.applyIf(this,this.defaultConfig);
@@ -133,7 +131,8 @@ this.container.remove();
 this.radioBoxes.appendTo(this.el);
 if(this.selected!==-1){this.radioBoxes.elements[this.selected].checked=true
 }}});
-Ext.reg("ratingitem",Ext.ux.RatingItem);Ext.form.FileUploadField=Ext.extend(Ext.form.TextField,{buttonText:"Browse...",buttonOnly:false,buttonOffset:3,readOnly:true,autoSize:Ext.emptyFn,initComponent:function(){Ext.form.FileUploadField.superclass.initComponent.call(this);
+Ext.reg("ratingitem",Ext.ux.RatingItem);
+Ext.form.FileUploadField=Ext.extend(Ext.form.TextField,{buttonText:"Browse...",buttonOnly:false,buttonOffset:3,readOnly:true,autoSize:Ext.emptyFn,initComponent:function(){Ext.form.FileUploadField.superclass.initComponent.call(this);
 this.addEvents("fileselected")
 },onRender:function(ct,position){Ext.form.FileUploadField.superclass.onRender.call(this,ct,position);
 this.wrap=this.el.wrap({cls:"x-form-field-wrap x-form-file-wrap"});
@@ -157,7 +156,8 @@ this.el.setWidth(w)
 },getPositionEl:function(){return this.wrap
 },alignErrorIcon:function(){this.errorIcon.alignTo(this.wrap,"tl-tr",[2,0])
 }});
-Ext.reg("fileuploadfield",Ext.form.FileUploadField);Ext.ns("Ext.ux.form");
+Ext.reg("fileuploadfield",Ext.form.FileUploadField);
+Ext.ns("Ext.ux.form");
 Ext.ux.form.DateTime=Ext.extend(Ext.form.Field,{defaultAutoCreate:{tag:"input",type:"hidden"},timeWidth:100,dtSeparator:" ",hiddenFormat:"Y-m-d H:i:s",otherToNow:true,timePosition:"right",dateFormat:"m/d/y",timeFormat:"g:i A",initComponent:function(){Ext.ux.form.DateTime.superclass.initComponent.call(this);
 var dateConfig=Ext.apply({},{id:this.id+"-date",format:this.dateFormat||Ext.form.DateField.prototype.format,width:this.timeWidth,selectOnFocus:this.selectOnFocus,listeners:{blur:{scope:this,fn:this.onBlur},focus:{scope:this,fn:this.onFocus}}},this.dateConfig);
 this.df=new Ext.form.DateField(dateConfig);
@@ -312,12 +312,7 @@ return retval
 };
 return renderer
 }});
-Ext.reg("xdatetime",Ext.ux.form.DateTime);/*
- * Ext JS Library 3.3.0
- * Copyright(c) 2006-2010 Ext JS, Inc.
- * licensing@extjs.com
- * http://www.extjs.com/license
- */
+Ext.reg("xdatetime",Ext.ux.form.DateTime);
 Ext.ns("Ext.ux.grid");
 Ext.ux.grid.RowExpander=Ext.extend(Ext.util.Observable,{expandOnEnter:true,expandOnDblClick:true,header:"",width:20,sortable:false,fixed:true,hideable:false,menuDisabled:true,dataIndex:"",id:"expander",lazyRender:true,enableCaching:true,constructor:function(config){Ext.apply(this,config);
 this.addEvents({beforeexpand:true,expand:true,beforecollapse:true,collapse:true});
@@ -383,7 +378,8 @@ Ext.fly(row).replaceClass("x-grid3-row-expanded","x-grid3-row-collapsed");
 this.fireEvent("collapse",this,record,body,row.rowIndex)
 }}});
 Ext.preg("rowexpander",Ext.ux.grid.RowExpander);
-Ext.grid.RowExpander=Ext.ux.grid.RowExpander;Array.prototype.contains=function(element){return this.indexOf(element)!==-1
+Ext.grid.RowExpander=Ext.ux.grid.RowExpander;
+Array.prototype.contains=function(element){return this.indexOf(element)!==-1
 };
 Ext.namespace("Ext.ux");
 Ext.ux.DDView=function(config){if(!config.itemSelector){var tpl=config.tpl;
@@ -569,7 +565,8 @@ this.select(item,this.multiSelect&&e.ctrlKey);
 this.lastSelection=item
 }}e.preventDefault()
 }return true
-}});Ext.ux.Multiselect=Ext.extend(Ext.form.Field,{store:null,dataFields:[],data:[],width:100,height:100,displayField:0,valueField:1,allowBlank:true,minLength:0,maxLength:Number.MAX_VALUE,blankText:Ext.form.TextField.prototype.blankText,minLengthText:"Minimum {0} item(s) required",maxLengthText:"Maximum {0} item(s) allowed",copy:false,allowDup:false,allowTrash:false,legend:null,focusClass:undefined,delimiter:",",view:null,dragGroup:null,dropGroup:null,tbar:null,appendOnly:false,sortField:null,sortDir:"ASC",defaultAutoCreate:{tag:"div"},tpl:null,initComponent:function(){Ext.ux.Multiselect.superclass.initComponent.call(this);
+}});
+Ext.ux.Multiselect=Ext.extend(Ext.form.Field,{store:null,dataFields:[],data:[],width:100,height:100,displayField:0,valueField:1,allowBlank:true,minLength:0,maxLength:Number.MAX_VALUE,blankText:Ext.form.TextField.prototype.blankText,minLengthText:"Minimum {0} item(s) required",maxLengthText:"Maximum {0} item(s) allowed",copy:false,allowDup:false,allowTrash:false,legend:null,focusClass:undefined,delimiter:",",view:null,dragGroup:null,dropGroup:null,tbar:null,appendOnly:false,sortField:null,sortDir:"ASC",defaultAutoCreate:{tag:"div"},tpl:null,initComponent:function(){Ext.ux.Multiselect.superclass.initComponent.call(this);
 this.addEvents({dblclick:true,click:true,change:true,drop:true})
 },onRender:function(ct,position){var fs,cls,tpl;
 Ext.ux.Multiselect.superclass.onRender.call(this,ct,position);
@@ -818,9 +815,7 @@ if(!this.fromAllowDup){this.fromMultiselect.store.add(range);
 this.fromMultiselect.store.sort(this.displayField,"ASC")
 }this.valueChanged(this.toMultiselect.store)
 }});
-Ext.reg("itemselector",Ext.ux.ItemSelector);/*
- * Ext Core Library $version&#xD;&#xA;http://extjs.com/&#xD;&#xA;Copyright(c) 2006-2009, $author.&#xD;&#xA;&#xD;&#xA;The MIT License&#xD;&#xA;&#xD;&#xA;Permission is hereby granted, free of charge, to any person obtaining a copy&#xD;&#xA;of this software and associated documentation files (the &quot;Software&quot;), to deal&#xD;&#xA;in the Software without restriction, including without limitation the rights&#xD;&#xA;to use, copy, modify, merge, publish, distribute, sublicense, and/or sell&#xD;&#xA;copies of the Software, and to permit persons to whom the Software is&#xD;&#xA;furnished to do so, subject to the following conditions:&#xD;&#xA;&#xD;&#xA;The above copyright notice and this permission notice shall be included in&#xD;&#xA;all copies or substantial portions of the Software.&#xD;&#xA;&#xD;&#xA;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR&#xD;&#xA;IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,&#xD;&#xA;FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE&#xD;&#xA;AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER&#xD;&#xA;LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,&#xD;&#xA;OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN&#xD;&#xA;THE SOFTWARE.&#xD;&#xA;
- */
+Ext.reg("itemselector",Ext.ux.ItemSelector);
 Ext.ns("Ext.ux");
 Ext.ux.Lightbox=(function(){var els={},images=[],activeImage,initialized=false,selectors=[];
 return{overlayOpacity:0.85,animate:true,resizeSpeed:8,borderSize:10,labelImage:"Image",labelOf:"of",init:function(){this.resizeDuration=this.animate?((11-this.resizeSpeed)*0.15):0;
@@ -879,8 +874,8 @@ els.lightbox.setStyle({top:lightboxTop+"px",left:lightboxLeft+"px"}).show();
 this.setImage(index);
 this.fireEvent("open",images[index])
 },scope:this})
-},setViewSize:function(){var viewSize=this.getViewSize();
-els.overlay.setStyle({width:viewSize[0]+"px",height:viewSize[1]+"px"});
+},setViewSize:function(){var viewSize=this.getViewSize(),documentSize=this.getDocumentSize();
+els.overlay.setStyle({width:documentSize[0]+"px",height:documentSize[1]+"px"});
 els.shim.setStyle({width:viewSize[0]+"px",height:viewSize[1]+"px"}).show()
 },setImage:function(index){activeImage=index;
 this.disableKeyNav();
@@ -920,8 +915,8 @@ els.caption.update(images[activeImage][1]);
 els.caption.show();
 if(images.length>1){els.imageNumber.update(this.labelImage+" "+(activeImage+1)+" "+this.labelOf+"  "+images.length);
 els.imageNumber.show()
-}els.dataContainer.fadeIn({duration:this.resizeDuration/2,scope:this,callback:function(){var viewSize=this.getViewSize();
-els.overlay.setHeight(viewSize[1]+"px");
+}els.dataContainer.fadeIn({duration:this.resizeDuration/2,scope:this,callback:function(){var documentSize=this.getDocumentSize();
+els.overlay.setHeight(documentSize[1]+"px");
 this.updateNav()
 }})
 },updateNav:function(){this.enableKeyNav();
@@ -945,9 +940,11 @@ els.overlay.fadeOut({duration:this.overlayDuration});
 els.shim.hide();
 this.fireEvent("close",activeImage)
 },getViewSize:function(){return[Ext.lib.Dom.getViewWidth(),Ext.lib.Dom.getViewHeight()]
+},getDocumentSize:function(){return[Ext.lib.Dom.getDocumentWidth(),Ext.lib.Dom.getDocumentHeight()]
 }}
 })();
-Ext.onReady(Ext.ux.Lightbox.init,Ext.ux.Lightbox);Ext.namespace("Ext.ux.form");
+Ext.onReady(Ext.ux.Lightbox.init,Ext.ux.Lightbox);
+Ext.namespace("Ext.ux.form");
 Ext.ux.form.SuperBoxSelect=function(config){Ext.ux.form.SuperBoxSelect.superclass.constructor.call(this,config);
 this.addEvents("beforeadditem","additem","newitem","beforeremoveitem","removeitem","clear")
 };
@@ -1387,21 +1384,24 @@ return ret
 this.originalValue=this.getValue()
 }else{Ext.ux.form.SuperBoxSelect.superclass.initValue.call(this)
 }if(this.mode==="remote"){this.setOriginal=true
-}},addValue:function(value){if(Ext.isEmpty(value)){return
+}},addValue:function(value,forceCreate){if(Ext.isEmpty(value)){return
 }var values=value;
 if(!Ext.isArray(value)){value=""+value;
 values=value.split(this.valueDelimiter)
 }Ext.each(values,function(val){var record=this.findRecord(this.valueField,val);
 if(record){this.addRecord(record)
-}else{if(this.mode==="remote"){this.remoteLookup.push(val)
-}}},this);
-if(this.mode==="remote"){var q=this.remoteLookup.join(this.queryValuesDelimiter);
-this.doQuery(q,false,true)
-}},setValue:function(value){if(!this.rendered){this.value=value;
+}else{if(forceCreate){var data={id:val};
+data[this.displayField]=val;
+record=new Ext.data.Record(data,val);
+this.store.add([record]);
+this.addRecord(record)
+}else{if(this.mode==="remote"){this.doQuery(val,true,true,false)
+}}}},this)
+},setValue:function(value,forceCreate){if(!this.rendered){this.value=value;
 return
 }this.removeAllItems().resetStore();
 this.remoteLookup=[];
-this.addValue(value)
+this.addValue(value,forceCreate)
 },setValueEx:function(data){if(!this.rendered){this.value=data;
 return
 }this.removeAllItems().resetStore();
@@ -1449,7 +1449,7 @@ return this
 if(!m||this.store.getCount()){return true
 }else{return(m[0]!==this.lastQuery)
 }}return true
-},doQuery:function(q,forceAll,valuesQuery,forcedAdd){q=Ext.isEmpty(q)?"":q;
+},doQuery:function(q,forceAll,valuesQuery,forcedAdd,sync){q=Ext.isEmpty(q)?"":q;
 if(this.queryFilterRe){this.filteredQueryData="";
 var m=q.match(this.queryFilterRe);
 if(m&&m.length){this.filteredQueryData=m[0]
@@ -1582,7 +1582,8 @@ Ext.ux.form.SuperBoxSelectItem.superclass.onDisable.call(this)
 Ext.ux.form.SuperBoxSelectItem.superclass.onEnable.call(this)
 },onDestroy:function(){Ext.destroy(this.lnk,this.el);
 Ext.ux.form.SuperBoxSelectItem.superclass.onDestroy.call(this)
-}});Proj4js={defaultDatum:"WGS84",transform:function(source,dest,point){if(!source.readyToUse||!dest.readyToUse){this.reportError("Proj4js initialization for "+source.srsCode+" not yet complete");
+}});
+Proj4js={defaultDatum:"WGS84",transform:function(source,dest,point){if(!source.readyToUse||!dest.readyToUse){this.reportError("Proj4js initialization for "+source.srsCode+" not yet complete");
 return point
 }if((source.srsProjNumber=="900913"&&dest.datumCode!="WGS84")||(dest.srsProjNumber=="900913"&&source.datumCode!="WGS84")){var wgs84=Proj4js.WGS84;
 this.transform(source,wgs84,point);
@@ -3412,7 +3413,9 @@ if(Math.abs(arg)>1){arg=1
 p.x=lon;
 p.y=lat;
 return p
-}};var OpenLayers={singleFile:true};(function(){var singleFile=(typeof OpenLayers=="object"&&OpenLayers.singleFile);
+}};
+var OpenLayers={singleFile:true};
+(function(){var singleFile=(typeof OpenLayers=="object"&&OpenLayers.singleFile);
 var scriptLocation;
 window.OpenLayers={_scriptName:(!singleFile)?"lib/OpenLayers.js":"OpenLayers.js",_getScriptLocation:function(){if(scriptLocation!=undefined){return scriptLocation
 }scriptLocation="";
@@ -3427,20 +3430,15 @@ break
 }}}return scriptLocation
 }};
 if(!singleFile){var jsfiles=new Array("OpenLayers/Util.js","OpenLayers/BaseTypes.js","OpenLayers/BaseTypes/Class.js","OpenLayers/BaseTypes/Bounds.js","OpenLayers/BaseTypes/Element.js","OpenLayers/BaseTypes/LonLat.js","OpenLayers/BaseTypes/Pixel.js","OpenLayers/BaseTypes/Size.js","OpenLayers/Console.js","OpenLayers/Tween.js","Rico/Corner.js","Rico/Color.js","OpenLayers/Ajax.js","OpenLayers/Events.js","OpenLayers/Request.js","OpenLayers/Request/XMLHttpRequest.js","OpenLayers/Projection.js","OpenLayers/Map.js","OpenLayers/Layer.js","OpenLayers/Icon.js","OpenLayers/Marker.js","OpenLayers/Marker/Box.js","OpenLayers/Popup.js","OpenLayers/Tile.js","OpenLayers/Tile/Image.js","OpenLayers/Tile/Image/IFrame.js","OpenLayers/Tile/WFS.js","OpenLayers/Layer/Image.js","OpenLayers/Layer/SphericalMercator.js","OpenLayers/Layer/EventPane.js","OpenLayers/Layer/FixedZoomLevels.js","OpenLayers/Layer/Google.js","OpenLayers/Layer/Google/v3.js","OpenLayers/Layer/VirtualEarth.js","OpenLayers/Layer/Yahoo.js","OpenLayers/Layer/HTTPRequest.js","OpenLayers/Layer/Grid.js","OpenLayers/Layer/MapGuide.js","OpenLayers/Layer/MapServer.js","OpenLayers/Layer/MapServer/Untiled.js","OpenLayers/Layer/KaMap.js","OpenLayers/Layer/KaMapCache.js","OpenLayers/Layer/MultiMap.js","OpenLayers/Layer/Markers.js","OpenLayers/Layer/Text.js","OpenLayers/Layer/WorldWind.js","OpenLayers/Layer/ArcGIS93Rest.js","OpenLayers/Layer/WMS.js","OpenLayers/Layer/WMS/Untiled.js","OpenLayers/Layer/WMS/Post.js","OpenLayers/Layer/WMTS.js","OpenLayers/Layer/ArcIMS.js","OpenLayers/Layer/GeoRSS.js","OpenLayers/Layer/Boxes.js","OpenLayers/Layer/XYZ.js","OpenLayers/Layer/TMS.js","OpenLayers/Layer/TileCache.js","OpenLayers/Layer/Zoomify.js","OpenLayers/Popup/Anchored.js","OpenLayers/Popup/AnchoredBubble.js","OpenLayers/Popup/Framed.js","OpenLayers/Popup/FramedCloud.js","OpenLayers/Feature.js","OpenLayers/Feature/Vector.js","OpenLayers/Feature/WFS.js","OpenLayers/Handler.js","OpenLayers/Handler/Click.js","OpenLayers/Handler/Hover.js","OpenLayers/Handler/Point.js","OpenLayers/Handler/Path.js","OpenLayers/Handler/Polygon.js","OpenLayers/Handler/Feature.js","OpenLayers/Handler/Drag.js","OpenLayers/Handler/RegularPolygon.js","OpenLayers/Handler/Box.js","OpenLayers/Handler/MouseWheel.js","OpenLayers/Handler/Keyboard.js","OpenLayers/Control.js","OpenLayers/Control/Attribution.js","OpenLayers/Control/Button.js","OpenLayers/Control/ZoomBox.js","OpenLayers/Control/ZoomToMaxExtent.js","OpenLayers/Control/DragPan.js","OpenLayers/Control/Navigation.js","OpenLayers/Control/MouseDefaults.js","OpenLayers/Control/MousePosition.js","OpenLayers/Control/OverviewMap.js","OpenLayers/Control/KeyboardDefaults.js","OpenLayers/Control/PanZoom.js","OpenLayers/Control/PanZoomBar.js","OpenLayers/Control/ArgParser.js","OpenLayers/Control/Permalink.js","OpenLayers/Control/Scale.js","OpenLayers/Control/ScaleLine.js","OpenLayers/Control/Snapping.js","OpenLayers/Control/Split.js","OpenLayers/Control/LayerSwitcher.js","OpenLayers/Control/DrawFeature.js","OpenLayers/Control/DragFeature.js","OpenLayers/Control/ModifyFeature.js","OpenLayers/Control/Panel.js","OpenLayers/Control/SelectFeature.js","OpenLayers/Control/NavigationHistory.js","OpenLayers/Control/Measure.js","OpenLayers/Control/WMSGetFeatureInfo.js","OpenLayers/Control/WMTSGetFeatureInfo.js","OpenLayers/Control/Graticule.js","OpenLayers/Control/TransformFeature.js","OpenLayers/Control/SLDSelect.js","OpenLayers/Geometry.js","OpenLayers/Geometry/Rectangle.js","OpenLayers/Geometry/Collection.js","OpenLayers/Geometry/Point.js","OpenLayers/Geometry/MultiPoint.js","OpenLayers/Geometry/Curve.js","OpenLayers/Geometry/LineString.js","OpenLayers/Geometry/LinearRing.js","OpenLayers/Geometry/Polygon.js","OpenLayers/Geometry/MultiLineString.js","OpenLayers/Geometry/MultiPolygon.js","OpenLayers/Geometry/Surface.js","OpenLayers/Renderer.js","OpenLayers/Renderer/Elements.js","OpenLayers/Renderer/SVG.js","OpenLayers/Renderer/Canvas.js","OpenLayers/Renderer/VML.js","OpenLayers/Layer/Vector.js","OpenLayers/Layer/Vector/RootContainer.js","OpenLayers/Strategy.js","OpenLayers/Strategy/Filter.js","OpenLayers/Strategy/Fixed.js","OpenLayers/Strategy/Cluster.js","OpenLayers/Strategy/Paging.js","OpenLayers/Strategy/BBOX.js","OpenLayers/Strategy/Save.js","OpenLayers/Strategy/Refresh.js","OpenLayers/Filter.js","OpenLayers/Filter/FeatureId.js","OpenLayers/Filter/Logical.js","OpenLayers/Filter/Comparison.js","OpenLayers/Filter/Spatial.js","OpenLayers/Protocol.js","OpenLayers/Protocol/HTTP.js","OpenLayers/Protocol/SQL.js","OpenLayers/Protocol/SQL/Gears.js","OpenLayers/Protocol/WFS.js","OpenLayers/Protocol/WFS/v1.js","OpenLayers/Protocol/WFS/v1_0_0.js","OpenLayers/Protocol/WFS/v1_1_0.js","OpenLayers/Protocol/SOS.js","OpenLayers/Protocol/SOS/v1_0_0.js","OpenLayers/Layer/PointTrack.js","OpenLayers/Layer/GML.js","OpenLayers/Style.js","OpenLayers/Style2.js","OpenLayers/StyleMap.js","OpenLayers/Rule.js","OpenLayers/Format.js","OpenLayers/Format/XML.js","OpenLayers/Format/Context.js","OpenLayers/Format/ArcXML.js","OpenLayers/Format/ArcXML/Features.js","OpenLayers/Format/GML.js","OpenLayers/Format/GML/Base.js","OpenLayers/Format/GML/v2.js","OpenLayers/Format/GML/v3.js","OpenLayers/Format/Atom.js","OpenLayers/Format/KML.js","OpenLayers/Format/GeoRSS.js","OpenLayers/Format/WFS.js","OpenLayers/Format/WFSCapabilities.js","OpenLayers/Format/WFSCapabilities/v1.js","OpenLayers/Format/WFSCapabilities/v1_0_0.js","OpenLayers/Format/WFSCapabilities/v1_1_0.js","OpenLayers/Format/WFSDescribeFeatureType.js","OpenLayers/Format/WMSDescribeLayer.js","OpenLayers/Format/WMSDescribeLayer/v1_1.js","OpenLayers/Format/WKT.js","OpenLayers/Format/OSM.js","OpenLayers/Format/GPX.js","OpenLayers/Format/Filter.js","OpenLayers/Format/Filter/v1.js","OpenLayers/Format/Filter/v1_0_0.js","OpenLayers/Format/Filter/v1_1_0.js","OpenLayers/Format/SLD.js","OpenLayers/Format/SLD/v1.js","OpenLayers/Format/SLD/v1_0_0.js","OpenLayers/Format/OWSCommon/v1.js","OpenLayers/Format/OWSCommon/v1_0_0.js","OpenLayers/Format/OWSCommon/v1_1_0.js","OpenLayers/Format/CSWGetDomain.js","OpenLayers/Format/CSWGetDomain/v2_0_2.js","OpenLayers/Format/CSWGetRecords.js","OpenLayers/Format/CSWGetRecords/v2_0_2.js","OpenLayers/Format/WFST.js","OpenLayers/Format/WFST/v1.js","OpenLayers/Format/WFST/v1_0_0.js","OpenLayers/Format/WFST/v1_1_0.js","OpenLayers/Format/Text.js","OpenLayers/Format/JSON.js","OpenLayers/Format/GeoJSON.js","OpenLayers/Format/WMC.js","OpenLayers/Format/WMC/v1.js","OpenLayers/Format/WMC/v1_0_0.js","OpenLayers/Format/WMC/v1_1_0.js","OpenLayers/Format/WMSCapabilities.js","OpenLayers/Format/WMSCapabilities/v1.js","OpenLayers/Format/WMSCapabilities/v1_1.js","OpenLayers/Format/WMSCapabilities/v1_1_0.js","OpenLayers/Format/WMSCapabilities/v1_1_1.js","OpenLayers/Format/WMSCapabilities/v1_3.js","OpenLayers/Format/WMSCapabilities/v1_3_0.js","OpenLayers/Format/WMSGetFeatureInfo.js","OpenLayers/Format/SOSCapabilities.js","OpenLayers/Format/SOSCapabilities/v1_0_0.js","OpenLayers/Format/SOSGetObservation.js","OpenLayers/Format/SOSGetFeatureOfInterest.js","OpenLayers/Format/OWSContext.js","OpenLayers/Format/OWSContext/v0_3_1.js","OpenLayers/Format/WMTSCapabilities.js","OpenLayers/Format/WMTSCapabilities/v1_0_0.js","OpenLayers/Layer/WFS.js","OpenLayers/Control/GetFeature.js","OpenLayers/Control/MouseToolbar.js","OpenLayers/Control/NavToolbar.js","OpenLayers/Control/PanPanel.js","OpenLayers/Control/Pan.js","OpenLayers/Control/ZoomIn.js","OpenLayers/Control/ZoomOut.js","OpenLayers/Control/ZoomPanel.js","OpenLayers/Control/EditingToolbar.js","OpenLayers/Symbolizer.js","OpenLayers/Symbolizer/Point.js","OpenLayers/Symbolizer/Line.js","OpenLayers/Symbolizer/Polygon.js","OpenLayers/Symbolizer/Text.js","OpenLayers/Symbolizer/Raster.js","OpenLayers/Lang.js","OpenLayers/Lang/en.js","OpenLayers/Lang/fr.js");
-var agent=navigator.userAgent;
-var docWrite=(agent.match("MSIE")||agent.match("Safari"));
-if(docWrite){var allScriptTags=new Array(jsfiles.length)
-}var host=OpenLayers._getScriptLocation()+"lib/";
+var allScriptTags=new Array(jsfiles.length);
+var host=OpenLayers._getScriptLocation()+"lib/";
 for(var i=0,len=jsfiles.length;
 i<len;
-i++){if(docWrite){allScriptTags[i]="<script src='"+host+jsfiles[i]+"'><\/script>"
-}else{var s=document.createElement("script");
-s.src=host+jsfiles[i];
-var h=document.getElementsByTagName("head").length?document.getElementsByTagName("head")[0]:document.body;
-h.appendChild(s)
-}}if(docWrite){document.write(allScriptTags.join(""))
-}}})();
-OpenLayers.VERSION_NUMBER="OpenLayers 2.10 -- $Revision: 10721 $";OpenLayers.Util={};
+i++){allScriptTags[i]="<script src='"+host+jsfiles[i]+"'><\/script>"
+}document.write(allScriptTags.join(""))
+}})();
+OpenLayers.VERSION_NUMBER="OpenLayers 2.10 -- $Revision: 10721 $";
+OpenLayers.Util={};
 OpenLayers.Util.getElement=function(){var elements=[];
 for(var i=0,len=arguments.length;
 i<len;
@@ -3888,7 +3886,8 @@ if(dmsOption.indexOf("dms")>=0){if(coordinateseconds<10){coordinateseconds="0"+c
 }}if(axis=="lon"){str+=coordinate<0?OpenLayers.i18n("W"):OpenLayers.i18n("E")
 }else{str+=coordinate<0?OpenLayers.i18n("S"):OpenLayers.i18n("N")
 }return str
-};OpenLayers.String={startsWith:function(str,sub){return(str.indexOf(sub)==0)
+};
+OpenLayers.String={startsWith:function(str,sub){return(str.indexOf(sub)==0)
 },contains:function(str,sub){return(str.indexOf(sub)!=-1)
 },trim:function(str){return str.replace(/^\s\s*/,"").replace(/\s\s*$/,"")
 },camelize:function(str){var oStringList=str.split("-");
@@ -4005,7 +4004,8 @@ var offset=-1000*(60*(hoursOffset*60)+minutesOffset*60);
 date=new Date(date.getTime()+offset)
 }}}else{date=new Date("invalid")
 }}return date
-}};OpenLayers.Class=function(){var Class=function(){if(arguments&&arguments[0]!=OpenLayers.Class.isPrototype){this.initialize.apply(this,arguments)
+}};
+OpenLayers.Class=function(){var Class=function(){if(arguments&&arguments[0]!=OpenLayers.Class.isPrototype){this.initialize.apply(this,arguments)
 }};
 var extended={};
 var parent,initialize,Type;
@@ -4035,7 +4035,8 @@ i++){if(typeof arguments[i]=="function"){var mixin=arguments[i];
 arguments[i]=new mixin(OpenLayers.Class.isPrototype)
 }OpenLayers.Util.extend(proto,arguments[i])
 }return proto
-};OpenLayers.Bounds=OpenLayers.Class({left:null,bottom:null,right:null,top:null,centerLonLat:null,initialize:function(left,bottom,right,top){if(left!=null){this.left=OpenLayers.Util.toFloat(left)
+};
+OpenLayers.Bounds=OpenLayers.Class({left:null,bottom:null,right:null,top:null,centerLonLat:null,initialize:function(left,bottom,right,top){if(left!=null){this.left=OpenLayers.Util.toFloat(left)
 }if(bottom!=null){this.bottom=OpenLayers.Util.toFloat(bottom)
 }if(right!=null){this.right=OpenLayers.Util.toFloat(right)
 }if(top!=null){this.top=OpenLayers.Util.toFloat(top)
@@ -4148,7 +4149,8 @@ OpenLayers.Bounds.oppositeQuadrant=function(quadrant){var opp="";
 opp+=(quadrant.charAt(0)=="t")?"b":"t";
 opp+=(quadrant.charAt(1)=="l")?"r":"l";
 return opp
-};OpenLayers.Rico=new Object();
+};
+OpenLayers.Rico=new Object();
 OpenLayers.Rico.Corner={round:function(e,options){e=OpenLayers.Util.getElement(e);
 this._setOptions(options);
 var color=this.options.color;
@@ -4288,23 +4290,27 @@ return cc1
 },_isTopRounded:function(){return this._hasString(this.options.corners,"all","top","tl","tr")
 },_isBottomRounded:function(){return this._hasString(this.options.corners,"all","bottom","bl","br")
 },_hasSingleTextChild:function(el){return el.childNodes.length==1&&el.childNodes[0].nodeType==3
-}};OpenLayers.Console={log:function(){},debug:function(){},info:function(){},warn:function(){},error:function(){},userError:function(error){alert(error)
+}};
+OpenLayers.Console={log:function(){},debug:function(){},info:function(){},warn:function(){},error:function(){},userError:function(error){alert(error)
 },assert:function(){},dir:function(){},dirxml:function(){},trace:function(){},group:function(){},groupEnd:function(){},time:function(){},timeEnd:function(){},profile:function(){},profileEnd:function(){},count:function(){},CLASS_NAME:"OpenLayers.Console"};
 (function(){var scripts=document.getElementsByTagName("script");
 for(var i=0,len=scripts.length;
 i<len;
 ++i){if(scripts[i].src.indexOf("firebug.js")!=-1){if(console){OpenLayers.Util.extend(OpenLayers.Console,console);
 break
-}}}})();OpenLayers.Format=OpenLayers.Class({options:null,externalProjection:null,internalProjection:null,data:null,keepData:false,initialize:function(options){OpenLayers.Util.extend(this,options);
+}}}})();
+OpenLayers.Format=OpenLayers.Class({options:null,externalProjection:null,internalProjection:null,data:null,keepData:false,initialize:function(options){OpenLayers.Util.extend(this,options);
 this.options=options
 },destroy:function(){},read:function(data){OpenLayers.Console.userError(OpenLayers.i18n("readNotImplemented"))
 },write:function(object){OpenLayers.Console.userError(OpenLayers.i18n("writeNotImplemented"))
-},CLASS_NAME:"OpenLayers.Format"});OpenLayers.Format.CSWGetRecords=function(options){options=OpenLayers.Util.applyDefaults(options,OpenLayers.Format.CSWGetRecords.DEFAULTS);
+},CLASS_NAME:"OpenLayers.Format"});
+OpenLayers.Format.CSWGetRecords=function(options){options=OpenLayers.Util.applyDefaults(options,OpenLayers.Format.CSWGetRecords.DEFAULTS);
 var cls=OpenLayers.Format.CSWGetRecords["v"+options.version.replace(/\./g,"_")];
 if(!cls){throw"Unsupported CSWGetRecords version: "+options.version
 }return new cls(options)
 };
-OpenLayers.Format.CSWGetRecords.DEFAULTS={version:"2.0.2"};OpenLayers.Event={observers:false,KEY_BACKSPACE:8,KEY_TAB:9,KEY_RETURN:13,KEY_ESC:27,KEY_LEFT:37,KEY_UP:38,KEY_RIGHT:39,KEY_DOWN:40,KEY_DELETE:46,element:function(event){return event.target||event.srcElement
+OpenLayers.Format.CSWGetRecords.DEFAULTS={version:"2.0.2"};
+OpenLayers.Event={observers:false,KEY_BACKSPACE:8,KEY_TAB:9,KEY_RETURN:13,KEY_ESC:27,KEY_LEFT:37,KEY_UP:38,KEY_RIGHT:39,KEY_DOWN:40,KEY_DELETE:46,element:function(event){return event.target||event.srcElement
 },isLeftClick:function(event){return(((event.which)&&(event.which==1))||((event.button)&&(event.button==1)))
 },isRightClick:function(event){return(((event.which)&&(event.which==3))||((event.button)&&(event.button==2)))
 },stop:function(event,allowDefault){if(!allowDefault){if(event.preventDefault){event.preventDefault()
@@ -4429,7 +4435,8 @@ this.element.hasScrollEvent=true
 this.element.offsets[0]+=this.element.scrolls[0];
 this.element.offsets[1]+=this.element.scrolls[1]
 }return new OpenLayers.Pixel((evt.clientX+this.element.scrolls[0])-this.element.offsets[0]-this.element.lefttop[0],(evt.clientY+this.element.scrolls[1])-this.element.offsets[1]-this.element.lefttop[1])
-},CLASS_NAME:"OpenLayers.Events"});OpenLayers.Icon=OpenLayers.Class({url:null,size:null,offset:null,calculateOffset:null,imageDiv:null,px:null,initialize:function(url,size,offset,calculateOffset){this.url=url;
+},CLASS_NAME:"OpenLayers.Events"});
+OpenLayers.Icon=OpenLayers.Class({url:null,size:null,offset:null,calculateOffset:null,imageDiv:null,px:null,initialize:function(url,size,offset,calculateOffset){this.url=url;
 this.size=(size)?size:new OpenLayers.Size(20,20);
 this.offset=offset?offset:new OpenLayers.Pixel(-(this.size.w/2),-(this.size.h/2));
 this.calculateOffset=calculateOffset;
@@ -4457,7 +4464,8 @@ OpenLayers.Util.modifyAlphaImageDiv(this.imageDiv,null,offsetPx)
 }}},display:function(display){this.imageDiv.style.display=(display)?"":"none"
 },isDrawn:function(){var isDrawn=(this.imageDiv&&this.imageDiv.parentNode&&(this.imageDiv.parentNode.nodeType!=11));
 return isDrawn
-},CLASS_NAME:"OpenLayers.Icon"});OpenLayers.Marker=OpenLayers.Class({icon:null,lonlat:null,events:null,map:null,initialize:function(lonlat,icon){this.lonlat=lonlat;
+},CLASS_NAME:"OpenLayers.Icon"});
+OpenLayers.Marker=OpenLayers.Class({icon:null,lonlat:null,events:null,map:null,initialize:function(lonlat,icon){this.lonlat=lonlat;
 var newIcon=(icon)?icon:OpenLayers.Marker.defaultIcon();
 if(this.icon==null){this.icon=newIcon
 }else{this.icon.url=newIcon.url;
@@ -4492,7 +4500,8 @@ var size=new OpenLayers.Size(21,25);
 var calculateOffset=function(size){return new OpenLayers.Pixel(-(size.w/2),-size.h)
 };
 return new OpenLayers.Icon(url,size,null,calculateOffset)
-};OpenLayers.Popup=OpenLayers.Class({events:null,id:"",lonlat:null,div:null,contentSize:null,size:null,contentHTML:null,backgroundColor:"",opacity:"",border:"",contentDiv:null,groupDiv:null,closeDiv:null,autoSize:false,minSize:null,maxSize:null,displayClass:"olPopup",contentDisplayClass:"olPopupContent",padding:0,disableFirefoxOverflowHack:false,fixPadding:function(){if(typeof this.padding=="number"){this.padding=new OpenLayers.Bounds(this.padding,this.padding,this.padding,this.padding)
+};
+OpenLayers.Popup=OpenLayers.Class({events:null,id:"",lonlat:null,div:null,contentSize:null,size:null,contentHTML:null,backgroundColor:"",opacity:"",border:"",contentDiv:null,groupDiv:null,closeDiv:null,autoSize:false,minSize:null,maxSize:null,displayClass:"olPopup",contentDisplayClass:"olPopupContent",padding:0,disableFirefoxOverflowHack:false,fixPadding:function(){if(typeof this.padding=="number"){this.padding=new OpenLayers.Bounds(this.padding,this.padding,this.padding,this.padding)
 }},panMapIfOutOfView:false,keepInMap:false,closeOnMove:false,map:null,initialize:function(id,lonlat,contentSize,contentHTML,closeBox,closeBoxCallback){if(id==null){id=OpenLayers.Util.createUniqueID(this.CLASS_NAME+"_")
 }this.id=id;
 this.lonlat=lonlat;
@@ -4698,7 +4707,8 @@ OpenLayers.Popup.WIDTH=200;
 OpenLayers.Popup.HEIGHT=200;
 OpenLayers.Popup.COLOR="white";
 OpenLayers.Popup.OPACITY=1;
-OpenLayers.Popup.BORDER="0px";OpenLayers.Popup.Anchored=OpenLayers.Class(OpenLayers.Popup,{relativePosition:null,keepInMap:true,anchor:null,initialize:function(id,lonlat,contentSize,contentHTML,anchor,closeBox,closeBoxCallback){var newArguments=[id,lonlat,contentSize,contentHTML,closeBox,closeBoxCallback];
+OpenLayers.Popup.BORDER="0px";
+OpenLayers.Popup.Anchored=OpenLayers.Class(OpenLayers.Popup,{relativePosition:null,keepInMap:true,anchor:null,initialize:function(id,lonlat,contentSize,contentHTML,anchor,closeBox,closeBoxCallback){var newArguments=[id,lonlat,contentSize,contentHTML,closeBox,closeBoxCallback];
 OpenLayers.Popup.prototype.initialize.apply(this,newArguments);
 this.anchor=(anchor!=null)?anchor:{size:new OpenLayers.Size(0,0),offset:new OpenLayers.Pixel(0,0)}
 },destroy:function(){this.anchor=null;
@@ -4726,7 +4736,8 @@ newPx.y+=(top)?-(size.h+this.anchor.size.h):this.anchor.size.h;
 var left=(this.relativePosition.charAt(1)=="l");
 newPx.x+=(left)?-(size.w+this.anchor.size.w):this.anchor.size.w;
 return newPx
-},CLASS_NAME:"OpenLayers.Popup.Anchored"});OpenLayers.Popup.AnchoredBubble=OpenLayers.Class(OpenLayers.Popup.Anchored,{rounded:false,initialize:function(id,lonlat,contentSize,contentHTML,anchor,closeBox,closeBoxCallback){this.padding=new OpenLayers.Bounds(0,OpenLayers.Popup.AnchoredBubble.CORNER_SIZE,0,OpenLayers.Popup.AnchoredBubble.CORNER_SIZE);
+},CLASS_NAME:"OpenLayers.Popup.Anchored"});
+OpenLayers.Popup.AnchoredBubble=OpenLayers.Class(OpenLayers.Popup.Anchored,{rounded:false,initialize:function(id,lonlat,contentSize,contentHTML,anchor,closeBox,closeBoxCallback){this.padding=new OpenLayers.Bounds(0,OpenLayers.Popup.AnchoredBubble.CORNER_SIZE,0,OpenLayers.Popup.AnchoredBubble.CORNER_SIZE);
 OpenLayers.Popup.Anchored.prototype.initialize.apply(this,arguments)
 },draw:function(px){OpenLayers.Popup.Anchored.prototype.draw.apply(this,arguments);
 this.setContentHTML();
@@ -4754,7 +4765,8 @@ var corner=OpenLayers.Bounds.oppositeQuadrant(this.relativePosition);
 OpenLayers.Util.removeItem(corners,corner);
 return corners.join(" ")
 },CLASS_NAME:"OpenLayers.Popup.AnchoredBubble"});
-OpenLayers.Popup.AnchoredBubble.CORNER_SIZE=5;OpenLayers.Feature=OpenLayers.Class({layer:null,id:null,lonlat:null,data:null,marker:null,popupClass:OpenLayers.Popup.AnchoredBubble,popup:null,initialize:function(layer,lonlat,data){this.layer=layer;
+OpenLayers.Popup.AnchoredBubble.CORNER_SIZE=5;
+OpenLayers.Feature=OpenLayers.Class({layer:null,id:null,lonlat:null,data:null,marker:null,popupClass:OpenLayers.Popup.AnchoredBubble,popup:null,initialize:function(layer,lonlat,data){this.layer=layer;
 this.lonlat=lonlat;
 this.data=(data!=null)?data:{};
 this.id=OpenLayers.Util.createUniqueID(this.CLASS_NAME+"_")
@@ -4784,7 +4796,8 @@ if(!this.popup){this.popup=new this.popupClass(id,this.lonlat,this.data.popupSiz
 },destroyPopup:function(){if(this.popup){this.popup.feature=null;
 this.popup.destroy();
 this.popup=null
-}},CLASS_NAME:"OpenLayers.Feature"});OpenLayers.State={UNKNOWN:"Unknown",INSERT:"Insert",UPDATE:"Update",DELETE:"Delete"};
+}},CLASS_NAME:"OpenLayers.Feature"});
+OpenLayers.State={UNKNOWN:"Unknown",INSERT:"Insert",UPDATE:"Update",DELETE:"Delete"};
 OpenLayers.Feature.Vector=OpenLayers.Class(OpenLayers.Feature,{fid:null,geometry:null,attributes:null,bounds:null,state:null,style:null,url:null,renderIntent:"default",initialize:function(geometry,attributes,style){OpenLayers.Feature.prototype.initialize.apply(this,[null,null,attributes]);
 this.lonlat=null;
 this.geometry=geometry?geometry:null;
@@ -4831,7 +4844,8 @@ case OpenLayers.State.UNKNOWN:case OpenLayers.State.UPDATE:this.state=state;
 break
 }}else{if(state==OpenLayers.State.UNKNOWN){this.state=state
 }}}}},CLASS_NAME:"OpenLayers.Feature.Vector"});
-OpenLayers.Feature.Vector.style={"default":{fillColor:"#ee9900",fillOpacity:0.4,hoverFillColor:"white",hoverFillOpacity:0.8,strokeColor:"#ee9900",strokeOpacity:1,strokeWidth:1,strokeLinecap:"round",strokeDashstyle:"solid",hoverStrokeColor:"red",hoverStrokeOpacity:1,hoverStrokeWidth:0.2,pointRadius:6,hoverPointRadius:1,hoverPointUnit:"%",pointerEvents:"visiblePainted",cursor:"inherit"},select:{fillColor:"blue",fillOpacity:0.4,hoverFillColor:"white",hoverFillOpacity:0.8,strokeColor:"blue",strokeOpacity:1,strokeWidth:2,strokeLinecap:"round",strokeDashstyle:"solid",hoverStrokeColor:"red",hoverStrokeOpacity:1,hoverStrokeWidth:0.2,pointRadius:6,hoverPointRadius:1,hoverPointUnit:"%",pointerEvents:"visiblePainted",cursor:"pointer"},temporary:{fillColor:"#66cccc",fillOpacity:0.2,hoverFillColor:"white",hoverFillOpacity:0.8,strokeColor:"#66cccc",strokeOpacity:1,strokeLinecap:"round",strokeWidth:2,strokeDashstyle:"solid",hoverStrokeColor:"red",hoverStrokeOpacity:1,hoverStrokeWidth:0.2,pointRadius:6,hoverPointRadius:1,hoverPointUnit:"%",pointerEvents:"visiblePainted",cursor:"inherit"},"delete":{display:"none"}};OpenLayers.Format.XML=OpenLayers.Class(OpenLayers.Format,{namespaces:null,namespaceAlias:null,defaultPrefix:null,readers:{},writers:{},xmldom:null,initialize:function(options){if(window.ActiveXObject){this.xmldom=new ActiveXObject("Microsoft.XMLDOM")
+OpenLayers.Feature.Vector.style={"default":{fillColor:"#ee9900",fillOpacity:0.4,hoverFillColor:"white",hoverFillOpacity:0.8,strokeColor:"#ee9900",strokeOpacity:1,strokeWidth:1,strokeLinecap:"round",strokeDashstyle:"solid",hoverStrokeColor:"red",hoverStrokeOpacity:1,hoverStrokeWidth:0.2,pointRadius:6,hoverPointRadius:1,hoverPointUnit:"%",pointerEvents:"visiblePainted",cursor:"inherit"},select:{fillColor:"blue",fillOpacity:0.4,hoverFillColor:"white",hoverFillOpacity:0.8,strokeColor:"blue",strokeOpacity:1,strokeWidth:2,strokeLinecap:"round",strokeDashstyle:"solid",hoverStrokeColor:"red",hoverStrokeOpacity:1,hoverStrokeWidth:0.2,pointRadius:6,hoverPointRadius:1,hoverPointUnit:"%",pointerEvents:"visiblePainted",cursor:"pointer"},temporary:{fillColor:"#66cccc",fillOpacity:0.2,hoverFillColor:"white",hoverFillOpacity:0.8,strokeColor:"#66cccc",strokeOpacity:1,strokeLinecap:"round",strokeWidth:2,strokeDashstyle:"solid",hoverStrokeColor:"red",hoverStrokeOpacity:1,hoverStrokeWidth:0.2,pointRadius:6,hoverPointRadius:1,hoverPointUnit:"%",pointerEvents:"visiblePainted",cursor:"inherit"},"delete":{display:"none"}};
+OpenLayers.Format.XML=OpenLayers.Class(OpenLayers.Format,{namespaces:null,namespaceAlias:null,defaultPrefix:null,readers:{},writers:{},xmldom:null,initialize:function(options){if(window.ActiveXObject){this.xmldom=new ActiveXObject("Microsoft.XMLDOM")
 }OpenLayers.Format.prototype.initialize.apply(this,[options]);
 this.namespaces=OpenLayers.Util.extend({},this.namespaces);
 this.namespaceAlias={};
@@ -5017,7 +5031,8 @@ break outer
 }}}return uri
 },CLASS_NAME:"OpenLayers.Format.XML"});
 OpenLayers.Format.XML.CONTENT_TYPE={EMPTY:0,SIMPLE:1,COMPLEX:2,MIXED:3};
-OpenLayers.Format.XML.lookupNamespaceURI=OpenLayers.Function.bind(OpenLayers.Format.XML.prototype.lookupNamespaceURI,OpenLayers.Format.XML.prototype);if(!OpenLayers.Format.OWSCommon){OpenLayers.Format.OWSCommon={}
+OpenLayers.Format.XML.lookupNamespaceURI=OpenLayers.Function.bind(OpenLayers.Format.XML.prototype.lookupNamespaceURI,OpenLayers.Format.XML.prototype);
+if(!OpenLayers.Format.OWSCommon){OpenLayers.Format.OWSCommon={}
 }OpenLayers.Format.OWSCommon.v1=OpenLayers.Class(OpenLayers.Format.XML,{regExes:{trimSpace:(/^\s*|\s*$/g),removeSpace:(/\s*/g),splitSpace:(/\s+/),trimComma:(/\s*,\s*/g)},readers:{ows:{ServiceIdentification:function(node,obj){obj.serviceIdentification={};
 this.readChildNodes(node,obj.serviceIdentification)
 },Title:function(node,obj){obj.title=this.getChildValue(node)
@@ -5075,7 +5090,7 @@ if(obj.BoundingBox){obj.BoundingBox.push(boundingBox)
 }else{obj.projection=boundingBox.crs;
 boundingBox=obj
 }this.readChildNodes(node,boundingBox)
-},BoundingBox:function(node,obj){this.readers.ows["WGS84BoundingBox"].apply(this,[node,obj])
+},BoundingBox:function(node,obj){this.readers.ows.WGS84BoundingBox.apply(this,[node,obj])
 },LowerCorner:function(node,obj){var str=this.getChildValue(node).replace(this.regExes.trimSpace,"");
 str=str.replace(this.regExes.trimComma,",");
 var pointList=str.split(this.regExes.splitSpace);
@@ -5103,7 +5118,9 @@ return node
 return node
 },OutputFormat:function(format){var node=this.createElementNSPlus("ows:OutputFormat",{value:format});
 return node
-}}},CLASS_NAME:"OpenLayers.Format.OWSCommon.v1"});OpenLayers.Format.OWSCommon.v1_0_0=OpenLayers.Class(OpenLayers.Format.OWSCommon.v1,{namespaces:{ows:"http://www.opengis.net/ows/1.0",xlink:"http://www.w3.org/1999/xlink"},readers:{ows:OpenLayers.Format.OWSCommon.v1.prototype.readers.ows},writers:{ows:OpenLayers.Format.OWSCommon.v1.prototype.writers.ows},CLASS_NAME:"OpenLayers.Format.OWSCommon.v1_1_0"});OpenLayers.Format.WMC=OpenLayers.Class(OpenLayers.Format.Context,{defaultVersion:"1.1.0",getParser:function(version){var v=version||this.version||this.defaultVersion;
+}}},CLASS_NAME:"OpenLayers.Format.OWSCommon.v1"});
+OpenLayers.Format.OWSCommon.v1_0_0=OpenLayers.Class(OpenLayers.Format.OWSCommon.v1,{namespaces:{ows:"http://www.opengis.net/ows/1.0",xlink:"http://www.w3.org/1999/xlink"},readers:{ows:OpenLayers.Format.OWSCommon.v1.prototype.readers.ows},writers:{ows:OpenLayers.Format.OWSCommon.v1.prototype.writers.ows},CLASS_NAME:"OpenLayers.Format.OWSCommon.v1_1_0"});
+OpenLayers.Format.WMC=OpenLayers.Class(OpenLayers.Format.Context,{defaultVersion:"1.1.0",getParser:function(version){var v=version||this.version||this.defaultVersion;
 if(!this.parser||this.parser.VERSION!=v){var format=OpenLayers.Format.WMC["v"+v.replace(/\./g,"_")];
 if(!format){throw"Can't find a WMC parser for version "+v
 }this.parser=new format(this.options)
@@ -5125,7 +5142,8 @@ i<len;
 i++){var layer=layers[i];
 if(layer instanceof OpenLayers.Layer.WMS){context.layersContext.push(this.layerToContext(layer))
 }}}return context
-},CLASS_NAME:"OpenLayers.Format.WMC"});OpenLayers.Format.WMC.v1=OpenLayers.Class(OpenLayers.Format.XML,{namespaces:{ol:"http://openlayers.org/context",wmc:"http://www.opengis.net/context",sld:"http://www.opengis.net/sld",xlink:"http://www.w3.org/1999/xlink",xsi:"http://www.w3.org/2001/XMLSchema-instance"},schemaLocation:"",getNamespacePrefix:function(uri){var prefix=null;
+},CLASS_NAME:"OpenLayers.Format.WMC"});
+OpenLayers.Format.WMC.v1=OpenLayers.Class(OpenLayers.Format.XML,{namespaces:{ol:"http://openlayers.org/context",wmc:"http://www.opengis.net/context",sld:"http://www.opengis.net/sld",xlink:"http://www.w3.org/1999/xlink",xsi:"http://www.w3.org/2001/XMLSchema-instance"},schemaLocation:"",getNamespacePrefix:function(uri){var prefix=null;
 if(uri==null){prefix=this.namespaces[this.defaultPrefix]
 }else{for(prefix in this.namespaces){if(this.namespaces[prefix]==uri){break
 }}}return prefix
@@ -5297,12 +5315,14 @@ if(s["abstract"]){style.appendChild(this.createElementDefaultNS("Abstract",s["ab
 this.setAttributeNS(node,this.namespaces.xlink,"xlink:type","simple");
 this.setAttributeNS(node,this.namespaces.xlink,"xlink:href",href);
 return node
-},CLASS_NAME:"OpenLayers.Format.WMC.v1"});OpenLayers.Format.WMC.v1_0_0=OpenLayers.Class(OpenLayers.Format.WMC.v1,{VERSION:"1.0.0",schemaLocation:"http://www.opengis.net/context http://schemas.opengis.net/context/1.0.0/context.xsd",initialize:function(options){OpenLayers.Format.WMC.v1.prototype.initialize.apply(this,[options])
+},CLASS_NAME:"OpenLayers.Format.WMC.v1"});
+OpenLayers.Format.WMC.v1_0_0=OpenLayers.Class(OpenLayers.Format.WMC.v1,{VERSION:"1.0.0",schemaLocation:"http://www.opengis.net/context http://schemas.opengis.net/context/1.0.0/context.xsd",initialize:function(options){OpenLayers.Format.WMC.v1.prototype.initialize.apply(this,[options])
 },write_wmc_Layer:function(context){var node=OpenLayers.Format.WMC.v1.prototype.write_wmc_Layer.apply(this,[context]);
 node.appendChild(this.write_wmc_FormatList(context));
 node.appendChild(this.write_wmc_StyleList(context));
 node.appendChild(this.write_wmc_LayerExtension(context))
-},CLASS_NAME:"OpenLayers.Format.WMC.v1_0_0"});OpenLayers.Format.WMC.v1_1_0=OpenLayers.Class(OpenLayers.Format.WMC.v1,{VERSION:"1.1.0",schemaLocation:"http://www.opengis.net/context http://schemas.opengis.net/context/1.1.0/context.xsd",initialize:function(options){OpenLayers.Format.WMC.v1.prototype.initialize.apply(this,[options])
+},CLASS_NAME:"OpenLayers.Format.WMC.v1_0_0"});
+OpenLayers.Format.WMC.v1_1_0=OpenLayers.Class(OpenLayers.Format.WMC.v1,{VERSION:"1.1.0",schemaLocation:"http://www.opengis.net/context http://schemas.opengis.net/context/1.1.0/context.xsd",initialize:function(options){OpenLayers.Format.WMC.v1.prototype.initialize.apply(this,[options])
 },read_sld_MinScaleDenominator:function(layerContext,node){var minScaleDenominator=parseFloat(this.getChildValue(node));
 if(minScaleDenominator>0){layerContext.maxScale=minScaleDenominator
 }},read_sld_MaxScaleDenominator:function(layerContext,node){layerContext.minScale=parseFloat(this.getChildValue(node))
@@ -5317,7 +5337,8 @@ node.appendChild(maxSD)
 node.appendChild(this.write_wmc_StyleList(context));
 node.appendChild(this.write_wmc_LayerExtension(context));
 return node
-},CLASS_NAME:"OpenLayers.Format.WMC.v1_1_0"});OpenLayers.Format.WKT=OpenLayers.Class(OpenLayers.Format,{initialize:function(options){this.regExes={typeStr:/^\s*(\w+)\s*\(\s*(.*)\s*\)\s*$/,spaces:/\s+/,parenComma:/\)\s*,\s*\(/,doubleParenComma:/\)\s*\)\s*,\s*\(\s*\(/,trimParens:/^\s*\(?(.*?)\)?\s*$/};
+},CLASS_NAME:"OpenLayers.Format.WMC.v1_1_0"});
+OpenLayers.Format.WKT=OpenLayers.Class(OpenLayers.Format,{initialize:function(options){this.regExes={typeStr:/^\s*(\w+)\s*\(\s*(.*)\s*\)\s*$/,spaces:/\s+/,parenComma:/\)\s*,\s*\(/,doubleParenComma:/\)\s*\)\s*,\s*\(\s*\(/,trimParens:/^\s*\(?(.*?)\)?\s*$/};
 OpenLayers.Format.prototype.initialize.apply(this,[options])
 },read:function(wkt){var features,type,str;
 var matches=this.regExes.typeStr.exec(wkt);
@@ -5424,7 +5445,8 @@ for(var i=0,len=wktArray.length;
 i<len;
 ++i){components.push(OpenLayers.Format.WKT.prototype.read.apply(this,[wktArray[i]]))
 }return components
-}},CLASS_NAME:"OpenLayers.Format.WKT"});OpenLayers.Format.WMSGetFeatureInfo=OpenLayers.Class(OpenLayers.Format.XML,{layerIdentifier:"_layer",featureIdentifier:"_feature",regExes:{trimSpace:(/^\s*|\s*$/g),removeSpace:(/\s*/g),splitSpace:(/\s+/),trimComma:(/\s*,\s*/g)},gmlFormat:null,initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,arguments);
+}},CLASS_NAME:"OpenLayers.Format.WKT"});
+OpenLayers.Format.WMSGetFeatureInfo=OpenLayers.Class(OpenLayers.Format.XML,{layerIdentifier:"_layer",featureIdentifier:"_feature",regExes:{trimSpace:(/^\s*|\s*$/g),removeSpace:(/\s*/g),splitSpace:(/\s+/),trimComma:(/\s*,\s*/g)},gmlFormat:null,initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,arguments);
 OpenLayers.Util.extend(this,options);
 this.options=options
 },read:function(data){var result;
@@ -5501,7 +5523,8 @@ if(feature){geometry=feature.geometry&&feature.geometry.clone();
 bounds=feature.bounds&&feature.bounds.clone();
 feature.destroy()
 }return{geometry:geometry,bounds:bounds}
-},CLASS_NAME:"OpenLayers.Format.WMSGetFeatureInfo"});OpenLayers.Geometry=OpenLayers.Class({id:null,parent:null,bounds:null,initialize:function(){this.id=OpenLayers.Util.createUniqueID(this.CLASS_NAME+"_")
+},CLASS_NAME:"OpenLayers.Format.WMSGetFeatureInfo"});
+OpenLayers.Geometry=OpenLayers.Class({id:null,parent:null,bounds:null,initialize:function(){this.id=OpenLayers.Util.createUniqueID(this.CLASS_NAME+"_")
 },destroy:function(){this.id=null;
 this.bounds=null
 },clone:function(){return new OpenLayers.Geometry()
@@ -5604,7 +5627,8 @@ y=y2
 }else{x=x1+along*dx;
 y=y1+along*dy
 }}return{distance:Math.sqrt(Math.pow(x-x0,2)+Math.pow(y-y0,2)),x:x,y:y}
-};OpenLayers.Control=OpenLayers.Class({id:null,map:null,div:null,type:null,allowSelection:false,displayClass:"",title:"",autoActivate:false,active:null,handler:null,eventListeners:null,events:null,EVENT_TYPES:["activate","deactivate"],initialize:function(options){this.displayClass=this.CLASS_NAME.replace("OpenLayers.","ol").replace(/\./g,"");
+};
+OpenLayers.Control=OpenLayers.Class({id:null,map:null,div:null,type:null,allowSelection:false,displayClass:"",title:"",autoActivate:false,active:null,handler:null,eventListeners:null,events:null,EVENT_TYPES:["activate","deactivate"],initialize:function(options){this.displayClass=this.CLASS_NAME.replace("OpenLayers.","ol").replace(/\./g,"");
 OpenLayers.Util.extend(this,options);
 this.events=new OpenLayers.Events(this,null,this.EVENT_TYPES);
 if(this.eventListeners instanceof Object){this.events.on(this.eventListeners)
@@ -5647,7 +5671,8 @@ return true
 },CLASS_NAME:"OpenLayers.Control"});
 OpenLayers.Control.TYPE_BUTTON=1;
 OpenLayers.Control.TYPE_TOGGLE=2;
-OpenLayers.Control.TYPE_TOOL=3;OpenLayers.Control.PanZoom=OpenLayers.Class(OpenLayers.Control,{slideFactor:50,slideRatio:null,buttons:null,position:null,initialize:function(options){this.position=new OpenLayers.Pixel(OpenLayers.Control.PanZoom.X,OpenLayers.Control.PanZoom.Y);
+OpenLayers.Control.TYPE_TOOL=3;
+OpenLayers.Control.PanZoom=OpenLayers.Class(OpenLayers.Control,{slideFactor:50,slideRatio:null,buttons:null,position:null,initialize:function(options){this.position=new OpenLayers.Pixel(OpenLayers.Control.PanZoom.X,OpenLayers.Control.PanZoom.Y);
 OpenLayers.Control.prototype.initialize.apply(this,arguments)
 },destroy:function(){OpenLayers.Control.prototype.destroy.apply(this,arguments);
 this.removeButtons();
@@ -5712,7 +5737,8 @@ break
 }OpenLayers.Event.stop(evt)
 },CLASS_NAME:"OpenLayers.Control.PanZoom"});
 OpenLayers.Control.PanZoom.X=4;
-OpenLayers.Control.PanZoom.Y=4;OpenLayers.Control.PanZoomBar=OpenLayers.Class(OpenLayers.Control.PanZoom,{zoomStopWidth:18,zoomStopHeight:11,slider:null,sliderEvents:null,zoombarDiv:null,divEvents:null,zoomWorldIcon:false,forceFixedZoomLevel:false,mouseDragStart:null,zoomStart:null,initialize:function(){OpenLayers.Control.PanZoom.prototype.initialize.apply(this,arguments)
+OpenLayers.Control.PanZoom.Y=4;
+OpenLayers.Control.PanZoomBar=OpenLayers.Class(OpenLayers.Control.PanZoom,{zoomStopWidth:18,zoomStopHeight:11,slider:null,sliderEvents:null,zoombarDiv:null,divEvents:null,zoomWorldIcon:false,forceFixedZoomLevel:false,mouseDragStart:null,zoomStart:null,initialize:function(){OpenLayers.Control.PanZoom.prototype.initialize.apply(this,arguments)
 },destroy:function(){this._removeZoomBar();
 this.map.events.un({changebaselayer:this.redraw,scope:this});
 OpenLayers.Control.PanZoom.prototype.destroy.apply(this,arguments);
@@ -5811,7 +5837,8 @@ this.zoomStart=null;
 OpenLayers.Event.stop(evt)
 }},moveZoomBar:function(){var newTop=((this.map.getNumZoomLevels()-1)-this.map.getZoom())*this.zoomStopHeight+this.startTop+1;
 this.slider.style.top=newTop+"px"
-},CLASS_NAME:"OpenLayers.Control.PanZoomBar"});OpenLayers.Tween=OpenLayers.Class({INTERVAL:10,easing:null,begin:null,finish:null,duration:null,callbacks:null,time:null,interval:null,playing:false,initialize:function(easing){this.easing=(easing)?easing:OpenLayers.Easing.Expo.easeOut
+},CLASS_NAME:"OpenLayers.Control.PanZoomBar"});
+OpenLayers.Tween=OpenLayers.Class({INTERVAL:10,easing:null,begin:null,finish:null,duration:null,callbacks:null,time:null,interval:null,playing:false,initialize:function(easing){this.easing=(easing)?easing:OpenLayers.Easing.Expo.easeOut
 },start:function(begin,finish,duration,options){this.playing=true;
 this.begin=begin;
 this.finish=finish;
@@ -5853,7 +5880,8 @@ OpenLayers.Easing.Quad={easeIn:function(t,b,c,d){return c*(t/=d)*t+b
 },easeOut:function(t,b,c,d){return -c*(t/=d)*(t-2)+b
 },easeInOut:function(t,b,c,d){if((t/=d/2)<1){return c/2*t*t+b
 }return -c/2*((--t)*(t-2)-1)+b
-},CLASS_NAME:"OpenLayers.Easing.Quad"};OpenLayers.Map=OpenLayers.Class({Z_INDEX_BASE:{BaseLayer:100,Overlay:325,Feature:725,Popup:750,Control:1000},EVENT_TYPES:["preaddlayer","addlayer","removelayer","changelayer","movestart","move","moveend","zoomend","popupopen","popupclose","addmarker","removemarker","clearmarkers","mouseover","mouseout","mousemove","dragstart","drag","dragend","changebaselayer"],id:null,fractionalZoom:false,events:null,allOverlays:false,div:null,dragging:false,size:null,viewPortDiv:null,layerContainerOrigin:null,layerContainerDiv:null,layers:null,controls:null,popups:null,baseLayer:null,center:null,resolution:null,zoom:0,panRatio:1.5,viewRequestID:0,tileSize:null,projection:"EPSG:4326",units:"degrees",resolutions:null,maxResolution:1.40625,minResolution:null,maxScale:null,minScale:null,maxExtent:null,minExtent:null,restrictedExtent:null,numZoomLevels:16,theme:null,displayProjection:null,fallThrough:true,panTween:null,eventListeners:null,panMethod:OpenLayers.Easing.Expo.easeOut,panDuration:50,paddingForPopups:null,initialize:function(div,options){if(arguments.length===1&&typeof div==="object"){options=div;
+},CLASS_NAME:"OpenLayers.Easing.Quad"};
+OpenLayers.Map=OpenLayers.Class({Z_INDEX_BASE:{BaseLayer:100,Overlay:325,Feature:725,Popup:750,Control:1000},EVENT_TYPES:["preaddlayer","addlayer","removelayer","changelayer","movestart","move","moveend","zoomend","popupopen","popupclose","addmarker","removemarker","clearmarkers","mouseover","mouseout","mousemove","dragstart","drag","dragend","changebaselayer"],id:null,fractionalZoom:false,events:null,allOverlays:false,div:null,dragging:false,size:null,viewPortDiv:null,layerContainerOrigin:null,layerContainerDiv:null,layers:null,controls:null,popups:null,baseLayer:null,center:null,resolution:null,zoom:0,panRatio:1.5,viewRequestID:0,tileSize:null,projection:"EPSG:4326",units:"degrees",resolutions:null,maxResolution:1.40625,minResolution:null,maxScale:null,minScale:null,maxExtent:null,minExtent:null,restrictedExtent:null,numZoomLevels:16,theme:null,displayProjection:null,fallThrough:true,panTween:null,eventListeners:null,panMethod:OpenLayers.Easing.Expo.easeOut,panDuration:50,paddingForPopups:null,initialize:function(div,options){if(arguments.length===1&&typeof div==="object"){options=div;
 div=options&&options.div
 }this.tileSize=new OpenLayers.Size(OpenLayers.Map.TILE_WIDTH,OpenLayers.Map.TILE_HEIGHT);
 this.maxExtent=new OpenLayers.Bounds(-180,-90,180,90);
@@ -6264,7 +6292,8 @@ return this.getLonLatFromViewPortPx(px)
 return this.getLayerPxFromViewPortPx(px)
 },CLASS_NAME:"OpenLayers.Map"});
 OpenLayers.Map.TILE_WIDTH=256;
-OpenLayers.Map.TILE_HEIGHT=256;OpenLayers.Projection=OpenLayers.Class({proj:null,projCode:null,initialize:function(projCode,options){OpenLayers.Util.extend(this,options);
+OpenLayers.Map.TILE_HEIGHT=256;
+OpenLayers.Projection=OpenLayers.Class({proj:null,projCode:null,initialize:function(projCode,options){OpenLayers.Util.extend(this,options);
 this.projCode=projCode;
 if(window.Proj4js){this.proj=new Proj4js.Proj(projCode)
 }},getCode:function(){return this.proj?this.proj.srsCode:this.projCode
@@ -6282,7 +6311,8 @@ OpenLayers.Projection.addTransform=function(from,to,method){if(!OpenLayers.Proje
 OpenLayers.Projection.transform=function(point,source,dest){if(source.proj&&dest.proj){point=Proj4js.transform(source.proj,dest.proj,point)
 }else{if(source&&dest&&OpenLayers.Projection.transforms[source.getCode()]&&OpenLayers.Projection.transforms[source.getCode()][dest.getCode()]){OpenLayers.Projection.transforms[source.getCode()][dest.getCode()](point)
 }}return point
-};OpenLayers.Layer=OpenLayers.Class({id:null,name:null,div:null,opacity:null,alwaysInRange:null,EVENT_TYPES:["loadstart","loadend","loadcancel","visibilitychanged","move","moveend"],RESOLUTION_PROPERTIES:["scales","resolutions","maxScale","minScale","maxResolution","minResolution","numZoomLevels","maxZoomLevel"],events:null,map:null,isBaseLayer:false,alpha:false,displayInLayerSwitcher:true,visibility:true,attribution:null,inRange:false,imageSize:null,imageOffset:null,options:null,eventListeners:null,gutter:0,projection:null,units:null,scales:null,resolutions:null,maxExtent:null,minExtent:null,maxResolution:null,minResolution:null,numZoomLevels:null,minScale:null,maxScale:null,displayOutsideMaxExtent:false,wrapDateLine:false,transitionEffect:null,SUPPORTED_TRANSITIONS:["resize"],metadata:{},initialize:function(name,options){this.addOptions(options);
+};
+OpenLayers.Layer=OpenLayers.Class({id:null,name:null,div:null,opacity:null,alwaysInRange:null,EVENT_TYPES:["loadstart","loadend","loadcancel","visibilitychanged","move","moveend"],RESOLUTION_PROPERTIES:["scales","resolutions","maxScale","minScale","maxResolution","minResolution","numZoomLevels","maxZoomLevel"],events:null,map:null,isBaseLayer:false,alpha:false,displayInLayerSwitcher:true,visibility:true,attribution:null,inRange:false,imageSize:null,imageOffset:null,options:null,eventListeners:null,gutter:0,projection:null,units:null,scales:null,resolutions:null,maxExtent:null,minExtent:null,maxResolution:null,minResolution:null,numZoomLevels:null,minScale:null,maxScale:null,displayOutsideMaxExtent:false,wrapDateLine:false,transitionEffect:null,SUPPORTED_TRANSITIONS:["resize"],metadata:{},initialize:function(name,options){this.addOptions(options);
 this.name=name;
 if(this.id==null){this.id=OpenLayers.Util.createUniqueID(this.CLASS_NAME+"_");
 this.div=OpenLayers.Util.createDiv(this.id);
@@ -6503,7 +6533,8 @@ bounds=new OpenLayers.Bounds(bounds.left-mapGutter,bounds.bottom-mapGutter,bound
 }if(this.wrapDateLine){var wrappingOptions={rightTolerance:this.getResolution()};
 bounds=bounds.wrapDateLine(this.maxExtent,wrappingOptions)
 }return bounds
-},CLASS_NAME:"OpenLayers.Layer"});OpenLayers.Tile=OpenLayers.Class({EVENT_TYPES:["loadstart","loadend","reload","unload"],events:null,id:null,layer:null,url:null,bounds:null,size:null,position:null,isLoading:false,initialize:function(layer,position,bounds,url,size){this.layer=layer;
+},CLASS_NAME:"OpenLayers.Layer"});
+OpenLayers.Tile=OpenLayers.Class({EVENT_TYPES:["loadstart","loadend","reload","unload"],events:null,id:null,layer:null,url:null,bounds:null,size:null,position:null,isLoading:false,initialize:function(layer,position,bounds,url,size){this.layer=layer;
 this.position=position.clone();
 this.bounds=bounds.clone();
 this.url=url;
@@ -6542,7 +6573,8 @@ if(topLeft.lon>bottomRight.lon){if(topLeft.lon<0){topLeft.lon=-180-(topLeft.lon+
 }}var bounds=new OpenLayers.Bounds(topLeft.lon,bottomRight.lat,bottomRight.lon,topLeft.lat);
 return bounds
 },showTile:function(){if(this.shouldDraw){this.show()
-}},show:function(){},hide:function(){},CLASS_NAME:"OpenLayers.Tile"});OpenLayers.Tile.Image=OpenLayers.Class(OpenLayers.Tile,{url:null,imgDiv:null,frame:null,layerAlphaHack:null,isBackBuffer:false,lastRatio:1,isFirstDraw:true,backBufferTile:null,initialize:function(layer,position,bounds,url,size){OpenLayers.Tile.prototype.initialize.apply(this,arguments);
+}},show:function(){},hide:function(){},CLASS_NAME:"OpenLayers.Tile"});
+OpenLayers.Tile.Image=OpenLayers.Class(OpenLayers.Tile,{url:null,imgDiv:null,frame:null,layerAlphaHack:null,isBackBuffer:false,lastRatio:1,isFirstDraw:true,backBufferTile:null,initialize:function(layer,position,bounds,url,size){OpenLayers.Tile.prototype.initialize.apply(this,arguments);
 this.url=url;
 this.frame=document.createElement("div");
 this.frame.style.overflow="hidden";
@@ -6648,7 +6680,8 @@ this.backBufferTile.show()
 if(OpenLayers.Util.indexOf(this.layer.SUPPORTED_TRANSITIONS,this.layer.transitionEffect)!=-1){if(navigator.userAgent.toLowerCase().indexOf("gecko")!=-1){this.frame.scrollLeft=this.frame.scrollLeft
 }}},hide:function(){this.frame.style.display="none"
 },CLASS_NAME:"OpenLayers.Tile.Image"});
-OpenLayers.Tile.Image.useBlankTile=(OpenLayers.Util.getBrowserName()=="safari"||OpenLayers.Util.getBrowserName()=="opera");OpenLayers.Layer.Image=OpenLayers.Class(OpenLayers.Layer,{isBaseLayer:true,url:null,extent:null,size:null,tile:null,aspectRatio:null,initialize:function(name,url,extent,size,options){this.url=url;
+OpenLayers.Tile.Image.useBlankTile=(OpenLayers.Util.getBrowserName()=="safari"||OpenLayers.Util.getBrowserName()=="opera");
+OpenLayers.Layer.Image=OpenLayers.Class(OpenLayers.Layer,{isBaseLayer:true,url:null,extent:null,size:null,tile:null,aspectRatio:null,initialize:function(name,url,extent,size,options){this.url=url;
 this.extent=extent;
 this.maxExtent=extent;
 this.size=size;
@@ -6688,7 +6721,8 @@ tile.events.un({loadstart:tile.onLoadStart,loadend:tile.onLoadEnd,unload:tile.on
 },setUrl:function(newUrl){this.url=newUrl;
 this.tile.draw()
 },getURL:function(bounds){return this.url
-},CLASS_NAME:"OpenLayers.Layer.Image"});OpenLayers.Geometry.Collection=OpenLayers.Class(OpenLayers.Geometry,{components:null,componentTypes:null,initialize:function(components){OpenLayers.Geometry.prototype.initialize.apply(this,arguments);
+},CLASS_NAME:"OpenLayers.Layer.Image"});
+OpenLayers.Geometry.Collection=OpenLayers.Class(OpenLayers.Geometry,{components:null,componentTypes:null,initialize:function(components){OpenLayers.Geometry.prototype.initialize.apply(this,arguments);
 this.components=[];
 if(components!=null){this.addComponents(components)
 }},destroy:function(){this.components.length=0;
@@ -6832,7 +6866,8 @@ for(var i=0,len=this.components.length;
 i<len;
 ++i){Array.prototype.push.apply(vertices,this.components[i].getVertices(nodes))
 }return vertices
-},CLASS_NAME:"OpenLayers.Geometry.Collection"});OpenLayers.Geometry.Point=OpenLayers.Class(OpenLayers.Geometry,{x:null,y:null,initialize:function(x,y){OpenLayers.Geometry.prototype.initialize.apply(this,arguments);
+},CLASS_NAME:"OpenLayers.Geometry.Collection"});
+OpenLayers.Geometry.Point=OpenLayers.Class(OpenLayers.Geometry,{x:null,y:null,initialize:function(x,y){OpenLayers.Geometry.prototype.initialize.apply(this,arguments);
 this.x=parseFloat(x);
 this.y=parseFloat(y)
 },clone:function(obj){if(obj==null){obj=new OpenLayers.Geometry.Point(this.x,this.y)
@@ -6878,10 +6913,12 @@ if(geometry.CLASS_NAME=="OpenLayers.Geometry.Point"){intersect=this.equals(geome
 this.bounds=null
 }return this
 },getVertices:function(nodes){return[this]
-},CLASS_NAME:"OpenLayers.Geometry.Point"});OpenLayers.Geometry.MultiPoint=OpenLayers.Class(OpenLayers.Geometry.Collection,{componentTypes:["OpenLayers.Geometry.Point"],initialize:function(components){OpenLayers.Geometry.Collection.prototype.initialize.apply(this,arguments)
+},CLASS_NAME:"OpenLayers.Geometry.Point"});
+OpenLayers.Geometry.MultiPoint=OpenLayers.Class(OpenLayers.Geometry.Collection,{componentTypes:["OpenLayers.Geometry.Point"],initialize:function(components){OpenLayers.Geometry.Collection.prototype.initialize.apply(this,arguments)
 },addPoint:function(point,index){this.addComponent(point,index)
 },removePoint:function(point){this.removeComponent(point)
-},CLASS_NAME:"OpenLayers.Geometry.MultiPoint"});OpenLayers.Geometry.Curve=OpenLayers.Class(OpenLayers.Geometry.MultiPoint,{componentTypes:["OpenLayers.Geometry.Point"],initialize:function(points){OpenLayers.Geometry.MultiPoint.prototype.initialize.apply(this,arguments)
+},CLASS_NAME:"OpenLayers.Geometry.MultiPoint"});
+OpenLayers.Geometry.Curve=OpenLayers.Class(OpenLayers.Geometry.MultiPoint,{componentTypes:["OpenLayers.Geometry.Point"],initialize:function(points){OpenLayers.Geometry.MultiPoint.prototype.initialize.apply(this,arguments)
 },getLength:function(){var length=0;
 if(this.components&&(this.components.length>1)){for(var i=1,len=this.components.length;
 i<len;
@@ -6898,7 +6935,8 @@ i++){p1=geom.components[i-1];
 p2=geom.components[i];
 length+=OpenLayers.Util.distVincenty({lon:p1.x,lat:p1.y},{lon:p2.x,lat:p2.y})
 }}return length*1000
-},CLASS_NAME:"OpenLayers.Geometry.Curve"});OpenLayers.Geometry.LineString=OpenLayers.Class(OpenLayers.Geometry.Curve,{initialize:function(points){OpenLayers.Geometry.Curve.prototype.initialize.apply(this,arguments)
+},CLASS_NAME:"OpenLayers.Geometry.Curve"});
+OpenLayers.Geometry.LineString=OpenLayers.Class(OpenLayers.Geometry.Curve,{initialize:function(points){OpenLayers.Geometry.Curve.prototype.initialize.apply(this,arguments)
 },removeComponent:function(point){if(this.components&&(this.components.length>2)){OpenLayers.Geometry.Collection.prototype.removeComponent.apply(this,arguments)
 }},intersects:function(geometry){var intersect=false;
 var type=geometry.CLASS_NAME;
@@ -7061,7 +7099,8 @@ if(dist<min){if(details){best={distance:min,x0:result.x1,y0:result.y1,x1:result.
 }}}}}else{best=geometry.distanceTo(this,options);
 if(details){best={distance:best.distance,x0:best.x1,y0:best.y1,x1:best.x0,y1:best.y0}
 }}}return best
-},CLASS_NAME:"OpenLayers.Geometry.LineString"});OpenLayers.Geometry.LinearRing=OpenLayers.Class(OpenLayers.Geometry.LineString,{componentTypes:["OpenLayers.Geometry.Point"],initialize:function(points){OpenLayers.Geometry.LineString.prototype.initialize.apply(this,arguments)
+},CLASS_NAME:"OpenLayers.Geometry.LineString"});
+OpenLayers.Geometry.LinearRing=OpenLayers.Class(OpenLayers.Geometry.LineString,{componentTypes:["OpenLayers.Geometry.Point"],initialize:function(points){OpenLayers.Geometry.LineString.prototype.initialize.apply(this,arguments)
 },addComponent:function(point,index){var added=false;
 var lastPoint=this.components.pop();
 if(index!=null||!point.equals(lastPoint)){added=OpenLayers.Geometry.Collection.prototype.addComponent.apply(this,arguments)
@@ -7160,7 +7199,8 @@ i<len;
 if(intersect){break
 }}}}}return intersect
 },getVertices:function(nodes){return(nodes===true)?[]:this.components.slice(0,this.components.length-1)
-},CLASS_NAME:"OpenLayers.Geometry.LinearRing"});OpenLayers.Handler=OpenLayers.Class({id:null,control:null,map:null,keyMask:null,active:false,evt:null,initialize:function(control,callbacks,options){OpenLayers.Util.extend(this,options);
+},CLASS_NAME:"OpenLayers.Geometry.LinearRing"});
+OpenLayers.Handler=OpenLayers.Class({id:null,control:null,map:null,keyMask:null,active:false,evt:null,initialize:function(control,callbacks,options){OpenLayers.Util.extend(this,options);
 this.control=control;
 this.callbacks=callbacks;
 var map=this.map||control.map;
@@ -7197,7 +7237,8 @@ this.control=this.map=null
 OpenLayers.Handler.MOD_NONE=0;
 OpenLayers.Handler.MOD_SHIFT=1;
 OpenLayers.Handler.MOD_CTRL=2;
-OpenLayers.Handler.MOD_ALT=4;OpenLayers.Handler.Point=OpenLayers.Class(OpenLayers.Handler,{point:null,layer:null,multi:false,drawing:false,mouseDown:false,lastDown:null,lastUp:null,persist:false,layerOptions:null,initialize:function(control,callbacks,options){if(!(options&&options.layerOptions&&options.layerOptions.styleMap)){this.style=OpenLayers.Util.extend(OpenLayers.Feature.Vector.style["default"],{})
+OpenLayers.Handler.MOD_ALT=4;
+OpenLayers.Handler.Point=OpenLayers.Class(OpenLayers.Handler,{point:null,layer:null,multi:false,drawing:false,mouseDown:false,lastDown:null,lastUp:null,persist:false,layerOptions:null,initialize:function(control,callbacks,options){if(!(options&&options.layerOptions&&options.layerOptions.styleMap)){this.style=OpenLayers.Util.extend(OpenLayers.Feature.Vector.style["default"],{})
 }OpenLayers.Handler.prototype.initialize.apply(this,arguments)
 },activate:function(){if(!OpenLayers.Handler.prototype.activate.apply(this,arguments)){return false
 }var options=OpenLayers.Util.extend({displayInLayerSwitcher:false,calculateInRange:OpenLayers.Function.True},this.layerOptions);
@@ -7254,7 +7295,8 @@ return false
 },mouseup:function(evt){if(this.drawing){this.finalize();
 return false
 }else{return true
-}},CLASS_NAME:"OpenLayers.Handler.Point"});OpenLayers.Handler.Path=OpenLayers.Class(OpenLayers.Handler.Point,{line:null,freehand:false,freehandToggle:"shiftKey",initialize:function(control,callbacks,options){OpenLayers.Handler.Point.prototype.initialize.apply(this,arguments)
+}},CLASS_NAME:"OpenLayers.Handler.Point"});
+OpenLayers.Handler.Path=OpenLayers.Class(OpenLayers.Handler.Point,{line:null,freehand:false,freehandToggle:"shiftKey",initialize:function(control,callbacks,options){OpenLayers.Handler.Point.prototype.initialize.apply(this,arguments)
 },createFeature:function(pixel){var lonlat=this.control.map.getLonLatFromPixel(pixel);
 this.point=new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Point(lonlat.lon,lonlat.lat));
 this.line=new OpenLayers.Feature.Vector(new OpenLayers.Geometry.LineString([this.point.geometry]));
@@ -7307,7 +7349,8 @@ this.line.geometry.removeComponent(this.line.geometry.components[index]);
 this.removePoint();
 this.finalize()
 }return false
-},CLASS_NAME:"OpenLayers.Handler.Path"});OpenLayers.Geometry.Polygon=OpenLayers.Class(OpenLayers.Geometry.Collection,{componentTypes:["OpenLayers.Geometry.LinearRing"],initialize:function(components){OpenLayers.Geometry.Collection.prototype.initialize.apply(this,arguments)
+},CLASS_NAME:"OpenLayers.Handler.Path"});
+OpenLayers.Geometry.Polygon=OpenLayers.Class(OpenLayers.Geometry.Collection,{componentTypes:["OpenLayers.Geometry.LinearRing"],initialize:function(components){OpenLayers.Geometry.Collection.prototype.initialize.apply(this,arguments)
 },getArea:function(){var area=0;
 if(this.components&&(this.components.length>0)){area+=Math.abs(this.components[0].getArea());
 for(var i=1,len=this.components.length;
@@ -7370,7 +7413,8 @@ y=origin.y+(radius*Math.sin(rotatedAngle));
 points.push(new OpenLayers.Geometry.Point(x,y))
 }var ring=new OpenLayers.Geometry.LinearRing(points);
 return new OpenLayers.Geometry.Polygon([ring])
-};OpenLayers.Handler.Polygon=OpenLayers.Class(OpenLayers.Handler.Path,{polygon:null,initialize:function(control,callbacks,options){OpenLayers.Handler.Path.prototype.initialize.apply(this,arguments)
+};
+OpenLayers.Handler.Polygon=OpenLayers.Class(OpenLayers.Handler.Path,{polygon:null,initialize:function(control,callbacks,options){OpenLayers.Handler.Path.prototype.initialize.apply(this,arguments)
 },createFeature:function(pixel){var lonlat=this.control.map.getLonLatFromPixel(pixel);
 this.point=new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Point(lonlat.lon,lonlat.lat));
 this.line=new OpenLayers.Feature.Vector(new OpenLayers.Geometry.LinearRing([this.point.geometry]));
@@ -7391,7 +7435,8 @@ this.line.geometry.removeComponent(this.line.geometry.components[index]);
 this.removePoint();
 this.finalize()
 }return false
-},CLASS_NAME:"OpenLayers.Handler.Polygon"});OpenLayers.Geometry.MultiLineString=OpenLayers.Class(OpenLayers.Geometry.Collection,{componentTypes:["OpenLayers.Geometry.LineString"],initialize:function(components){OpenLayers.Geometry.Collection.prototype.initialize.apply(this,arguments)
+},CLASS_NAME:"OpenLayers.Handler.Polygon"});
+OpenLayers.Geometry.MultiLineString=OpenLayers.Class(OpenLayers.Geometry.Collection,{componentTypes:["OpenLayers.Geometry.LineString"],initialize:function(components){OpenLayers.Geometry.Collection.prototype.initialize.apply(this,arguments)
 },split:function(geometry,options){var results=null;
 var mutual=options&&options.mutual;
 var splits,sourceLine,sourceLines,sourceSplit,targetSplit;
@@ -7456,8 +7501,10 @@ k<klen;
 }if(sourceSplit||targetSplit){if(mutual){results=[sourceParts,targetParts]
 }else{results=targetParts
 }}return results
-},CLASS_NAME:"OpenLayers.Geometry.MultiLineString"});OpenLayers.Geometry.MultiPolygon=OpenLayers.Class(OpenLayers.Geometry.Collection,{componentTypes:["OpenLayers.Geometry.Polygon"],initialize:function(components){OpenLayers.Geometry.Collection.prototype.initialize.apply(this,arguments)
-},CLASS_NAME:"OpenLayers.Geometry.MultiPolygon"});OpenLayers.Format.GeoJSON=OpenLayers.Class(OpenLayers.Format.JSON,{ignoreExtraDims:false,initialize:function(options){OpenLayers.Format.JSON.prototype.initialize.apply(this,[options])
+},CLASS_NAME:"OpenLayers.Geometry.MultiLineString"});
+OpenLayers.Geometry.MultiPolygon=OpenLayers.Class(OpenLayers.Geometry.Collection,{componentTypes:["OpenLayers.Geometry.Polygon"],initialize:function(components){OpenLayers.Geometry.Collection.prototype.initialize.apply(this,arguments)
+},CLASS_NAME:"OpenLayers.Geometry.MultiPolygon"});
+OpenLayers.Format.GeoJSON=OpenLayers.Class(OpenLayers.Format.JSON,{ignoreExtraDims:false,initialize:function(options){OpenLayers.Format.JSON.prototype.initialize.apply(this,[options])
 },read:function(json,type,filter){type=(type)?type:"FeatureCollection";
 var results=null;
 var obj=null;
@@ -7631,7 +7678,8 @@ for(var i=0;
 i<len;
 ++i){array[i]=this.extract.geometry.apply(this,[collection.components[i]])
 }return array
-}},CLASS_NAME:"OpenLayers.Format.GeoJSON"});OpenLayers.Format.GML=OpenLayers.Class(OpenLayers.Format.XML,{featureNS:"http://mapserver.gis.umn.edu/mapserver",featurePrefix:"feature",featureName:"featureMember",layerName:"features",geometryName:"geometry",collectionName:"FeatureCollection",gmlns:"http://www.opengis.net/gml",extractAttributes:true,xy:true,initialize:function(options){this.regExes={trimSpace:(/^\s*|\s*$/g),removeSpace:(/\s*/g),splitSpace:(/\s+/),trimComma:(/\s*,\s*/g)};
+}},CLASS_NAME:"OpenLayers.Format.GeoJSON"});
+OpenLayers.Format.GML=OpenLayers.Class(OpenLayers.Format.XML,{featureNS:"http://mapserver.gis.umn.edu/mapserver",featurePrefix:"feature",featureName:"featureMember",layerName:"features",geometryName:"geometry",collectionName:"FeatureCollection",gmlns:"http://www.opengis.net/gml",extractAttributes:true,xy:true,initialize:function(options){this.regExes={trimSpace:(/^\s*|\s*$/g),removeSpace:(/\s*/g),splitSpace:(/\s+/),trimComma:(/\s*,\s*/g)};
 OpenLayers.Format.XML.prototype.initialize.apply(this,[options])
 },read:function(data){if(typeof data=="string"){data=OpenLayers.Format.XML.prototype.read.apply(this,[data])
 }var featureNodes=this.getElementsByTagNameNS(data.documentElement,this.gmlns,this.featureName);
@@ -7901,7 +7949,8 @@ i++){parts.push(points[i].x+","+points[i].y)
 }}var txtNode=this.createTextNode(parts.join(" "));
 coordinatesNode.appendChild(txtNode);
 return coordinatesNode
-},CLASS_NAME:"OpenLayers.Format.GML"});if(!OpenLayers.Format.GML){OpenLayers.Format.GML={}
+},CLASS_NAME:"OpenLayers.Format.GML"});
+if(!OpenLayers.Format.GML){OpenLayers.Format.GML={}
 }OpenLayers.Format.GML.Base=OpenLayers.Class(OpenLayers.Format.XML,{namespaces:{gml:"http://www.opengis.net/gml",xlink:"http://www.w3.org/1999/xlink",xsi:"http://www.w3.org/2001/XMLSchema-instance",wfs:"http://www.opengis.net/wfs"},defaultPrefix:"gml",schemaLocation:null,featureType:null,featureNS:null,geometryName:"geometry",extractAttributes:true,srsName:null,xy:true,geometryTypes:null,singleFeatureType:null,regExes:{trimSpace:(/^\s*|\s*$/g),removeSpace:(/\s*/g),splitSpace:(/\s+/),trimComma:(/\s*,\s*/g)},initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,[options]);
 this.setGeometryTypes();
 if(options&&options.featureNS){this.setNamespace("feature",options.featureNS)
@@ -8057,7 +8106,8 @@ i<len;
 ++i){this.writeNode("gml:featureMember",features[i],node)
 }return node
 }}},setGeometryTypes:function(){this.geometryTypes={"OpenLayers.Geometry.Point":"Point","OpenLayers.Geometry.MultiPoint":"MultiPoint","OpenLayers.Geometry.LineString":"LineString","OpenLayers.Geometry.MultiLineString":"MultiLineString","OpenLayers.Geometry.Polygon":"Polygon","OpenLayers.Geometry.MultiPolygon":"MultiPolygon","OpenLayers.Geometry.Collection":"GeometryCollection"}
-},CLASS_NAME:"OpenLayers.Format.GML.Base"});OpenLayers.Format.GML.v3=OpenLayers.Class(OpenLayers.Format.GML.Base,{schemaLocation:"http://www.opengis.net/gml http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd",curve:false,multiCurve:true,surface:false,multiSurface:true,initialize:function(options){OpenLayers.Format.GML.Base.prototype.initialize.apply(this,[options])
+},CLASS_NAME:"OpenLayers.Format.GML.Base"});
+OpenLayers.Format.GML.v3=OpenLayers.Class(OpenLayers.Format.GML.Base,{schemaLocation:"http://www.opengis.net/gml http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd",curve:false,multiCurve:true,surface:false,multiSurface:true,initialize:function(options){OpenLayers.Format.GML.Base.prototype.initialize.apply(this,[options])
 },readers:{gml:OpenLayers.Util.applyDefaults({featureMembers:function(node,obj){this.readChildNodes(node,obj)
 },Curve:function(node,container){var obj={points:[]};
 this.readChildNodes(node,obj);
@@ -8213,7 +8263,8 @@ return this.createElementNSPlus("gml:lowerCorner",{value:pos})
 },upperCorner:function(bounds){var pos=(this.xy)?(bounds.right+" "+bounds.top):(bounds.top+" "+bounds.right);
 return this.createElementNSPlus("gml:upperCorner",{value:pos})
 }},OpenLayers.Format.GML.Base.prototype.writers.gml),feature:OpenLayers.Format.GML.Base.prototype.writers.feature,wfs:OpenLayers.Format.GML.Base.prototype.writers.wfs},setGeometryTypes:function(){this.geometryTypes={"OpenLayers.Geometry.Point":"Point","OpenLayers.Geometry.MultiPoint":"MultiPoint","OpenLayers.Geometry.LineString":(this.curve===true)?"Curve":"LineString","OpenLayers.Geometry.MultiLineString":(this.multiCurve===false)?"MultiLineString":"MultiCurve","OpenLayers.Geometry.Polygon":(this.surface===true)?"Surface":"Polygon","OpenLayers.Geometry.MultiPolygon":(this.multiSurface===false)?"MultiPolygon":"MultiSurface","OpenLayers.Geometry.Collection":"GeometryCollection"}
-},CLASS_NAME:"OpenLayers.Format.GML.v3"});OpenLayers.Element={visible:function(element){return OpenLayers.Util.getElement(element).style.display!="none"
+},CLASS_NAME:"OpenLayers.Format.GML.v3"});
+OpenLayers.Element={visible:function(element){return OpenLayers.Util.getElement(element).style.display!="none"
 },toggle:function(){for(var i=0,len=arguments.length;
 i<len;
 i++){var element=OpenLayers.Util.getElement(arguments[i]);
@@ -8265,7 +8316,8 @@ value=css?css.getPropertyValue(style):null
 }}}var positions=["left","top","right","bottom"];
 if(window.opera&&(OpenLayers.Util.indexOf(positions,style)!=-1)&&(OpenLayers.Element.getStyle(element,"position")=="static")){value="auto"
 }}return value=="auto"?null:value
-}};OpenLayers.Handler.MouseWheel=OpenLayers.Class(OpenLayers.Handler,{wheelListener:null,mousePosition:null,interval:0,delta:0,cumulative:true,initialize:function(control,callbacks,options){OpenLayers.Handler.prototype.initialize.apply(this,arguments);
+}};
+OpenLayers.Handler.MouseWheel=OpenLayers.Class(OpenLayers.Handler,{wheelListener:null,mousePosition:null,interval:0,delta:0,cumulative:true,initialize:function(control,callbacks,options){OpenLayers.Handler.prototype.initialize.apply(this,arguments);
 this.wheelListener=OpenLayers.Function.bindAsEventListener(this.onWheelEvent,this)
 },destroy:function(){OpenLayers.Handler.prototype.destroy.apply(this,arguments);
 this.wheelListener=null
@@ -8314,8 +8366,10 @@ OpenLayers.Event.stopObserving(window,"mousewheel",wheelListener);
 OpenLayers.Event.stopObserving(document,"mousewheel",wheelListener);
 return true
 }else{return false
-}},CLASS_NAME:"OpenLayers.Handler.MouseWheel"});OpenLayers.Control.ZoomToMaxExtent=OpenLayers.Class(OpenLayers.Control,{type:OpenLayers.Control.TYPE_BUTTON,trigger:function(){if(this.map){this.map.zoomToMaxExtent()
-}},CLASS_NAME:"OpenLayers.Control.ZoomToMaxExtent"});OpenLayers.Style=OpenLayers.Class({id:null,name:null,title:null,description:null,layerName:null,isDefault:false,rules:null,context:null,defaultStyle:null,defaultsPerSymbolizer:false,propertyStyles:null,initialize:function(style,options){OpenLayers.Util.extend(this,options);
+}},CLASS_NAME:"OpenLayers.Handler.MouseWheel"});
+OpenLayers.Control.ZoomToMaxExtent=OpenLayers.Class(OpenLayers.Control,{type:OpenLayers.Control.TYPE_BUTTON,trigger:function(){if(this.map){this.map.zoomToMaxExtent()
+}},CLASS_NAME:"OpenLayers.Control.ZoomToMaxExtent"});
+OpenLayers.Style=OpenLayers.Class({id:null,name:null,title:null,description:null,layerName:null,isDefault:false,rules:null,context:null,defaultStyle:null,defaultsPerSymbolizer:false,propertyStyles:null,initialize:function(style,options){OpenLayers.Util.extend(this,options);
 this.rules=[];
 if(options&&options.rules){this.addRules(options.rules)
 }this.setDefaultStyle(style||OpenLayers.Feature.Vector.style["default"]);
@@ -8394,10 +8448,12 @@ OpenLayers.Style.createLiteral=function(value,context,feature,property){if(typeo
 value=(isNaN(value)||!value)?value:parseFloat(value)
 }return value
 };
-OpenLayers.Style.SYMBOLIZER_PREFIXES=["Point","Line","Polygon","Text","Raster"];OpenLayers.Filter=OpenLayers.Class({initialize:function(options){OpenLayers.Util.extend(this,options)
+OpenLayers.Style.SYMBOLIZER_PREFIXES=["Point","Line","Polygon","Text","Raster"];
+OpenLayers.Filter=OpenLayers.Class({initialize:function(options){OpenLayers.Util.extend(this,options)
 },destroy:function(){},evaluate:function(context){return true
 },clone:function(){return null
-},CLASS_NAME:"OpenLayers.Filter"});OpenLayers.Filter.FeatureId=OpenLayers.Class(OpenLayers.Filter,{fids:null,initialize:function(options){this.fids=[];
+},CLASS_NAME:"OpenLayers.Filter"});
+OpenLayers.Filter.FeatureId=OpenLayers.Class(OpenLayers.Filter,{fids:null,initialize:function(options){this.fids=[];
 OpenLayers.Filter.prototype.initialize.apply(this,[options])
 },evaluate:function(feature){for(var i=0,len=this.fids.length;
 i<len;
@@ -8408,7 +8464,8 @@ if(fid==this.fids[i]){return true
 OpenLayers.Util.extend(filter,this);
 filter.fids=this.fids.slice();
 return filter
-},CLASS_NAME:"OpenLayers.Filter.FeatureId"});OpenLayers.Filter.Logical=OpenLayers.Class(OpenLayers.Filter,{filters:null,type:null,initialize:function(options){this.filters=[];
+},CLASS_NAME:"OpenLayers.Filter.FeatureId"});
+OpenLayers.Filter.Logical=OpenLayers.Class(OpenLayers.Filter,{filters:null,type:null,initialize:function(options){this.filters=[];
 OpenLayers.Filter.prototype.initialize.apply(this,[options])
 },destroy:function(){this.filters=null;
 OpenLayers.Filter.prototype.destroy.apply(this)
@@ -8429,7 +8486,8 @@ i<len;
 },CLASS_NAME:"OpenLayers.Filter.Logical"});
 OpenLayers.Filter.Logical.AND="&&";
 OpenLayers.Filter.Logical.OR="||";
-OpenLayers.Filter.Logical.NOT="!";OpenLayers.Filter.Comparison=OpenLayers.Class(OpenLayers.Filter,{type:null,property:null,value:null,matchCase:true,lowerBoundary:null,upperBoundary:null,initialize:function(options){OpenLayers.Filter.prototype.initialize.apply(this,[options])
+OpenLayers.Filter.Logical.NOT="!";
+OpenLayers.Filter.Comparison=OpenLayers.Class(OpenLayers.Filter,{type:null,property:null,value:null,matchCase:true,lowerBoundary:null,upperBoundary:null,initialize:function(options){OpenLayers.Filter.prototype.initialize.apply(this,[options])
 },evaluate:function(context){if(context instanceof OpenLayers.Feature.Vector){context=context.attributes
 }var result=false;
 var got=context[this.property];
@@ -8485,7 +8543,8 @@ OpenLayers.Filter.Comparison.GREATER_THAN=">";
 OpenLayers.Filter.Comparison.LESS_THAN_OR_EQUAL_TO="<=";
 OpenLayers.Filter.Comparison.GREATER_THAN_OR_EQUAL_TO=">=";
 OpenLayers.Filter.Comparison.BETWEEN="..";
-OpenLayers.Filter.Comparison.LIKE="~";OpenLayers.Format.Filter=OpenLayers.Class(OpenLayers.Format.XML,{defaultVersion:"1.0.0",version:null,parser:null,initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,[options])
+OpenLayers.Filter.Comparison.LIKE="~";
+OpenLayers.Format.Filter=OpenLayers.Class(OpenLayers.Format.XML,{defaultVersion:"1.0.0",version:null,parser:null,initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,[options])
 },write:function(filter,options){var version=(options&&options.version)||this.version||this.defaultVersion;
 if(!this.parser||this.parser.VERSION!=version){var format=OpenLayers.Format.Filter["v"+version.replace(/\./g,"_")];
 if(!format){throw"Can't find a Filter parser for version "+version
@@ -8499,7 +8558,8 @@ if(!format){throw"Can't find a Filter parser for version "+version
 }this.parser=new format(this.options)
 }var filter=this.parser.read(data);
 return filter
-},CLASS_NAME:"OpenLayers.Format.Filter"});OpenLayers.Protocol=OpenLayers.Class({format:null,options:null,autoDestroy:true,defaultFilter:null,initialize:function(options){options=options||{};
+},CLASS_NAME:"OpenLayers.Format.Filter"});
+OpenLayers.Protocol=OpenLayers.Class({format:null,options:null,autoDestroy:true,defaultFilter:null,initialize:function(options){options=options||{};
 OpenLayers.Util.extend(this,options);
 this.options=options
 },mergeWithDefaultFilter:function(filter){var merged;
@@ -8517,7 +8577,8 @@ OpenLayers.Protocol.Response=OpenLayers.Class({code:null,requestType:null,last:t
 },success:function(){return this.code>0
 },CLASS_NAME:"OpenLayers.Protocol.Response"});
 OpenLayers.Protocol.Response.SUCCESS=1;
-OpenLayers.Protocol.Response.FAILURE=0;OpenLayers.Protocol.HTTP=OpenLayers.Class(OpenLayers.Protocol,{url:null,headers:null,params:null,callback:null,scope:null,readWithPOST:false,wildcarded:false,initialize:function(options){options=options||{};
+OpenLayers.Protocol.Response.FAILURE=0;
+OpenLayers.Protocol.HTTP=OpenLayers.Class(OpenLayers.Protocol,{url:null,headers:null,params:null,callback:null,scope:null,readWithPOST:false,wildcarded:false,initialize:function(options){options=options||{};
 this.params={};
 this.headers={};
 OpenLayers.Protocol.prototype.initialize.apply(this,arguments)
@@ -8652,7 +8713,8 @@ o[OpenLayers.Filter.Comparison.LESS_THAN_OR_EQUAL_TO]="lte";
 o[OpenLayers.Filter.Comparison.GREATER_THAN]="gt";
 o[OpenLayers.Filter.Comparison.GREATER_THAN_OR_EQUAL_TO]="gte";
 o[OpenLayers.Filter.Comparison.LIKE]="ilike"
-})();OpenLayers.Renderer=OpenLayers.Class({container:null,root:null,extent:null,locked:false,size:null,resolution:null,map:null,initialize:function(containerID,options){this.container=OpenLayers.Util.getElement(containerID)
+})();
+OpenLayers.Renderer=OpenLayers.Class({container:null,root:null,extent:null,locked:false,size:null,resolution:null,map:null,initialize:function(containerID,options){this.container=OpenLayers.Util.getElement(containerID)
 },destroy:function(){this.container=null;
 this.extent=null;
 this.size=null;
@@ -8691,7 +8753,8 @@ delete result.strokeColor
 }OpenLayers.Util.extend(result,symbolizer);
 return result
 },CLASS_NAME:"OpenLayers.Renderer"});
-OpenLayers.Renderer.defaultSymbolizer={fillColor:"#000000",strokeColor:"#000000",strokeWidth:2,fillOpacity:1,strokeOpacity:1,pointRadius:0};OpenLayers.ElementsIndexer=OpenLayers.Class({maxZIndex:null,order:null,indices:null,compare:null,initialize:function(yOrdering){this.compare=yOrdering?OpenLayers.ElementsIndexer.IndexingMethods.Z_ORDER_Y_ORDER:OpenLayers.ElementsIndexer.IndexingMethods.Z_ORDER_DRAWING_ORDER;
+OpenLayers.Renderer.defaultSymbolizer={fillColor:"#000000",strokeColor:"#000000",strokeWidth:2,fillOpacity:1,strokeOpacity:1,pointRadius:0};
+OpenLayers.ElementsIndexer=OpenLayers.Class({maxZIndex:null,order:null,indices:null,compare:null,initialize:function(yOrdering){this.compare=yOrdering?OpenLayers.ElementsIndexer.IndexingMethods.Z_ORDER_Y_ORDER:OpenLayers.ElementsIndexer.IndexingMethods.Z_ORDER_DRAWING_ORDER;
 this.order=[];
 this.indices={};
 this.maxZIndex=0
@@ -8856,7 +8919,8 @@ renderer.rendererRoot.appendChild(root)
 },getRenderLayerId:function(){return this.root.parentNode.parentNode.id
 },isComplexSymbol:function(graphicName){return(graphicName!="circle")&&!!graphicName
 },CLASS_NAME:"OpenLayers.Renderer.Elements"});
-OpenLayers.Renderer.symbol={star:[350,75,379,161,469,161,397,215,423,301,350,250,277,301,303,215,231,161,321,161,350,75],cross:[4,0,6,0,6,4,10,4,10,6,6,6,6,10,4,10,4,6,0,6,0,4,4,4,4,0],x:[0,0,25,0,50,35,75,0,100,0,65,50,100,100,75,100,50,65,25,100,0,100,35,50,0,0],square:[0,0,0,1,1,1,1,0,0,0],triangle:[0,10,10,10,5,0,0,10]};OpenLayers.Handler.Feature=OpenLayers.Class(OpenLayers.Handler,{EVENTMAP:{click:{"in":"click",out:"clickout"},mousemove:{"in":"over",out:"out"},dblclick:{"in":"dblclick",out:null},mousedown:{"in":null,out:null},mouseup:{"in":null,out:null}},feature:null,lastFeature:null,down:null,up:null,clickTolerance:4,geometryTypes:null,stopClick:true,stopDown:true,stopUp:false,initialize:function(control,layer,callbacks,options){OpenLayers.Handler.prototype.initialize.apply(this,[control,callbacks,options]);
+OpenLayers.Renderer.symbol={star:[350,75,379,161,469,161,397,215,423,301,350,250,277,301,303,215,231,161,321,161,350,75],cross:[4,0,6,0,6,4,10,4,10,6,6,6,6,10,4,10,4,6,0,6,0,4,4,4,4,0],x:[0,0,25,0,50,35,75,0,100,0,65,50,100,100,75,100,50,65,25,100,0,100,35,50,0,0],square:[0,0,0,1,1,1,1,0,0,0],triangle:[0,10,10,10,5,0,0,10]};
+OpenLayers.Handler.Feature=OpenLayers.Class(OpenLayers.Handler,{EVENTMAP:{click:{"in":"click",out:"clickout"},mousemove:{"in":"over",out:"out"},dblclick:{"in":"dblclick",out:null},mousedown:{"in":null,out:null},mouseup:{"in":null,out:null}},feature:null,lastFeature:null,down:null,up:null,clickTolerance:4,geometryTypes:null,stopClick:true,stopDown:true,stopUp:false,initialize:function(control,layer,callbacks,options){OpenLayers.Handler.prototype.initialize.apply(this,[control,callbacks,options]);
 this.layer=layer
 },mousedown:function(evt){this.down=evt.xy;
 return this.handle(evt)?!this.stopDown:true
@@ -8910,7 +8974,8 @@ this.layer.setZIndex(index)
 },moveLayerBack:function(){var index=this.layer.getZIndex()-1;
 if(index>=this.map.Z_INDEX_BASE.Feature){this.layer.setZIndex(index)
 }else{this.map.setLayerZIndex(this.layer,this.map.getLayerIndex(this.layer))
-}},CLASS_NAME:"OpenLayers.Handler.Feature"});OpenLayers.StyleMap=OpenLayers.Class({styles:null,extendDefault:true,initialize:function(style,options){this.styles={"default":new OpenLayers.Style(OpenLayers.Feature.Vector.style["default"]),select:new OpenLayers.Style(OpenLayers.Feature.Vector.style.select),temporary:new OpenLayers.Style(OpenLayers.Feature.Vector.style.temporary),"delete":new OpenLayers.Style(OpenLayers.Feature.Vector.style["delete"])};
+}},CLASS_NAME:"OpenLayers.Handler.Feature"});
+OpenLayers.StyleMap=OpenLayers.Class({styles:null,extendDefault:true,initialize:function(style,options){this.styles={"default":new OpenLayers.Style(OpenLayers.Feature.Vector.style["default"]),select:new OpenLayers.Style(OpenLayers.Feature.Vector.style.select),temporary:new OpenLayers.Style(OpenLayers.Feature.Vector.style.temporary),"delete":new OpenLayers.Style(OpenLayers.Feature.Vector.style["delete"])};
 if(style instanceof OpenLayers.Style){this.styles["default"]=style;
 this.styles.select=style;
 this.styles.temporary=style;
@@ -8934,7 +8999,8 @@ if(this.extendDefault&&intent!="default"){defaultSymbolizer=this.styles["default
 },addUniqueValueRules:function(renderIntent,property,symbolizers,context){var rules=[];
 for(var value in symbolizers){rules.push(new OpenLayers.Rule({symbolizer:symbolizers[value],context:context,filter:new OpenLayers.Filter.Comparison({type:OpenLayers.Filter.Comparison.EQUAL_TO,property:property,value:value})}))
 }this.styles[renderIntent].addRules(rules)
-},CLASS_NAME:"OpenLayers.StyleMap"});OpenLayers.Layer.Vector=OpenLayers.Class(OpenLayers.Layer,{EVENT_TYPES:["beforefeatureadded","beforefeaturesadded","featureadded","featuresadded","beforefeatureremoved","beforefeaturesremoved","featureremoved","featuresremoved","beforefeatureselected","featureselected","featureunselected","beforefeaturemodified","featuremodified","afterfeaturemodified","vertexmodified","sketchstarted","sketchmodified","sketchcomplete","refresh"],isBaseLayer:false,isFixed:false,isVector:true,features:null,filter:null,selectedFeatures:null,unrenderedFeatures:null,reportError:true,style:null,styleMap:null,strategies:null,protocol:null,renderers:["SVG","VML","Canvas"],renderer:null,rendererOptions:null,geometryType:null,drawn:false,initialize:function(name,options){this.EVENT_TYPES=OpenLayers.Layer.Vector.prototype.EVENT_TYPES.concat(OpenLayers.Layer.prototype.EVENT_TYPES);
+},CLASS_NAME:"OpenLayers.StyleMap"});
+OpenLayers.Layer.Vector=OpenLayers.Class(OpenLayers.Layer,{EVENT_TYPES:["beforefeatureadded","beforefeaturesadded","featureadded","featuresadded","beforefeatureremoved","beforefeaturesremoved","featureremoved","featuresremoved","beforefeatureselected","featureselected","featureunselected","beforefeaturemodified","featuremodified","afterfeaturemodified","vertexmodified","sketchstarted","sketchmodified","sketchcomplete","refresh"],isBaseLayer:false,isFixed:false,isVector:true,features:null,filter:null,selectedFeatures:null,unrenderedFeatures:null,reportError:true,style:null,styleMap:null,strategies:null,protocol:null,renderers:["SVG","VML","Canvas"],renderer:null,rendererOptions:null,geometryType:null,drawn:false,initialize:function(name,options){this.EVENT_TYPES=OpenLayers.Layer.Vector.prototype.EVENT_TYPES.concat(OpenLayers.Layer.prototype.EVENT_TYPES);
 OpenLayers.Layer.prototype.initialize.apply(this,arguments);
 if(!this.renderer||!this.renderer.supported()){this.assignRenderer()
 }if(!this.renderer||!this.renderer.supported()){this.renderer=null;
@@ -9112,7 +9178,8 @@ i<len;
 i++){geometry=features[i].geometry;
 if(geometry){maxExtent.extend(geometry.getBounds())
 }}}return maxExtent
-},CLASS_NAME:"OpenLayers.Layer.Vector"});OpenLayers.Layer.Markers=OpenLayers.Class(OpenLayers.Layer,{isBaseLayer:false,markers:null,drawn:false,initialize:function(name,options){OpenLayers.Layer.prototype.initialize.apply(this,arguments);
+},CLASS_NAME:"OpenLayers.Layer.Vector"});
+OpenLayers.Layer.Markers=OpenLayers.Class(OpenLayers.Layer,{isBaseLayer:false,markers:null,drawn:false,initialize:function(name,options){OpenLayers.Layer.prototype.initialize.apply(this,arguments);
 this.markers=[]
 },destroy:function(){this.clearMarkers();
 this.markers=null;
@@ -9145,7 +9212,8 @@ i<len;
 i++){var marker=this.markers[i];
 maxExtent.extend(marker.lonlat)
 }}return maxExtent
-},CLASS_NAME:"OpenLayers.Layer.Markers"});OpenLayers.Layer.Vector.RootContainer=OpenLayers.Class(OpenLayers.Layer.Vector,{displayInLayerSwitcher:false,layers:null,initialize:function(name,options){OpenLayers.Layer.Vector.prototype.initialize.apply(this,arguments)
+},CLASS_NAME:"OpenLayers.Layer.Markers"});
+OpenLayers.Layer.Vector.RootContainer=OpenLayers.Class(OpenLayers.Layer.Vector,{displayInLayerSwitcher:false,layers:null,initialize:function(name,options){OpenLayers.Layer.Vector.prototype.initialize.apply(this,arguments)
 },display:function(){},getFeatureFromEvent:function(evt){var layers=this.layers;
 var feature;
 for(var i=0;
@@ -9171,7 +9239,8 @@ if(this.renderer&&layer.renderer.getRenderLayerId()==this.id){this.renderer.move
 }}},handleChangeLayer:function(evt){var layer=evt.layer;
 if(evt.property=="order"&&OpenLayers.Util.indexOf(this.layers,layer)!=-1){this.resetRoots();
 this.collectRoots()
-}},CLASS_NAME:"OpenLayers.Layer.Vector.RootContainer"});OpenLayers.Control.SelectFeature=OpenLayers.Class(OpenLayers.Control,{EVENT_TYPES:["beforefeaturehighlighted","featurehighlighted","featureunhighlighted"],multipleKey:null,toggleKey:null,multiple:false,clickout:true,toggle:false,hover:false,highlightOnly:false,box:false,onBeforeSelect:function(){},onSelect:function(){},onUnselect:function(){},scope:null,geometryTypes:null,layer:null,layers:null,callbacks:null,selectStyle:null,renderIntent:"select",handlers:null,initialize:function(layers,options){this.EVENT_TYPES=OpenLayers.Control.SelectFeature.prototype.EVENT_TYPES.concat(OpenLayers.Control.prototype.EVENT_TYPES);
+}},CLASS_NAME:"OpenLayers.Layer.Vector.RootContainer"});
+OpenLayers.Control.SelectFeature=OpenLayers.Class(OpenLayers.Control,{EVENT_TYPES:["beforefeaturehighlighted","featurehighlighted","featureunhighlighted"],multipleKey:null,toggleKey:null,multiple:false,clickout:true,toggle:false,hover:false,highlightOnly:false,box:false,onBeforeSelect:function(){},onSelect:function(){},onUnselect:function(){},scope:null,geometryTypes:null,layer:null,layers:null,callbacks:null,selectStyle:null,renderIntent:"select",handlers:null,initialize:function(layers,options){this.EVENT_TYPES=OpenLayers.Control.SelectFeature.prototype.EVENT_TYPES.concat(OpenLayers.Control.prototype.EVENT_TYPES);
 OpenLayers.Control.prototype.initialize.apply(this,[options]);
 if(this.scope===null){this.scope=this
 }this.initLayer(layers);
@@ -9273,7 +9342,8 @@ this.layers=null
 }this.initLayer(layers);
 this.handlers.feature.layer=this.layer;
 if(isActive){this.activate()
-}},CLASS_NAME:"OpenLayers.Control.SelectFeature"});OpenLayers.Control.NavigationHistory=OpenLayers.Class(OpenLayers.Control,{type:OpenLayers.Control.TYPE_TOGGLE,previous:null,previousOptions:null,next:null,nextOptions:null,limit:50,autoActivate:true,clearOnDeactivate:false,registry:null,nextStack:null,previousStack:null,listeners:null,restoring:false,initialize:function(options){OpenLayers.Control.prototype.initialize.apply(this,[options]);
+}},CLASS_NAME:"OpenLayers.Control.SelectFeature"});
+OpenLayers.Control.NavigationHistory=OpenLayers.Class(OpenLayers.Control,{type:OpenLayers.Control.TYPE_TOGGLE,previous:null,previousOptions:null,next:null,nextOptions:null,limit:50,autoActivate:true,clearOnDeactivate:false,registry:null,nextStack:null,previousStack:null,listeners:null,restoring:false,initialize:function(options){OpenLayers.Control.prototype.initialize.apply(this,[options]);
 this.registry=OpenLayers.Util.extend({moveend:this.getState},this.registry);
 var previousOptions={trigger:OpenLayers.Function.bind(this.previousTrigger,this),displayClass:this.displayClass+" "+this.displayClass+"Previous"};
 OpenLayers.Util.extend(previousOptions,this.previousOptions);
@@ -9352,7 +9422,8 @@ if(this.map){if(OpenLayers.Control.prototype.deactivate.apply(this)){for(var typ
 }if(this.clearOnDeactivate){this.clear()
 }deactivated=true
 }}return deactivated
-},CLASS_NAME:"OpenLayers.Control.NavigationHistory"});OpenLayers.Control.Attribution=OpenLayers.Class(OpenLayers.Control,{separator:", ",initialize:function(options){OpenLayers.Control.prototype.initialize.apply(this,arguments)
+},CLASS_NAME:"OpenLayers.Control.NavigationHistory"});
+OpenLayers.Control.Attribution=OpenLayers.Class(OpenLayers.Control,{separator:", ",initialize:function(options){OpenLayers.Control.prototype.initialize.apply(this,arguments)
 },destroy:function(){this.map.events.un({removelayer:this.updateAttribution,addlayer:this.updateAttribution,changelayer:this.updateAttribution,changebaselayer:this.updateAttribution,scope:this});
 OpenLayers.Control.prototype.destroy.apply(this,arguments)
 },draw:function(){OpenLayers.Control.prototype.draw.apply(this,arguments);
@@ -9365,7 +9436,8 @@ i<len;
 i++){var layer=this.map.layers[i];
 if(layer.attribution&&layer.getVisibility()){if(OpenLayers.Util.indexOf(attributions,layer.attribution)===-1){attributions.push(layer.attribution)
 }}}this.div.innerHTML=attributions.join(this.separator)
-}},CLASS_NAME:"OpenLayers.Control.Attribution"});OpenLayers.Control.WMSGetFeatureInfo=OpenLayers.Class(OpenLayers.Control,{hover:false,drillDown:false,maxFeatures:10,clickCallback:"click",layers:null,queryVisible:false,url:null,layerUrls:null,infoFormat:"text/html",vendorParams:{},format:null,formatOptions:null,handlerOptions:null,handler:null,hoverRequest:null,EVENT_TYPES:["beforegetfeatureinfo","nogetfeatureinfo","getfeatureinfo"],initialize:function(options){this.EVENT_TYPES=OpenLayers.Control.WMSGetFeatureInfo.prototype.EVENT_TYPES.concat(OpenLayers.Control.prototype.EVENT_TYPES);
+}},CLASS_NAME:"OpenLayers.Control.Attribution"});
+OpenLayers.Control.WMSGetFeatureInfo=OpenLayers.Class(OpenLayers.Control,{hover:false,drillDown:false,maxFeatures:10,clickCallback:"click",layers:null,queryVisible:false,url:null,layerUrls:null,infoFormat:"text/html",vendorParams:{},format:null,formatOptions:null,handlerOptions:null,handler:null,hoverRequest:null,EVENT_TYPES:["beforegetfeatureinfo","nogetfeatureinfo","getfeatureinfo"],initialize:function(options){this.EVENT_TYPES=OpenLayers.Control.WMSGetFeatureInfo.prototype.EVENT_TYPES.concat(OpenLayers.Control.prototype.EVENT_TYPES);
 options=options||{};
 options.handlerOptions=options.handlerOptions||{};
 OpenLayers.Control.prototype.initialize.apply(this,[options]);
@@ -9451,7 +9523,8 @@ if(this._requestCount===this._numRequests){this.triggerGetFeatureInfo(request,xy
 delete this._features;
 delete this._requestCount;
 delete this._numRequests
-}}},CLASS_NAME:"OpenLayers.Control.WMSGetFeatureInfo"});OpenLayers.Request={DEFAULT_CONFIG:{method:"GET",url:window.location.href,async:true,user:undefined,password:undefined,params:null,proxy:OpenLayers.ProxyHost,headers:{},data:null,callback:function(){},success:null,failure:null,scope:null},events:new OpenLayers.Events(this,null,["complete","success","failure"]),issue:function(config){var defaultConfig=OpenLayers.Util.extend(this.DEFAULT_CONFIG,{proxy:OpenLayers.ProxyHost});
+}}},CLASS_NAME:"OpenLayers.Control.WMSGetFeatureInfo"});
+OpenLayers.Request={DEFAULT_CONFIG:{method:"GET",url:window.location.href,async:true,user:undefined,password:undefined,params:null,proxy:OpenLayers.ProxyHost,headers:{},data:null,callback:function(){},success:null,failure:null,scope:null},events:new OpenLayers.Events(this,null,["complete","success","failure"]),issue:function(config){var defaultConfig=OpenLayers.Util.extend(this.DEFAULT_CONFIG,{proxy:OpenLayers.ProxyHost});
 config=OpenLayers.Util.applyDefaults(config,defaultConfig);
 var request=new OpenLayers.Request.XMLHttpRequest();
 var url=config.url;
@@ -9499,7 +9572,8 @@ return OpenLayers.Request.issue(config)
 return OpenLayers.Request.issue(config)
 },OPTIONS:function(config){config=OpenLayers.Util.extend(config,{method:"OPTIONS"});
 return OpenLayers.Request.issue(config)
-}};(function(){var oXMLHttpRequest=window.XMLHttpRequest;
+}};
+(function(){var oXMLHttpRequest=window.XMLHttpRequest;
 var bGecko=!!window.controllers,bIE=window.document.all&&!window.opera,bIE7=bIE&&window.navigator.userAgent.match(/MSIE ([\.0-9]+)/)&&RegExp.$1==7;
 function cXMLHttpRequest(){this._object=oXMLHttpRequest&&!bIE7?new oXMLHttpRequest:new window.ActiveXObject("Microsoft.XMLHTTP");
 this._listeners=[]
@@ -9607,7 +9681,8 @@ oRequest.__func(oArguments[0],oArguments[1],oArguments[2],oArguments[3],oArgumen
 delete oRequest.__func
 }
 }OpenLayers.Request.XMLHttpRequest=cXMLHttpRequest
-})();OpenLayers.ProxyHost="";
+})();
+OpenLayers.ProxyHost="";
 OpenLayers.nullHandler=function(request){OpenLayers.Console.userError(OpenLayers.i18n("unhandledRequest",{statusText:request.statusText}))
 };
 OpenLayers.loadURL=function(uri,params,caller,onComplete,onFailure){if(typeof params=="string"){params=OpenLayers.Util.getParameters(params)
@@ -9735,7 +9810,8 @@ if(parentnode.getElementsByTagNameNS){elem=parentnode.getElementsByTagNameNS(nsu
 OpenLayers.Ajax.serializeXMLToString=function(xmldom){var serializer=new XMLSerializer();
 var data=serializer.serializeToString(xmldom);
 return data
-};OpenLayers.LonLat=OpenLayers.Class({lon:0,lat:0,initialize:function(lon,lat){this.lon=OpenLayers.Util.toFloat(lon);
+};
+OpenLayers.LonLat=OpenLayers.Class({lon:0,lat:0,initialize:function(lon,lat){this.lon=OpenLayers.Util.toFloat(lon);
 this.lat=OpenLayers.Util.toFloat(lat)
 },toString:function(){return("lon="+this.lon+",lat="+this.lat)
 },toShortString:function(){return(this.lon+", "+this.lat)
@@ -9758,14 +9834,16 @@ if(maxExtent){while(newLonLat.lon<maxExtent.left){newLonLat.lon+=maxExtent.getWi
 },CLASS_NAME:"OpenLayers.LonLat"});
 OpenLayers.LonLat.fromString=function(str){var pair=str.split(",");
 return new OpenLayers.LonLat(pair[0],pair[1])
-};OpenLayers.Size=OpenLayers.Class({w:0,h:0,initialize:function(w,h){this.w=parseFloat(w);
+};
+OpenLayers.Size=OpenLayers.Class({w:0,h:0,initialize:function(w,h){this.w=parseFloat(w);
 this.h=parseFloat(h)
 },toString:function(){return("w="+this.w+",h="+this.h)
 },clone:function(){return new OpenLayers.Size(this.w,this.h)
 },equals:function(sz){var equals=false;
 if(sz!=null){equals=((this.w==sz.w&&this.h==sz.h)||(isNaN(this.w)&&isNaN(this.h)&&isNaN(sz.w)&&isNaN(sz.h)))
 }return equals
-},CLASS_NAME:"OpenLayers.Size"});OpenLayers.Pixel=OpenLayers.Class({x:0,y:0,initialize:function(x,y){this.x=parseFloat(x);
+},CLASS_NAME:"OpenLayers.Size"});
+OpenLayers.Pixel=OpenLayers.Class({x:0,y:0,initialize:function(x,y){this.x=parseFloat(x);
 this.y=parseFloat(y)
 },toString:function(){return("x="+this.x+",y="+this.y)
 },clone:function(){return new OpenLayers.Pixel(this.x,this.y)
@@ -9779,7 +9857,8 @@ return null
 },offset:function(px){var newPx=this.clone();
 if(px){newPx=this.add(px.x,px.y)
 }return newPx
-},CLASS_NAME:"OpenLayers.Pixel"});OpenLayers.Lang={code:null,defaultCode:"en",getCode:function(){if(!OpenLayers.Lang.code){OpenLayers.Lang.setCode()
+},CLASS_NAME:"OpenLayers.Pixel"});
+OpenLayers.Lang={code:null,defaultCode:"en",getCode:function(){if(!OpenLayers.Lang.code){OpenLayers.Lang.setCode()
 }return OpenLayers.Lang.code
 },setCode:function(code){var lang;
 if(!code){code=(OpenLayers.Util.getBrowserName()=="msie")?navigator.userLanguage:navigator.language
@@ -9797,7 +9876,12 @@ if(!message){message=key
 }if(context){message=OpenLayers.String.format(message,context)
 }return message
 }};
-OpenLayers.i18n=OpenLayers.Lang.translate;OpenLayers.Lang.en={unhandledRequest:"Unhandled request return ${statusText}",permalink:"Permalink",overlays:"Overlays",baseLayer:"Base Layer",sameProjection:"The overview map only works when it is in the same projection as the main map",readNotImplemented:"Read not implemented.",writeNotImplemented:"Write not implemented.",noFID:"Can't update a feature for which there is no FID.",errorLoadingGML:"Error in loading GML file http://geonetwork-opensource.org/geonetwork-client",browserNotSupported:"Your browser does not support vector rendering. Currently supported renderers are:\n${renderers}",componentShouldBe:"addFeatures : component should be an ${geomType}",getFeatureError:"getFeatureFromEvent called on layer with no renderer. This usually means you destroyed a layer, but not some handler which is associated with it.",minZoomLevelError:"The minZoomLevel property is only intended for use with the FixedZoomLevels-descendent layers. That this wfs layer checks for minZoomLevel is a relic of thepast. We cannot, however, remove it without possibly breaking OL based applications that may depend on it. Therefore we are deprecating it -- the minZoomLevel check below will be removed at 3.0. Please instead use min/max resolution setting as described here: http://trac.openlayers.org/wiki/SettingZoomLevels",commitSuccess:"WFS Transaction: SUCCESS ${response}",commitFailed:"WFS Transaction: FAILED ${response}",googleWarning:"The Google Layer was unable to load correctly.<br><br>To get rid of this message, select a new BaseLayer in the layer switcher in the upper-right corner.<br><br>Most likely, this is because the Google Maps library script was either not included, or does not contain the correct API key for your site.<br><br>Developers: For help getting this working correctly, <a href='http://trac.openlayers.org/wiki/Google' target='_blank'>click here</a>",getLayerWarning:"The ${layerType} Layer was unable to load correctly.<br><br>To get rid of this message, select a new BaseLayer in the layer switcher in the upper-right corner.<br><br>Most likely, this is because the ${layerLib} library script was not correctly included.<br><br>Developers: For help getting this working correctly, <a href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'>click here</a>",scale:"Scale = 1 : ${scaleDenom}",W:"W",E:"E",N:"N",S:"S",graticule:"Graticule",layerAlreadyAdded:"You tried to add the layer: ${layerName} to the map, but it has already been added",reprojectDeprecated:"You are using the 'reproject' option on the ${layerName} layer. This option is deprecated: its use was designed to support displaying data over commercial basemaps, but that functionality should now be achieved by using Spherical Mercator support. More information is available from http://trac.openlayers.org/wiki/SphericalMercator.",methodDeprecated:"This method has been deprecated and will be removed in 3.0. Please use ${newMethod} instead.",boundsAddError:"You must pass both x and y values to the add function.",lonlatAddError:"You must pass both lon and lat values to the add function.",pixelAddError:"You must pass both x and y values to the add function.",unsupportedGeometryType:"Unsupported geometry type: ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition failed: element with id ${elemId} may be misplaced.",filterEvaluateNotImplemented:"evaluate is not implemented for this filter type.",end:""};OpenLayers.Lang.fr=OpenLayers.Util.applyDefaults({unhandledRequest:"Requête non gérée, retournant ${statusText}",permalink:"Permalien",overlays:"Calques",baseLayer:"Calque de base",sameProjection:"La carte de situation ne fonctionne que lorsque sa projection est la même que celle de la carte principale",readNotImplemented:"Lecture non implémentée.",writeNotImplemented:"Ecriture non implémentée.",noFID:"Impossible de mettre à jour un objet sans identifiant (fid).",errorLoadingGML:"Erreur au chargement du fichier GML http://geonetwork-opensource.org/geonetwork-client",browserNotSupported:"Votre navigateur ne supporte pas le rendu vectoriel. Les renderers actuellement supportés sont : \n${renderers}",componentShouldBe:"addFeatures : le composant devrait être de type ${geomType}",getFeatureError:"getFeatureFromEvent a été appelé sur un calque sans renderer. Cela signifie généralement que vous avez détruit cette couche, mais que vous avez conservé un handler qui lui était associé.",minZoomLevelError:"La propriété minZoomLevel doit seulement être utilisée pour des couches FixedZoomLevels-descendent. Le fait que cette couche WFS vérifie la présence de minZoomLevel est une relique du passé. Nous ne pouvons toutefois la supprimer sans casser des applications qui pourraient en dépendre. C'est pourquoi nous la déprécions -- la vérification du minZoomLevel sera supprimée en version 3.0. A la place, merci d'utiliser les paramètres de résolutions min/max tel que décrit sur : http://trac.openlayers.org/wiki/SettingZoomLevels",commitSuccess:"Transaction WFS : SUCCES ${response}",commitFailed:"Transaction WFS : ECHEC ${response}",googleWarning:"La couche Google n'a pas été en mesure de se charger correctement.\x3cbr\x3e\x3cbr\x3ePour supprimer ce message, choisissez une nouvelle BaseLayer dans le sélecteur de couche en haut à droite.\x3cbr\x3e\x3cbr\x3eCela est possiblement causé par la non-inclusion de la librairie Google Maps, ou alors parce que la clé de l'API ne correspond pas à votre site.\x3cbr\x3e\x3cbr\x3eDéveloppeurs : pour savoir comment corriger ceci, \x3ca href='http://trac.openlayers.org/wiki/Google' target='_blank'\x3ecliquez ici\x3c/a\x3e",getLayerWarning:"La couche ${layerType} n'est pas en mesure de se charger correctement.\x3cbr\x3e\x3cbr\x3ePour supprimer ce message, choisissez une nouvelle BaseLayer dans le sélecteur de couche en haut à droite.\x3cbr\x3e\x3cbr\x3eCela est possiblement causé par la non-inclusion de la librairie ${layerLib}.\x3cbr\x3e\x3cbr\x3eDéveloppeurs : pour savoir comment corriger ceci, \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3ecliquez ici\x3c/a\x3e",scale:"Echelle ~ 1 : ${scaleDenom}",W:"O",E:"E",N:"N",S:"S",layerAlreadyAdded:"Vous avez essayé d'ajouter à la carte le calque : ${layerName}, mais il est déjà présent",reprojectDeprecated:"Vous utilisez l'option 'reproject' sur la couche ${layerName}. Cette option est dépréciée : Son usage permettait d'afficher des données au dessus de couches raster commerciales.Cette fonctionalité est maintenant supportée en utilisant le support de la projection Mercator Sphérique. Plus d'information est disponible sur http://trac.openlayers.org/wiki/SphericalMercator.",methodDeprecated:"Cette méthode est dépréciée, et sera supprimée à la version 3.0. Merci d'utiliser ${newMethod} à la place.",boundsAddError:"Vous devez passer les deux valeurs x et y à la fonction add.",lonlatAddError:"Vous devez passer les deux valeurs lon et lat à la fonction add.",pixelAddError:"Vous devez passer les deux valeurs x et y à la fonction add.",unsupportedGeometryType:"Type de géométrie non supporté : ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition a échoué: l'élément d'id ${elemId} pourrait être mal positionné.",filterEvaluateNotImplemented:"évaluer n'a pas encore été implémenté pour ce type de filtre."});OpenLayers.Lang.de=OpenLayers.Util.applyDefaults({unhandledRequest:"Unbehandelte Anfragerückmeldung ${statusText}",permalink:"Permalink",overlays:"Overlays",baseLayer:"Grundkarte",sameProjection:"Die Übersichtskarte funktioniert nur, wenn sie dieselbe Projektion wie die Hauptkarte verwendet",readNotImplemented:"Lesen nicht implementiert.",writeNotImplemented:"Schreiben nicht implementiert.",noFID:"Ein Feature, für das keine FID existiert, kann nicht aktualisiert werden.",errorLoadingGML:"Fehler beim Laden der GML-Datei http://geonetwork-opensource.org/geonetwork-client",browserNotSupported:"Ihr Browser unterstützt keine Vektordarstellung. Aktuell unterstützte Renderer:\n${renderers}",componentShouldBe:"addFeatures: Komponente muss vom Typ ${geomType} sein",getFeatureError:"getFeatureFromEvent wurde vom einem Layer ohne Renderer aufgerufen. Dies bedeutet normalerweise, dass ein Layer entfernt wurde, aber nicht Handler, die auf ihn verweisen.",minZoomLevelError:"Die \x3ccode\x3eminZoomLevel\x3c/code\x3e-Eigenschaft ist nur für die Verwendung mit \x3ccode\x3eFixedZoomLevels\x3c/code\x3e-untergeordneten Layers vorgesehen. Das dieser \x3ctt\x3ewfs\x3c/tt\x3e-Layer die \x3ccode\x3eminZoomLevel\x3c/code\x3e-Eigenschaft überprüft ist ein Relikt der Vergangenheit. Wir können diese Überprüfung nicht entfernen, ohne das OL basierende Applikationen nicht mehr funktionieren. Daher markieren wir es als veraltet - die \x3ccode\x3eminZoomLevel\x3c/code\x3e-Überprüfung wird in Version 3.0 entfernt werden. Bitte verwenden Sie stattdessen die Min-/Max-Lösung, wie sie unter http://trac.openlayers.org/wiki/SettingZoomLevels beschrieben ist.",commitSuccess:"WFS-Transaktion: Erfolgreich ${response}",commitFailed:"WFS-Transaktion: Fehlgeschlagen ${response}",googleWarning:"Der Google-Layer konnte nicht korrekt geladen werden.\x3cbr\x3e\x3cbr\x3eUm diese Meldung nicht mehr zu erhalten, wählen Sie einen anderen Hintergrundlayer aus dem LayerSwitcher in der rechten oberen Ecke.\x3cbr\x3e\x3cbr\x3eSehr wahrscheinlich tritt dieser Fehler auf, weil das Skript der Google-Maps-Bibliothek nicht eingebunden wurde oder keinen gültigen API-Schlüssel für Ihre URL enthält.\x3cbr\x3e\x3cbr\x3eEntwickler: Besuche \x3ca href='http://trac.openlayers.org/wiki/Google' target='_blank'\x3edas Wiki\x3c/a\x3e für Hilfe zum korrekten Einbinden des Google-Layers",getLayerWarning:"Der ${layerType}-Layer konnte nicht korrekt geladen werden.\x3cbr\x3e\x3cbr\x3eUm diese Meldung nicht mehr zu erhalten, wählen Sie einen anderen Hintergrundlayer aus dem LayerSwitcher in der rechten oberen Ecke.\x3cbr\x3e\x3cbr\x3eSehr wahrscheinlich tritt dieser Fehler auf, weil das Skript der '${layerLib}'-Bibliothek nicht eingebunden wurde.\x3cbr\x3e\x3cbr\x3eEntwickler: Besuche \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3edas Wiki\x3c/a\x3e für Hilfe zum korrekten Einbinden von Layern",scale:"Maßstab = 1 : ${scaleDenom}",W:"W",E:"O",N:"N",S:"S",layerAlreadyAdded:"Sie versuchen den Layer „${layerName}“ zur Karte hinzuzufügen, er wurde aber bereits hinzugefügt",reprojectDeprecated:"Sie verwenden die „Reproject“-Option des Layers ${layerName}. Diese Option ist veraltet: Sie wurde entwickelt um die Anzeige von Daten auf kommerziellen Basiskarten zu unterstützen, aber diese Funktion sollte jetzt durch Unterstützung der „Spherical Mercator“ erreicht werden. Weitere Informationen sind unter http://trac.openlayers.org/wiki/SphericalMercator verfügbar.",methodDeprecated:"Die Methode ist veraltet und wird in 3.0 entfernt. Bitte verwende stattdessen ${newMethod}.",boundsAddError:"Beide Werte (x und y) müssen der add-Funktion übergeben werden.",lonlatAddError:"Beide Werte (lon und lat) müssen der add-Funktion übergeben werden.",pixelAddError:"Beide Werte (x und y) müssen der add-Funktion übergeben werden.",unsupportedGeometryType:"Nicht unterstützter Geometrie-Typ: ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition fehlgeschlagen: Element mit Id ${elemId} möglicherweise falsch platziert.",filterEvaluateNotImplemented:"„evaluate“ ist für diesen Filter-Typ nicht implementiert."});OpenLayers.Lang.nl=OpenLayers.Util.applyDefaults({unhandledRequest:"Het verzoek is niet afgehandeld met de volgende melding: ${statusText}",permalink:"Permanente verwijzing",overlays:"Overlays",baseLayer:"Achtergrondkaart",sameProjection:"De overzichtskaart werkt alleen als de projectie gelijk is aan de projectie van de hoofdkaart",readNotImplemented:"Lezen is niet geïmplementeerd.",writeNotImplemented:"Schrijven is niet geïmplementeerd.",noFID:"Een optie die geen FID heeft kan niet bijgewerkt worden.",errorLoadingGML:"Er is een fout opgetreden bij het laden van het GML bestand van http://geonetwork-opensource.org/geonetwork-client",browserNotSupported:"Uw browser ondersteunt het weergeven van vectoren niet.\nMomenteel ondersteunde weergavemogelijkheden:\n${renderers}",componentShouldBe:"addFeatures : component moet van het type ${geomType} zijn",getFeatureError:"getFeatureFromEvent is aangeroepen op een laag zonder rederer.\nDit betekent meestal dat u een laag hebt verwijderd, maar niet een handler die ermee geassocieerd was.",minZoomLevelError:"De eigenschap minZoomLevel is alleen bedoeld voor gebruik lagen met die afstammen van FixedZoomLevels-lagen.\nDat deze WFS-laag minZoomLevel controleert, is een overblijfsel uit het verleden.\nWe kunnen deze controle echter niet verwijderen zonder op OL gebaseerde applicaties die hervan afhankelijk zijn stuk te maken.\nDaarom heeft deze functionaliteit de eigenschap 'deprecated' gekregen - de minZoomLevel wordt verwijderd in versie 3.0.\nGebruik in plaats van deze functie de mogelijkheid om min/max voor resolutie in te stellen zoals op de volgende pagina wordt beschreven:\nhttp://trac.openlayers.org/wiki/SettingZoomLevels",commitSuccess:"WFS-transactie: succesvol ${response}",commitFailed:"WFS-transactie: mislukt ${response}",googleWarning:"De Google-Layer kon niet correct geladen worden.\x3cbr /\x3e\x3cbr /\x3e\nOm deze melding niet meer te krijgen, moet u een andere achtergrondkaart kiezen in de laagwisselaar in de rechterbovenhoek.\x3cbr /\x3e\x3cbr /\x3e\nDit komt waarschijnlijk doordat de bibliotheek ${layerLib} niet correct ingevoegd is.\x3cbr /\x3e\x3cbr /\x3e\nOntwikkelaars: \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3eklik hier\x3c/a\x3e om dit werkend te krijgen.",getLayerWarning:"De laag ${layerType} kon niet goed geladen worden.\x3cbr /\x3e\x3cbr /\x3e\nOm deze melding niet meer te krijgen, moet u een andere achtergrondkaart kiezen in de laagwisselaar in de rechterbovenhoek.\x3cbr /\x3e\x3cbr /\x3e\nDit komt waarschijnlijk doordat de bibliotheek ${layerLib} niet correct is ingevoegd.\x3cbr /\x3e\x3cbr /\x3e\nOntwikkelaars: \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3eklik hier\x3c/a\x3e om dit werkend te krijgen.",scale:"Schaal = 1 : ${scaleDenom}",W:"W",E:"O",N:"N",S:"Z",layerAlreadyAdded:"U hebt geprobeerd om de laag  ${layerName} aan de kaart toe te voegen, maar deze is al toegevoegd",reprojectDeprecated:"U gebruikt de optie 'reproject' op de laag ${layerName}.\nDeze optie is vervallen: deze optie was ontwikkeld om gegevens over commerciële basiskaarten weer te geven, maar deze functionaliteit wordt nu bereikt door ondersteuning van Spherical Mercator.\nMeer informatie is beschikbaar op http://trac.openlayers.org/wiki/SphericalMercator.",methodDeprecated:"Deze methode is verouderd en wordt verwijderd in versie 3.0.\nGebruik ${newMethod}.",boundsAddError:"U moet zowel de x- als de y-waarde doorgeven aan de toevoegfunctie.",lonlatAddError:"U moet zowel de lengte- als de breedtewaarde doorgeven aan de toevoegfunctie.",pixelAddError:"U moet zowel de x- als de y-waarde doorgeven aan de toevoegfunctie.",unsupportedGeometryType:"Dit geometrietype wordt niet ondersteund: ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition is mislukt: het element met id ${elemId} is wellicht onjuist geplaatst.",filterEvaluateNotImplemented:"evalueren is niet geïmplementeerd voor dit filtertype."});OpenLayers.Handler.Drag=OpenLayers.Class(OpenLayers.Handler,{started:false,stopDown:true,dragging:false,last:null,start:null,oldOnselectstart:null,interval:0,timeoutId:null,documentDrag:false,documentEvents:null,initialize:function(control,callbacks,options){OpenLayers.Handler.prototype.initialize.apply(this,arguments)
+OpenLayers.i18n=OpenLayers.Lang.translate;
+OpenLayers.Lang.en={unhandledRequest:"Unhandled request return ${statusText}",permalink:"Permalink",overlays:"Overlays",baseLayer:"Base Layer",sameProjection:"The overview map only works when it is in the same projection as the main map",readNotImplemented:"Read not implemented.",writeNotImplemented:"Write not implemented.",noFID:"Can't update a feature for which there is no FID.",errorLoadingGML:"Error in loading GML file http://geonetwork-opensource.org/geonetwork-client",browserNotSupported:"Your browser does not support vector rendering. Currently supported renderers are:\n${renderers}",componentShouldBe:"addFeatures : component should be an ${geomType}",getFeatureError:"getFeatureFromEvent called on layer with no renderer. This usually means you destroyed a layer, but not some handler which is associated with it.",minZoomLevelError:"The minZoomLevel property is only intended for use with the FixedZoomLevels-descendent layers. That this wfs layer checks for minZoomLevel is a relic of thepast. We cannot, however, remove it without possibly breaking OL based applications that may depend on it. Therefore we are deprecating it -- the minZoomLevel check below will be removed at 3.0. Please instead use min/max resolution setting as described here: http://trac.openlayers.org/wiki/SettingZoomLevels",commitSuccess:"WFS Transaction: SUCCESS ${response}",commitFailed:"WFS Transaction: FAILED ${response}",googleWarning:"The Google Layer was unable to load correctly.<br><br>To get rid of this message, select a new BaseLayer in the layer switcher in the upper-right corner.<br><br>Most likely, this is because the Google Maps library script was either not included, or does not contain the correct API key for your site.<br><br>Developers: For help getting this working correctly, <a href='http://trac.openlayers.org/wiki/Google' target='_blank'>click here</a>",getLayerWarning:"The ${layerType} Layer was unable to load correctly.<br><br>To get rid of this message, select a new BaseLayer in the layer switcher in the upper-right corner.<br><br>Most likely, this is because the ${layerLib} library script was not correctly included.<br><br>Developers: For help getting this working correctly, <a href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'>click here</a>",scale:"Scale = 1 : ${scaleDenom}",W:"W",E:"E",N:"N",S:"S",graticule:"Graticule",layerAlreadyAdded:"You tried to add the layer: ${layerName} to the map, but it has already been added",reprojectDeprecated:"You are using the 'reproject' option on the ${layerName} layer. This option is deprecated: its use was designed to support displaying data over commercial basemaps, but that functionality should now be achieved by using Spherical Mercator support. More information is available from http://trac.openlayers.org/wiki/SphericalMercator.",methodDeprecated:"This method has been deprecated and will be removed in 3.0. Please use ${newMethod} instead.",boundsAddError:"You must pass both x and y values to the add function.",lonlatAddError:"You must pass both lon and lat values to the add function.",pixelAddError:"You must pass both x and y values to the add function.",unsupportedGeometryType:"Unsupported geometry type: ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition failed: element with id ${elemId} may be misplaced.",filterEvaluateNotImplemented:"evaluate is not implemented for this filter type.",end:""};
+OpenLayers.Lang.fr=OpenLayers.Util.applyDefaults({unhandledRequest:"Requête non gérée, retournant ${statusText}",permalink:"Permalien",overlays:"Calques",baseLayer:"Calque de base",sameProjection:"La carte de situation ne fonctionne que lorsque sa projection est la même que celle de la carte principale",readNotImplemented:"Lecture non implémentée.",writeNotImplemented:"Ecriture non implémentée.",noFID:"Impossible de mettre à jour un objet sans identifiant (fid).",errorLoadingGML:"Erreur au chargement du fichier GML http://geonetwork-opensource.org/geonetwork-client",browserNotSupported:"Votre navigateur ne supporte pas le rendu vectoriel. Les renderers actuellement supportés sont : \n${renderers}",componentShouldBe:"addFeatures : le composant devrait être de type ${geomType}",getFeatureError:"getFeatureFromEvent a été appelé sur un calque sans renderer. Cela signifie généralement que vous avez détruit cette couche, mais que vous avez conservé un handler qui lui était associé.",minZoomLevelError:"La propriété minZoomLevel doit seulement être utilisée pour des couches FixedZoomLevels-descendent. Le fait que cette couche WFS vérifie la présence de minZoomLevel est une relique du passé. Nous ne pouvons toutefois la supprimer sans casser des applications qui pourraient en dépendre. C'est pourquoi nous la déprécions -- la vérification du minZoomLevel sera supprimée en version 3.0. A la place, merci d'utiliser les paramètres de résolutions min/max tel que décrit sur : http://trac.openlayers.org/wiki/SettingZoomLevels",commitSuccess:"Transaction WFS : SUCCES ${response}",commitFailed:"Transaction WFS : ECHEC ${response}",googleWarning:"La couche Google n'a pas été en mesure de se charger correctement.\x3cbr\x3e\x3cbr\x3ePour supprimer ce message, choisissez une nouvelle BaseLayer dans le sélecteur de couche en haut à droite.\x3cbr\x3e\x3cbr\x3eCela est possiblement causé par la non-inclusion de la librairie Google Maps, ou alors parce que la clé de l'API ne correspond pas à votre site.\x3cbr\x3e\x3cbr\x3eDéveloppeurs : pour savoir comment corriger ceci, \x3ca href='http://trac.openlayers.org/wiki/Google' target='_blank'\x3ecliquez ici\x3c/a\x3e",getLayerWarning:"La couche ${layerType} n'est pas en mesure de se charger correctement.\x3cbr\x3e\x3cbr\x3ePour supprimer ce message, choisissez une nouvelle BaseLayer dans le sélecteur de couche en haut à droite.\x3cbr\x3e\x3cbr\x3eCela est possiblement causé par la non-inclusion de la librairie ${layerLib}.\x3cbr\x3e\x3cbr\x3eDéveloppeurs : pour savoir comment corriger ceci, \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3ecliquez ici\x3c/a\x3e",scale:"Echelle ~ 1 : ${scaleDenom}",W:"O",E:"E",N:"N",S:"S",layerAlreadyAdded:"Vous avez essayé d'ajouter à la carte le calque : ${layerName}, mais il est déjà présent",reprojectDeprecated:"Vous utilisez l'option 'reproject' sur la couche ${layerName}. Cette option est dépréciée : Son usage permettait d'afficher des données au dessus de couches raster commerciales.Cette fonctionalité est maintenant supportée en utilisant le support de la projection Mercator Sphérique. Plus d'information est disponible sur http://trac.openlayers.org/wiki/SphericalMercator.",methodDeprecated:"Cette méthode est dépréciée, et sera supprimée à la version 3.0. Merci d'utiliser ${newMethod} à la place.",boundsAddError:"Vous devez passer les deux valeurs x et y à la fonction add.",lonlatAddError:"Vous devez passer les deux valeurs lon et lat à la fonction add.",pixelAddError:"Vous devez passer les deux valeurs x et y à la fonction add.",unsupportedGeometryType:"Type de géométrie non supporté : ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition a échoué: l'élément d'id ${elemId} pourrait être mal positionné.",filterEvaluateNotImplemented:"évaluer n'a pas encore été implémenté pour ce type de filtre."});
+OpenLayers.Lang.de=OpenLayers.Util.applyDefaults({unhandledRequest:"Unbehandelte Anfragerückmeldung ${statusText}",permalink:"Permalink",overlays:"Overlays",baseLayer:"Grundkarte",sameProjection:"Die Übersichtskarte funktioniert nur, wenn sie dieselbe Projektion wie die Hauptkarte verwendet",readNotImplemented:"Lesen nicht implementiert.",writeNotImplemented:"Schreiben nicht implementiert.",noFID:"Ein Feature, für das keine FID existiert, kann nicht aktualisiert werden.",errorLoadingGML:"Fehler beim Laden der GML-Datei http://geonetwork-opensource.org/geonetwork-client",browserNotSupported:"Ihr Browser unterstützt keine Vektordarstellung. Aktuell unterstützte Renderer:\n${renderers}",componentShouldBe:"addFeatures: Komponente muss vom Typ ${geomType} sein",getFeatureError:"getFeatureFromEvent wurde vom einem Layer ohne Renderer aufgerufen. Dies bedeutet normalerweise, dass ein Layer entfernt wurde, aber nicht Handler, die auf ihn verweisen.",minZoomLevelError:"Die \x3ccode\x3eminZoomLevel\x3c/code\x3e-Eigenschaft ist nur für die Verwendung mit \x3ccode\x3eFixedZoomLevels\x3c/code\x3e-untergeordneten Layers vorgesehen. Das dieser \x3ctt\x3ewfs\x3c/tt\x3e-Layer die \x3ccode\x3eminZoomLevel\x3c/code\x3e-Eigenschaft überprüft ist ein Relikt der Vergangenheit. Wir können diese Überprüfung nicht entfernen, ohne das OL basierende Applikationen nicht mehr funktionieren. Daher markieren wir es als veraltet - die \x3ccode\x3eminZoomLevel\x3c/code\x3e-Überprüfung wird in Version 3.0 entfernt werden. Bitte verwenden Sie stattdessen die Min-/Max-Lösung, wie sie unter http://trac.openlayers.org/wiki/SettingZoomLevels beschrieben ist.",commitSuccess:"WFS-Transaktion: Erfolgreich ${response}",commitFailed:"WFS-Transaktion: Fehlgeschlagen ${response}",googleWarning:"Der Google-Layer konnte nicht korrekt geladen werden.\x3cbr\x3e\x3cbr\x3eUm diese Meldung nicht mehr zu erhalten, wählen Sie einen anderen Hintergrundlayer aus dem LayerSwitcher in der rechten oberen Ecke.\x3cbr\x3e\x3cbr\x3eSehr wahrscheinlich tritt dieser Fehler auf, weil das Skript der Google-Maps-Bibliothek nicht eingebunden wurde oder keinen gültigen API-Schlüssel für Ihre URL enthält.\x3cbr\x3e\x3cbr\x3eEntwickler: Besuche \x3ca href='http://trac.openlayers.org/wiki/Google' target='_blank'\x3edas Wiki\x3c/a\x3e für Hilfe zum korrekten Einbinden des Google-Layers",getLayerWarning:"Der ${layerType}-Layer konnte nicht korrekt geladen werden.\x3cbr\x3e\x3cbr\x3eUm diese Meldung nicht mehr zu erhalten, wählen Sie einen anderen Hintergrundlayer aus dem LayerSwitcher in der rechten oberen Ecke.\x3cbr\x3e\x3cbr\x3eSehr wahrscheinlich tritt dieser Fehler auf, weil das Skript der '${layerLib}'-Bibliothek nicht eingebunden wurde.\x3cbr\x3e\x3cbr\x3eEntwickler: Besuche \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3edas Wiki\x3c/a\x3e für Hilfe zum korrekten Einbinden von Layern",scale:"Maßstab = 1 : ${scaleDenom}",W:"W",E:"O",N:"N",S:"S",layerAlreadyAdded:"Sie versuchen den Layer „${layerName}“ zur Karte hinzuzufügen, er wurde aber bereits hinzugefügt",reprojectDeprecated:"Sie verwenden die „Reproject“-Option des Layers ${layerName}. Diese Option ist veraltet: Sie wurde entwickelt um die Anzeige von Daten auf kommerziellen Basiskarten zu unterstützen, aber diese Funktion sollte jetzt durch Unterstützung der „Spherical Mercator“ erreicht werden. Weitere Informationen sind unter http://trac.openlayers.org/wiki/SphericalMercator verfügbar.",methodDeprecated:"Die Methode ist veraltet und wird in 3.0 entfernt. Bitte verwende stattdessen ${newMethod}.",boundsAddError:"Beide Werte (x und y) müssen der add-Funktion übergeben werden.",lonlatAddError:"Beide Werte (lon und lat) müssen der add-Funktion übergeben werden.",pixelAddError:"Beide Werte (x und y) müssen der add-Funktion übergeben werden.",unsupportedGeometryType:"Nicht unterstützter Geometrie-Typ: ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition fehlgeschlagen: Element mit Id ${elemId} möglicherweise falsch platziert.",filterEvaluateNotImplemented:"„evaluate“ ist für diesen Filter-Typ nicht implementiert."});
+OpenLayers.Lang.nl=OpenLayers.Util.applyDefaults({unhandledRequest:"Het verzoek is niet afgehandeld met de volgende melding: ${statusText}",permalink:"Permanente verwijzing",overlays:"Overlays",baseLayer:"Achtergrondkaart",sameProjection:"De overzichtskaart werkt alleen als de projectie gelijk is aan de projectie van de hoofdkaart",readNotImplemented:"Lezen is niet geïmplementeerd.",writeNotImplemented:"Schrijven is niet geïmplementeerd.",noFID:"Een optie die geen FID heeft kan niet bijgewerkt worden.",errorLoadingGML:"Er is een fout opgetreden bij het laden van het GML bestand van http://geonetwork-opensource.org/geonetwork-client",browserNotSupported:"Uw browser ondersteunt het weergeven van vectoren niet.\nMomenteel ondersteunde weergavemogelijkheden:\n${renderers}",componentShouldBe:"addFeatures : component moet van het type ${geomType} zijn",getFeatureError:"getFeatureFromEvent is aangeroepen op een laag zonder rederer.\nDit betekent meestal dat u een laag hebt verwijderd, maar niet een handler die ermee geassocieerd was.",minZoomLevelError:"De eigenschap minZoomLevel is alleen bedoeld voor gebruik lagen met die afstammen van FixedZoomLevels-lagen.\nDat deze WFS-laag minZoomLevel controleert, is een overblijfsel uit het verleden.\nWe kunnen deze controle echter niet verwijderen zonder op OL gebaseerde applicaties die hervan afhankelijk zijn stuk te maken.\nDaarom heeft deze functionaliteit de eigenschap 'deprecated' gekregen - de minZoomLevel wordt verwijderd in versie 3.0.\nGebruik in plaats van deze functie de mogelijkheid om min/max voor resolutie in te stellen zoals op de volgende pagina wordt beschreven:\nhttp://trac.openlayers.org/wiki/SettingZoomLevels",commitSuccess:"WFS-transactie: succesvol ${response}",commitFailed:"WFS-transactie: mislukt ${response}",googleWarning:"De Google-Layer kon niet correct geladen worden.\x3cbr /\x3e\x3cbr /\x3e\nOm deze melding niet meer te krijgen, moet u een andere achtergrondkaart kiezen in de laagwisselaar in de rechterbovenhoek.\x3cbr /\x3e\x3cbr /\x3e\nDit komt waarschijnlijk doordat de bibliotheek ${layerLib} niet correct ingevoegd is.\x3cbr /\x3e\x3cbr /\x3e\nOntwikkelaars: \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3eklik hier\x3c/a\x3e om dit werkend te krijgen.",getLayerWarning:"De laag ${layerType} kon niet goed geladen worden.\x3cbr /\x3e\x3cbr /\x3e\nOm deze melding niet meer te krijgen, moet u een andere achtergrondkaart kiezen in de laagwisselaar in de rechterbovenhoek.\x3cbr /\x3e\x3cbr /\x3e\nDit komt waarschijnlijk doordat de bibliotheek ${layerLib} niet correct is ingevoegd.\x3cbr /\x3e\x3cbr /\x3e\nOntwikkelaars: \x3ca href='http://trac.openlayers.org/wiki/${layerLib}' target='_blank'\x3eklik hier\x3c/a\x3e om dit werkend te krijgen.",scale:"Schaal = 1 : ${scaleDenom}",W:"W",E:"O",N:"N",S:"Z",layerAlreadyAdded:"U hebt geprobeerd om de laag  ${layerName} aan de kaart toe te voegen, maar deze is al toegevoegd",reprojectDeprecated:"U gebruikt de optie 'reproject' op de laag ${layerName}.\nDeze optie is vervallen: deze optie was ontwikkeld om gegevens over commerciële basiskaarten weer te geven, maar deze functionaliteit wordt nu bereikt door ondersteuning van Spherical Mercator.\nMeer informatie is beschikbaar op http://trac.openlayers.org/wiki/SphericalMercator.",methodDeprecated:"Deze methode is verouderd en wordt verwijderd in versie 3.0.\nGebruik ${newMethod}.",boundsAddError:"U moet zowel de x- als de y-waarde doorgeven aan de toevoegfunctie.",lonlatAddError:"U moet zowel de lengte- als de breedtewaarde doorgeven aan de toevoegfunctie.",pixelAddError:"U moet zowel de x- als de y-waarde doorgeven aan de toevoegfunctie.",unsupportedGeometryType:"Dit geometrietype wordt niet ondersteund: ${geomType}",pagePositionFailed:"OpenLayers.Util.pagePosition is mislukt: het element met id ${elemId} is wellicht onjuist geplaatst.",filterEvaluateNotImplemented:"evalueren is niet geïmplementeerd voor dit filtertype."});
+OpenLayers.Handler.Drag=OpenLayers.Class(OpenLayers.Handler,{started:false,stopDown:true,dragging:false,last:null,start:null,oldOnselectstart:null,interval:0,timeoutId:null,documentDrag:false,documentEvents:null,initialize:function(control,callbacks,options){OpenLayers.Handler.prototype.initialize.apply(this,arguments)
 },down:function(evt){},move:function(evt){},up:function(evt){},out:function(evt){},mousedown:function(evt){var propagate=true;
 this.dragging=false;
 if(this.checkModifiers(evt)&&OpenLayers.Event.isLeftClick(evt)){this.started=true;
@@ -9868,7 +9952,8 @@ evt.xy.y-=pos[1]
 },destroyDocumentEvents:function(){OpenLayers.Element.removeClass(document.body,"olDragDown");
 this.documentEvents.destroy();
 this.documentEvents=null
-},CLASS_NAME:"OpenLayers.Handler.Drag"});OpenLayers.Handler.Box=OpenLayers.Class(OpenLayers.Handler,{dragHandler:null,boxDivClassName:"olHandlerBoxZoomBox",boxCharacteristics:null,initialize:function(control,callbacks,options){OpenLayers.Handler.prototype.initialize.apply(this,arguments);
+},CLASS_NAME:"OpenLayers.Handler.Drag"});
+OpenLayers.Handler.Box=OpenLayers.Class(OpenLayers.Handler,{dragHandler:null,boxDivClassName:"olHandlerBoxZoomBox",boxCharacteristics:null,initialize:function(control,callbacks,options){OpenLayers.Handler.prototype.initialize.apply(this,arguments);
 var callbacks={down:this.startBox,move:this.moveBox,out:this.removeBox,up:this.endBox};
 this.dragHandler=new OpenLayers.Handler.Drag(this,callbacks,{keyMask:this.keyMask})
 },destroy:function(){if(this.dragHandler){this.dragHandler.destroy();
@@ -9917,7 +10002,8 @@ var yOffset=parseInt(OpenLayers.Element.getStyle(this.zoomBox,"border-top-width"
 var newBoxModel=OpenLayers.Util.getBrowserName()=="msie"?document.compatMode!="BackCompat":true;
 this.boxCharacteristics={xOffset:xOffset,yOffset:yOffset,newBoxModel:newBoxModel}
 }return this.boxCharacteristics
-},CLASS_NAME:"OpenLayers.Handler.Box"});OpenLayers.Control.ZoomBox=OpenLayers.Class(OpenLayers.Control,{type:OpenLayers.Control.TYPE_TOOL,out:false,alwaysZoom:false,draw:function(){this.handler=new OpenLayers.Handler.Box(this,{done:this.zoomBox},{keyMask:this.keyMask})
+},CLASS_NAME:"OpenLayers.Handler.Box"});
+OpenLayers.Control.ZoomBox=OpenLayers.Class(OpenLayers.Control,{type:OpenLayers.Control.TYPE_TOOL,out:false,alwaysZoom:false,draw:function(){this.handler=new OpenLayers.Handler.Box(this,{done:this.zoomBox},{keyMask:this.keyMask})
 },zoomBox:function(position){if(position instanceof OpenLayers.Bounds){var bounds;
 if(!this.out){var minXY=this.map.getLonLatFromPixel(new OpenLayers.Pixel(position.left,position.bottom));
 var maxXY=this.map.getLonLatFromPixel(new OpenLayers.Pixel(position.right,position.top));
@@ -9937,12 +10023,14 @@ this.map.zoomToExtent(bounds);
 if(lastZoom==this.map.getZoom()&&this.alwaysZoom==true){this.map.zoomTo(lastZoom+(this.out?-1:1))
 }}else{if(!this.out){this.map.setCenter(this.map.getLonLatFromPixel(position),this.map.getZoom()+1)
 }else{this.map.setCenter(this.map.getLonLatFromPixel(position),this.map.getZoom()-1)
-}}},CLASS_NAME:"OpenLayers.Control.ZoomBox"});OpenLayers.Control.DragPan=OpenLayers.Class(OpenLayers.Control,{type:OpenLayers.Control.TYPE_TOOL,panned:false,interval:25,documentDrag:false,draw:function(){this.handler=new OpenLayers.Handler.Drag(this,{move:this.panMap,done:this.panMapDone},{interval:this.interval,documentDrag:this.documentDrag})
+}}},CLASS_NAME:"OpenLayers.Control.ZoomBox"});
+OpenLayers.Control.DragPan=OpenLayers.Class(OpenLayers.Control,{type:OpenLayers.Control.TYPE_TOOL,panned:false,interval:25,documentDrag:false,draw:function(){this.handler=new OpenLayers.Handler.Drag(this,{move:this.panMap,done:this.panMapDone},{interval:this.interval,documentDrag:this.documentDrag})
 },panMap:function(xy){this.panned=true;
 this.map.pan(this.handler.last.x-xy.x,this.handler.last.y-xy.y,{dragging:this.handler.dragging,animate:false})
 },panMapDone:function(xy){if(this.panned){this.panMap(xy);
 this.panned=false
-}},CLASS_NAME:"OpenLayers.Control.DragPan"});OpenLayers.Handler.Click=OpenLayers.Class(OpenLayers.Handler,{delay:300,single:true,"double":false,pixelTolerance:0,stopSingle:false,stopDouble:false,timerId:null,down:null,rightclickTimerId:null,initialize:function(control,callbacks,options){OpenLayers.Handler.prototype.initialize.apply(this,arguments);
+}},CLASS_NAME:"OpenLayers.Control.DragPan"});
+OpenLayers.Handler.Click=OpenLayers.Class(OpenLayers.Handler,{delay:300,single:true,"double":false,pixelTolerance:0,stopSingle:false,stopDouble:false,timerId:null,down:null,rightclickTimerId:null,initialize:function(control,callbacks,options){OpenLayers.Handler.prototype.initialize.apply(this,arguments);
 if(this.pixelTolerance!=null){this.mousedown=function(evt){this.down=evt.xy;
 return true
 }
@@ -9981,7 +10069,8 @@ if(OpenLayers.Handler.prototype.deactivate.apply(this,arguments)){this.clearTime
 this.down=null;
 deactivated=true
 }return deactivated
-},CLASS_NAME:"OpenLayers.Handler.Click"});OpenLayers.Control.Navigation=OpenLayers.Class(OpenLayers.Control,{dragPan:null,dragPanOptions:null,documentDrag:false,zoomBox:null,zoomBoxEnabled:true,zoomWheelEnabled:true,mouseWheelOptions:null,handleRightClicks:false,zoomBoxKeyMask:OpenLayers.Handler.MOD_SHIFT,autoActivate:true,initialize:function(options){this.handlers={};
+},CLASS_NAME:"OpenLayers.Handler.Click"});
+OpenLayers.Control.Navigation=OpenLayers.Class(OpenLayers.Control,{dragPan:null,dragPanOptions:null,documentDrag:false,zoomBox:null,zoomBoxEnabled:true,zoomWheelEnabled:true,mouseWheelOptions:null,handleRightClicks:false,zoomBoxKeyMask:OpenLayers.Handler.MOD_SHIFT,autoActivate:true,initialize:function(options){this.handlers={};
 OpenLayers.Control.prototype.initialize.apply(this,arguments)
 },destroy:function(){this.deactivate();
 if(this.dragPan){this.dragPan.destroy()
@@ -10034,7 +10123,8 @@ if(this.active){this.zoomBox.activate()
 this.handlers.wheel.deactivate()
 },enableZoomWheel:function(){this.zoomWheelEnabled=true;
 if(this.active){this.handlers.wheel.activate()
-}},CLASS_NAME:"OpenLayers.Control.Navigation"});OpenLayers.Layer.HTTPRequest=OpenLayers.Class(OpenLayers.Layer,{URL_HASH_FACTOR:(Math.sqrt(5)-1)/2,url:null,params:null,reproject:false,initialize:function(name,url,params,options){var newArguments=arguments;
+}},CLASS_NAME:"OpenLayers.Control.Navigation"});
+OpenLayers.Layer.HTTPRequest=OpenLayers.Class(OpenLayers.Layer,{URL_HASH_FACTOR:(Math.sqrt(5)-1)/2,url:null,params:null,reproject:false,initialize:function(name,url,params,options){var newArguments=arguments;
 newArguments=[name,options];
 OpenLayers.Layer.prototype.initialize.apply(this,newArguments);
 this.url=url;
@@ -10067,7 +10157,8 @@ if(url instanceof Array){url=this.selectUrl(paramsString,url)
 for(var key in allParams){if(key.toUpperCase() in urlParams){delete allParams[key]
 }}paramsString=OpenLayers.Util.getParameterString(allParams);
 return OpenLayers.Util.urlAppend(url,paramsString)
-},CLASS_NAME:"OpenLayers.Layer.HTTPRequest"});OpenLayers.Layer.Grid=OpenLayers.Class(OpenLayers.Layer.HTTPRequest,{tileSize:null,grid:null,singleTile:false,ratio:1.5,buffer:2,numLoadingTiles:0,initialize:function(name,url,params,options){OpenLayers.Layer.HTTPRequest.prototype.initialize.apply(this,arguments);
+},CLASS_NAME:"OpenLayers.Layer.HTTPRequest"});
+OpenLayers.Layer.Grid=OpenLayers.Class(OpenLayers.Layer.HTTPRequest,{tileSize:null,grid:null,singleTile:false,ratio:1.5,buffer:2,numLoadingTiles:0,initialize:function(name,url,params,options){OpenLayers.Layer.HTTPRequest.prototype.initialize.apply(this,arguments);
 this.events.addEventType("tileloaded");
 this.grid=[]
 },destroy:function(){this.clearGrid();
@@ -10287,7 +10378,8 @@ var mapPoint=this.getLonLatFromViewPortPx(viewPortPx);
 var tileLeft=maxExtent.left+(tileMapWidth*Math.floor((mapPoint.lon-maxExtent.left)/tileMapWidth));
 var tileBottom=maxExtent.bottom+(tileMapHeight*Math.floor((mapPoint.lat-maxExtent.bottom)/tileMapHeight));
 return new OpenLayers.Bounds(tileLeft,tileBottom,tileLeft+tileMapWidth,tileBottom+tileMapHeight)
-},CLASS_NAME:"OpenLayers.Layer.Grid"});OpenLayers.Layer.WMS=OpenLayers.Class(OpenLayers.Layer.Grid,{DEFAULT_PARAMS:{service:"WMS",version:"1.1.1",request:"GetMap",styles:"",exceptions:"application/vnd.ogc.se_inimage",format:"image/jpeg"},reproject:false,isBaseLayer:true,encodeBBOX:false,noMagic:false,yx:{"EPSG:4326":true},initialize:function(name,url,params,options){var newArguments=[];
+},CLASS_NAME:"OpenLayers.Layer.Grid"});
+OpenLayers.Layer.WMS=OpenLayers.Class(OpenLayers.Layer.Grid,{DEFAULT_PARAMS:{service:"WMS",version:"1.1.1",request:"GetMap",styles:"",exceptions:"application/vnd.ogc.se_inimage",format:"image/jpeg"},reproject:false,isBaseLayer:true,encodeBBOX:false,noMagic:false,yx:{"EPSG:4326":true},initialize:function(name,url,params,options){var newArguments=[];
 params=OpenLayers.Util.upperCaseObject(params);
 if(parseFloat(params.VERSION)>=1.3&&!params.EXCEPTIONS){params.EXCEPTIONS="INIMAGE"
 }newArguments.push(name,url,params,options);
@@ -10318,7 +10410,8 @@ var value=(projectionCode=="none")?null:projectionCode;
 if(parseFloat(this.params.VERSION)>=1.3){this.params.CRS=value
 }else{this.params.SRS=value
 }return OpenLayers.Layer.Grid.prototype.getFullRequestString.apply(this,arguments)
-},CLASS_NAME:"OpenLayers.Layer.WMS"});OpenLayers.Layer.XYZ=OpenLayers.Class(OpenLayers.Layer.Grid,{isBaseLayer:true,sphericalMercator:false,zoomOffset:0,initialize:function(name,url,options){if(options&&options.sphericalMercator||this.sphericalMercator){options=OpenLayers.Util.extend({maxExtent:new OpenLayers.Bounds(-128*156543.0339,-128*156543.0339,128*156543.0339,128*156543.0339),maxResolution:156543.0339,numZoomLevels:19,units:"m",projection:"EPSG:900913"},options)
+},CLASS_NAME:"OpenLayers.Layer.WMS"});
+OpenLayers.Layer.XYZ=OpenLayers.Class(OpenLayers.Layer.Grid,{isBaseLayer:true,sphericalMercator:false,zoomOffset:0,initialize:function(name,url,options){if(options&&options.sphericalMercator||this.sphericalMercator){options=OpenLayers.Util.extend({maxExtent:new OpenLayers.Bounds(-128*156543.0339,-128*156543.0339,128*156543.0339,128*156543.0339),maxResolution:156543.0339,numZoomLevels:19,units:"m",projection:"EPSG:900913"},options)
 }url=url||this.url;
 name=name||this.name;
 var newArguments=[name,url,{},options];
@@ -10342,7 +10435,8 @@ if(!this.tileOrigin){this.tileOrigin=new OpenLayers.LonLat(this.maxExtent.left,t
 OpenLayers.Layer.OSM=OpenLayers.Class(OpenLayers.Layer.XYZ,{name:"OpenStreetMap",attribution:"Data CC-By-SA by <a href='http://openstreetmap.org/'>OpenStreetMap</a>",sphericalMercator:true,url:"http://tile.openstreetmap.org/${z}/${x}/${y}.png",clone:function(obj){if(obj==null){obj=new OpenLayers.Layer.OSM(this.name,this.url,this.getOptions())
 }obj=OpenLayers.Layer.XYZ.prototype.clone.apply(this,[obj]);
 return obj
-},CLASS_NAME:"OpenLayers.Layer.OSM"});OpenLayers.Renderer.SVG=OpenLayers.Class(OpenLayers.Renderer.Elements,{xmlns:"http://www.w3.org/2000/svg",xlinkns:"http://www.w3.org/1999/xlink",MAX_PIXEL:15000,translationParameters:null,symbolMetrics:null,isGecko:null,supportUse:null,initialize:function(containerID){if(!this.supported()){return
+},CLASS_NAME:"OpenLayers.Layer.OSM"});
+OpenLayers.Renderer.SVG=OpenLayers.Class(OpenLayers.Renderer.Elements,{xmlns:"http://www.w3.org/2000/svg",xlinkns:"http://www.w3.org/1999/xlink",MAX_PIXEL:15000,translationParameters:null,symbolMetrics:null,isGecko:null,supportUse:null,initialize:function(containerID){if(!this.supported()){return
 }OpenLayers.Renderer.Elements.prototype.initialize.apply(this,arguments);
 this.translationParameters={x:0,y:0};
 this.supportUse=(navigator.userAgent.toLowerCase().indexOf("applewebkit/5")==-1);
@@ -10627,7 +10721,8 @@ featureId=target.parentNode&&target!=this.rendererRoot&&target.parentNode._featu
 }return featureId
 },CLASS_NAME:"OpenLayers.Renderer.SVG"});
 OpenLayers.Renderer.SVG.LABEL_ALIGN={l:"start",r:"end",b:"bottom",t:"hanging"};
-OpenLayers.Renderer.SVG.LABEL_VSHIFT={t:"-70%",b:"0"};OpenLayers.Layer.TileCache=OpenLayers.Class(OpenLayers.Layer.Grid,{isBaseLayer:true,format:"image/png",serverResolutions:null,initialize:function(name,url,layername,options){this.layername=layername;
+OpenLayers.Renderer.SVG.LABEL_VSHIFT={t:"-70%",b:"0"};
+OpenLayers.Layer.TileCache=OpenLayers.Class(OpenLayers.Layer.Grid,{isBaseLayer:true,format:"image/png",serverResolutions:null,initialize:function(name,url,layername,options){this.layername=layername;
 OpenLayers.Layer.Grid.prototype.initialize.apply(this,[name,url,{},options]);
 this.extension=this.format.split("/")[1].toLowerCase();
 this.extension=(this.extension=="jpg")?"jpeg":this.extension
@@ -10654,7 +10749,9 @@ if(url instanceof Array){url=this.selectUrl(path,url)
 return url+path
 },addTile:function(bounds,position){var url=this.getURL(bounds);
 return new OpenLayers.Tile.Image(this,position,bounds,url,this.tileSize)
-},CLASS_NAME:"OpenLayers.Layer.TileCache"});OpenLayers.Control.Button=OpenLayers.Class(OpenLayers.Control,{type:OpenLayers.Control.TYPE_BUTTON,trigger:function(){},CLASS_NAME:"OpenLayers.Control.Button"});OpenLayers.Control.ScaleLine=OpenLayers.Class(OpenLayers.Control,{maxWidth:100,topOutUnits:"km",topInUnits:"m",bottomOutUnits:"mi",bottomInUnits:"ft",eTop:null,eBottom:null,geodesic:false,initialize:function(options){OpenLayers.Control.prototype.initialize.apply(this,[options])
+},CLASS_NAME:"OpenLayers.Layer.TileCache"});
+OpenLayers.Control.Button=OpenLayers.Class(OpenLayers.Control,{type:OpenLayers.Control.TYPE_BUTTON,trigger:function(){},CLASS_NAME:"OpenLayers.Control.Button"});
+OpenLayers.Control.ScaleLine=OpenLayers.Class(OpenLayers.Control,{maxWidth:100,topOutUnits:"km",topInUnits:"m",bottomOutUnits:"mi",bottomInUnits:"ft",eTop:null,eBottom:null,geodesic:false,initialize:function(options){OpenLayers.Control.prototype.initialize.apply(this,[options])
 },draw:function(){OpenLayers.Control.prototype.draw.apply(this,arguments);
 if(!this.eTop){this.eTop=document.createElement("div");
 this.eTop.className=this.displayClass+"Top";
@@ -10706,7 +10803,8 @@ if(this.eBottom.style.visibility=="visible"){this.eBottom.style.width=Math.round
 this.eBottom.innerHTML=bottomRounded+" "+bottomUnits
 }if(this.eTop.style.visibility=="visible"){this.eTop.style.width=Math.round(topPx)+"px";
 this.eTop.innerHTML=topRounded+" "+topUnits
-}},CLASS_NAME:"OpenLayers.Control.ScaleLine"});OpenLayers.Format.GML.v2=OpenLayers.Class(OpenLayers.Format.GML.Base,{schemaLocation:"http://www.opengis.net/gml http://schemas.opengis.net/gml/2.1.2/feature.xsd",initialize:function(options){OpenLayers.Format.GML.Base.prototype.initialize.apply(this,[options])
+}},CLASS_NAME:"OpenLayers.Control.ScaleLine"});
+OpenLayers.Format.GML.v2=OpenLayers.Class(OpenLayers.Format.GML.Base,{schemaLocation:"http://www.opengis.net/gml http://schemas.opengis.net/gml/2.1.2/feature.xsd",initialize:function(options){OpenLayers.Format.GML.Base.prototype.initialize.apply(this,[options])
 },readers:{gml:OpenLayers.Util.applyDefaults({outerBoundaryIs:function(node,container){var obj={};
 this.readChildNodes(node,obj);
 container.outer=obj.components[0]
@@ -10760,7 +10858,8 @@ return node
 this.writeNode("coordinates",[{x:bounds.left,y:bounds.bottom},{x:bounds.right,y:bounds.top}],node);
 if(this.srsName){node.setAttribute("srsName",this.srsName)
 }return node
-}},OpenLayers.Format.GML.Base.prototype.writers.gml),feature:OpenLayers.Format.GML.Base.prototype.writers.feature,wfs:OpenLayers.Format.GML.Base.prototype.writers.wfs},CLASS_NAME:"OpenLayers.Format.GML.v2"});OpenLayers.Format.JSON=OpenLayers.Class(OpenLayers.Format,{indent:"    ",space:" ",newline:"\n",level:0,pretty:false,initialize:function(options){OpenLayers.Format.prototype.initialize.apply(this,[options])
+}},OpenLayers.Format.GML.Base.prototype.writers.gml),feature:OpenLayers.Format.GML.Base.prototype.writers.feature,wfs:OpenLayers.Format.GML.Base.prototype.writers.wfs},CLASS_NAME:"OpenLayers.Format.GML.v2"});
+OpenLayers.Format.JSON=OpenLayers.Class(OpenLayers.Format,{indent:"    ",space:" ",newline:"\n",level:0,pretty:false,initialize:function(options){OpenLayers.Format.prototype.initialize.apply(this,[options])
 },read:function(json,filter){try{if(/^[\],:{}\s]*$/.test(json.replace(/\\["\\\/bfnrtu]/g,"@").replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,"]").replace(/(?:^|:|,)(?:\s*\[)+/g,""))){var object=eval("("+json+")");
 if(typeof filter==="function"){function walk(k,v){if(v&&typeof v==="object"){for(var i in v){if(v.hasOwnProperty(i)){v[i]=walk(i,v[i])
 }}}return filter(k,v)
@@ -10818,7 +10917,8 @@ return"\\u00"+Math.floor(c/16).toString(16)+(c%16).toString(16)
 },"boolean":function(bool){return String(bool)
 },date:function(date){function format(number){return(number<10)?"0"+number:number
 }return'"'+date.getFullYear()+"-"+format(date.getMonth()+1)+"-"+format(date.getDate())+"T"+format(date.getHours())+":"+format(date.getMinutes())+":"+format(date.getSeconds())+'"'
-}},CLASS_NAME:"OpenLayers.Format.JSON"});OpenLayers.Format.Filter.v1=OpenLayers.Class(OpenLayers.Format.XML,{namespaces:{ogc:"http://www.opengis.net/ogc",gml:"http://www.opengis.net/gml",xlink:"http://www.w3.org/1999/xlink",xsi:"http://www.w3.org/2001/XMLSchema-instance"},defaultPrefix:"ogc",schemaLocation:null,initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,[options])
+}},CLASS_NAME:"OpenLayers.Format.JSON"});
+OpenLayers.Format.Filter.v1=OpenLayers.Class(OpenLayers.Format.XML,{namespaces:{ogc:"http://www.opengis.net/ogc",gml:"http://www.opengis.net/gml",xlink:"http://www.w3.org/1999/xlink",xsi:"http://www.w3.org/2001/XMLSchema-instance"},defaultPrefix:"ogc",schemaLocation:null,initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,[options])
 },read:function(data){var obj={};
 this.readers.ogc.Filter.apply(this,[data,obj]);
 return obj.filter
@@ -10938,7 +11038,8 @@ return node
 }}},getFilterType:function(filter){var filterType=this.filterMap[filter.type];
 if(!filterType){throw"Filter writing not supported for rule type: "+filter.type
 }return filterType
-},filterMap:{"&&":"And","||":"Or","!":"Not","==":"PropertyIsEqualTo","!=":"PropertyIsNotEqualTo","<":"PropertyIsLessThan",">":"PropertyIsGreaterThan","<=":"PropertyIsLessThanOrEqualTo",">=":"PropertyIsGreaterThanOrEqualTo","..":"PropertyIsBetween","~":"PropertyIsLike",BBOX:"BBOX",DWITHIN:"DWITHIN",WITHIN:"WITHIN",CONTAINS:"CONTAINS",INTERSECTS:"INTERSECTS"},CLASS_NAME:"OpenLayers.Format.Filter.v1"});OpenLayers.Format.Filter.v1_0_0=OpenLayers.Class(OpenLayers.Format.GML.v2,OpenLayers.Format.Filter.v1,{VERSION:"1.0.0",schemaLocation:"http://www.opengis.net/ogc/filter/1.0.0/filter.xsd",initialize:function(options){OpenLayers.Format.GML.v2.prototype.initialize.apply(this,[options])
+},filterMap:{"&&":"And","||":"Or","!":"Not","==":"PropertyIsEqualTo","!=":"PropertyIsNotEqualTo","<":"PropertyIsLessThan",">":"PropertyIsGreaterThan","<=":"PropertyIsLessThanOrEqualTo",">=":"PropertyIsGreaterThanOrEqualTo","..":"PropertyIsBetween","~":"PropertyIsLike",BBOX:"BBOX",DWITHIN:"DWITHIN",WITHIN:"WITHIN",CONTAINS:"CONTAINS",INTERSECTS:"INTERSECTS"},CLASS_NAME:"OpenLayers.Format.Filter.v1"});
+OpenLayers.Format.Filter.v1_0_0=OpenLayers.Class(OpenLayers.Format.GML.v2,OpenLayers.Format.Filter.v1,{VERSION:"1.0.0",schemaLocation:"http://www.opengis.net/ogc/filter/1.0.0/filter.xsd",initialize:function(options){OpenLayers.Format.GML.v2.prototype.initialize.apply(this,[options])
 },readers:{ogc:OpenLayers.Util.applyDefaults({PropertyIsEqualTo:function(node,obj){var filter=new OpenLayers.Filter.Comparison({type:OpenLayers.Filter.Comparison.EQUAL_TO});
 this.readChildNodes(node,filter);
 obj.filters.push(filter)
@@ -10977,7 +11078,8 @@ if(filter.value instanceof OpenLayers.Geometry){child=this.writeNode("feature:_g
 }if(filter.projection){child.setAttribute("srsName",filter.projection)
 }node.appendChild(child);
 return node
-},CLASS_NAME:"OpenLayers.Format.Filter.v1_0_0"});OpenLayers.Format.Filter.v1_1_0=OpenLayers.Class(OpenLayers.Format.GML.v3,OpenLayers.Format.Filter.v1,{VERSION:"1.1.0",schemaLocation:"http://www.opengis.net/ogc/filter/1.1.0/filter.xsd",initialize:function(options){OpenLayers.Format.GML.v3.prototype.initialize.apply(this,[options])
+},CLASS_NAME:"OpenLayers.Format.Filter.v1_0_0"});
+OpenLayers.Format.Filter.v1_1_0=OpenLayers.Class(OpenLayers.Format.GML.v3,OpenLayers.Format.Filter.v1,{VERSION:"1.1.0",schemaLocation:"http://www.opengis.net/ogc/filter/1.1.0/filter.xsd",initialize:function(options){OpenLayers.Format.GML.v3.prototype.initialize.apply(this,[options])
 },readers:{ogc:OpenLayers.Util.applyDefaults({PropertyIsEqualTo:function(node,obj){var matchCase=node.getAttribute("matchCase");
 var filter=new OpenLayers.Filter.Comparison({type:OpenLayers.Filter.Comparison.EQUAL_TO,matchCase:!(matchCase==="false"||matchCase==="0")});
 this.readChildNodes(node,filter);
@@ -11019,7 +11121,8 @@ if(filter.value instanceof OpenLayers.Geometry){child=this.writeNode("feature:_g
 }if(filter.projection){child.setAttribute("srsName",filter.projection)
 }node.appendChild(child);
 return node
-},CLASS_NAME:"OpenLayers.Format.Filter.v1_1_0"});OpenLayers.Format.CSWGetRecords.v2_0_2=OpenLayers.Class(OpenLayers.Format.XML,{namespaces:{xlink:"http://www.w3.org/1999/xlink",xsi:"http://www.w3.org/2001/XMLSchema-instance",csw:"http://www.opengis.net/cat/csw/2.0.2",dc:"http://purl.org/dc/elements/1.1/",dct:"http://purl.org/dc/terms/",ows:"http://www.opengis.net/ows"},defaultPrefix:"csw",version:"2.0.2",schemaLocation:"http://www.opengis.net/cat/csw/2.0.2 http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd",requestId:null,resultType:null,outputFormat:null,outputSchema:null,startPosition:null,maxRecords:null,DistributedSearch:null,ResponseHandler:null,Query:null,regExes:{trimSpace:(/^\s*|\s*$/g),removeSpace:(/\s*/g),splitSpace:(/\s+/),trimComma:(/\s*,\s*/g)},initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,[options])
+},CLASS_NAME:"OpenLayers.Format.Filter.v1_1_0"});
+OpenLayers.Format.CSWGetRecords.v2_0_2=OpenLayers.Class(OpenLayers.Format.XML,{namespaces:{xlink:"http://www.w3.org/1999/xlink",xsi:"http://www.w3.org/2001/XMLSchema-instance",csw:"http://www.opengis.net/cat/csw/2.0.2",dc:"http://purl.org/dc/elements/1.1/",dct:"http://purl.org/dc/terms/",ows:"http://www.opengis.net/ows"},defaultPrefix:"csw",version:"2.0.2",schemaLocation:"http://www.opengis.net/cat/csw/2.0.2 http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd",requestId:null,resultType:null,outputFormat:null,outputSchema:null,startPosition:null,maxRecords:null,DistributedSearch:null,ResponseHandler:null,Query:null,regExes:{trimSpace:(/^\s*|\s*$/g),removeSpace:(/\s*/g),splitSpace:(/\s+/),trimComma:(/\s*,\s*/g)},initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,[options])
 },read:function(data){if(typeof data=="string"){data=OpenLayers.Format.XML.prototype.read.apply(this,[data])
 }if(data&&data.nodeType==9){data=data.documentElement
 }var obj={};
@@ -11068,7 +11171,7 @@ if(!(obj[name] instanceof Array)){obj[name]=new Array()
 }},ows:OpenLayers.Util.applyDefaults({BoundingBox:function(node,obj){if(obj.bounds){obj.BoundingBox=[{crs:obj.projection,value:[obj.bounds.left,obj.bounds.bottom,obj.bounds.right,obj.bounds.top]}];
 delete obj.projection;
 delete obj.bounds
-}OpenLayers.Format.OWSCommon.v1_0_0.prototype.readers.ows["BoundingBox"].apply(this,arguments)
+}OpenLayers.Format.OWSCommon.v1_0_0.prototype.readers.ows.BoundingBox.apply(this,arguments)
 }},OpenLayers.Format.OWSCommon.v1_0_0.prototype.readers.ows)},write:function(options){var node=this.writeNode("csw:GetRecords",options);
 return OpenLayers.Format.XML.prototype.write.apply(this,[node])
 },writers:{csw:{GetRecords:function(options){if(!options){options={}
@@ -11103,7 +11206,8 @@ node.appendChild(format.write(options.Filter))
 }else{if(options.CqlText){var child=this.createElementNSPlus("CqlText",{value:options.CqlText.value});
 node.appendChild(child)
 }}return node
-}}},CLASS_NAME:"OpenLayers.Format.CSWGetRecords.v2_0_2"});OpenLayers.Format.WMSCapabilities=OpenLayers.Class(OpenLayers.Format.XML,{defaultVersion:"1.1.1",version:null,parser:null,initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,[options]);
+}}},CLASS_NAME:"OpenLayers.Format.CSWGetRecords.v2_0_2"});
+OpenLayers.Format.WMSCapabilities=OpenLayers.Class(OpenLayers.Format.XML,{defaultVersion:"1.1.1",version:null,parser:null,initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,[options]);
 this.options=options
 },read:function(data){if(typeof data=="string"){data=OpenLayers.Format.XML.prototype.read.apply(this,[data])
 }var root=data.documentElement;
@@ -11114,7 +11218,8 @@ if(!constr){throw"Can't find a WMS capabilities parser for version "+version
 }var capabilities=this.parser.read(data);
 capabilities.version=version;
 return capabilities
-},CLASS_NAME:"OpenLayers.Format.WMSCapabilities"});OpenLayers.Format.WMSCapabilities.v1=OpenLayers.Class(OpenLayers.Format.XML,{namespaces:{wms:"http://www.opengis.net/wms",xlink:"http://www.w3.org/1999/xlink",xsi:"http://www.w3.org/2001/XMLSchema-instance"},defaultPrefix:"wms",initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,[options])
+},CLASS_NAME:"OpenLayers.Format.WMSCapabilities"});
+OpenLayers.Format.WMSCapabilities.v1=OpenLayers.Class(OpenLayers.Format.XML,{namespaces:{wms:"http://www.opengis.net/wms",xlink:"http://www.w3.org/1999/xlink",xsi:"http://www.w3.org/2001/XMLSchema-instance"},defaultPrefix:"wms",initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,[options])
 },read:function(data){if(typeof data=="string"){data=OpenLayers.Format.XML.prototype.read.apply(this,[data])
 }if(data&&data.nodeType==9){data=data.documentElement
 }var capabilities={};
@@ -11239,7 +11344,8 @@ obj.authorityURLs[name]=authority.href
 obj.identifiers[authority]=this.getChildValue(node)
 },KeywordList:function(node,obj){this.readChildNodes(node,obj)
 },SRS:function(node,obj){obj.srs[this.getChildValue(node)]=true
-}}},CLASS_NAME:"OpenLayers.Format.WMSCapabilities.v1"});OpenLayers.Format.WMSCapabilities.v1_1=OpenLayers.Class(OpenLayers.Format.WMSCapabilities.v1,{readers:{wms:OpenLayers.Util.applyDefaults({WMT_MS_Capabilities:function(node,obj){this.readChildNodes(node,obj)
+}}},CLASS_NAME:"OpenLayers.Format.WMSCapabilities.v1"});
+OpenLayers.Format.WMSCapabilities.v1_1=OpenLayers.Class(OpenLayers.Format.WMSCapabilities.v1,{readers:{wms:OpenLayers.Util.applyDefaults({WMT_MS_Capabilities:function(node,obj){this.readChildNodes(node,obj)
 },Keyword:function(node,obj){if(obj.keywords){obj.keywords.push(this.getChildValue(node))
 }},DescribeLayer:function(node,obj){obj.describelayer={formats:[]};
 this.readChildNodes(node,obj.describelayer)
@@ -11272,15 +11378,18 @@ extent.current=node.getAttribute("current")==="1";
 extent["default"]=node.getAttribute("default")||"";
 var values=this.getChildValue(node);
 extent.values=values.split(",")
-}}},OpenLayers.Format.WMSCapabilities.v1.prototype.readers.wms)},CLASS_NAME:"OpenLayers.Format.WMSCapabilities.v1_1"});OpenLayers.Format.WMSCapabilities.v1_1_0=OpenLayers.Class(OpenLayers.Format.WMSCapabilities.v1_1,{version:"1.1.0",initialize:function(options){OpenLayers.Format.WMSCapabilities.v1_1.prototype.initialize.apply(this,[options])
+}}},OpenLayers.Format.WMSCapabilities.v1.prototype.readers.wms)},CLASS_NAME:"OpenLayers.Format.WMSCapabilities.v1_1"});
+OpenLayers.Format.WMSCapabilities.v1_1_0=OpenLayers.Class(OpenLayers.Format.WMSCapabilities.v1_1,{version:"1.1.0",initialize:function(options){OpenLayers.Format.WMSCapabilities.v1_1.prototype.initialize.apply(this,[options])
 },readers:{wms:OpenLayers.Util.applyDefaults({SRS:function(node,obj){var srs=this.getChildValue(node);
 var values=srs.split(/ +/);
 for(var i=0,len=values.length;
 i<len;
 i++){obj.srs[values[i]]=true
-}}},OpenLayers.Format.WMSCapabilities.v1_1.prototype.readers.wms)},CLASS_NAME:"OpenLayers.Format.WMSCapabilities.v1_1_0"});OpenLayers.Format.WMSCapabilities.v1_1_1=OpenLayers.Class(OpenLayers.Format.WMSCapabilities.v1_1,{version:"1.1.1",initialize:function(options){OpenLayers.Format.WMSCapabilities.v1_1.prototype.initialize.apply(this,[options])
+}}},OpenLayers.Format.WMSCapabilities.v1_1.prototype.readers.wms)},CLASS_NAME:"OpenLayers.Format.WMSCapabilities.v1_1_0"});
+OpenLayers.Format.WMSCapabilities.v1_1_1=OpenLayers.Class(OpenLayers.Format.WMSCapabilities.v1_1,{version:"1.1.1",initialize:function(options){OpenLayers.Format.WMSCapabilities.v1_1.prototype.initialize.apply(this,[options])
 },readers:{wms:OpenLayers.Util.applyDefaults({SRS:function(node,obj){obj.srs[this.getChildValue(node)]=true
-}},OpenLayers.Format.WMSCapabilities.v1_1.prototype.readers.wms)},CLASS_NAME:"OpenLayers.Format.WMSCapabilities.v1_1_1"});OpenLayers.Format.WMSCapabilities.v1_3=OpenLayers.Class(OpenLayers.Format.WMSCapabilities.v1,{readers:{wms:OpenLayers.Util.applyDefaults({WMS_Capabilities:function(node,obj){this.readChildNodes(node,obj)
+}},OpenLayers.Format.WMSCapabilities.v1_1.prototype.readers.wms)},CLASS_NAME:"OpenLayers.Format.WMSCapabilities.v1_1_1"});
+OpenLayers.Format.WMSCapabilities.v1_3=OpenLayers.Class(OpenLayers.Format.WMSCapabilities.v1,{readers:{wms:OpenLayers.Util.applyDefaults({WMS_Capabilities:function(node,obj){this.readChildNodes(node,obj)
 },LayerLimit:function(node,obj){obj.layerLimit=parseInt(this.getChildValue(node))
 },MaxWidth:function(node,obj){obj.maxWidth=parseInt(this.getChildValue(node))
 },MaxHeight:function(node,obj){obj.maxHeight=parseInt(this.getChildValue(node))
@@ -11306,7 +11415,9 @@ obj.userSymbols.inlineFeature=parseInt(node.getAttribute("InlineFeature"))==1;
 obj.userSymbols.remoteWCS=parseInt(node.getAttribute("RemoteWCS"))==1
 },DescribeLayer:function(node,obj){this.readers.wms.DescribeLayer.apply(this,[node,obj])
 },GetLegendGraphic:function(node,obj){this.readers.wms.GetLegendGraphic.apply(this,[node,obj])
-}}},CLASS_NAME:"OpenLayers.Format.WMSCapabilities.v1_3"});OpenLayers.Format.WMSCapabilities.v1_3_0=OpenLayers.Class(OpenLayers.Format.WMSCapabilities.v1_3,{version:"1.3.0",CLASS_NAME:"OpenLayers.Format.WMSCapabilities.v1_3_0"});OpenLayers.Control.Scale=OpenLayers.Class(OpenLayers.Control,{element:null,geodesic:false,initialize:function(element,options){OpenLayers.Control.prototype.initialize.apply(this,[options]);
+}}},CLASS_NAME:"OpenLayers.Format.WMSCapabilities.v1_3"});
+OpenLayers.Format.WMSCapabilities.v1_3_0=OpenLayers.Class(OpenLayers.Format.WMSCapabilities.v1_3,{version:"1.3.0",CLASS_NAME:"OpenLayers.Format.WMSCapabilities.v1_3_0"});
+OpenLayers.Control.Scale=OpenLayers.Class(OpenLayers.Control,{element:null,geodesic:false,initialize:function(element,options){OpenLayers.Control.prototype.initialize.apply(this,[options]);
 this.element=OpenLayers.Util.getElement(element)
 },draw:function(){OpenLayers.Control.prototype.draw.apply(this,arguments);
 if(!this.element){this.element=document.createElement("div");
@@ -11325,7 +11436,8 @@ scale=(this.map.getGeodesicPixelSize().w||0.000001)*inches.km*OpenLayers.DOTS_PE
 }else{if(scale>=950000){scale=Math.round(scale/1000000)+"M"
 }else{scale=Math.round(scale)
 }}this.element.innerHTML=OpenLayers.i18n("scale",{scaleDenom:scale})
-},CLASS_NAME:"OpenLayers.Control.Scale"});OpenLayers.Control.DrawFeature=OpenLayers.Class(OpenLayers.Control,{layer:null,callbacks:null,EVENT_TYPES:["featureadded"],multi:false,featureAdded:function(){},handlerOptions:null,initialize:function(layer,handler,options){this.EVENT_TYPES=OpenLayers.Control.DrawFeature.prototype.EVENT_TYPES.concat(OpenLayers.Control.prototype.EVENT_TYPES);
+},CLASS_NAME:"OpenLayers.Control.Scale"});
+OpenLayers.Control.DrawFeature=OpenLayers.Class(OpenLayers.Control,{layer:null,callbacks:null,EVENT_TYPES:["featureadded"],multi:false,featureAdded:function(){},handlerOptions:null,initialize:function(layer,handler,options){this.EVENT_TYPES=OpenLayers.Control.DrawFeature.prototype.EVENT_TYPES.concat(OpenLayers.Control.prototype.EVENT_TYPES);
 OpenLayers.Control.prototype.initialize.apply(this,[options]);
 this.callbacks=OpenLayers.Util.extend({done:this.drawFeature,modify:function(vertex,feature){this.layer.events.triggerEvent("sketchmodified",{vertex:vertex,feature:feature})
 },create:function(vertex,feature){this.layer.events.triggerEvent("sketchstarted",{vertex:vertex,feature:feature})
@@ -11342,7 +11454,8 @@ if(proceed!==false){feature.state=OpenLayers.State.INSERT;
 this.layer.addFeatures([feature]);
 this.featureAdded(feature);
 this.events.triggerEvent("featureadded",{feature:feature})
-}},CLASS_NAME:"OpenLayers.Control.DrawFeature"});OpenLayers.Rule=OpenLayers.Class({id:null,name:null,title:null,description:null,context:null,filter:null,elseFilter:false,symbolizer:null,symbolizers:null,minScaleDenominator:null,maxScaleDenominator:null,initialize:function(options){this.symbolizer={};
+}},CLASS_NAME:"OpenLayers.Control.DrawFeature"});
+OpenLayers.Rule=OpenLayers.Class({id:null,name:null,title:null,description:null,context:null,filter:null,elseFilter:false,symbolizer:null,symbolizers:null,minScaleDenominator:null,maxScaleDenominator:null,initialize:function(options){this.symbolizer={};
 OpenLayers.Util.extend(this,options);
 if(this.symbolizers){delete this.symbolizer
 }this.id=OpenLayers.Util.createUniqueID(this.CLASS_NAME+"_")
@@ -11376,7 +11489,8 @@ if(type==="object"){options.symbolizer[key]=OpenLayers.Util.extend({},value)
 }}}}options.filter=this.filter&&this.filter.clone();
 options.context=this.context&&OpenLayers.Util.extend({},this.context);
 return new OpenLayers.Rule(options)
-},CLASS_NAME:"OpenLayers.Rule"});OpenLayers.Handler.Hover=OpenLayers.Class(OpenLayers.Handler,{delay:500,pixelTolerance:null,stopMove:false,px:null,timerId:null,initialize:function(control,callbacks,options){OpenLayers.Handler.prototype.initialize.apply(this,arguments)
+},CLASS_NAME:"OpenLayers.Rule"});
+OpenLayers.Handler.Hover=OpenLayers.Class(OpenLayers.Handler,{delay:500,pixelTolerance:null,stopMove:false,px:null,timerId:null,initialize:function(control,callbacks,options){OpenLayers.Handler.prototype.initialize.apply(this,arguments)
 },mousemove:function(evt){if(this.passesTolerance(evt.xy)){this.clearTimer();
 this.callback("move",[evt]);
 this.px=evt.xy;
@@ -11397,7 +11511,8 @@ this.timerId=null
 if(OpenLayers.Handler.prototype.deactivate.apply(this,arguments)){this.clearTimer();
 deactivated=true
 }return deactivated
-},CLASS_NAME:"OpenLayers.Handler.Hover"});OpenLayers.Control.MouseDefaults=OpenLayers.Class(OpenLayers.Control,{performedDrag:false,wheelObserver:null,initialize:function(){OpenLayers.Control.prototype.initialize.apply(this,arguments)
+},CLASS_NAME:"OpenLayers.Handler.Hover"});
+OpenLayers.Control.MouseDefaults=OpenLayers.Class(OpenLayers.Control,{performedDrag:false,wheelObserver:null,initialize:function(){OpenLayers.Control.prototype.initialize.apply(this,arguments)
 },destroy:function(){if(this.handler){this.handler.destroy()
 }this.handler=null;
 this.map.events.un({click:this.defaultClick,dblclick:this.defaultDblClick,mousedown:this.defaultMouseDown,mouseup:this.defaultMouseUp,mousemove:this.defaultMouseMove,mouseout:this.defaultMouseOut,scope:this});
@@ -11486,7 +11601,8 @@ if(window.opera&&window.opera.version()<9.2){delta=-delta
 if(delta<0){this.defaultWheelDown(e)
 }else{this.defaultWheelUp(e)
 }}OpenLayers.Event.stop(e)
-}},CLASS_NAME:"OpenLayers.Control.MouseDefaults"});OpenLayers.Control.MousePosition=OpenLayers.Class(OpenLayers.Control,{autoActivate:true,element:null,prefix:"",separator:", ",suffix:"",numDigits:5,granularity:10,emptyString:null,lastXy:null,displayProjection:null,initialize:function(options){OpenLayers.Control.prototype.initialize.apply(this,arguments)
+}},CLASS_NAME:"OpenLayers.Control.MouseDefaults"});
+OpenLayers.Control.MousePosition=OpenLayers.Class(OpenLayers.Control,{autoActivate:true,element:null,prefix:"",separator:", ",suffix:"",numDigits:5,granularity:10,emptyString:null,lastXy:null,displayProjection:null,initialize:function(options){OpenLayers.Control.prototype.initialize.apply(this,arguments)
 },destroy:function(){this.deactivate();
 OpenLayers.Control.prototype.destroy.apply(this,arguments)
 },activate:function(){if(OpenLayers.Control.prototype.activate.apply(this,arguments)){this.map.events.register("mousemove",this,this.redraw);
@@ -11519,7 +11635,8 @@ if(newHtml!=this.element.innerHTML){this.element.innerHTML=newHtml
 }},formatOutput:function(lonLat){var digits=parseInt(this.numDigits);
 var newHtml=this.prefix+lonLat.lon.toFixed(digits)+this.separator+lonLat.lat.toFixed(digits)+this.suffix;
 return newHtml
-},CLASS_NAME:"OpenLayers.Control.MousePosition"});OpenLayers.Handler.RegularPolygon=OpenLayers.Class(OpenLayers.Handler.Drag,{sides:4,radius:null,snapAngle:null,snapToggle:"shiftKey",layerOptions:null,persist:false,irregular:false,angle:null,fixedRadius:false,feature:null,layer:null,origin:null,initialize:function(control,callbacks,options){if(!(options&&options.layerOptions&&options.layerOptions.styleMap)){this.style=OpenLayers.Util.extend(OpenLayers.Feature.Vector.style["default"],{})
+},CLASS_NAME:"OpenLayers.Control.MousePosition"});
+OpenLayers.Handler.RegularPolygon=OpenLayers.Class(OpenLayers.Handler.Drag,{sides:4,radius:null,snapAngle:null,snapToggle:"shiftKey",layerOptions:null,persist:false,irregular:false,angle:null,fixedRadius:false,feature:null,layer:null,origin:null,initialize:function(control,callbacks,options){if(!(options&&options.layerOptions&&options.layerOptions.styleMap)){this.style=OpenLayers.Util.extend(OpenLayers.Feature.Vector.style["default"],{})
 }OpenLayers.Handler.prototype.initialize.apply(this,[control,callbacks,options]);
 this.options=(options)?options:{}
 },setOptions:function(newOptions){OpenLayers.Util.extend(this.options,newOptions);
@@ -11593,7 +11710,8 @@ this.radius=this.options.radius
 this.layer.destroyFeatures()
 }},callback:function(name,args){if(this.callbacks[name]){this.callbacks[name].apply(this.control,[this.feature.geometry.clone()])
 }if(!this.persist&&(name=="done"||name=="cancel")){this.clear()
-}},CLASS_NAME:"OpenLayers.Handler.RegularPolygon"});OpenLayers.Renderer.VML=OpenLayers.Class(OpenLayers.Renderer.Elements,{xmlns:"urn:schemas-microsoft-com:vml",symbolCache:{},offset:null,initialize:function(containerID){if(!this.supported()){return
+}},CLASS_NAME:"OpenLayers.Handler.RegularPolygon"});
+OpenLayers.Renderer.VML=OpenLayers.Class(OpenLayers.Renderer.Elements,{xmlns:"urn:schemas-microsoft-com:vml",symbolCache:{},offset:null,initialize:function(containerID){if(!this.supported()){return
 }if(!document.namespaces.olv){document.namespaces.add("olv",this.xmlns);
 var style=document.createStyleSheet();
 var shapes=["shape","rect","oval","fill","stroke","imagedata","group","textbox"];
@@ -11900,7 +12018,8 @@ symbolExtent.right=symbolExtent.right-diff
 this.symbolCache[id]=cache;
 return cache
 },CLASS_NAME:"OpenLayers.Renderer.VML"});
-OpenLayers.Renderer.VML.LABEL_SHIFT={l:0,c:0.5,r:1,t:0,m:0.5,b:1};OpenLayers.Control.ArgParser=OpenLayers.Class(OpenLayers.Control,{center:null,zoom:null,layers:null,displayProjection:null,initialize:function(options){OpenLayers.Control.prototype.initialize.apply(this,arguments)
+OpenLayers.Renderer.VML.LABEL_SHIFT={l:0,c:0.5,r:1,t:0,m:0.5,b:1};
+OpenLayers.Control.ArgParser=OpenLayers.Class(OpenLayers.Control,{center:null,zoom:null,layers:null,displayProjection:null,initialize:function(options){OpenLayers.Control.prototype.initialize.apply(this,arguments)
 },setMap:function(map){OpenLayers.Control.prototype.setMap.apply(this,arguments);
 for(var i=0,len=this.map.controls.length;
 i<len;
@@ -11925,7 +12044,8 @@ i++){var layer=this.map.layers[i];
 var c=this.layers.charAt(i);
 if(c=="B"){this.map.setBaseLayer(layer)
 }else{if((c=="T")||(c=="F")){layer.setVisibility(c=="T")
-}}}}},CLASS_NAME:"OpenLayers.Control.ArgParser"});OpenLayers.Control.LoadingPanel=OpenLayers.Class(OpenLayers.Control,{counter:0,maximized:false,visible:true,initialize:function(options){OpenLayers.Control.prototype.initialize.apply(this,[options])
+}}}}},CLASS_NAME:"OpenLayers.Control.ArgParser"});
+OpenLayers.Control.LoadingPanel=OpenLayers.Class(OpenLayers.Control,{counter:0,maximized:false,visible:true,initialize:function(options){OpenLayers.Control.prototype.initialize.apply(this,[options])
 },setVisible:function(visible){this.visible=visible;
 if(visible){OpenLayers.Element.show(this.div)
 }else{OpenLayers.Element.hide(this.div)
@@ -11968,7 +12088,8 @@ i++){var layer=this.map.layers[i];
 layer.events.unregister("loadstart",this,this.increaseCounter);
 layer.events.unregister("loadend",this,this.decreaseCounter)
 }}}OpenLayers.Control.prototype.destroy.apply(this,arguments)
-},CLASS_NAME:"OpenLayers.Control.LoadingPanel"});OpenLayers.Control.ScaleBar=OpenLayers.Class(OpenLayers.Control,{element:null,scale:1,displaySystem:"metric",minWidth:100,maxWidth:200,divisions:2,subdivisions:2,showMinorMeasures:false,abbreviateLabel:false,singleLine:false,align:"left",div:null,scaleText:"scale 1:",thousandsSeparator:"",measurementProperties:{english:{units:["miles","feet","inches"],abbr:["mi","ft","in"],inches:[63360,12,1]},metric:{units:["kilometers","meters","centimeters"],abbr:["km","m","cm"],inches:[39370.07874,39.370079,0.393701]}},limitedStyle:false,customStyles:null,defaultStyles:{Bar:{height:11,top:12,borderLeftWidth:0,borderRightWidth:0},BarAlt:{height:11,top:12,borderLeftWidth:0,borderRightWidth:0},MarkerMajor:{height:13,width:13,top:12,borderLeftWidth:0,borderRightWidth:0},MarkerMinor:{height:13,width:13,top:12,borderLeftWidth:0,borderRightWidth:0},NumbersBox:{height:13,width:40,top:24},LabelBox:{height:15,top:-2},LabelBoxSingleLine:{height:15,width:35,top:5,left:10}},appliedStyles:null,initialize:function(options){OpenLayers.Control.prototype.initialize.apply(this,[options]);
+},CLASS_NAME:"OpenLayers.Control.LoadingPanel"});
+OpenLayers.Control.ScaleBar=OpenLayers.Class(OpenLayers.Control,{element:null,scale:1,displaySystem:"metric",minWidth:100,maxWidth:200,divisions:2,subdivisions:2,showMinorMeasures:false,abbreviateLabel:false,singleLine:false,align:"left",div:null,scaleText:"scale 1:",thousandsSeparator:"",measurementProperties:{english:{units:["miles","feet","inches"],abbr:["mi","ft","in"],inches:[63360,12,1]},metric:{units:["kilometers","meters","centimeters"],abbr:["km","m","cm"],inches:[39370.07874,39.370079,0.393701]}},limitedStyle:false,customStyles:null,defaultStyles:{Bar:{height:11,top:12,borderLeftWidth:0,borderRightWidth:0},BarAlt:{height:11,top:12,borderLeftWidth:0,borderRightWidth:0},MarkerMajor:{height:13,width:13,top:12,borderLeftWidth:0,borderRightWidth:0},MarkerMinor:{height:13,width:13,top:12,borderLeftWidth:0,borderRightWidth:0},NumbersBox:{height:13,width:40,top:24},LabelBox:{height:15,top:-2},LabelBoxSingleLine:{height:15,width:35,top:5,left:10}},appliedStyles:null,initialize:function(options){OpenLayers.Control.prototype.initialize.apply(this,[options]);
 if(!document.styleSheets){this.limitedStyle=true
 }if(this.limitedStyle){this.appliedStyles=OpenLayers.Util.extend({},this.defaultStyles);
 OpenLayers.Util.extend(this.appliedStyles,this.customStyles)
@@ -12146,7 +12267,8 @@ num.score=score;
 num.tie=tie;
 num.dec=dec
 }}}}return num
-},CLASS_NAME:"OpenLayers.Control.ScaleBar"});OpenLayers.Format.CSWGetRecords.v2_0_2_GeoNetwork=OpenLayers.Class(OpenLayers.Format.CSWGetRecords.v2_0_2,{namespaces:{xlink:"http://www.w3.org/1999/xlink",xsi:"http://www.w3.org/2001/XMLSchema-instance",csw:"http://www.opengis.net/cat/csw/2.0.2",dc:"http://purl.org/dc/elements/1.1/",dct:"http://purl.org/dc/terms/",ows:"http://www.opengis.net/ows",geonet:"http://www.fao.org/geonetwork"},initialize:function(options){OpenLayers.Format.CSWGetRecords.v2_0_2.prototype.initialize.apply(this,[options])
+},CLASS_NAME:"OpenLayers.Control.ScaleBar"});
+OpenLayers.Format.CSWGetRecords.v2_0_2_GeoNetwork=OpenLayers.Class(OpenLayers.Format.CSWGetRecords.v2_0_2,{namespaces:{xlink:"http://www.w3.org/1999/xlink",xsi:"http://www.w3.org/2001/XMLSchema-instance",csw:"http://www.opengis.net/cat/csw/2.0.2",dc:"http://purl.org/dc/elements/1.1/",dct:"http://purl.org/dc/terms/",ows:"http://www.opengis.net/ows",geonet:"http://www.fao.org/geonetwork"},initialize:function(options){OpenLayers.Format.CSWGetRecords.v2_0_2.prototype.initialize.apply(this,[options])
 },readers:{csw:{GetRecordsResponse:function(node,obj){obj.records=[];
 this.readChildNodes(node,obj);
 var version=this.getAttributeNS(node,"","version");
@@ -12202,8 +12324,9 @@ for(var i=0,len=attrs.length;
 i<len;
 ++i){boundingBox[attrs[i].name]=attrs[i].nodeValue
 }obj.BoundingBox.push(boundingBox)
-},BoundingBox:function(node,obj){this.readers.ows["WGS84BoundingBox"].apply(this,[node,obj])
-}}},CLASS_NAME:"OpenLayers.Format.CSWGetRecords.v2_0_2_GeoNetwork"});OpenLayers.Format.GeoNetworkRecords=OpenLayers.Class(OpenLayers.Format.XML,{defaultPrefix:"nons",namespaces:{nons:"",geonet:"http://www.fao.org/geonetwork"},initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,[options])
+},BoundingBox:function(node,obj){this.readers.ows.WGS84BoundingBox.apply(this,[node,obj])
+}}},CLASS_NAME:"OpenLayers.Format.CSWGetRecords.v2_0_2_GeoNetwork"});
+OpenLayers.Format.GeoNetworkRecords=OpenLayers.Class(OpenLayers.Format.XML,{defaultPrefix:"nons",namespaces:{nons:"",geonet:"http://www.fao.org/geonetwork"},initialize:function(options){OpenLayers.Format.XML.prototype.initialize.apply(this,[options])
 },read:function(data){if(typeof data=="string"){data=OpenLayers.Format.XML.prototype.read.apply(this,[data])
 }if(data&&data.nodeType==9){data=data.documentElement
 }var obj={};
@@ -12259,7 +12382,8 @@ i<len;
 this.readChildNodes(node,obj[name])
 }}},geonet:{info:function(node,obj){if(!(obj.geonet_info instanceof Array)){obj.geonet_info=new Array()
 }this.readChildNodes(node,obj)
-}}},CLASS_NAME:"OpenLayers.Format.GeoNetworkRecords"});(function(){var createComplete=function(fn,cb){return function(request){if(cb&&cb[fn]){cb[fn].call(cb.scope||window,{responseText:request.responseText,responseXML:request.responseXML,argument:cb.argument})
+}}},CLASS_NAME:"OpenLayers.Format.GeoNetworkRecords"});
+(function(){var createComplete=function(fn,cb){return function(request){if(cb&&cb[fn]){cb[fn].call(cb.scope||window,{responseText:request.responseText,responseXML:request.responseXML,argument:cb.argument})
 }}
 };
 Ext.apply(Ext.lib.Ajax,{request:function(method,uri,cb,data,options){options=options||{};
@@ -12279,8 +12403,10 @@ hs["Content-Type"]="application/x-www-form-urlencoded"
 },isCallInProgress:function(request){return true
 },abort:function(request){request.abort()
 }})
-})();Ext.namespace("GeoExt");
-GeoExt.singleFile=true;(function(){var singleFile=(typeof GeoExt=="object"&&GeoExt.singleFile);
+})();
+Ext.namespace("GeoExt");
+GeoExt.singleFile=true;
+(function(){var singleFile=(typeof GeoExt=="object"&&GeoExt.singleFile);
 var scriptName=singleFile?"GeoExt.js":"lib/GeoExt.js";
 var getScriptLocation=function(){var scriptLocation="";
 var scripts=document.documentElement.getElementsByTagName("script");
@@ -12295,19 +12421,14 @@ break
 }}}return scriptLocation
 };
 if(!singleFile){var jsfiles=new Array("GeoExt/data/AttributeReader.js","GeoExt/data/AttributeStore.js","GeoExt/data/FeatureRecord.js","GeoExt/data/FeatureReader.js","GeoExt/data/FeatureStore.js","GeoExt/data/LayerRecord.js","GeoExt/data/LayerReader.js","GeoExt/data/LayerStore.js","GeoExt/data/ScaleStore.js","GeoExt/data/WMSCapabilitiesReader.js","GeoExt/data/WMSCapabilitiesStore.js","GeoExt/data/WFSCapabilitiesReader.js","GeoExt/data/WFSCapabilitiesStore.js","GeoExt/data/WMSDescribeLayerReader.js","GeoExt/data/WMSDescribeLayerStore.js","GeoExt/data/WMCReader.js","GeoExt/widgets/Action.js","GeoExt/data/ProtocolProxy.js","GeoExt/widgets/FeatureRenderer.js","GeoExt/widgets/MapPanel.js","GeoExt/widgets/Popup.js","GeoExt/widgets/form.js","GeoExt/widgets/form/SearchAction.js","GeoExt/widgets/form/BasicForm.js","GeoExt/widgets/form/FormPanel.js","GeoExt/widgets/tips/SliderTip.js","GeoExt/widgets/tips/LayerOpacitySliderTip.js","GeoExt/widgets/tips/ZoomSliderTip.js","GeoExt/widgets/tree/LayerNode.js","GeoExt/widgets/tree/TreeNodeUIEventMixin.js","GeoExt/plugins/TreeNodeComponent.js","GeoExt/plugins/TreeNodeRadioButton.js","GeoExt/widgets/tree/LayerLoader.js","GeoExt/widgets/tree/LayerContainer.js","GeoExt/widgets/tree/BaseLayerContainer.js","GeoExt/widgets/tree/OverlayLayerContainer.js","GeoExt/widgets/tree/LayerParamNode.js","GeoExt/widgets/tree/LayerParamLoader.js","GeoExt/widgets/tree/WMSCapabilitiesLoader.js","GeoExt/widgets/LayerOpacitySlider.js","GeoExt/widgets/LayerLegend.js","GeoExt/widgets/LegendImage.js","GeoExt/widgets/UrlLegend.js","GeoExt/widgets/WMSLegend.js","GeoExt/widgets/VectorLegend.js","GeoExt/widgets/LegendPanel.js","GeoExt/widgets/ZoomSlider.js","GeoExt/widgets/grid/FeatureSelectionModel.js","GeoExt/data/PrintPage.js","GeoExt/data/PrintProvider.js","GeoExt/plugins/PrintPageField.js","GeoExt/plugins/PrintProviderField.js","GeoExt/plugins/PrintExtent.js","GeoExt/plugins/AttributeForm.js","GeoExt/widgets/PrintMapPanel.js","GeoExt/state/PermalinkProvider.js");
-var agent=navigator.userAgent;
-var docWrite=(agent.match("MSIE")||agent.match("Safari"));
-if(docWrite){var allScriptTags=new Array(jsfiles.length)
-}var host=getScriptLocation()+"lib/";
+var allScriptTags=new Array(jsfiles.length);
+var host=getScriptLocation()+"lib/";
 for(var i=0,len=jsfiles.length;
 i<len;
-i++){if(docWrite){allScriptTags[i]="<script src='"+host+jsfiles[i]+"'><\/script>"
-}else{var s=document.createElement("script");
-s.src=host+jsfiles[i];
-var h=document.getElementsByTagName("head").length?document.getElementsByTagName("head")[0]:document.body;
-h.appendChild(s)
-}}if(docWrite){document.write(allScriptTags.join(""))
-}}})();Ext.namespace("GeoExt.data");
+i++){allScriptTags[i]="<script src='"+host+jsfiles[i]+"'><\/script>"
+}document.write(allScriptTags.join(""))
+}})();
+Ext.namespace("GeoExt.data");
 GeoExt.data.AttributeReader=function(meta,recordType){meta=meta||{};
 if(!meta.format){meta.format=new OpenLayers.Format.WFSDescribeFeatureType()
 }GeoExt.data.AttributeReader.superclass.constructor.call(this,meta,recordType||meta.fields);
@@ -12347,7 +12468,8 @@ if(typeof matches=="string"){ignore=(matches===value)
 }else{if(matches instanceof Array){ignore=(matches.indexOf(value)>-1)
 }else{if(matches instanceof RegExp){ignore=(matches.test(value))
 }}}}return ignore
-}});Ext.namespace("GeoExt.data");
+}});
+Ext.namespace("GeoExt.data");
 GeoExt.data.AttributeStoreMixin=function(){return{constructor:function(c){c=c||{};
 arguments.callee.superclass.constructor.call(this,Ext.apply(c,{proxy:c.proxy||(!c.data?new Ext.data.HttpProxy({url:c.url,disableCaching:false,method:"GET"}):undefined),reader:new GeoExt.data.AttributeReader(c,c.fields||["name","type","restriction"])}));
 if(this.feature){this.bind()
@@ -12378,7 +12500,8 @@ feature.attributes[name]=value
 layer.drawFeature(feature)
 }}}
 };
-GeoExt.data.AttributeStore=Ext.extend(Ext.data.Store,GeoExt.data.AttributeStoreMixin());Ext.namespace("GeoExt","GeoExt.data");
+GeoExt.data.AttributeStore=Ext.extend(Ext.data.Store,GeoExt.data.AttributeStoreMixin());
+Ext.namespace("GeoExt","GeoExt.data");
 GeoExt.data.FeatureReader=function(meta,recordType){meta=meta||{};
 if(!(recordType instanceof Function)){recordType=GeoExt.data.FeatureRecord.create(recordType||meta.fields||{})
 }GeoExt.data.FeatureReader.superclass.constructor.call(this,meta,recordType)
@@ -12405,7 +12528,8 @@ values.fid=feature.fid;
 var id=(feature.state===OpenLayers.State.INSERT)?undefined:feature.id;
 records[records.length]=new recordType(values,id)
 }}return{records:records,totalRecords:this.totalRecords!=null?this.totalRecords:records.length}
-}});Ext.namespace("GeoExt.data");
+}});
+Ext.namespace("GeoExt.data");
 GeoExt.data.FeatureStoreMixin=function(){return{layer:null,reader:null,featureFilter:null,constructor:function(config){config=config||{};
 config.reader=config.reader||new GeoExt.data.FeatureReader({},config.fields);
 var layer=config.layer;
@@ -12511,7 +12635,8 @@ if(this.layer.getFeatureById(feature.id)!=null){this.layer.drawFeature(feature)
 };
 GeoExt.data.FeatureStore=Ext.extend(Ext.data.Store,new GeoExt.data.FeatureStoreMixin);
 GeoExt.data.FeatureStore.LAYER_TO_STORE=1;
-GeoExt.data.FeatureStore.STORE_TO_LAYER=2;Ext.namespace("GeoExt.data");
+GeoExt.data.FeatureStore.STORE_TO_LAYER=2;
+Ext.namespace("GeoExt.data");
 GeoExt.data.LayerRecord=Ext.data.Record.create([{name:"layer"},{name:"title",type:"string",mapping:"name"}]);
 GeoExt.data.LayerRecord.prototype.getLayer=function(){return this.get("layer")
 };
@@ -12536,7 +12661,8 @@ i++){p.fields.add(new Ext.data.Field(o[i]))
 }}f.getField=function(name){return p.fields.get(name)
 };
 return f
-};Ext.namespace("GeoExt","GeoExt.data");
+};
+Ext.namespace("GeoExt","GeoExt.data");
 GeoExt.data.LayerReader=function(meta,recordType){meta=meta||{};
 if(!(recordType instanceof Function)){recordType=GeoExt.data.LayerRecord.create(recordType||meta.fields||{})
 }GeoExt.data.LayerReader.superclass.constructor.call(this,meta,recordType)
@@ -12557,7 +12683,8 @@ values[field.name]=v
 }values.layer=layer;
 records[records.length]=new recordType(values,layer.id)
 }}return{records:records,totalRecords:this.totalRecords!=null?this.totalRecords:records.length}
-}});Ext.namespace("GeoExt.data");
+}});
+Ext.namespace("GeoExt.data");
 GeoExt.data.LayerStoreMixin=function(){return{map:null,reader:null,constructor:function(config){config=config||{};
 config.reader=config.reader||new GeoExt.data.LayerReader({},config.fields);
 delete config.fields;
@@ -12655,7 +12782,8 @@ GeoExt.data.LayerStore.superclass.destroy.call(this)
 };
 GeoExt.data.LayerStore=Ext.extend(Ext.data.Store,new GeoExt.data.LayerStoreMixin);
 GeoExt.data.LayerStore.MAP_TO_STORE=1;
-GeoExt.data.LayerStore.STORE_TO_MAP=2;Ext.namespace("GeoExt.data");
+GeoExt.data.LayerStore.STORE_TO_MAP=2;
+Ext.namespace("GeoExt.data");
 GeoExt.data.ScaleStore=Ext.extend(Ext.data.Store,{map:null,constructor:function(config){var map=(config.map instanceof GeoExt.MapPanel?config.map.map:config.map);
 delete config.map;
 config=Ext.applyIf(config,{reader:new Ext.data.JsonReader({},["level","resolution","scale"])});
@@ -12680,7 +12808,8 @@ zooms.push({level:i,resolution:res,scale:OpenLayers.Util.getScaleFromResolution(
 }this.loadData(zooms)
 },destroy:function(){this.unbind();
 GeoExt.data.ScaleStore.superclass.destroy.apply(this,arguments)
-}});Ext.namespace("GeoExt.data");
+}});
+Ext.namespace("GeoExt.data");
 GeoExt.data.PrintProvider=Ext.extend(Ext.util.Observable,{url:null,capabilities:null,method:"POST",customParams:null,scales:null,dpis:null,layouts:null,dpi:null,layout:null,constructor:function(config){this.initialConfig=config;
 Ext.apply(this,config);
 if(!this.customParams){this.customParams={}
@@ -12774,7 +12903,7 @@ return Ext.apply(enc,{type:"TMS",format:layer.type})
 },TileCache:function(layer){var enc=this.encoders.layers.HTTPRequest.call(this,layer);
 return Ext.apply(enc,{type:"TileCache",layer:layer.layername,maxExtent:layer.maxExtent.toArray(),tileSize:[layer.tileSize.w,layer.tileSize.h],extension:layer.extension,resolutions:layer.serverResolutions||layer.resolutions})
 },KaMapCache:function(layer){var enc=this.encoders.layers.KaMap.call(this,layer);
-return Ext.apply(enc,{type:"KaMapCache",group:layer.params.g,metaTileWidth:layer.params.metaTileSize["w"],metaTileHeight:layer.params.metaTileSize["h"]})
+return Ext.apply(enc,{type:"KaMapCache",group:layer.params.g,metaTileWidth:layer.params.metaTileSize.w,metaTileHeight:layer.params.metaTileSize.h})
 },KaMap:function(layer){var enc=this.encoders.layers.HTTPRequest.call(this,layer);
 return Ext.apply(enc,{type:"KaMap",map:layer.params.map,extension:layer.params.i,group:layer.params.g||"",maxExtent:layer.maxExtent.toArray(),tileSize:[layer.tileSize.w,layer.tileSize.h],resolutions:layer.serverResolutions||layer.resolutions})
 },HTTPRequest:function(layer){return{baseURL:this.getAbsoluteUrl(layer.url instanceof Array?layer.url[0]:layer.url),opacity:(layer.opacity!=null)?layer.opacity:1,singleTile:layer.singleTile}
@@ -12813,7 +12942,8 @@ return enc
 enc[0].classes.push({name:"",icon:this.getAbsoluteUrl(legend.items.get(1).url)});
 return enc
 },base:function(legend){return[{name:legend.items.get(0).text,classes:[]}]
-}}}});Ext.namespace("GeoExt.data");
+}}}});
+Ext.namespace("GeoExt.data");
 GeoExt.data.PrintPage=Ext.extend(Ext.util.Observable,{printProvider:null,feature:null,center:null,scale:null,rotation:0,customParams:null,constructor:function(config){this.initialConfig=config;
 Ext.apply(this,config);
 if(!this.customParams){this.customParams={}
@@ -12889,7 +13019,8 @@ return new OpenLayers.Bounds(center.lon-w,center.lat-h,center.lon+w,center.lat+h
 },onLayoutChange:function(){if(this.printProvider.layout.get("rotation")===false){this.setRotation(0,true)
 }this.scale&&this.setScale(this.scale)
 },destroy:function(){this.printProvider.un("layoutchange",this.onLayoutChange,this)
-}});Ext.namespace("GeoExt.data");
+}});
+Ext.namespace("GeoExt.data");
 GeoExt.data.WMSCapabilitiesReader=function(meta,recordType){meta=meta||{};
 if(!meta.format){meta.format=new OpenLayers.Format.WMSCapabilities()
 }if(typeof recordType!=="function"){recordType=GeoExt.data.LayerRecord.create(recordType||meta.fields||[{name:"name",type:"string"},{name:"title",type:"string"},{name:"abstract",type:"string"},{name:"queryable",type:"boolean"},{name:"opaque",type:"boolean"},{name:"noSubsets",type:"boolean"},{name:"cascaded",type:"int"},{name:"fixedWidth",type:"int"},{name:"fixedHeight",type:"int"},{name:"minScale",type:"float"},{name:"maxScale",type:"float"},{name:"prefix",type:"string"},{name:"formats"},{name:"styles"},{name:"srs"},{name:"dimensions"},{name:"bbox"},{name:"llbbox"},{name:"attribution"},{name:"keywords"},{name:"identifiers"},{name:"authorityURLs"},{name:"metadataURLs"}])
@@ -12942,11 +13073,13 @@ if(attribution.logo){markup.push("<img class='"+this.attributionCls+"-image' src
 i<markup.length;
 i++){markup[i]="<a class='"+this.attributionCls+"-link' href="+attribution.href+">"+markup[i]+"</a>"
 }}return markup.join(" ")
-}});Ext.namespace("GeoExt.data");
+}});
+Ext.namespace("GeoExt.data");
 GeoExt.data.WMSCapabilitiesStore=function(c){c=c||{};
 GeoExt.data.WMSCapabilitiesStore.superclass.constructor.call(this,Ext.apply(c,{proxy:c.proxy||(!c.data?new Ext.data.HttpProxy({url:c.url,disableCaching:false,method:"GET"}):undefined),reader:new GeoExt.data.WMSCapabilitiesReader(c,c.fields)}))
 };
-Ext.extend(GeoExt.data.WMSCapabilitiesStore,Ext.data.Store);Ext.namespace("GeoExt.data");
+Ext.extend(GeoExt.data.WMSCapabilitiesStore,Ext.data.Store);
+Ext.namespace("GeoExt.data");
 GeoExt.data.WMSDescribeLayerReader=function(meta,recordType){meta=meta||{};
 if(!meta.format){meta.format=new OpenLayers.Format.WMSDescribeLayer()
 }if(!(typeof recordType==="function")){recordType=Ext.data.Record.create(recordType||meta.fields||[{name:"owsType",type:"string"},{name:"owsURL",type:"string"},{name:"typeName",type:"string"}])
@@ -12962,11 +13095,39 @@ i<len;
 i++){description=data[i];
 if(description){records.push(new this.recordType(description))
 }}return{totalRecords:records.length,success:true,records:records}
-}});Ext.namespace("GeoExt.data");
+}});
+Ext.namespace("GeoExt.data");
 GeoExt.data.WMSDescribeLayerStore=function(c){c=c||{};
 GeoExt.data.WMSDescribeLayerStore.superclass.constructor.call(this,Ext.apply(c,{proxy:c.proxy||(!c.data?new Ext.data.HttpProxy({url:c.url,disableCaching:false,method:"GET"}):undefined),reader:new GeoExt.data.WMSDescribeLayerReader(c,c.fields)}))
 };
-Ext.extend(GeoExt.data.WMSDescribeLayerStore,Ext.data.Store);Ext.namespace("GeoExt");
+Ext.extend(GeoExt.data.WMSDescribeLayerStore,Ext.data.Store);
+Ext.namespace("GeoExt.state");
+GeoExt.state.PermalinkProvider=function(config){GeoExt.state.PermalinkProvider.superclass.constructor.apply(this,arguments);
+config=config||{};
+var url=config.url;
+delete config.url;
+Ext.apply(this,config);
+this.state=this.readURL(url)
+};
+Ext.extend(GeoExt.state.PermalinkProvider,Ext.state.Provider,{encodeType:true,readURL:function(url){var state={};
+var params=OpenLayers.Util.getParameters(url);
+var k,split,stateId;
+for(k in params){if(params.hasOwnProperty(k)){split=k.split("_");
+if(split.length>1){stateId=split[0];
+state[stateId]=state[stateId]||{};
+state[stateId][split.slice(1).join("_")]=this.encodeType?this.decodeValue(params[k]):params[k]
+}}}return state
+},getLink:function(base){base=base||document.location.href;
+var params={};
+var id,k,state=this.state;
+for(id in state){if(state.hasOwnProperty(id)){for(k in state[id]){params[id+"_"+k]=this.encodeType?unescape(this.encodeValue(state[id][k])):state[id][k]
+}}}OpenLayers.Util.applyDefaults(params,OpenLayers.Util.getParameters(base));
+var paramsStr=OpenLayers.Util.getParameterString(params);
+var qMark=base.indexOf("?");
+if(qMark>0){base=base.substring(0,qMark)
+}return Ext.urlAppend(base,paramsStr)
+}});
+Ext.namespace("GeoExt");
 GeoExt.Action=Ext.extend(Ext.Action,{control:null,map:null,uScope:null,uHandler:null,uToggleHandler:null,uCheckHandler:null,constructor:function(config){this.uScope=config.scope;
 this.uHandler=config.handler;
 this.uToggleHandler=config.toggleHandler;
@@ -13007,7 +13168,8 @@ this.safeCallEach("setChecked",[false])
 for(var i=0,len=cs.length;
 i<len;
 i++){if(cs[i][fnName]){cs[i].rendered?cs[i][fnName].apply(cs[i],args):cs[i].on({render:cs[i][fnName].createDelegate(cs[i],args),single:true})
-}}}});Ext.namespace("GeoExt");
+}}}});
+Ext.namespace("GeoExt");
 GeoExt.MapPanel=Ext.extend(Ext.Panel,{map:null,layers:null,center:null,zoom:null,prettyStateKeys:false,extent:null,stateEvents:["aftermapmove","afterlayervisibilitychange","afterlayeropacitychange"],initComponent:function(){if(!(this.map instanceof OpenLayers.Map)){this.map=new OpenLayers.Map(Ext.applyIf(this.map||{},{allOverlays:true}))
 }var layers=this.layers;
 if(!layers||layers instanceof Array){this.layers=new GeoExt.data.LayerStore({layers:layers,map:this.map.layers.length>0?this.map:null})
@@ -13073,7 +13235,8 @@ GeoExt.MapPanel.superclass.beforeDestroy.apply(this,arguments)
 GeoExt.MapPanel.guess=function(){return Ext.ComponentMgr.all.find(function(o){return o instanceof GeoExt.MapPanel
 })
 };
-Ext.reg("gx_mappanel",GeoExt.MapPanel);Ext.namespace("GeoExt");
+Ext.reg("gx_mappanel",GeoExt.MapPanel);
+Ext.namespace("GeoExt");
 GeoExt.LegendImage=Ext.extend(Ext.BoxComponent,{url:null,defaultImgSrc:null,imgCls:null,initComponent:function(){GeoExt.LegendImage.superclass.initComponent.call(this);
 if(this.defaultImgSrc===null){this.defaultImgSrc=Ext.BLANK_IMAGE_URL
 }this.autoEl={tag:"img","class":(this.imgCls?this.imgCls:""),src:this.defaultImgSrc}
@@ -13089,7 +13252,8 @@ if(el){el.un("error",this.onImageLoadError,this)
 }GeoExt.LegendImage.superclass.onDestroy.apply(this,arguments)
 },onImageLoadError:function(){this.getEl().dom.src=this.defaultImgSrc
 }});
-Ext.reg("gx_legendimage",GeoExt.LegendImage);Ext.namespace("GeoExt");
+Ext.reg("gx_legendimage",GeoExt.LegendImage);
+Ext.namespace("GeoExt");
 GeoExt.LegendPanel=Ext.extend(Ext.Panel,{dynamic:true,layerStore:null,preferredTypes:null,filter:function(record){return true
 },initComponent:function(){GeoExt.LegendPanel.superclass.initComponent.call(this)
 },onRender:function(){GeoExt.LegendPanel.superclass.onRender.apply(this,arguments);
@@ -13133,7 +13297,8 @@ this.layerStore.un("remove",this.onStoreRemove,this);
 this.layerStore.un("clear",this.onStoreClear,this)
 }GeoExt.LegendPanel.superclass.onDestroy.apply(this,arguments)
 }});
-Ext.reg("gx_legendpanel",GeoExt.LegendPanel);Ext.namespace("GeoExt");
+Ext.reg("gx_legendpanel",GeoExt.LegendPanel);
+Ext.namespace("GeoExt");
 GeoExt.LayerLegend=Ext.extend(Ext.Container,{layerRecord:null,showTitle:true,legendTitle:null,labelCls:null,layerStore:null,initComponent:function(){GeoExt.LayerLegend.superclass.initComponent.call(this);
 this.autoEl={};
 this.add({xtype:"label",text:this.getLayerTitle(this.layerRecord),cls:"x-form-item x-form-item-label"+(this.labelCls?" "+this.labelCls:"")});
@@ -13157,7 +13322,8 @@ for(var type in GeoExt.LayerLegend.types){if(GeoExt.LayerLegend.types[type].supp
 }}return types.concat(goodTypes)
 };
 GeoExt.LayerLegend.supports=function(layerRecord){};
-GeoExt.LayerLegend.types={};Ext.namespace("GeoExt");
+GeoExt.LayerLegend.types={};
+Ext.namespace("GeoExt");
 GeoExt.WMSLegend=Ext.extend(GeoExt.LayerLegend,{defaultStyleIsFirst:true,useScaleParameter:true,baseParams:null,initComponent:function(){GeoExt.WMSLegend.superclass.initComponent.call(this);
 var layer=this.layerRecord.getLayer();
 this._noMap=!layer.map;
@@ -13214,7 +13380,8 @@ layer&&layer.events&&layer.events.unregister("moveend",this,this.onLayerMoveend)
 GeoExt.WMSLegend.supports=function(layerRecord){return layerRecord.getLayer() instanceof OpenLayers.Layer.WMS
 };
 GeoExt.LayerLegend.types.gx_wmslegend=GeoExt.WMSLegend;
-Ext.reg("gx_wmslegend",GeoExt.WMSLegend);Ext.namespace("GeoExt.tree");
+Ext.reg("gx_wmslegend",GeoExt.WMSLegend);
+Ext.namespace("GeoExt.tree");
 GeoExt.tree.LayerContainer=Ext.extend(Ext.tree.AsyncTreeNode,{constructor:function(config){config=Ext.applyIf(config||{},{text:"Layers"});
 this.loader=config.loader instanceof GeoExt.tree.LayerLoader?config.loader:new GeoExt.tree.LayerLoader(Ext.applyIf(config.loader||{},{store:config.layerStore}));
 GeoExt.tree.LayerContainer.superclass.constructor.call(this,config)
@@ -13230,14 +13397,16 @@ if(index===i||nodeIndex>nodeCount-1){break
 },destroy:function(){delete this.layerStore;
 GeoExt.tree.LayerContainer.superclass.destroy.apply(this,arguments)
 }});
-Ext.tree.TreePanel.nodeTypes.gx_layercontainer=GeoExt.tree.LayerContainer;Ext.namespace("GeoExt.tree");
+Ext.tree.TreePanel.nodeTypes.gx_layercontainer=GeoExt.tree.LayerContainer;
+Ext.namespace("GeoExt.tree");
 GeoExt.tree.BaseLayerContainer=Ext.extend(GeoExt.tree.LayerContainer,{constructor:function(config){config=Ext.applyIf(config||{},{text:"Base Layer",loader:{}});
 config.loader=Ext.applyIf(config.loader,{baseAttrs:Ext.applyIf(config.loader.baseAttrs||{},{iconCls:"gx-tree-baselayer-icon",checkedGroup:"baselayer"}),filter:function(record){var layer=record.getLayer();
 return layer.displayInLayerSwitcher===true&&layer.isBaseLayer===true
 }});
 GeoExt.tree.BaseLayerContainer.superclass.constructor.call(this,config)
 }});
-Ext.tree.TreePanel.nodeTypes.gx_baselayercontainer=GeoExt.tree.BaseLayerContainer;Ext.namespace("GeoExt.tree");
+Ext.tree.TreePanel.nodeTypes.gx_baselayercontainer=GeoExt.tree.BaseLayerContainer;
+Ext.namespace("GeoExt.tree");
 GeoExt.tree.LayerLoader=function(config){Ext.apply(this,config);
 this.addEvents("beforeload","load");
 GeoExt.tree.LayerLoader.superclass.constructor.call(this)
@@ -13304,7 +13473,8 @@ for(var evt in this._storeHandlers){this.store.on(evt,this._storeHandlers[evt],t
 }attr.nodeType=attr.nodeType||"gx_layer";
 return new Ext.tree.TreePanel.nodeTypes[attr.nodeType](attr)
 },destroy:function(){this.removeStoreHandlers()
-}});Ext.namespace("GeoExt.tree");
+}});
+Ext.namespace("GeoExt.tree");
 GeoExt.tree.LayerNodeUI=Ext.extend(Ext.tree.TreeNodeUI,{constructor:function(config){GeoExt.tree.LayerNodeUI.superclass.constructor.apply(this,arguments)
 },render:function(bulkRender){var a=this.node.attributes;
 if(a.checked===undefined){a.checked=this.node.layer.getVisibility()
@@ -13389,7 +13559,8 @@ layerStore.un("update",this.onStoreUpdate,this)
 this.un("checkchange",this.onCheckChange,this);
 GeoExt.tree.LayerNode.superclass.destroy.apply(this,arguments)
 }});
-Ext.tree.TreePanel.nodeTypes.gx_layer=GeoExt.tree.LayerNode;Ext.namespace("GeoExt.tree");
+Ext.tree.TreePanel.nodeTypes.gx_layer=GeoExt.tree.LayerNode;
+Ext.namespace("GeoExt.tree");
 GeoExt.tree.LayerParamLoader=function(config){Ext.apply(this,config);
 this.addEvents("beforeload","load");
 GeoExt.tree.LayerParamLoader.superclass.constructor.call(this)
@@ -13409,7 +13580,8 @@ if(sibling){node.insertBefore(child,sibling)
 }if(typeof attr.uiProvider=="string"){attr.uiProvider=this.uiProviders[attr.uiProvider]||eval(attr.uiProvider)
 }attr.nodeType=attr.nodeType||"gx_layerparam";
 return new Ext.tree.TreePanel.nodeTypes[attr.nodeType](attr)
-}});Ext.namespace("GeoExt.tree");
+}});
+Ext.namespace("GeoExt.tree");
 GeoExt.tree.LayerParamNode=Ext.extend(Ext.tree.TreeNode,{layer:null,param:null,item:null,delimiter:null,allItems:null,constructor:function(attributes){var config=attributes||{};
 config.iconCls=config.iconCls||"gx-tree-layerparam-icon";
 config.text=config.text||config.item;
@@ -13457,14 +13629,16 @@ if(layer instanceof OpenLayers.Layer){layer.events.un({visibilitychanged:this.on
 this.un("checkchange",this.onCheckChange,this);
 GeoExt.tree.LayerParamNode.superclass.destroy.apply(this,arguments)
 }});
-Ext.tree.TreePanel.nodeTypes.gx_layerparam=GeoExt.tree.LayerParamNode;Ext.namespace("GeoExt.tree");
+Ext.tree.TreePanel.nodeTypes.gx_layerparam=GeoExt.tree.LayerParamNode;
+Ext.namespace("GeoExt.tree");
 GeoExt.tree.OverlayLayerContainer=Ext.extend(GeoExt.tree.LayerContainer,{constructor:function(config){config=Ext.applyIf(config||{},{text:"Overlays"});
 config.loader=Ext.applyIf(config.loader||{},{filter:function(record){var layer=record.getLayer();
 return layer.displayInLayerSwitcher===true&&layer.isBaseLayer===false
 }});
 GeoExt.tree.OverlayLayerContainer.superclass.constructor.call(this,config)
 }});
-Ext.tree.TreePanel.nodeTypes.gx_overlaylayercontainer=GeoExt.tree.OverlayLayerContainer;Ext.namespace("GeoExt.tree");
+Ext.tree.TreePanel.nodeTypes.gx_overlaylayercontainer=GeoExt.tree.OverlayLayerContainer;
+Ext.namespace("GeoExt.tree");
 GeoExt.tree.TreeNodeUIEventMixin=function(){return{constructor:function(node){node.addEvents("rendernode","rawclicknode");
 this.superclass=arguments.callee.superclass;
 this.superclass.constructor.apply(this,arguments)
@@ -13472,7 +13646,8 @@ this.superclass.constructor.apply(this,arguments)
 this.fireEvent("rendernode",this.node)
 }},onClick:function(e){if(this.fireEvent("rawclicknode",this.node,e)!==false){this.superclass.onClick.apply(this,arguments)
 }}}
-};Ext.namespace("GeoExt.plugins");
+};
+Ext.namespace("GeoExt.plugins");
 GeoExt.plugins.TreeNodeRadioButton=Ext.extend(Ext.util.Observable,{constructor:function(config){Ext.apply(this.initialConfig,Ext.apply({},config));
 Ext.apply(this,config);
 this.addEvents("radiochange");
@@ -13488,7 +13663,8 @@ return false
 tree.un("rawclicknode",this.onRenderNode,this);
 tree.un("beforedestroy",this.onBeforeDestroy,this)
 }});
-Ext.preg("gx_treenoderadiobutton",GeoExt.plugins.TreeNodeRadioButton);Ext.namespace("GeoExt.plugins");
+Ext.preg("gx_treenoderadiobutton",GeoExt.plugins.TreeNodeRadioButton);
+Ext.namespace("GeoExt.plugins");
 GeoExt.plugins.PrintProviderField=Ext.extend(Ext.util.Observable,{target:null,constructor:function(config){this.initialConfig=config;
 Ext.apply(this,config);
 GeoExt.plugins.PrintProviderField.superclass.constructor.apply(this,arguments)
@@ -13518,7 +13694,8 @@ this.target.un("valid",this.onFieldChange,this);
 this.printProvider.un("layoutchange",this.onProviderChange,this);
 this.printProvider.un("dpichange",this.onProviderChange,this)
 }});
-Ext.preg("gx_printproviderfield",GeoExt.plugins.PrintProviderField);Ext.namespace("GeoExt.plugins");
+Ext.preg("gx_printproviderfield",GeoExt.plugins.PrintProviderField);
+Ext.namespace("GeoExt.plugins");
 GeoExt.plugins.PrintPageField=Ext.extend(Ext.util.Observable,{printPage:null,target:null,constructor:function(config){this.initialConfig=config;
 Ext.apply(this,config);
 GeoExt.plugins.PrintPageField.superclass.constructor.apply(this,arguments)
@@ -13551,7 +13728,8 @@ this.target.un("valid",this.onFieldChange,this);
 this.printPage.un("change",this.onPageChange,this);
 this.printPage.printProvider.un("layoutchange",this.onLayoutChange,this)
 }});
-Ext.preg("gx_printpagefield",GeoExt.plugins.PrintPageField);Ext.namespace("GeoExt");
+Ext.preg("gx_printpagefield",GeoExt.plugins.PrintPageField);
+Ext.namespace("GeoExt");
 GeoExt.SliderTip=Ext.extend(Ext.slider.Tip,{hover:true,minWidth:10,offsets:[0,-10],dragging:false,init:function(slider){GeoExt.SliderTip.superclass.init.apply(this,arguments);
 if(this.hover){slider.on("render",this.registerThumbListeners,this)
 }this.slider=slider
@@ -13567,12 +13745,14 @@ this.dragging=false
 }).apply(this,[thumb,el])
 }},onSlide:function(slider,e,thumb){this.dragging=true;
 return GeoExt.SliderTip.superclass.onSlide.apply(this,arguments)
-}});Ext.namespace("GeoExt");
+}});
+Ext.namespace("GeoExt");
 GeoExt.LayerOpacitySliderTip=Ext.extend(GeoExt.SliderTip,{template:"<div>{opacity}%</div>",compiledTemplate:null,init:function(slider){this.compiledTemplate=new Ext.Template(this.template);
 GeoExt.LayerOpacitySliderTip.superclass.init.call(this,slider)
 },getText:function(thumb){var data={opacity:thumb.value};
 return this.compiledTemplate.apply(data)
-}});Ext.namespace("GeoExt.tree");
+}});
+Ext.namespace("GeoExt.tree");
 GeoExt.tree.LayerOpacitySliderPlugin=Ext.extend(Ext.util.Observable,{constructor:function(config){Ext.apply(this.initialConfig,Ext.apply({},config));
 Ext.apply(this,config);
 this.addEvents("opacityslide");
@@ -13595,33 +13775,40 @@ slider.on("change",function(slider,value,oldValue){this.layer.setOpacity(value/1
 });
 slider.render(elID)
 }}});
-Ext.preg&&Ext.preg("gx_layeropacitysliderplugin",GeoExt.tree.LayerOpacitySliderPlugin);Ext.namespace("GeoNetwork");
-GeoNetwork.singleFile=true;Ext.namespace("GeoNetwork","GeoNetwork.Lang");
-GeoNetwork.Lang.de={featureInfoTooltipTitle:"Feature info",featureInfoTooltipText:"Click in the map to get feature info from all visible layers.",zoomToMaxExtentTooltipTitle:"Full extent",zoomToMaxExtentTooltipText:"Use this button to go to the full extent of the map.",zoominTooltipTitle:"Zoom in",zoominTooltipText:"Draw a box in the map to zoom in. You can also click in the map and map will zoom in by a factor of 2.",zoomoutTooltipTitle:"Zoom out",zoomoutTooltipText:"Click in the map or draw a box to zoom out.",dragTooltipTitle:"Pan map",dragTooltipText:"Press the left mouse button to drag the map.",previousTooltipTitle:"Previous map extent",previosTooltipText:"Click this button to go back to the previous map extent",nextTooltipTitle:"Next map extent",nextTooltipText:"Click this button to go to the next map extent",featureInfoTitle:"Feature info",layerManagerTabTitle:"Layer management",legendTabTitle:"Legend",scaleTitle:"Scale",xTitle:"X",yTitle:"Y",projectionTitle:"Projection",FeatureInfoNotQueryable:"There is no queryable map layer",WMSBrowserTab1:"Select",WMSBrowserTab3:"External",WMSBrowserPreviewTitle:"Preview layer",WMSBrowserAddButton:"Add",WMSBrowserDuplicateMsg:"Layer is already in the map",WMSBrowserPreviewWaitMsg:"Retrieving preview image",WMSBrowserConnectButton:"Connect",WMSBrowserConnectError:"There was an error connecting to the Web Map Service, please check the URL.",infoTitle:"Information","mf.print.mapTitle":"Title","mf.print.comment":"Comment","mf.print.dpi":"Resolution","mf.print.scale":"Scale","mf.print.rotation":"Angle","mf.print.resetPos":"Reset","mf.print.print":"Print","mf.print.generatingPDF":"Generating PDF","mf.print.unableToPrint":"It was not posible to print, try later","mf.error":"Error",selectExtentTooltipTitle:"Select extent",selectExtentTooltipText:"Select extent for catalog searches",printTooltipTitle:"Print",printTooltipText:"Print the current map",savewmcTooltipTitle:"Save web map context",savewmcTooltipText:"Saves web map context for current map","saveWMCFile.windowTitle":"Save Web Map Context","saveWMCFile.errorSaveWMC":"Could not save Web Map Context",loadwmcTooltipTitle:"Load web map context",loadwmcTooltipText:"Loads web map context in current map","selectWMCFile.windowTitle":"Load Web Map Context",selectWMCFile:"Select Web Map Context file","selectWMCFile.waitLoadingWMC":"Loading Web Map Context","selectWMCFile.loadButtonText":"Load","selectWMCFile.mergeButtonText":"Merge","selectWMCFile.errorLoadingWMC":"Could not load Web Map Context",opacityButtonText:"Opacity",opacityWindowTitle:"Opacity",metadataButtonText:"Metadata",removeButtonText:"Remove",addWMSButtonText:"Add WMS",addWMSWindowTitle:"Add WMS","layerInfoPanel.windowTitle":"Layer metadata","layerInfoPanel.titleField":"Title","layerInfoPanel.descriptionField":"Description","layerInfoPanel.queryableField":"Queryable",layerList:"Layer list",baseLayerList:"Base layers","metadataResults.buttonText":"Metadata results","metadataResults.tooltipTitle":"Metadata results","metadataResults.tooltipText":"Go to metadata results page","metadataResults.alertTitle":"Metadata results","metadataResults.alertText":"No metadata results to show","mf.information":"Print","mf.print.pdfReady":"PDF ready","loadLayer.loadingMessage":"Loading layer","loadLayer.error.title":"Load layer","loadLayer.error.message":"The layer could not be loaded","disclaimer.windowTitle":"Disclaimer","disclaimer.loading":"Loading...","disclaimer.buttonClose":"Close",gazetteerAddressField1Label:"Postcode",gazetteerAddressField2Label:"Straat",gazetteerAddressField3Label:"Plaats",gazetteerAddressField4Label:"Gemeente",gazetteerAddressField5Label:"Huisnummer",searchOptionButton:"Zoek",GazetteerWindowTitle:"Zoek adres",searchResults:"Zoekresultaten",errorTitle:"Fout",SearchOptionLoadFailureMsg:"Het is niet gelukt resultaten op te halen.\nMogelijk is de service tijdelijk niet beschikbaar. \n",gazetteerTooltipTitle:"Zoek op basis van een adres",gazetteerTooltipText:"Zoek een locatie op basis van een postcode, straatnaam, gemeente en/of plaats.",SearchOptionNoResults:"No results found",zoomlayerTooltipTitle:"Zoom auf Layer",zoomlayerTooltipText:"Verwenden Sie diese Taste, um das ganze Ausma� der ausgew�hlten Layer.","zoomlayer.selectLayerTitle":"Zoom auf Layer","zoomlayer.selectLayerText":"No layer selected",layerStylesWindowTitle:"Layer styles",layerStylesPreviewTitle:"Preview legend",selectStyleButton:"Select style",WMSTimeWindowTitle:"WMS Time",WMSTimePositionTitle:"Time position",WMSTimeMovieTitle:"Animation",wmsTimeUpdateButtonText:"Apply",WMSTimeAnimationCheckbox:"Play a movie loop spanning the last ${steps} time positions"};
-OpenLayers.Util.extend(OpenLayers.Lang.de,GeoNetwork.Lang.de);Ext.namespace("GeoNetwork","GeoNetwork.lang");
-GeoNetwork.lang.en={previousPage:"Move to previous page",nextPage:"Move to next page",upInPage:"Scroll up in the results",downInPage:"Scroll down in the results",example:"Example:",helper:"Suggestion:",tagName:"Element name:",enableTooltip:"Enable tooltips to get more information about each descriptors.",connectIssue:"Catalogue connection issue",connectIssueMsg:"Error 404. Can't connect to catalogue at url ",featureInfoTooltipTitle:"Feature info",featureInfoTooltipText:"Click in the map to get feature info from all visible layers.",zoomToMaxExtentTooltipTitle:"Full extent",zoomToMaxExtentTooltipText:"Use this button to go to the full extent of the map.",zoominTooltipTitle:"Zoom in",zoominTooltipText:"Draw a box in the map to zoom in. You can also click in the map and map will zoom in by a factor of 2.",zoomoutTooltipTitle:"Zoom out",zoomoutTooltipText:"Click in the map or draw a box to zoom out.",dragTooltipTitle:"Pan map",dragTooltipText:"Press the left mouse button to drag the map.",previousTooltipTitle:"Previous map extent",previosTooltipText:"Click this button to go back to the previous map extent",nextTooltipTitle:"Next map extent",nextTooltipText:"Click this button to go to the next map extent",featureInfoTitle:"Feature info",layerManagerTabTitle:"Layer management",legendTabTitle:"Legend",scaleTitle:"Scale",xTitle:"X",yTitle:"Y",projectionTitle:"Projection",FeatureInfoNotQueryable:"There is no queryable map layer",WMSBrowserTab1:"Select",WMSBrowserTab3:"External",WMSBrowserPreviewTitle:"Preview layer",WMSBrowserAddButton:"Add",WMSBrowserDuplicateMsg:"Layer is already in the map",WMSBrowserPreviewWaitMsg:"Retrieving preview image",WMSBrowserConnectButton:"Connect",WMSBrowserConnectError:"There was an error connecting to the Web Map Service, please check the URL.",infoTitle:"Information","mf.print.mapTitle":"Title","mf.print.comment":"Comment","mf.print.dpi":"Resolution","mf.print.scale":"Scale","mf.print.rotation":"Angle","mf.print.resetPos":"Reset","mf.print.print":"Print","mf.print.generatingPDF":"Generating PDF","mf.print.unableToPrint":"It was not possible to print, try later","mf.error":"Error",selectExtentTooltipTitle:"Select extent",selectExtentTooltipText:"Select extent for catalog searches",clearExtentTooltipTitle:"Remove extent",clearExtentTooltipText:"Remove extent (ie. no spatial criteria)",printTooltipTitle:"Print",printTooltipText:"Print the current map",savewmcTooltipTitle:"Save web map context",savewmcTooltipText:"Saves web map context for current map","saveWMCFile.windowTitle":"Save Web Map Context","saveWMCFile.errorSaveWMC":"Could not save Web Map Context",loadwmcTooltipTitle:"Load web map context",loadwmcTooltipText:"Loads web map context in current map","selectWMCFile.windowTitle":"Load Web Map Context",selectWMCFile:"Select Web Map Context file","selectWMCFile.waitLoadingWMC":"Loading Web Map Context","selectWMCFile.loadButtonText":"Load","selectWMCFile.mergeButtonText":"Merge","selectWMCFile.errorLoadingWMC":"Could not load Web Map Context",opacityButtonText:"Opacity",opacityWindowTitle:"Opacity",metadataButtonText:"Metadata",removeButtonText:"Remove",addWMSButtonText:"Add WMS",addWMSWindowTitle:"Add layer from a WMS service","layerInfoPanel.windowTitle":"Layer metadata","layerInfoPanel.titleField":"Title","layerInfoPanel.descriptionField":"Description","layerInfoPanel.queryableField":"Queryable",layerList:"Layer list",baseLayerList:"Base layers","metadataResults.buttonText":"Metadata results","metadataResults.tooltipTitle":"Metadata results","metadataResults.tooltipText":"Go to metadata results page","metadataResults.alertTitle":"Metadata results","metadataResults.alertText":"No metadata results to show","featureInfoWindow.windowTitle":"Feature info","mf.information":"Print","mf.print.pdfReady":"PDF ready","loadLayer.loadingMessage":"Loading layer","loadLayer.error.title":"Load layer","loadLayer.error.message":"The layer could not be loaded","disclaimer.windowTitle":"Disclaimer","disclaimer.loading":"Loading...","disclaimer.buttonClose":"Close",gazetteerAddressField1Label:"Postcode",gazetteerAddressField2Label:"Street",gazetteerAddressField3Label:"Place",gazetteerAddressField4Label:"'Gemeente'",gazetteerAddressField5Label:"House number",searchOptionButton:"Search",resetSearchForm:"Reset search form values.",GazetteerWindowTitle:"Search for address",searchResults:"Search results",errorTitle:"Error",SearchOptionLoadFailureMsg:"No results available. \n The service may be unavailable. \n",gazetteerTooltipTitle:"Search based on an address",gazetteerTooltipText:"Search for a location, based on postcode, street name, 'gemeente' or place.",SearchOptionNoResults:"No results found",zoomlayerTooltipTitle:"Zoom to layer",zoomlayerTooltipText:"Use this button to go to the full extent of the selected layer.","zoomlayer.selectLayerTitle":"Zoom to layer","zoomlayer.selectLayerText":"No layer selected",layerStylesWindowTitle:"Layer styles",layerStylesPreviewTitle:"Preview legend",selectStyleButton:"Select style",WMSTimeWindowTitle:"WMS Time",WMSTimePositionTitle:"Pick a time position",WMSTimeMovieTitle:"Play animation",wmsTimeUpdateButtonText:"Apply",WMSTimeAnimationCheckbox:"Play a movie loop spanning the last ${steps} time positions",fullTextSearch:"Full text search",keyword:"Keyword",org:"Organisation",mapTypes:"Map types",rsIdentifier:"Resource identifier",inspireSearchOptions:"INSPIRE criteria",inspireannex:"INSPIRE annex",inspirerelated:"Related to INSPIRE",inspirerelatedtt:"INSPIRE dataset with report on the conformity regarding the data specification",inspiretheme:"INSPIRE theme",similarity:"Search accuracy",wkt:"WKT geometry",simpleViewMode:"Simple view",spatialSearch:"Spatial criteria",mdChangeDate:"Metadata change date",tempExtent:"Temporal extent",hitsPerPage:"Hits per page",sortBy:"Sort by",relevance:"Relevance",title:"Title",changeDate:"Change date",rating:"Rating",popularity:"Popularity",scaleDesc:"Scale (desc)",scaleAsc:"Scale (asc)","abstract":"Abstract",catalogue:"Catalogue",group:"Group",chooseGroup:"Select a group",md:"Metadata",tpl:"Template",category:"Category",advTextSearch:"Advanced text search options",eitherWords:"Either of the words",exactPhrase:"Exact phrase",allWords:"All of the words",withoutWords:"Without the words",precise:"Precise",imprecise:"Imprecise",relationType:"Relation type",within:"within",touches:"touches",crosses:"crosses",fullyOutsideOf:"fullyOutsideOf",encloses:"encloses",overlaps:"overlaps",intersection:"intersection",nearYou:"Near you",from:"From",to:"To",scaleNominator:"1:",scale:"Scale",digital:"Digital",hardCopy:"Hard copy",download:"Download",downloadable:"Download",interactive:"Interactive",resourceType:"Resource type",dataset:"Dataset",series:"Series",service:"Service",spatialRepType:"Spatial representation",video:"Video",vector:"Vector",textTable:"Text, table",tin:"Tin",stereoModel:"Stereo model",grid:"Grid",kind:"Kind",enterGetCapURL:"Enter a GetCapabilities URL to register a new service.",edit:"Edit",duplicate:"Duplicate","delete":"Delete",createChild:"Create child",privileges:"Privileges",categories:"Categories",otherActions:"Other actions",view:"View",zoomTo:"Zoom to",saveXml:"Save as XML",exportCsv:"Export (CSV)",exportZip:"Export (ZIP)",printSel:"Export (PDF)",printTT:"Print. Open a new page for printing.",newOwner:"New owner",updateCategories:"Update categories",updatePrivileges:"Update privileges",noneSelected:"None selected",none:"none",all:"all",allInPage:"all in page",select:"Select ",username:"User name",password:"password",login:"Login",logout:"Logout",administration:"Administration",validationReport:"Validation report",status:"Status",items:"items",item:"item",thumbnails:"Thumbnails",noimages:"No images to display",add:"Add",small:"Small",large:"Large",selectImage:"Select an image",selectFile:"Select a file",image:"Image",uploading:"Uploading ...",upload:"Upload",success:"Success",failure:"Failure",error:"Error",save:"Save",reset:"Reset",fileProcessedMsg:"Processed file ${res} on the server",suggestion:"Suggestion",logoSelect:"Select a logo",relatedResources:"Related resources",createLink:"Create links ...",featureCat:"Feature catalogue",serviceMd:"Service metadata",datasetMd:"Dataset metadata",parentMd:"Parent metadata",updateChildren:"Update children",records:"records",record:"record",help:"Help",publishError:"Publication failed.",outOfMemoryError:"Out of memory error.",publishErrorCode:"Error code:",saveAndCheck:"Save and check",saveAndClose:"Save and close",cancel:"Cancel",layout:"Layout",collapseAll:"Collapse all",chooseAType:"Choose a type",chooseAView:"Choose a view",viewMode:"View mode",errorAndStatusMsg:"Error. Status: ${status}, text: ${text}. Try again.",mdEditor:"Metadata editor",editing:"Editing ${title} (${uuid})",GetCapabilitiesDocumentError:"Error loading service GetCapabilities document from URL: ",maxResults:"Number of results",mdTitle:"Metadata title",keywords:"Keywords",createRelation:"Create relation",createIfNotExistButton:"Create a new metadata record",getCapabilitiesLayer:"GetCapabilities layer",layerName:"Layer name",searching:"Searching ...",perThesaurus:" per thesaurus",anyThesaurus:"Any thesaurus",selectedKeywords:"Selected keywords",foundKeywords:"Available keywords",clear:"Clear",publish:"Publish",publishTooltip:"Publish current dataset to remote node. If dataset is already publish in that node, it will be updated.",publishSuccess:"Successful publication.",publishLayerAdded:" Layer added to map preview.",unpublish:"Unpublish",unpublishTooltip:"Remove current dataset from remote node.",unpublishSuccess:"Successful unpublication.",unpublishError:"Unpublication failed. ",check:"Check",errorDatasetNotFound:"Dataset not found.",datasetFound:"Dataset found and added to the map preview.",checkFailure:"Failed to check dataset in remote node.",addOnlineSourceTitle:"Link service to metadata",addOnlineSource:"Add links",addOnlineSourceTT:"Add an onlinesource section to the current metadata record pointing to the WMS/WFS/WCS services. If the service is a WMS, the layer could be displayed in the map viewer.",statusInformation:"Status information.",publishing:"Publishing ...",mapPreview:"Map preview",selectANode:"Select a node ...",geoPublisherWindowTitle:"Geo-publication: ",keywordSelectionWindowTitle:"Keywords selection",crsSelectionWindowTitle:"Coordinate reference system selection",linkedMetadataSelectionWindowTitle:"Related metadata selection",NotOwnerError:"You don't have privileges to update this related record.",ServiceUpdateError:"Error during service metadata update",associateService:"Link service metadata",associateDataset:"Link dataset metadata",logoSelectionWindow:"Choose a logo",fileUploadWindow:"Upload data or document",selectedCRS:"Selected coordinate systems",foundCRS:"Available coordinate systems",search:"Search",restrictSearchToMap:"Restrict search to map extent",selected:"selected",selectRegion:"Select a region ...",drawRectangle:"Draw rectangle",drawPolygon:"Draw polygon",drawPolygonTT:"Click the button and draw a polygon by clicking on the map for each points. Double click to create polygon last points.",drawCircle:"Draw circle",discovery:"Discovery",visualization:"Visualization",when:"When ?",anyTime:"Anytime",onSelection:"On selection",adminAction:"Other",newMetadata:"New metadata",chooseTemplate:"Select a template",process:"Process",suggestions:"Suggestions",applySelected:"Apply selected task",processParametersWindow:"Task parameters",noSuggestion:"No suggestion.",thumbnailUploadWindow:"Upload thumbnail",addThumbnail:"Add",createSmall:"Create small thumbnail",scalingFactor:"Scaling factor",smallScalingFactor:"Small scaling factor",type:"Record type",clickToClose:"Click to close",removeSelected:"Remove selected",ownerName:"Metadata record owner",setPrivileges:"Set privileges",setCategories:"Set categories",massiveOp:"Batch operation ",prepareDownload:"Download files",mdMenu:"Actions",deleteRecord:"Delete metadata record ?",deleteConfirm:"Are you sure to delete this metadata record?",deleteRecordSuccess:"Metadata deleted.",deleteRecordFailure:"Error when deleting metadata record.",advancedSearchOptions:"Advanced criteria",relatedservices:"Related service",relatedchildren:"Children",relatedfcats:"Related feature catalogue",relatedsources:"Source datasets",getMEF:"Export (ZIP)",metadataCategories:"Metadata categories",validityInfo:"Validation status: ",lastUpdate:"Last update: ",importMetadata:"Import metadata",validationStatus:"Validation status",valid:"Valid",notValid:"Not valid",notDetermined:"Not determined",addToMap:"Add to map: ",downloadLink:"Download: ",webLink:"Web link: ",viewKml:"Open in GoogleEarth: ",layerTree:"Layer manager",mdResultsLayer:"Search results",printLayer:"Print page",relatedservices:"Related services",relatedparent:"Parent",relateddatasets:"Related datasets",relatedchildren:"Children",relatedrelated:"Feature catalogue/dataset link",delete19110Relation:"Remove feature catalogue relation",newWindow:"New window",addAsXLink:"Add as linked element",contactSelectionWindowTitle:"Contact selection",selectedContacts:"Selected contacts",foundContacts:"Available",contactRole:"Contact role",mapNearYou:"Center map on your location",errorChangeProtocol:"Remove uploaded file before changing protocol of an online resource.",resultBy:" result(s) / ",subTemplateImport:"Directory entry import",xmlData:"XML",minorEdit:"Minor edit",minorEditTT:"",runASearch:"Run a search.",focusOnAny:"Move focus to the full text search field.",hideSearchForm:"Hide or display search form.",switchMode:"Switch visualization mode.",resetSearchForm:"Reset search form.",focusOnLogin:"Focus on the login form to access catalogue administration.",displayInfoPanel:"Display the information panel.",displayHelpPanel:"Display this help.",SelectionWindowTitle:"Select from directory",found:"Records found",selected:"Selected","add-extent-from-geokeywordsreplace":"Replace existing extent","add-info-from-wmssetExtent":"Set extent","add-info-from-wmssetAndReplaceExtent":"Replace existing extent","add-info-from-wmssetCRS":"Set coordinate reference system","add-info-from-wmssetDynamicGraphicOverview":"Set graphic overview (using GetMap request URL)","add-info-from-wmswmsServiceUrl":"Service URL","linked-data-checkerlinkUrl":"URL to remove","related-metadata-checkeruuidToRemove":"Identifier to remove","add-service-info-from-wxssetAndReplaceOperations":"Replace existing operations","add-service-info-from-wxswxsServiceUrl":"Service URL",manageDirectories:"Manage directories",directory:"Directory",thesaurusManager:"Thesaurus manager",Theme:"Theme",thesaurusFilePath:"Thesaurus file (.rdf)",ThesaurusName:"Thesaurus name",createThesaurusFromURL:"from URL",createThesaurusFromRepository:"from thesaurus repository",creationMode:"Create",thesaurusFromRepository:"Thesaurus",externalThesaurusURL:"URL",thesaurusCreation:"Add a thesaurus",Type:"Type",Activated:"Activated",emptyThesaurus:"New empty thesaurus",thesaurusFromFile:"From local file",thesaurusFromURL:"From remote file (URL)",id:"Identifier",label:"Label",definition:"-",xmin:"X min",ymin:"Y min",xmax:"X max",ymax:"Y max",newLabel:"Label",newDefinition:"Definition",selDirectoryTT:"Select a type of directory. A directory group all elements having the same root element name (eg. gmd:CI_ResponsibleParty is a contact directory)",privTplElTT:"Manage privileges for the current selection.",addTplElTT:"Add an element from an XML fragment to a directory. The destination directory is based on the root element name (eg. gmd:CI_ResponsibleParty).",copyTplElTT:"Create a new entry in the directory from the current selection.",delTplElTT:"Remove selected entry from the directory."};
-OpenLayers.Util.extend(OpenLayers.Lang.en,GeoNetwork.lang.en);Ext.namespace("GeoNetwork","GeoNetwork.Lang");
-GeoNetwork.Lang.fr={previousPage:"Page précédente",nextPage:"Page suivante",upInPage:"Se déplacer vers le haut des résultats",downInPage:"Se déplacer vers le bas des résultats",example:"Exemple :",helper:"Suggestion :",tagName:"Nom de l'élément :",enableTooltip:"Activer les info-bulles pour obtenir une description complète de chaque champs.",connectIssue:"Échec de connexion au catalogue",connectIssueMsg:"Erreur 404. Impossible de se connecter à l'URL ",featureInfoTooltipTitle:"caractéristique",featureInfoTooltipText:"Cliquer sur la carte pour obtenir des informations sur les données affichees.",zoomToMaxExtentTooltipTitle:"Zoom optimal",zoomToMaxExtentTooltipText:"Utiliser ce bouton pour tout afficher.",zoominTooltipTitle:"Zoomer",zoominTooltipText:"Dessiner un rectangle sur la carte pour zoomer. En cliquant sur la carte, le facteur de zoom est 2.",zoomoutTooltipTitle:"Dézoomer",zoomoutTooltipText:"Cliquer sur la carte ou dessiner un rectangle pour dézoomer.",dragTooltipTitle:"Main",dragTooltipText:"Appuyer sur le bouton gauche de la souris pour déplacer la carte.",previousTooltipTitle:"Revenir au zoom précédant",previosTooltipText:"Cliquer ici pour revenir au zoom précédant",nextTooltipTitle:"Zoom suivant",nextTooltipText:"Cliquer ici pour avancer au zoom suivant",featureInfoTitle:"Caractéristique",layerManagerTabTitle:"Gérer les couches",legendTabTitle:"Légende",scaleTitle:"Echelle",xTitle:"X",yTitle:"Y",projectionTitle:"Projection",FeatureInfoNotQueryable:"Il n'existe pas de carte correspondant à la requête",WMSBrowserTab1:"Sélectionner",WMSBrowserTab3:"Externe",WMSBrowserPreviewTitle:"Aperçu de la couche",WMSBrowserAddButton:"Ajouter",WMSBrowserDuplicateMsg:"La couche est déjà affichée",WMSBrowserPreviewWaitMsg:"Récupérer l'image precedente",WMSBrowserConnectButton:"Connexion",WMSBrowserConnectError:"Erreur de connexion au service Web, merci de vérifier l'URL.",infoTitle:"Information","mf.print.mapTitle":"Titre","mf.print.comment":"Commentaire","mf.print.dpi":"Résolution","mf.print.scale":"Échelle","mf.print.rotation":"Angle","mf.print.resetPos":"Reset","mf.print.print":"Imprimer","mf.print.generatingPDF":"Générer PDF","mf.print.unableToPrint":"Impression impossible, essayer plus tard","mf.error":"Erreur",selectExtentTooltipTitle:"Définir une emprise",selectExtentTooltipText:"Dessiner une emprise à utiliser comme critère géographique",clearExtentTooltipTitle:"Supprimer l'emprise",clearExtentTooltipText:"Supprimer l'emprise (ie. aucun critère géographique)",printTooltipTitle:"Imprimer",printTooltipText:"Imprimer la carte actuelle",savewmcTooltipTitle:"Sauvegarder environnement (vue, paramètres,etc.)",savewmcTooltipText:"Sauvegarder environnement pour la carte actuelle","saveWMCFile.windowTitle":"Sauvegarder l'environnement","saveWMCFile.errorSaveWMC":"Sauvegarde de l'environnement impossible",loadwmcTooltipTitle:"Restaurer l'environnement",loadwmcTooltipText:"Restaurer l'environnement dans la carte actuelle","selectWMCFile.windowTitle":"Restaurer l'environnement",selectWMCFile:"Ouvrir un environnement","selectWMCFile.waitLoadingWMC":"Restauration de l'environnement en cours...","selectWMCFile.loadButtonText":"Charger","selectWMCFile.mergeButtonText":"Fusionner","selectWMCFile.errorLoadingWMC":"Chargement de l'environnement impossible",opacityButtonText:"Transparence",opacityWindowTitle:"Transparence",metadataButtonText:"Metadata",removeButtonText:"Supprimer",addWMSButtonText:"Ajouter WMS",addWMSWindowTitle:"Ajouter WMS","layerInfoPanel.windowTitle":"Couche metadata","layerInfoPanel.titleField":"Titre","layerInfoPanel.descriptionField":"Description","layerInfoPanel.queryableField":"Requête",layerList:"Liste des couches","metadataResults.buttonText":"Résultats Metadata","metadataResults.tooltipTitle":"résultats Metadata","metadataResults.tooltipText":"Aller a la page des résultats Metadata","metadataResults.alertTitle":"Résultats Metadata","metadataResults.alertText":"Pas de résultats Metadata","mf.information":"Imprimer","mf.print.pdfReady":"PDF prêt","loadLayer.loadingMessage":"Chargement de la couche","loadLayer.error.title":"Charger la couche","loadLayer.error.message":"La couche ne peut être chargée","disclaimer.windowTitle":"Disclaimer","disclaimer.loading":"Chargement...","disclaimer.buttonClose":"Fermer",gazetteerAddressField1Label:"Code postal",gazetteerAddressField2Label:"Street",gazetteerAddressField3Label:"Place",gazetteerAddressField4Label:"Municipalité",gazetteerAddressField5Label:"Numéro",searchOptionButton:"Recherche",GazetteerWindowTitle:"Résultat pour l'adresse",searchResults:"Recherche les résultats",resetSearchForm:"Réinitialiser le formulaire de recherche.",errorTitle:"Erreur",SearchOptionLoadFailureMsg:"Pas de résultats trouvés. \n Le serveur peut être indisponible. \n",gazetteerTooltipTitle:"Recherche basée sur l'adresse",gazetteerTooltipText:"Recherche du lieu, basé sur le code postal, la rue, la municipalité ou place.",SearchOptionNoResults:"Pas de résultats trouvés.",zoomlayerTooltipTitle:"Zoom sur une couche",zoomlayerTooltipText:"Utilisez ce bouton pour accéder à la pleine mesure de le calque sélectionné.","zoomlayer.selectLayerTitle":"Zoom sur une couche","zoomlayer.selectLayerText":"No de calque sélectionné",layerStylesWindowTitle:"Layer styles",layerStylesPreviewTitle:"Preview legend",selectStyleButton:"Select style",WMSTimeWindowTitle:"WMS Time",WMSTimePositionTitle:"Time position",WMSTimeMovieTitle:"Animation",wmsTimeUpdateButtonText:"Apply",WMSTimeAnimationCheckbox:"Play a movie loop spanning the last ${steps} time positions",fullTextSearch:"Rechercher ...",keyword:"Mots-clés",org:"Organisation",mapTypes:"Type de données",rsIdentifier:"Identifiant de la ressource",inspireSearchOptions:"INSPIRE",inspireannex:"Annexe",inspirerelated:"Données soumises à INSPIRE",inspirerelatedtt:"Données décrivant un rapport sur la conformité vis-à-vis des spécifications sur les données INSPIRE.",inspiretheme:"Thème",similarity:"Précision",wkt:"Geométrie WKT",spatialSearch:"Critères géographiques",mdChangeDate:"Date de mise à jour des métadonnées",tempExtent:"Étendue temporelle",hitsPerPage:"Nombre par page",sortBy:"Trier par",relevance:"Pertinence",title:"Titre",changeDate:"Date de mise à jour",rating:"Note",popularity:"Popularité",scaleDesc:"Échelle (desc)",scaleAsc:"Échelle (asc)","abstract":"Résumé",catalogue:"Catalogue",group:"Groupe",md:"Métadonnée",tpl:"Modèle",category:"Catégorie",advTextSearch:"Options avancées",eitherWords:"Tous - au moins un des mots suivants",exactPhrase:"Cette expression exacte",allWords:"Tous les mots suivants",withoutWords:"Aucun des mots suivants",precise:"Précis",imprecise:"Flou",relationType:"Type de relation",within:"À l'intérieur",touches:"Touche",crosses:"Travers",fullyOutsideOf:"En dehors",encloses:"Contient",overlaps:"Chevauche",intersection:"Intersecte",nearYou:"À proximité",from:"du",to:"au",scaleNominator:"1/",scale:"Échelle",digital:"Numérique",hardCopy:"Copie papier",download:"Télécharger",downloadable:"Téléchargeable",interactive:"Interactive",resourceType:"Type de ressource",dataset:"Série de données",series:"Ensemble de séries de données",service:"Service",spatialRepType:"Représentation spatiale",video:"Vidéo",vector:"Vecteur",textTable:"Tableau, Texte",tin:"Tin",stereoModel:"Vue 3D",grid:"Raster",kind:"Type",enterGetCapURL:"Saisir l'URL d'un GetCapabilities pour enregistrer un nouveau service",edit:"Éditer",duplicate:"Dupliquer","delete":"Supprimer",createChild:"Créer un enfant",privileges:"Privilèges",categories:"Catégories",otherActions:"Autres actions",view:"Consulter",zoomTo:"Zoomer vers",saveXml:"Export (XML)",exportCsv:"Export (CSV)",exportZip:"Export (ZIP)",printSel:"Export (PDF)",printTT:"Imprimer. Ouvre une nouvelle page adaptée à l'impression.",newOwner:"Associer un autre auteur",updateCategories:"Mettre à jour les catégories",updatePrivileges:"Mettre à jour les privilèges",noneSelected:"Sélection vide",none:"aucun",all:"tous",allInPage:"tous dans la page",select:"Selectionner ",username:"Identifiant",password:"Mot de passe",login:"Connexion",logout:"Déconnexion",administration:"Administration",validationReport:"Rapport de validation",status:"Status",items:"éléments",item:"élément",thumbnails:"Aperçus",noimages:"Aucun aperçu disponible",add:"Ajouter",small:"Petit",large:"Grand",selectImage:"Sélectionner une image",selectFile:"Sélectionner un fichier",image:"Image",uploading:"Transfert en cours ...",upload:"Transférer",success:"Succès",failure:"Échec",error:"Erreur",save:"Sauver",reset:"Réinitialiser",fileProcessedMsg:"Traitement du fichier ${res} réalisé sur le serveur",suggestion:"Suggestion",logoSelect:"Sélectionner un logo",relatedResources:"Ressources associées",createLink:"Associer ...",featureCat:"Catalogue d'attributs",serviceMd:"Métadonnées de service",datasetMd:"Métadonnées de données",parentMd:"Parent",updateChildren:"Mettre à jour les enfants",records:"enregistrements",record:"enregistrement",help:"Aide",publishError:"Échec lors de la publication.",outOfMemoryError:"Érreur de dépassement de mémoire.",publishErrorCode:"Code érreur :",saveAndCheck:"Sauver et valider",saveAndClose:"Sauver et fermer",cancel:"Annuler",layout:"Mise en page",Resolution:"Résolution",collapseAll:"Fermet tout",chooseAType:"Choisir un type",chooseAView:"Choisir une vue",viewMode:"Affichage",errorAndStatusMsg:"Érreur. Status : ${status}, description : ${text}. Essayer à nouveau.",mdEditor:"Editeur de métadonnée",editing:"${title} (${uuid}) en cours d'édition",GetCapabilitiesDocumentError:"Erreur lors de la tentative de récupération des informations du service (ie. GetCapabilities) avec l'adresse: ",maxResults:"Nombre de résultats",mdTitle:"Titre de la métadonnée",keywords:"Mots-clés",createRelation:"Créer la relation",createIfNotExistButton:"Créer une nouvelle métadonnée",getCapabilitiesLayer:"Couches du GetCapabilities",layerName:"Nom de la couche",searching:"Recherche en cours ...",perThesaurus:" par thesaurus",anyThesaurus:"Tous les thésaurus",selectedKeywords:"Mots clés selectionnés",foundKeywords:"Mots clés trouvés",clear:"Effacer",publish:"Publier",publishTooltip:"Publier le jeu de données en cours dans le nœud distant. Si le jeu de données est présent, il est mis à jour.",publishSuccess:"Publication effectuée.",publishLayerAdded:" Couche ajoutée à la carte.",unpublish:"Dépublier",unpublishTooltip:"Supprimer le jeu de données en cours dans le nœud distant.",unpublishSuccess:"Dépublication effectuée.",unpublishError:"Echec de la dépublication. ",check:"Vérifier",errorDatasetNotFound:"Jeu de données non trouvé.",datasetFound:"Jeu de données trouvé et ajouté à la carte.",checkFailure:"Echec de la vérification de la présence du jeu de données dans le nœud distant.",addOnlineSourceTitle:"Lier le service à la fiche",addOnlineSource:"Ajouter les liens",addOnlineSourceTT:"Ajouter les informations pour faire la liaison avec la couche dans le service WMS/WFS/WCS.",statusInformation:"Status.",publishing:"Publication en cours ...",mapPreview:"Carte",selectANode:"Choisir un nœud ...",geoPublisherWindowTitle:"Géo-publication : ",keywordSelectionWindowTitle:"Sélection de mots clés",crsSelectionWindowTitle:"Sélection des systèmes de coordonnées",linkedMetadataSelectionWindowTitle:"Sélection des métadonnées associées",NotOwnerError:"Vous n'avez pas les privilèges pour mettre à jour la métadonnée associée.",ServiceUpdateError:"Erreur lors de la mise à jour de la métadonnée.",associateService:"Associer une métadonnée de service",associateDataset:"Associer une métadonnée de données",logoSelectionWindow:"Sélectionner un logo",fileUploadWindow:"Ajouter des données ou des documents",selectedCRS:"Systèmes sélectionnés",foundCRS:"Systèmes disponibles",search:"Rechercher",restrictSearchToMap:"Restreindre la recherche à la carte",selected:"sélectionné(s)",selectRegion:"Choisir une région ...",drawRectangle:"Créer un rectangle",drawPolygon:"Créer un polygone",drawCircle:"Créer un cercle",discovery:"Découverte",visualization:"Visualisation",when:"Critères temporels",anyTime:"N'importe quand",onSelection:"Sur la sélection",adminAction:"Autres",newMetadata:"Nouvelle métadonnée",chooseGroup:"Selectionner un groupe",chooseTemplate:"Sélectionner un modèle",process:"Traiter",suggestions:"Suggestions",applySelected:"Appliquer le traitement sélectionné",processParametersWindow:"Paramètres du traitement",noSuggestion:"Aucune suggestion.",thumbnailUploadWindow:"Ajouter un aperçu",addThumbnail:"Ajouter",createSmall:"Créer un petit aperçu",scalingFactor:"Facteur d'échelle",smallScalingFactor:"Facteur d'échelle",type:"Type de fiche",clickToClose:"Cliquer pour fermer",removeSelected:"Supprimer la sélection","metadata.update.new":"Chargement en cours ...","metadata.update.forget.new":"Ré-initialisation en cours ...",ownerName:"Rédacteur de la métadonnée",setPrivileges:"Définir les privilèges",setCategories:"Choisir les catégories",massiveOp:"Opération sur la sélection",prepareDownload:"Télécharger les fichiers",mdMenu:"Actions",simpleViewMode:"Vue simplifiée",deleteRecord:"Supprimer la métadonnée ?",deleteConfirm:"Confirmez-vous la suppression de la métadonnée ?",deleteRecordSuccess:"Metadonnée supprimée",deleteRecordFailure:"Échec lors de la suppression de la métadonnée",advancedSearchOptions:"Critères avancés",getMEF:"Export (ZIP)",metadataCategories:"Catégories",validityInfo:"Information sur la validation",lastUpdate:"Dernière mise à jour : ",importMetadata:"Import de métadonnées",validationStatus:"Validation ",valid:"Valide",notValid:"Non valide",notDetermined:"Non déterminé",addToMap:"Ajouter à la carte : ",downloadLink:"Télécharger : ",webLink:"Site web : ",viewKml:"Visualiser avec GoogleEarth : ",layerTree:"Gestion des couches",mdResultsLayer:"Résultats de la recherche",printLayer:"Page de l'impression",relatedservices:"Services associés",relatedparent:"Métadonnée parent",relateddatasets:"Métadonnées associées",relatedchildren:"Enfants",relatedrelated:"Relation catalogue d'attributs/données",relatedfcats:"Relation catalogue d'attributs/données",relatedsources:"Données sources",delete19110Relation:"Supprimer le lien cat. d'attributs",newWindow:"Nouvelle fenêtre",addAsXLink:"Ajout d'un élément lié",contactSelectionWindowTitle:"Sélection des contacts",selectedContacts:"Contacts sélectionnés",foundContacts:"Contacts disponibles",contactRole:"Rôle du contact",mapNearYou:"Centrer la carte sur votre position",create:"Créer",errorChangeProtocol:"Impossible de changer le protocol lorsqu'un fichier est attaché. Supprimer le fichier.",resultBy:" resultat(s) / ",subTemplateImport:"Importer un élément dans un annuaire",xmlData:"XML",minorEdit:"Modif. mineure",minorEditTT:"Lorsque cette option est activée, la date de mise à jour des métadonnées n'est pas changée. Lors de l'utilisation des suggestions, ou de la mise à jour d'une imagette, cette option est sans effet, la date est mise à jour.",runSearch:"Lancer la recherche.",focusOnAny:"Déplacer le curseur sur le critère plein texte.",hideSearchForm:"Afficher ou cacher le formulaire de recherche.",switchMode:"Basculer de mode de visualisation.",resetSearchForm:"Réinitialiser le formulaire de recherche.",focusOnLogin:"Déplacer le curseur sur le formulaire de connexion.",displayInfoPanel:"Afficher la page d'information.",displayHelpPanel:"Afficher cette page d'aide.",SelectionWindowTitle:"Rechercher dans l'annuaire",found:"Enregistrements trouvés","add-extent-from-geokeywordsreplace":"Remplacer les étendues géographiques existantes","add-info-from-wmssetExtent":"Définir l'étendue","add-info-from-wmssetAndReplaceExtent":"Remplacer les étendues existantes","add-info-from-wmssetCRS":"Ajouter les systèmes de coordonnées","add-info-from-wmssetDynamicGraphicOverview":"Définir l'aperçu (en ajoutant une URL vers une requête GetMap)","add-info-from-wmswmsServiceUrl":"URL du service","linked-data-checkerlinkUrl":"Lien à supprimer","related-metadata-checkeruuidToRemove":"Identifiant à supprimer","add-service-info-from-wxssetAndReplaceOperations":"Remplacer les opérations existantes","add-service-info-from-wxswxsServiceUrl":"URL du service",manageDirectories:"Gestion des annuaires",directory:"Annuaire",thesaurusManager:"Gestion des thésaurus",Theme:"Thème",thesaurusFilePath:"Fichier (.rdf)",ThesaurusName:"Nom du thésaurus",createThesaurusFromURL:"A partir d'une URL",createThesaurusFromRepository:"A partir du dépôt partagé",creationMode:"Créer",thesaurusFromRepository:"Thésaurus",externalThesaurusURL:"URL",thesaurusCreation:"Ajout d'un thésaurus",Type:"Type",Activated:"Activé",emptyThesaurus:"Nouveau thésaurus vide",thesaurusFromFile:"A partir d'un fichier local",thesaurusFromURL:"A partir d'un fichier distant (URL)",id:"Identifiant",label:"Libellé",definition:"-",xmin:"X min",ymin:"Y min",xmax:"X max",ymax:"Y max",newLabel:"Libellé",newDefinition:"Définition",selDirectoryTT:"Choisir un type d'annuaire. Un annuaire est constitué d'éléments ayant la même balise racine (eg. les éléments gmd:CI_ResponsibleParty font partie de l'annuaire de contact)",privTplElTT:"Gérer les privilèges sur la sélection.",addTplElTT:"Ajouter un élément à partir d'un fragment d'XML. L'annuaire cible est basé sur le nom de la balise racine (eg. gmd:CI_ResponsibleParty).",copyTplElTT:"Créer un nouvel élément dans l'annuaire à partir de l'élément sélectionné.",delTplElTT:"Supprimer la sélection."};
-OpenLayers.Util.extend(OpenLayers.Lang.fr,GeoNetwork.Lang.fr);Ext.namespace("GeoNetwork","GeoNetwork.Lang");
-GeoNetwork.Lang.nl={featureInfoTooltipTitle:"Attribuut-informatie",featureInfoTooltipText:"Klik in de kaart om attribuut-informatie op te vragen van alle zichtbare lagen.",zoomToMaxExtentTooltipTitle:"Volledig kaartbeeld",zoomToMaxExtentTooltipText:"Klik op deze button om naar het volledig kaartbeeld te zoomen.",zoominTooltipTitle:"Zoom in",zoominTooltipText:"Trek een kader in kaart om in te zoomen. Ook kan er geklikt worden in de kaart waarna er met een factor 2 ingezoomd wordt.",zoomoutTooltipTitle:"Zoom uit",zoomoutTooltipText:"Klik in de kaart om gecentreerd op dit punt met een factor 2 uit te zoomen. Ook kan er een kader in de kaart getrokken worden, hoe kleiner dit kader hoe verder er uitgezoomd zal worden.",dragTooltipTitle:"Verschuif kaart",dragTooltipText:"Houd de linker muisknop ingedrukt en versleep de kaart.",previousTooltipTitle:"Vorige kaart extent",previosTooltipText:"Klik op deze button om terug te gaan naar de vorige kaart extent",nextTooltipTitle:"Volgende kaart extent",nextTooltipText:"Klik op deze button om verder te gaan naar de volgende kaart extent",featureInfoTitle:"Attribuut-informatie",layerManagerTabTitle:"Kaartlagenbeheer",legendTabTitle:"Legenda",scaleTitle:"Schaal",xTitle:"X",yTitle:"Y",projectionTitle:"Projectie",FeatureInfoNotQueryable:"Er is geen bevraagbare kaartlaag",WMSBrowserTab1:"Selecteren",WMSBrowserTab3:"Extern",WMSBrowserPreviewTitle:"Preview kaartlaag",WMSBrowserAddButton:"Voeg toe",WMSBrowserDuplicateMsg:"Kaartlaag is reeds aanwezig.",WMSBrowserPreviewWaitMsg:"Preview image ophalen",WMSBrowserConnectButton:"Maak verbinding",WMSBrowserConnectError:"Er is een fout opgetreden bij het maken van de verbinding, controleer de URL.",infoTitle:"Informatie","mf.print.mapTitle":"Titel","mf.print.comment":"Opmerkingen","mf.print.dpi":"Resolutie","mf.print.scale":"Schaal","mf.print.rotation":"Rotatie","mf.print.resetPos":"Terug naar begininstellingen","mf.print.print":"Print","mf.print.generatingPDF":"Aanmaken PDF","mf.print.unableToPrint":"Het was helaas niet mogelijk om te printen, probeert u het svp later nogmaals","mf.error":"Fout",selectExtentTooltipTitle:"Begrens zoekgebied",selectExtentTooltipText:"Begrens het zoekgebied door in de kaart een kader te trekken.",printTooltipTitle:"Print",printTooltipText:"Print de huidige kaart",savewmcTooltipTitle:"Opslaan WMC",savewmcTooltipText:"Sla een Web Map Context document op.","saveWMCFile.windowTitle":"Opslaan Web Map Context","saveWMCFile.errorSaveWMC":"Kon het WMC bestand niet opslaan",loadwmcTooltipTitle:"Open WMC",loadwmcTooltipText:"Opent een bestaand Web Map Context document in de kaart viewer","selectWMCFile.windowTitle":"Openen Web Map Context",selectWMCFile:"Select WMC bestand","selectWMCFile.waitLoadingWMC":"Laden Web Map Context","selectWMCFile.loadButtonText":"Openen","selectWMCFile.mergeButtonText":"Samenvoegen","selectWMCFile.errorLoadingWMC":"Kon het Web Map Context bestand niet openen",opacityButtonText:"Opaciteit",opacityWindowTitle:"Opaciteit",metadataButtonText:"Metadata",removeButtonText:"Verwijderen",addWMSButtonText:"Voeg WMS toe",addWMSWindowTitle:"Voeg WMS toe","layerInfoPanel.windowTitle":"Metadata van de kaartlaag","layerInfoPanel.titleField":"Titel","layerInfoPanel.descriptionField":"Samenvatting","layerInfoPanel.queryableField":"Bevraagbaar",layerList:"Kaartlagen",baseLayerList:"Ondergrond","metadataResults.buttonText":"Metadata resultaten","metadataResults.tooltipTitle":"Metadata resultaten","metadataResults.tooltipText":"Ga naar de metadata resultaatpagina","metadataResults.alertTitle":"Metadata resultaten","metadataResults.alertText":"Geen metadata resultaten om te tonen","featureInfoWindow.windowTitle":"Attribuut-informatie","mf.information":"Print","mf.print.pdfReady":"PDF gereed","loadLayer.loadingMessage":"Ophalen kaartlaag","loadLayer.error.title":"Ophalen kaartlaag","loadLayer.error.message":"De kaartlaag kon niet worden geladen","disclaimer.windowTitle":"Disclaimer","disclaimer.loading":"Laden...","disclaimer.buttonClose":"Sluiten",gazetteerAddressField1Label:"Postcode",gazetteerAddressField2Label:"Straat",gazetteerAddressField3Label:"Plaats",gazetteerAddressField4Label:"Gemeente",gazetteerAddressField5Label:"Huisnummer",searchOptionButton:"Zoek",GazetteerWindowTitle:"Zoek adres",searchResults:"Zoekresultaten",errorTitle:"Fout",SearchOptionLoadFailureMsg:"Het is niet gelukt resultaten op te halen.\nMogelijk is de service tijdelijk niet beschikbaar. \n",gazetteerTooltipTitle:"Zoek op basis van een adres",gazetteerTooltipText:"Zoek een locatie op basis van een postcode, straatnaam, gemeente en/of plaats.",SearchOptionNoResults:"Geen resultaten gevonden",zoomlayerTooltipTitle:"Zoom naar laag",zoomlayerTooltipText:"Gebruik deze knop om naar de volledige omvang van de geselecteerde laag.","zoomlayer.selectLayerTitle":"Zoom naar laag","zoomlayer.selectLayerText":"Geen laag geselecteerd",layerStylesWindowTitle:"Kaartlaag stijlen",layerStylesPreviewTitle:"Maak een voorvertoning van de legenda",selectStyleButton:"Selecteer kaartstijl",WMSTimeWindowTitle:"WMS Time",WMSTimePositionTitle:"Kies een tijdstip",WMSTimeMovieTitle:"Speel een animatie af",wmsTimeUpdateButtonText:"Doorvoeren",WMSTimeAnimationCheckbox:"Speel laatste ${steps} tijdstippen af"};
-OpenLayers.Util.extend(OpenLayers.Lang.nl,GeoNetwork.Lang.nl);Ext.namespace("GeoNetwork");
+Ext.preg&&Ext.preg("gx_layeropacitysliderplugin",GeoExt.tree.LayerOpacitySliderPlugin);
+Ext.namespace("GeoNetwork");
+GeoNetwork.singleFile=true;
+Ext.namespace("GeoNetwork","GeoNetwork.Lang");
+GeoNetwork.Lang.de={previousPage:"Move to previous page",nextPage:"Move to next page",upInPage:"Scroll up in the results",downInPage:"Scroll down in the results",example:"Example:",helper:"Suggestion:",toggleLayerManager:"Display map layer manager",tagName:"Element name:",enableTooltip:"Enable tooltips to get more information about each descriptors.",connectIssue:"Catalogue connection issue",connectIssueMsg:"Error 404. Can't connect to catalogue at url ",featureInfoTooltipTitle:"Objekteigenschaften anzeigen",featureInfoTooltipText:"Klicken Sie in die Karte um Informationen von allen aktuell sichtbaren Datenschichten abzufragen.",zoomToMaxExtentTooltipTitle:"Gesamte Ausdehnung",zoomToMaxExtentTooltipText:"Verwenden Sie diese Taste, um auf die gesamte Ausdehnung der Karte zu zoomen.",zoominTooltipTitle:"Vergrößern",zoominTooltipText:"Ziehen Sie in der Karte ein Rechteck auf, um die Karte auf diesen Bereich zu vergrößern. Ein einfacher Click vergrößert die Karte um Faktor 2.",zoomoutTooltipTitle:"Verkleinern",zoomoutTooltipText:"Ziehen Sie in der Karte ein Rechteck auf, um die Karte auf diesen Bereich zu verkleinern.",dragTooltipTitle:"Karte verschieben",dragTooltipText:"Verschieben Sie die Karte mit der linke Maustaste.",previousTooltipTitle:"Ansicht zurueck",previosTooltipText:"Klicken Sie auf diese Taste, um zur vorherigen Ausdehnung der Karte zurueckzukehren.",nextTooltipTitle:"Ansicht vor",nextTooltipText:"Klicken Sie diese Taste, um zur nächsten Ausdehnung der Karte zur gelangen.",featureInfoTitle:"Objekteigenschaften anzeigen",layerManagerTabTitle:"Datenschichten verwalten",legendTabTitle:"Legende",scaleTitle:"Skalieren",xTitle:"X",yTitle:"Y",projectionTitle:"Projektion",FeatureInfoNotQueryable:"Keine abfragbare Datenschicht vorhanden",WMSBrowserTab1:"Selektieren",WMSBrowserTab3:"Extern",WMSBrowserPreviewTitle:"Datenschicht Vorschau",WMSBrowserAddButton:"Hinzufuegen",WMSBrowserDuplicateMsg:"Datenschicht existiert bereits in der Karte",WMSBrowserPreviewWaitMsg:"Vorheriges Bild wiedererwerben",WMSBrowserConnectButton:"Verbinden",WMSBrowserConnectError:"Fehler während dem Verbindungsaufbau zum Web Map Service, bitte URL ueberpruefen.",infoTitle:"Information","mf.print.mapTitle":"Titel","mf.print.comment":"Kommentar","mf.print.dpi":"Auflösung","mf.print.scale":"Skalierung","mf.print.rotation":"Winkel","mf.print.resetPos":"Zueruecksetzen","mf.print.print":"Drucken","mf.print.generatingPDF":"PDF wird erzeugt","mf.print.unableToPrint":"Druckvorgang fehlgeschlagen, bitte später nochmals probieren","mf.error":"Fehler",selectExtentTooltipTitle:"Ausdehnung wählen",selectExtentTooltipText:"Ausdehnung wählen fuer Katalogsuche",printTooltipTitle:"Drucken",printTooltipText:"Aktuelle Karte drucken",savewmcTooltipTitle:"Web map context speichern",savewmcTooltipText:"Web map context der aktuellen Karten in eine Datei abspeichern.","saveWMCFile.windowTitle":"Web map context speichern","saveWMCFile.errorSaveWMC":"Web Map Context konnte nicht gespeichert werden",loadwmcTooltipTitle:"Web map context laden",loadwmcTooltipText:"Web map context von einer Datei in die aktuelle Karte laden.","selectWMCFile.windowTitle":"Web map context laden",selectWMCFile:"Web Map Context Datei auswählen","selectWMCFile.waitLoadingWMC":"Laden Web Map Context","selectWMCFile.loadButtonText":"Laden","selectWMCFile.mergeButtonText":"Zusammenfassen","selectWMCFile.errorLoadingWMC":"Web Map Context konnte nicht geladen werden",opacityButtonText:"Deckkraft",opacityWindowTitle:"Deckkraft",metadataButtonText:"Metadaten",removeButtonText:"Entfernen",addWMSButtonText:"WMS hinzufuegen",addWMSWindowTitle:"WMS hinzufuegen","layerInfoPanel.windowTitle":"Datenschicht Metadaten","layerInfoPanel.titleField":"Titel","layerInfoPanel.descriptionField":"Beschreibung","layerInfoPanel.queryableField":"Abfragbar",layerList:"Datenschicht Liste",baseLayerList:"Basis Datenschichten","metadataResults.buttonText":"Metadaten Ergebnisse","metadataResults.tooltipTitle":"Metadaten Ergebnisse","metadataResults.tooltipText":"Gehe zur Metadaten Ergebnis Seite","metadataResults.alertTitle":"Metadaten Ergebnisse","metadataResults.alertText":"Keine Metadaten Ergebnisse vorhanden","featureInfoWindow.windowTitle":"Objekteigenschaften anzeigen","mf.information":"Drucken","mf.print.pdfReady":"PDF bereit","loadLayer.loadingMessage":"Datenschicht Ladevorgang","loadLayer.error.title":"Datenschicht Ladevorgang Fehlermeldung","loadLayer.error.message":"Datenschicht konnte nicht geladen werden","disclaimer.windowTitle":"Verweigerung","disclaimer.loading":"Verweigerung Ladevorgang...","disclaimer.buttonClose":"Schließen",gazetteerAddressField1Label:"Postleitzahl",gazetteerAddressField2Label:"Straße",gazetteerAddressField3Label:"Platz",gazetteerAddressField4Label:"Gemeinde",gazetteerAddressField5Label:"Hausnummer",searchOptionButton:"Suche",GazetteerWindowTitle:"Suche Adresse",searchResults:"Suche Ergebnis",errorTitle:"Fehler",SearchOptionLoadFailureMsg:"Kein Ergebnis vorhanden.\n Service möglicherweise nicht erreichbar.\n",gazetteerTooltipTitle:"Adressensuche",gazetteerTooltipText:"Ort-, Postleitzahl-, Straßenname-, Gemeinde- oder Platzsuche.",SearchOptionNoResults:"Keine Ergebnisse gefunden",zoomlayerTooltipTitle:"Datenschicht vergrößern",zoomlayerTooltipText:"Verwenden Sie diese Taste, um das ganze Ausmaß der ausgewählten Datenschicht.","zoomlayer.selectLayerTitle":"Selektiere Datenschichtvergrößerung","zoomlayer.selectLayerText":"Kein Layer ausgewählt",layerStylesWindowTitle:"Datenschicht Stil",layerStylesPreviewTitle:"Vorschau Legende",selectStyleButton:"Wähle Stil",WMSTimeWindowTitle:"WMS Time",WMSTimePositionTitle:"Wähle einen Zeitpunkt",WMSTimeMovieTitle:"Animation abspielen",wmsTimeUpdateButtonText:"Anwenden",WMSTimeAnimationCheckbox:"Film abspielen mit den letzten ${steps} Zeitpunkten",fullTextSearch:"Full text search",keyword:"Keyword",org:"Organisation",mapTypes:"Map types",rsIdentifier:"Resource identifier",inspireSearchOptions:"INSPIRE criteria",inspireannex:"INSPIRE annex",inspirerelated:"Related to INSPIRE",inspirerelatedtt:"INSPIRE dataset with report on the conformity regarding the data specification",inspiretheme:"INSPIRE theme",inspireClassificationDataServices:"INSPIRE classification data services",serviceType:"Service type",serviceType_discovery:"Discovery Service (discovery)",serviceType_view:"View Service (view)",serviceType_transformation:"Transformation Service (transformation)",serviceType_invoke:"Invoke Spatial Data Service (invoke)",serviceType_other:"Other Services (other)",similarity:"Search accuracy",wkt:"WKT geometry",simpleViewMode:"Simple view",spatialSearch:"Spatial criteria",mdChangeDate:"Metadata change date",tempExtent:"Temporal extent",hitsPerPage:"Hits per page",sortBy:"Sort by",relevance:"Relevance",options:"Options",title:"Title",changeDate:"Change date",rating:"Rating",popularity:"Popularity",scaleDesc:"Scale (desc)",scaleAsc:"Scale (asc)","abstract":"Abstract",catalogue:"Catalogue",group:"Group",chooseGroup:"Select a group",md:"Metadata",tpl:"Template",category:"Category",advTextSearch:"Advanced text search options",eitherWords:"Either of the words",exactPhrase:"Exact phrase",allWords:"All of the words",withoutWords:"Without the words",precise:"Precise",imprecise:"Imprecise",relationType:"Relation type",within:"within",touches:"touches",crosses:"crosses",fullyOutsideOf:"fullyOutsideOf",encloses:"encloses",overlaps:"overlaps",intersection:"intersection",nearYou:"Near you",from:"From",to:"To",scaleNominator:"1:",scale:"Scale",digital:"Digital",hardCopy:"Hard copy",download:"Download",downloadable:"Download",interactive:"Interactive",resourceType:"Resource type",dataset:"Dataset",series:"Series",service:"Service",spatialRepType:"Spatial representation",video:"Video",vector:"Vector",textTable:"Text, table",tin:"Tin",stereoModel:"Stereo model",grid:"Grid",kind:"Kind",enterGetCapURL:"Enter a GetCapabilities URL to register a new service.",edit:"Edit",duplicate:"Duplicate","delete":"Delete",createChild:"Create child",privileges:"Privileges",categories:"Categories",otherActions:"Other actions",view:"View",zoomTo:"Zoom to",saveXml:"Save as XML",exportCsv:"Export (CSV)",exportZip:"Export (ZIP)",printSel:"Export (PDF)",printTT:"Print. Open a new page for printing.",newOwner:"New owner",updateCategories:"Update categories",updatePrivileges:"Update privileges",noneSelected:"None selected",none:"none",all:"all",allInPage:"all in page",select:"Select ",username:"User name",password:"password",login:"Login",logout:"Logout",administration:"Administration",validationReport:"Validation report",status:"Status",items:"items",item:"item",thumbnails:"Thumbnails",noimages:"No images to display",add:"Add",small:"Small",large:"Large",selectImage:"Select an image",selectFile:"Select a file",image:"Image",uploading:"Uploading ...",upload:"Upload",success:"Success",failure:"Failure",error:"Error",save:"Save",reset:"Reset",fileProcessedMsg:"Processed file ${res} on the server",suggestion:"Suggestion",logoSelect:"Select a logo",relatedResources:"Related resources",createLink:"Create links ...",featureCat:"Feature catalogue",serviceMd:"Service metadata",datasetMd:"Dataset metadata",parentMd:"Parent metadata",updateChildren:"Update children",records:"records",record:"record",help:"Help",publishError:"Publication failed.",outOfMemoryError:"Out of memory error.",publishErrorCode:"Error code:",saveAndCheck:"Save and check",saveAndClose:"Save and close",cancel:"Cancel",layout:"Layout",collapseAll:"Collapse all sections",editAttributes:"Manage attributes",chooseAType:"Choose a type",chooseAView:"Choose a view",viewMode:"View mode",errorAndStatusMsg:"Error. Status: ${status}, text: ${text}. Try again.",mdEditor:"Metadata editor",minorEditTT:"Do not update timestamp on save",editing:"Editing ${title} (${uuid})",GetCapabilitiesDocumentError:"Error loading service GetCapabilities document from URL: ",maxResults:"Number of results",mdTitle:"Metadata title",keywords:"Keywords",createRelation:"Create relation",createIfNotExistButton:"Create a new metadata record",getCapabilitiesLayer:"GetCapabilities layer",layerName:"Layer name",searching:"Searching ...",perThesaurus:" per thesaurus",anyThesaurus:"Any thesaurus",selectedKeywords:"Selected keywords",foundKeywords:"Available keywords",clear:"Clear",publish:"Publish",publishTooltip:"Publish current dataset to remote node. If dataset is already publish in that node, it will be updated.",publishSuccess:"Successful publication.",publishLayerAdded:" Layer added to map preview.",unpublish:"Unpublish",unpublishTooltip:"Remove current dataset from remote node.",unpublishSuccess:"Successful unpublication.",unpublishError:"Unpublication failed. ",check:"Check",errorDatasetNotFound:"Dataset not found.",datasetFound:"Dataset found and added to the map preview.",checkFailure:"Failed to check dataset in remote node.",addOnlineSourceTitle:"Link service to metadata",addOnlineSource:"Add links",addOnlineSourceTT:"Add an onlinesource section to the current metadata record pointing to the WMS/WFS/WCS services. If the service is a WMS, the layer could be displayed in the map viewer.",statusInformation:"Status information.",publishing:"Publishing ...",mapPreview:"Map preview",selectANode:"Select a node ...",geoPublisherWindowTitle:"Geo-publication: ",keywordSelectionWindowTitle:"Keywords selection",crsSelectionWindowTitle:"Coordinate reference system selection",linkedMetadataSelectionWindowTitle:"Related metadata selection",NotOwnerError:"You don't have privileges to update this related record.",ServiceUpdateError:"Error during service metadata update",associateService:"Link service metadata",associateDataset:"Link dataset metadata",logoSelectionWindow:"Choose a logo",fileUploadWindow:"Upload data or document",selectedCRS:"Selected coordinate systems",foundCRS:"Available coordinate systems",search:"Search",restrictSearchToMap:"Restrict search to map extent",selected:"selected",selectRegion:"Select a region ...",drawRectangle:"Draw rectangle",drawPolygon:"Draw polygon",drawPolygonTT:"Click the button and draw a polygon by clicking on the map for each points. Double click to create polygon last points.",drawCircle:"Draw circle",discovery:"Discovery",visualization:"Visualization",when:"When ?",anyTime:"Anytime",onSelection:"On selection",adminAction:"Other",newMetadata:"New metadata",chooseTemplate:"Select a template",process:"Process",suggestions:"Suggestions",applySelected:"Apply selected task",processParametersWindow:"Task parameters",noSuggestion:"No suggestion.",thumbnailUploadWindow:"Upload thumbnail",addThumbnail:"Add",createSmall:"Create small thumbnail",scalingFactor:"Scaling factor",smallScalingFactor:"Small scaling factor",type:"Record type",clickToClose:"Click to close",removeSelected:"Remove selected",ownerName:"Metadata record owner",setPrivileges:"Set privileges",setCategories:"Set categories",massiveOp:"Batch operation ",prepareDownload:"Download files",mdMenu:"Actions",deleteRecord:"Delete metadata record ?",deleteConfirm:"Are you sure to delete this metadata record?",deleteRecordSuccess:"Metadata deleted.",deleteRecordFailure:"Error when deleting metadata record.",advancedSearchOptions:"Advanced criteria",relatedservices:"Related service",relatedchildren:"Children",relatedfcats:"Related feature catalogue",relatedhasfeaturecat:"Datasets",relatedsources:"Source datasets",getMEF:"Export (ZIP)",metadataCategories:"Metadata categories",validityInfo:"Validation status: ",lastUpdate:"Last update: ",importMetadata:"Import metadata",validationStatus:"Validation status",valid:"Valid",notValid:"Not valid",notDetermined:"Not determined",addToMap:"Add to map: ",downloadLink:"Download: ",webLink:"Web link: ",viewKml:"Open in GoogleEarth: ",layerTree:"Layer manager",mdResultsLayer:"Search results",printLayer:"Print page",relatedservices:"Related services",relatedparent:"Parent",relateddatasets:"Related datasets",relatedchildren:"Children",relatedrelated:"Feature catalogue/dataset link",delete19110Relation:"Remove feature catalogue relation",newWindow:"New window",addAsXLink:"Add as linked element",contactSelectionWindowTitle:"Contact selection",selectedContacts:"Selected contacts",foundContacts:"Available",contactRole:"Contact role",mapNearYou:"Center map on your location",errorChangeProtocol:"Remove uploaded file before changing protocol of an online resource.",resultBy:" result(s) / ",subTemplateImport:"Directory entry import",xmlData:"XML",minorEdit:"Minor edit",minorEditTT:"",runASearch:"Run a search.",focusOnAny:"Move focus to the full text search field.",hideSearchForm:"Hide or display search form.",switchMode:"Switch visualization mode.",resetSearchForm:"Reset search form.",focusOnLogin:"Focus on the login form to access catalogue administration or logout if already logged in.",openAdmin:"Go to administration",displayInfoPanel:"Display the information panel.",displayHelpPanel:"Display this help.",SelectionWindowTitle:"Select from directory",found:"Records found",selected:"Selected",create:"Create","add-extent-from-geokeywordsreplace":"Replace existing extent","add-info-from-wmssetExtent":"Set extent","add-info-from-wmssetAndReplaceExtent":"Replace existing extent","add-info-from-wmssetCRS":"Set coordinate reference system","add-info-from-wmssetDynamicGraphicOverview":"Set graphic overview (using GetMap request URL)","add-info-from-wmswmsServiceUrl":"Service URL","linked-data-checkerlinkUrl":"URL to remove","related-metadata-checkeruuidToRemove":"Identifier to remove","add-service-info-from-wxssetAndReplaceOperations":"Replace existing operations","add-service-info-from-wxswxsServiceUrl":"Service URL",manageDirectories:"Manage directories",directory:"Directory",thesaurusManager:"Thesaurus manager",Theme:"Theme",thesaurusFilePath:"Thesaurus file (.rdf)",ThesaurusName:"Thesaurus name",createThesaurusFromURL:"from URL",createThesaurusFromRepository:"from thesaurus repository",creationMode:"Create",thesaurusFromRepository:"Thesaurus",externalThesaurusURL:"URL",thesaurusCreation:"Add a thesaurus",Type:"Type",Activated:"Activated",emptyThesaurus:"New empty thesaurus",thesaurusFromFile:"From local file",thesaurusFromURL:"From remote file (URL)",id:"Identifier",label:"Label",definition:"-",xmin:"X min",ymin:"Y min",xmax:"X max",ymax:"Y max",newLabel:"Label",newDefinition:"Definition",selDirectoryTT:"Select a type of directory. A directory group all elements having the same root element name (eg. gmd:CI_ResponsibleParty is a contact directory)",privTplElTT:"Manage privileges for the current selection.",addTplElTT:"Add an element from an XML fragment to a directory. The destination directory is based on the root element name (eg. gmd:CI_ResponsibleParty).",copyTplElTT:"Create a new entry in the directory from the current selection.",delTplElTT:"Remove selected entry from the directory."};
+OpenLayers.Util.extend(OpenLayers.Lang.de,GeoNetwork.Lang.de);
+Ext.namespace("GeoNetwork","GeoNetwork.lang");
+GeoNetwork.lang.en={previousPage:"Move to previous page",nextPage:"Move to next page",upInPage:"Scroll up in the results",downInPage:"Scroll down in the results",example:"Example:",noInfo:"No information",helper:"Suggestion:",toggleLayerManager:"Display map layer manager",tagName:"Element name:",enableTooltip:"Enable tooltips to get more information about each descriptors.",connectIssue:"Catalogue connection issue",connectIssueMsg:"Error 404. Can't connect to catalogue at url ",featureInfoTooltipTitle:"Feature info",featureInfoTooltipText:"Click in the map to get feature info from all visible layers.",zoomToMaxExtentTooltipTitle:"Full extent",zoomToMaxExtentTooltipText:"Use this button to go to the full extent of the map.",zoominTooltipTitle:"Zoom in",zoominTooltipText:"Draw a box in the map to zoom in. You can also click in the map and map will zoom in by a factor of 2.",zoomoutTooltipTitle:"Zoom out",zoomoutTooltipText:"Click in the map or draw a box to zoom out.",dragTooltipTitle:"Pan map",dragTooltipText:"Press the left mouse button to drag the map.",previousTooltipTitle:"Previous map extent",previosTooltipText:"Click this button to go back to the previous map extent",nextTooltipTitle:"Next map extent",nextTooltipText:"Click this button to go to the next map extent",featureInfoTitle:"Feature info",layerManagerTabTitle:"Layer management",legendTabTitle:"Legend",scaleTitle:"Scale",xTitle:"X",yTitle:"Y",projectionTitle:"Projection",FeatureInfoNotQueryable:"There is no queryable map layer",WMSBrowserTab1:"Select",WMSBrowserTab3:"External",WMSBrowserPreviewTitle:"Preview layer",WMSBrowserAddButton:"Add",WMSBrowserDuplicateMsg:"Layer is already in the map",WMSBrowserPreviewWaitMsg:"Retrieving preview image",WMSBrowserConnectButton:"Connect",WMSBrowserConnectError:"There was an error connecting to the Web Map Service, please check the URL.",infoTitle:"Information","mf.print.mapTitle":"Title","mf.print.comment":"Comment","mf.print.dpi":"Resolution","mf.print.scale":"Scale","mf.print.rotation":"Angle","mf.print.resetPos":"Reset","mf.print.print":"Print","mf.print.generatingPDF":"Generating PDF","mf.print.unableToPrint":"It was not possible to print, try later","mf.error":"Error",selectExtentTooltipTitle:"Select extent",selectExtentTooltipText:"Select extent for catalog searches",clearExtentTooltipTitle:"Remove extent",clearExtentTooltipText:"Remove extent (ie. no spatial criteria)",printTooltipTitle:"Print",printTooltipText:"Print the current map",savewmcTooltipTitle:"Save web map context",savewmcTooltipText:"Saves web map context for current map","saveWMCFile.windowTitle":"Save Web Map Context","saveWMCFile.errorSaveWMC":"Could not save Web Map Context",loadwmcTooltipTitle:"Load web map context",loadwmcTooltipText:"Loads web map context in current map","selectWMCFile.windowTitle":"Load Web Map Context",selectWMCFile:"Select Web Map Context file","selectWMCFile.waitLoadingWMC":"Loading Web Map Context","selectWMCFile.loadButtonText":"Load","selectWMCFile.mergeButtonText":"Merge","selectWMCFile.errorLoadingWMC":"Could not load Web Map Context",opacityButtonText:"Opacity",opacityWindowTitle:"Opacity",metadataButtonText:"Metadata",removeButtonText:"Remove",addWMSButtonText:"Add WMS",addWMSWindowTitle:"Add layer from a WMS service","layerInfoPanel.windowTitle":"Layer metadata","layerInfoPanel.titleField":"Title","layerInfoPanel.descriptionField":"Description","layerInfoPanel.queryableField":"Queryable",layerList:"Layer list",baseLayerList:"Base layers",overlaysList:"Overlays","metadataResults.buttonText":"Metadata results","metadataResults.tooltipTitle":"Metadata results","metadataResults.tooltipText":"Go to metadata results page","metadataResults.alertTitle":"Metadata results","metadataResults.alertText":"No metadata results to show","featureInfoWindow.windowTitle":"Feature info","mf.information":"Print","mf.print.pdfReady":"PDF ready","loadLayer.loadingMessage":"Loading layer","loadLayer.error.title":"Load layer","loadLayer.error.message":"The layer could not be loaded","disclaimer.windowTitle":"Disclaimer","disclaimer.loading":"Loading...","disclaimer.buttonClose":"Close",gazetteerAddressField1Label:"Postcode",gazetteerAddressField2Label:"Street",gazetteerAddressField3Label:"Place",gazetteerAddressField4Label:"'Gemeente'",gazetteerAddressField5Label:"House number",searchOptionButton:"Search",resetSearchForm:"Reset search form values.",GazetteerWindowTitle:"Search for address",searchResults:"Search results",errorTitle:"Error",SearchOptionLoadFailureMsg:"No results available. \n The service may be unavailable. \n",gazetteerTooltipTitle:"Search based on an address",gazetteerTooltipText:"Search for a location, based on postcode, street name, 'gemeente' or place.",SearchOptionNoResults:"No results found",zoomlayerTooltipTitle:"Zoom to layer",zoomlayerTooltipText:"Use this button to go to the full extent of the selected layer.","zoomlayer.selectLayerTitle":"Zoom to layer","zoomlayer.selectLayerText":"No layer selected",layerStylesWindowTitle:"Layer styles",layerStylesPreviewTitle:"Preview legend",selectStyleButton:"Select style",WMSTimeWindowTitle:"WMS Time",WMSTimePositionTitle:"Pick a time position",WMSTimeMovieTitle:"Play animation",wmsTimeUpdateButtonText:"Apply",WMSTimeAnimationCheckbox:"Play a movie loop spanning the last ${steps} time positions",fullTextSearch:"Full text search",keyword:"Keyword",org:"Organisation",mapTypes:"Map types",rsIdentifier:"Resource identifier",inspireSearchOptions:"INSPIRE criteria",inspireannex:"INSPIRE annex",inspirerelated:"Related to INSPIRE",inspirerelatedtt:"INSPIRE dataset with report on the conformity regarding the data specification",inspiretheme:"INSPIRE theme",inspireClassificationDataServices:"INSPIRE classification data services",serviceType:"Service type",serviceType_discovery:"Discovery Service (discovery)",serviceType_view:"View Service (view)",serviceType_transformation:"Transformation Service (transformation)",serviceType_invoke:"Invoke Spatial Data Service (invoke)",serviceType_other:"Other Services (other)",similarity:"Search accuracy",wkt:"WKT geometry",simpleViewMode:"Simple view",spatialSearch:"Spatial criteria",mdChangeDate:"Metadata change date",tempExtent:"Temporal extent",hitsPerPage:"Hits per page",sortBy:"Sort by",relevance:"Relevance",options:"Options",title:"Title",changeDate:"Change date",rating:"Rating",popularity:"Popularity",scaleDesc:"Scale (desc)",scaleAsc:"Scale (asc)","abstract":"Abstract",catalogue:"Catalogue",group:"Group",chooseGroup:"Select a group",md:"Metadata",tpl:"Template",category:"Category",advTextSearch:"Advanced text search options",eitherWords:"Either of the words",exactPhrase:"Exact phrase",allWords:"All of the words",withoutWords:"Without the words",precise:"Precise",imprecise:"Imprecise",relationType:"Relation type",within:"within",touches:"touches",crosses:"crosses",fullyOutsideOf:"fullyOutsideOf",encloses:"encloses",overlaps:"overlaps",intersection:"intersection",nearYou:"Near you",from:"From",to:"To",scaleNominator:"1:",scale:"Scale",digital:"Digital",hardCopy:"Hard copy",download:"Download",downloadable:"Download",interactive:"Interactive",resourceType:"Resource type",dataset:"Dataset",series:"Series",service:"Service",spatialRepType:"Spatial representation",video:"Video",vector:"Vector",textTable:"Text, table",tin:"Tin",stereoModel:"Stereo model",grid:"Grid",kind:"Kind",enterGetCapURL:"Enter a GetCapabilities URL to register a new service.",edit:"Edit",duplicate:"Duplicate","delete":"Delete",createChild:"Create child",privileges:"Privileges",privilegesTT:"Manage record privileges for Internet and all catalogue groups.",categories:"Categories",otherActions:"Other actions",permalinkInfo:"Paste link in email or IM",view:"View",zoomTo:"Zoom to",saveXml:"Save as XML",exportCsv:"Export (CSV)",exportZip:"Export (ZIP)",printSel:"Export (PDF)",printTT:"Print. Open a new page for printing.",newOwner:"New owner",updateCategories:"Update categories",updatePrivileges:"Update privileges",noneSelected:"None selected",none:"none",all:"all",allInPage:"all in page",select:"Select ",username:"User name",password:"password",login:"Login",logout:"Logout",administration:"Administration",validationReport:"Validation report",setStatus:"Metadata status",status:"Status",updateStatus:"Update status",updateVersion:"Activate versioning",statusTT:"Change the status of a record according to its life cycle phase",setVersioning:"Metadata versioning",versioning:"Start versioning",versioningTT:"Once activated, all changes in the metadata record will be recorded in SVN repository",items:"items",item:"item",thumbnails:"Thumbnails",noimages:"No images to display",add:"Add",small:"Small",large:"Large",selectImage:"Select an image",selectFile:"Select a file",image:"Image",uploading:"Uploading ...",upload:"Upload",success:"Success",failure:"Failure",error:"Error",save:"Save",reset:"Reset",fileProcessedMsg:"Processed file ${res} on the server",suggestion:"Suggestion",logoSelect:"Select a logo",relatedResources:"Related resources",createLink:"Create links ...",featureCat:"Feature catalogue",serviceMd:"Service metadata",datasetMd:"Dataset metadata",parentMd:"Parent metadata",updateChildren:"Update children",records:"records",record:"record",help:"Help",publishError:"Publication failed.",outOfMemoryError:"Out of memory error.",publishErrorCode:"Error code:",saveAndCheck:"Save and check",saveAndClose:"Save and close",cancel:"Cancel",layout:"Layout",collapseAll:"Collapse all sections",editAttributes:"Manage attributes",chooseAType:"Choose a type",chooseAView:"Choose a view",viewMode:"View mode",errorAndStatusMsg:"Error. Status: ${status}, text: ${text}. Try again.",mdEditor:"Metadata editor",minorEditTT:"Do not update timestamp on save",editing:"Editing ${title} (${uuid})",GetCapabilitiesDocumentError:"Error loading service GetCapabilities document from URL: ",maxResults:"Number of results",mdTitle:"Metadata title",keywords:"Keywords",createRelation:"Create relation",createIfNotExistButton:"Create a new metadata record",getCapabilitiesLayer:"GetCapabilities layer",layerName:"Layer name",searching:"Searching ...",perThesaurus:" per thesaurus",anyThesaurus:"Any thesaurus",selectedKeywords:"Selected keywords",foundKeywords:"Available keywords",clear:"Clear",publish:"Publish",publishTooltip:"Publish current dataset to remote node. If dataset is already publish in that node, it will be updated.",publishSuccess:"Successful publication.",publishLayerAdded:" Layer added to map preview.",unpublish:"Unpublish",unpublishTooltip:"Remove current dataset from remote node.",unpublishSuccess:"Successful unpublication.",unpublishError:"Unpublication failed. ",check:"Check",errorDatasetNotFound:"Dataset not found.",datasetFound:"Dataset found and added to the map preview.",checkFailure:"Failed to check dataset in remote node.",addOnlineSourceTitle:"Link service to metadata",addOnlineSource:"Add links",addOnlineSourceTT:"Add an onlinesource section to the current metadata record pointing to the WMS/WFS/WCS services. If the service is a WMS, the layer could be displayed in the map viewer.",statusInformation:"Status information.",publishing:"Publishing ...",mapPreview:"Map preview",selectANode:"Select a node ...",geoPublisherWindowTitle:"Geo-publication: ",keywordSelectionWindowTitle:"Keywords selection",crsSelectionWindowTitle:"Coordinate reference system selection",linkedMetadataSelectionWindowTitle:"Related metadata selection",NotOwnerError:"You don't have privileges to update this related record.",ServiceUpdateError:"Error during service metadata update",associateService:"Link service metadata",associateDataset:"Link dataset metadata",logoSelectionWindow:"Choose a logo",fileUploadWindow:"Upload data or document",selectedCRS:"Selected coordinate systems",foundCRS:"Available coordinate systems",search:"Search",restrictSearchToMap:"Restrict search to map extent",selected:"selected",selectRegion:"Select a region ...",drawRectangle:"Draw rectangle",drawPolygon:"Draw polygon",drawPolygonTT:"Click the button and draw a polygon by clicking on the map for each points. Double click to create polygon last points.",drawCircle:"Draw circle",discovery:"Discovery",visualization:"Visualization",when:"When ?",anyTime:"Anytime",onSelection:"On selection",adminAction:"Other",newMetadata:"New metadata",chooseTemplate:"Select a template",process:"Process",suggestions:"Suggestions",applySelected:"Apply selected task",processParametersWindow:"Task parameters",noSuggestion:"No suggestion.",thumbnailUploadWindow:"Upload thumbnail",addThumbnail:"Add",createSmall:"Create small thumbnail",scalingFactor:"Scaling factor",smallScalingFactor:"Small scaling factor",type:"Record type",clickToClose:"Click to close",removeSelected:"Remove selected",ownerName:"Metadata record owner",setPrivileges:"Set privileges",setCategories:"Set categories",massiveOp:"Batch operation ",prepareDownload:"Download files",mdMenu:"Actions",deleteRecord:"Delete metadata record ?",deleteConfirm:"Are you sure to delete this metadata record?",deleteRecordSuccess:"Metadata deleted.",deleteRecordFailure:"Error when deleting metadata record.",advancedSearchOptions:"Advanced criteria",relatedservices:"Related service",relatedchildren:"Children",relatedfcats:"Related feature catalogue",relatedhasfeaturecat:"Datasets",relatedsources:"Source datasets",getMEF:"Export (ZIP)",metadataCategories:"Metadata categories",validityInfo:"Validation status: ",lastUpdate:"Last update: ",importMetadata:"Import metadata",validationStatus:"Validation status",valid:"Valid",notValid:"Not valid",notDetermined:"Not determined",addToMap:"Add to map: ",downloadLink:"Download: ",webLink:"Web link: ",viewKml:"Open in GoogleEarth: ",layerTree:"Layer manager",mdResultsLayer:"Search results",printLayer:"Print page",relatedservices:"Related services",relatedparent:"Parent",relateddatasets:"Related datasets",relatedchildren:"Children",relatedrelated:"Feature catalogue/dataset link",delete19110Relation:"Remove feature catalogue relation",newWindow:"New window",addAsXLink:"Add as linked element",contactSelectionWindowTitle:"Contact selection",selectedContacts:"Selected contacts",foundContacts:"Available",contactRole:"Contact role",mapNearYou:"Center map on your location",errorChangeProtocol:"Remove uploaded file before changing protocol of an online resource.",resultBy:" result(s) / ",subTemplateImport:"Directory entry import",xmlData:"XML",minorEdit:"Minor edit",minorEditTT:"",runASearch:"Run a search.",focusOnAny:"Move focus to the full text search field.",hideSearchForm:"Hide or display search form.",switchMode:"Switch visualization mode.",resetSearchForm:"Reset search form.",focusOnLogin:"Focus on the login form to access catalogue administration or logout if already logged in.",openAdmin:"Go to administration",displayInfoPanel:"Display the information panel.",displayHelpPanel:"Display this help.",SelectionWindowTitle:"Select from directory",found:"Records found",selected:"Selected",create:"Create","add-extent-from-geokeywordsreplace":"Replace existing extent","add-info-from-wmssetExtent":"Set extent","add-info-from-wmssetAndReplaceExtent":"Replace existing extent","add-info-from-wmssetCRS":"Set coordinate reference system","add-info-from-wmssetDynamicGraphicOverview":"Set graphic overview (using GetMap request URL)","add-info-from-wmswmsServiceUrl":"Service URL","linked-data-checkerlinkUrl":"URL to remove","related-metadata-checkeruuidToRemove":"Identifier to remove","add-service-info-from-wxssetAndReplaceOperations":"Replace existing operations","add-service-info-from-wxswxsServiceUrl":"Service URL",manageDirectories:"Manage directories",directory:"Directory",thesaurusManager:"Thesaurus manager",Theme:"Theme",thesaurusFilePath:"Thesaurus file (.rdf)",ThesaurusName:"Thesaurus name",createThesaurusFromURL:"from URL",createThesaurusFromRepository:"from thesaurus repository",creationMode:"Create",thesaurusFromRepository:"Thesaurus",externalThesaurusURL:"URL",thesaurusCreation:"Add a thesaurus",Type:"Type",Activated:"Activated",emptyThesaurus:"New empty thesaurus",thesaurusFromFile:"From local file",thesaurusFromURL:"From remote file (URL)",id:"Identifier",label:"Label",definition:"-",xmin:"X min",ymin:"Y min",xmax:"X max",ymax:"Y max",newLabel:"Label",newDefinition:"Definition",selDirectoryTT:"Select a type of directory. A directory group all elements having the same root element name (eg. gmd:CI_ResponsibleParty is a contact directory)",privTplElTT:"Manage privileges for the current selection.",addTplElTT:"Add an element from an XML fragment to a directory. The destination directory is based on the root element name (eg. gmd:CI_ResponsibleParty).",copyTplElTT:"Create a new entry in the directory from the current selection.",delTplElTT:"Remove selected entry from the directory.",language:"Language"};
+OpenLayers.Util.extend(OpenLayers.Lang.en,GeoNetwork.lang.en);
+Ext.namespace("GeoNetwork","GeoNetwork.Lang");
+GeoNetwork.Lang.fr={previousPage:"Page précédente",nextPage:"Page suivante",upInPage:"Se déplacer vers le haut des résultats",downInPage:"Se déplacer vers le bas des résultats",example:"Exemple :",noInfo:"Aucune information",helper:"Suggestion :",toggleLayerManager:"Afficher le gestionnaire de couches",tagName:"Nom de l'élément :",enableTooltip:"Activer les info-bulles pour obtenir une description complète de chaque champs.",connectIssue:"Échec de connexion au catalogue",connectIssueMsg:"Erreur 404. Impossible de se connecter à l'URL ",featureInfoTooltipTitle:"caractéristique",featureInfoTooltipText:"Cliquer sur la carte pour obtenir des informations sur les données affichees.",zoomToMaxExtentTooltipTitle:"Zoom optimal",zoomToMaxExtentTooltipText:"Utiliser ce bouton pour tout afficher.",zoominTooltipTitle:"Zoomer",zoominTooltipText:"Dessiner un rectangle sur la carte pour zoomer. En cliquant sur la carte, le facteur de zoom est 2.",zoomoutTooltipTitle:"Dézoomer",zoomoutTooltipText:"Cliquer sur la carte ou dessiner un rectangle pour dézoomer.",dragTooltipTitle:"Main",dragTooltipText:"Appuyer sur le bouton gauche de la souris pour déplacer la carte.",previousTooltipTitle:"Revenir au zoom précédant",previosTooltipText:"Cliquer ici pour revenir au zoom précédant",nextTooltipTitle:"Zoom suivant",nextTooltipText:"Cliquer ici pour avancer au zoom suivant",featureInfoTitle:"Caractéristique",layerManagerTabTitle:"Gérer les couches",legendTabTitle:"Légende",scaleTitle:"Echelle",xTitle:"X",yTitle:"Y",projectionTitle:"Projection",FeatureInfoNotQueryable:"Il n'existe pas de carte correspondant à la requête",WMSBrowserTab1:"Sélectionner",WMSBrowserTab3:"Externe",WMSBrowserPreviewTitle:"Aperçu de la couche",WMSBrowserAddButton:"Ajouter",WMSBrowserDuplicateMsg:"La couche est déjà affichée",WMSBrowserPreviewWaitMsg:"Récupérer l'image precedente",WMSBrowserConnectButton:"Connexion",WMSBrowserConnectError:"Erreur de connexion au service Web, merci de vérifier l'URL.",infoTitle:"Information","mf.print.mapTitle":"Titre","mf.print.comment":"Commentaire","mf.print.dpi":"Résolution","mf.print.scale":"Échelle","mf.print.rotation":"Angle","mf.print.resetPos":"Reset","mf.print.print":"Imprimer","mf.print.generatingPDF":"Générer PDF","mf.print.unableToPrint":"Impression impossible, essayer plus tard","mf.error":"Erreur",selectExtentTooltipTitle:"Définir une emprise",selectExtentTooltipText:"Dessiner une emprise à utiliser comme critère géographique",clearExtentTooltipTitle:"Supprimer l'emprise",clearExtentTooltipText:"Supprimer l'emprise (ie. aucun critère géographique)",printTooltipTitle:"Imprimer",printTooltipText:"Imprimer la carte actuelle",savewmcTooltipTitle:"Sauvegarder environnement (vue, paramètres,etc.)",savewmcTooltipText:"Sauvegarder environnement pour la carte actuelle","saveWMCFile.windowTitle":"Sauvegarder l'environnement","saveWMCFile.errorSaveWMC":"Sauvegarde de l'environnement impossible",loadwmcTooltipTitle:"Restaurer l'environnement",loadwmcTooltipText:"Restaurer l'environnement dans la carte actuelle","selectWMCFile.windowTitle":"Restaurer l'environnement",selectWMCFile:"Ouvrir un environnement","selectWMCFile.waitLoadingWMC":"Restauration de l'environnement en cours...","selectWMCFile.loadButtonText":"Charger","selectWMCFile.mergeButtonText":"Fusionner","selectWMCFile.errorLoadingWMC":"Chargement de l'environnement impossible",opacityButtonText:"Transparence",opacityWindowTitle:"Transparence",metadataButtonText:"Metadonnées",removeButtonText:"Supprimer",addWMSButtonText:"Ajouter WMS",addWMSWindowTitle:"Ajouter WMS","layerInfoPanel.windowTitle":"Couche metadata","layerInfoPanel.titleField":"Titre","layerInfoPanel.descriptionField":"Description","layerInfoPanel.queryableField":"Requête",layerList:"Liste des couches",baseLayerList:"Fond de carte",overlaysList:"Calques","metadataResults.buttonText":"Résultats Metadata","metadataResults.tooltipTitle":"résultats Metadata","metadataResults.tooltipText":"Aller a la page des résultats Metadata","metadataResults.alertTitle":"Résultats Metadata","metadataResults.alertText":"Pas de résultats Metadata","mf.information":"Imprimer","mf.print.pdfReady":"PDF prêt","loadLayer.loadingMessage":"Chargement de la couche","loadLayer.error.title":"Charger la couche","loadLayer.error.message":"La couche ne peut être chargée","disclaimer.windowTitle":"Disclaimer","disclaimer.loading":"Chargement...","disclaimer.buttonClose":"Fermer",gazetteerAddressField1Label:"Code postal",gazetteerAddressField2Label:"Street",gazetteerAddressField3Label:"Place",gazetteerAddressField4Label:"Municipalité",gazetteerAddressField5Label:"Numéro",searchOptionButton:"Recherche",GazetteerWindowTitle:"Résultat pour l'adresse",searchResults:"Recherche les résultats",resetSearchForm:"Réinitialiser le formulaire de recherche.",errorTitle:"Erreur",SearchOptionLoadFailureMsg:"Pas de résultats trouvés. \n Le serveur peut être indisponible. \n",gazetteerTooltipTitle:"Recherche basée sur l'adresse",gazetteerTooltipText:"Recherche du lieu, basé sur le code postal, la rue, la municipalité ou place.",SearchOptionNoResults:"Pas de résultats trouvés.",zoomlayerTooltipTitle:"Zoom sur une couche",zoomlayerTooltipText:"Utilisez ce bouton pour accéder à la pleine mesure de le calque sélectionné.","zoomlayer.selectLayerTitle":"Zoom sur une couche","zoomlayer.selectLayerText":"No de calque sélectionné",layerStylesWindowTitle:"Layer styles",layerStylesPreviewTitle:"Preview legend",selectStyleButton:"Select style",WMSTimeWindowTitle:"WMS Time",WMSTimePositionTitle:"Time position",WMSTimeMovieTitle:"Animation",wmsTimeUpdateButtonText:"Apply",WMSTimeAnimationCheckbox:"Play a movie loop spanning the last ${steps} time positions",fullTextSearch:"Rechercher ...",keyword:"Mots-clés",org:"Organisation",mapTypes:"Type de données",rsIdentifier:"Identifiant de la ressource",inspireSearchOptions:"INSPIRE",inspireannex:"Annexe",inspirerelated:"Données soumises à INSPIRE",inspirerelatedtt:"Données décrivant un rapport sur la conformité vis-à-vis des spécifications sur les données INSPIRE.",inspiretheme:"Thème",inspireClassificationDataServices:"INSPIRE classification data services",serviceType:"Service type",serviceType_discovery:"Discovery Service (discovery)",serviceType_view:"View Service (view)",serviceType_transformation:"Transformation Service (transformation)",serviceType_invoke:"Invoke Spatial Data Service (invoke)",serviceType_other:"Other Services (other)",similarity:"Précision",wkt:"Geométrie WKT",spatialSearch:"Critères géographiques",mdChangeDate:"Date de mise à jour des métadonnées",tempExtent:"Étendue temporelle",hitsPerPage:"Nombre par page",sortBy:"Trier par",options:"Options",relevance:"Pertinence",title:"Titre",changeDate:"Date de mise à jour",rating:"Note",popularity:"Popularité",scaleDesc:"Échelle (desc)",scaleAsc:"Échelle (asc)","abstract":"Résumé",catalogue:"Catalogue",group:"Groupe",md:"Métadonnée",tpl:"Modèle",category:"Catégorie",advTextSearch:"Options avancées",eitherWords:"Tous - au moins un des mots suivants",exactPhrase:"Cette expression exacte",allWords:"Tous les mots suivants",withoutWords:"Aucun des mots suivants",precise:"Précis",imprecise:"Flou",relationType:"Type de relation",within:"À l'intérieur",touches:"Touche",crosses:"Travers",fullyOutsideOf:"En dehors",encloses:"Contient",overlaps:"Chevauche",intersection:"Intersecte",nearYou:"À proximité",from:"du",to:"au",scaleNominator:"1/",scale:"Échelle",digital:"Numérique",hardCopy:"Copie papier",download:"Télécharger",downloadable:"Téléchargeable",interactive:"Interactive",resourceType:"Type de ressource",dataset:"Série de données",series:"Ensemble de séries de données",service:"Service",spatialRepType:"Représentation spatiale",video:"Vidéo",vector:"Vecteur",textTable:"Tableau, Texte",tin:"Tin",stereoModel:"Vue 3D",grid:"Raster",kind:"Type",enterGetCapURL:"Saisir l'URL d'un GetCapabilities pour enregistrer un nouveau service",edit:"Éditer",duplicate:"Dupliquer","delete":"Supprimer",createChild:"Créer un enfant",privileges:"Privilèges",privilegesTT:"Gérer les privilèges pour l'accès public et les divers groupes du catalogue.",categories:"Catégories",otherActions:"Autres actions",permalinkInfo:"Collez le lien suivant dans un e-mail<br/> ou dans un message instantané",view:"Consulter",zoomTo:"Zoomer vers",saveXml:"Export (XML)",exportCsv:"Export (CSV)",exportZip:"Export (ZIP)",printSel:"Export (PDF)",printTT:"Imprimer. Ouvre une nouvelle page adaptée à l'impression.",newOwner:"Associer un autre auteur",updateCategories:"Mettre à jour les catégories",updatePrivileges:"Mettre à jour les privilèges",noneSelected:"Sélection vide",none:"aucun",all:"tous",allInPage:"tous dans la page",select:"Selectionner ",username:"Identifiant",password:"Mot de passe",login:"Connexion",logout:"Déconnexion",administration:"Administration",validationReport:"Rapport de validation",setStatus:"État de la métadonnée",status:"État",updateStatus:"Mettre à jour l'état",updateVersion:"Activer le suivi des versions",statusTT:"Modifier l'état d'une métadonnée (eg. brouillon, validé, rejeté).",setVersioning:"Suivi des versions",versioning:"Activer le suivi des versions",versioningTT:"Une fois activé, tous les changements réalisés sur la fiche seront sauvegardés dans le dépôt SVN pour le suivi des versions.",items:"éléments",item:"élément",thumbnails:"Aperçus",noimages:"Aucun aperçu disponible",add:"Ajouter",small:"Petit",large:"Grand",selectImage:"Sélectionner une image",selectFile:"Sélectionner un fichier",image:"Image",uploading:"Transfert en cours ...",upload:"Transférer",success:"Succès",failure:"Échec",error:"Erreur",save:"Sauver",reset:"Réinitialiser",fileProcessedMsg:"Traitement du fichier ${res} réalisé sur le serveur",suggestion:"Suggestion",logoSelect:"Sélectionner un logo",relatedResources:"Ressources associées",createLink:"Associer ...",featureCat:"Catalogue d'attributs",serviceMd:"Métadonnées de service",datasetMd:"Métadonnées de données",parentMd:"Parent",updateChildren:"Mettre à jour les enfants",records:"enregistrements",record:"enregistrement",help:"Aide",publishError:"Échec lors de la publication.",outOfMemoryError:"Érreur de dépassement de mémoire.",publishErrorCode:"Code érreur :",saveAndCheck:"Sauver et valider",saveAndClose:"Sauver et fermer",cancel:"Annuler",layout:"Mise en page",Resolution:"Résolution",collapseAll:"Réduire les sections",editAttributes:"Gérer les attributs",chooseAType:"Choisir un type",chooseAView:"Choisir une vue",viewMode:"Affichage",errorAndStatusMsg:"Érreur. Status : ${status}, description : ${text}. Essayer à nouveau.",mdEditor:"Editeur de métadonnée",editing:"${title} (${uuid}) en cours d'édition",GetCapabilitiesDocumentError:"Erreur lors de la tentative de récupération des informations du service (ie. GetCapabilities) avec l'adresse: ",maxResults:"Nombre de résultats",mdTitle:"Titre de la métadonnée",keywords:"Mots-clés",createRelation:"Créer la relation",createIfNotExistButton:"Créer une nouvelle métadonnée",getCapabilitiesLayer:"Couches du GetCapabilities",layerName:"Nom de la couche",searching:"Recherche en cours ...",perThesaurus:" par thesaurus",anyThesaurus:"Tous les thésaurus",selectedKeywords:"Mots clés selectionnés",foundKeywords:"Mots clés trouvés",clear:"Effacer",publish:"Publier",publishTooltip:"Publier le jeu de données en cours dans le nœud distant. Si le jeu de données est présent, il est mis à jour.",publishSuccess:"Publication effectuée.",publishLayerAdded:" Couche ajoutée à la carte.",unpublish:"Dépublier",unpublishTooltip:"Supprimer le jeu de données en cours dans le nœud distant.",unpublishSuccess:"Dépublication effectuée.",unpublishError:"Echec de la dépublication. ",check:"Vérifier",errorDatasetNotFound:"Jeu de données non trouvé.",datasetFound:"Jeu de données trouvé et ajouté à la carte.",checkFailure:"Echec de la vérification de la présence du jeu de données dans le nœud distant.",addOnlineSourceTitle:"Lier le service à la fiche",addOnlineSource:"Ajouter les liens",addOnlineSourceTT:"Ajouter les informations pour faire la liaison avec la couche dans le service WMS/WFS/WCS.",statusInformation:"Status.",publishing:"Publication en cours ...",mapPreview:"Carte",selectANode:"Choisir un nœud ...",geoPublisherWindowTitle:"Géo-publication : ",keywordSelectionWindowTitle:"Sélection de mots clés",crsSelectionWindowTitle:"Sélection des systèmes de coordonnées",linkedMetadataSelectionWindowTitle:"Sélection des métadonnées associées",NotOwnerError:"Vous n'avez pas les privilèges pour mettre à jour la métadonnée associée.",ServiceUpdateError:"Erreur lors de la mise à jour de la métadonnée.",associateService:"Associer une métadonnée de service",associateDataset:"Associer une métadonnée de données",logoSelectionWindow:"Sélectionner un logo",fileUploadWindow:"Ajouter des données ou des documents",selectedCRS:"Systèmes sélectionnés",foundCRS:"Systèmes disponibles",search:"Rechercher",restrictSearchToMap:"Restreindre la recherche à la carte",selected:"sélectionné(s)",selectRegion:"Choisir une région ...",drawRectangle:"Créer un rectangle",drawPolygon:"Créer un polygone",drawCircle:"Créer un cercle",discovery:"Découverte",visualization:"Visualisation",when:"Critères temporels",anyTime:"N'importe quand",onSelection:"Sur la sélection",adminAction:"Autres",newMetadata:"Nouvelle métadonnée",chooseGroup:"Selectionner un groupe",chooseTemplate:"Sélectionner un modèle",process:"Traiter",suggestions:"Suggestions",applySelected:"Appliquer le traitement sélectionné",processParametersWindow:"Paramètres du traitement",noSuggestion:"Aucune suggestion.",thumbnailUploadWindow:"Ajouter un aperçu",addThumbnail:"Ajouter",createSmall:"Créer un petit aperçu",scalingFactor:"Facteur d'échelle",smallScalingFactor:"Facteur d'échelle",type:"Type de fiche",clickToClose:"Cliquer pour fermer",removeSelected:"Supprimer la sélection","metadata.update.new":"Chargement en cours ...","metadata.update.forget.new":"Ré-initialisation en cours ...",ownerName:"Rédacteur de la métadonnée",setPrivileges:"Définir les privilèges",setCategories:"Choisir les catégories",massiveOp:"Opération sur la sélection",prepareDownload:"Télécharger les fichiers",mdMenu:"Actions",simpleViewMode:"Vue simplifiée",deleteRecord:"Supprimer la métadonnée ?",deleteConfirm:"Confirmez-vous la suppression de la métadonnée ?",deleteRecordSuccess:"Metadonnée supprimée",deleteRecordFailure:"Échec lors de la suppression de la métadonnée",advancedSearchOptions:"Critères avancés",getMEF:"Export (ZIP)",metadataCategories:"Catégories",validityInfo:"Information sur la validation",lastUpdate:"Dernière mise à jour : ",importMetadata:"Import de métadonnées",validationStatus:"Validation ",valid:"Valide",notValid:"Non valide",notDetermined:"Non déterminé",addToMap:"Ajouter à la carte : ",downloadLink:"Télécharger : ",webLink:"Site web : ",viewKml:"Visualiser avec GoogleEarth : ",layerTree:"Gestion des couches",mdResultsLayer:"Résultats de la recherche",printLayer:"Page de l'impression",relatedservices:"Services associés",relatedparent:"Métadonnée parent",relateddatasets:"Métadonnées associées",relatedchildren:"Enfants",relatedrelated:"Relation catalogue d'attributs/données",relatedfcats:"Relation catalogue d'attributs/données",relatedhasfeaturecat:"Donnée",relatedsources:"Données sources",delete19110Relation:"Supprimer le lien cat. d'attributs",newWindow:"Nouvelle fenêtre",addAsXLink:"Ajout d'un élément lié",contactSelectionWindowTitle:"Sélection des contacts",selectedContacts:"Contacts sélectionnés",foundContacts:"Contacts disponibles",contactRole:"Rôle du contact",mapNearYou:"Centrer la carte sur votre position",create:"Créer",errorChangeProtocol:"Impossible de changer le protocol lorsqu'un fichier est attaché. Supprimer le fichier.",resultBy:" resultat(s) / ",subTemplateImport:"Importer un élément dans un annuaire",xmlData:"XML",minorEdit:"Modif. mineure",minorEditTT:"Lorsque cette option est activée, la date de mise à jour des métadonnées n'est pas changée. Lors de l'utilisation des suggestions, ou de la mise à jour d'une imagette, cette option est sans effet, la date est mise à jour.",runSearch:"Lancer la recherche.",focusOnAny:"Déplacer le curseur sur le critère plein texte.",hideSearchForm:"Afficher ou cacher le formulaire de recherche.",switchMode:"Changer de mode de visualisation.",resetSearchForm:"Réinitialiser le formulaire de recherche.",focusOnLogin:"Déplacer le curseur sur le formulaire de connexion ou déconnexion si vous êtes connecté.",openAdmin:"Administrer le catalogue",displayInfoPanel:"Afficher la page d'information.",displayHelpPanel:"Afficher cette page d'aide.",SelectionWindowTitle:"Rechercher dans l'annuaire",found:"Enregistrements trouvés","add-extent-from-geokeywordsreplace":"Remplacer les étendues géographiques existantes","add-info-from-wmssetExtent":"Définir l'étendue","add-info-from-wmssetAndReplaceExtent":"Remplacer les étendues existantes","add-info-from-wmssetCRS":"Ajouter les systèmes de coordonnées","add-info-from-wmssetDynamicGraphicOverview":"Définir l'aperçu (en ajoutant une URL vers une requête GetMap)","add-info-from-wmswmsServiceUrl":"URL du service","linked-data-checkerlinkUrl":"Lien à supprimer","related-metadata-checkeruuidToRemove":"Identifiant à supprimer","add-service-info-from-wxssetAndReplaceOperations":"Remplacer les opérations existantes","add-service-info-from-wxswxsServiceUrl":"URL du service",manageDirectories:"Gestion des annuaires",directory:"Annuaire",thesaurusManager:"Gestion des thésaurus",Theme:"Thème",thesaurusFilePath:"Fichier (.rdf)",ThesaurusName:"Nom du thésaurus",createThesaurusFromURL:"A partir d'une URL",createThesaurusFromRepository:"A partir du dépôt partagé",creationMode:"Créer",thesaurusFromRepository:"Thésaurus",externalThesaurusURL:"URL",thesaurusCreation:"Ajout d'un thésaurus",Type:"Type",Activated:"Activé",emptyThesaurus:"Nouveau thésaurus vide",thesaurusFromFile:"A partir d'un fichier local",thesaurusFromURL:"A partir d'un fichier distant (URL)",id:"Identifiant",label:"Libellé",definition:"-",xmin:"X min",ymin:"Y min",xmax:"X max",ymax:"Y max",newLabel:"Libellé",newDefinition:"Définition",selDirectoryTT:"Choisir un type d'annuaire. Un annuaire est constitué d'éléments ayant la même balise racine (eg. les éléments gmd:CI_ResponsibleParty font partie de l'annuaire de contact)",privTplElTT:"Gérer les privilèges sur la sélection.",addTplElTT:"Ajouter un élément à partir d'un fragment d'XML. L'annuaire cible est basé sur le nom de la balise racine (eg. gmd:CI_ResponsibleParty).",copyTplElTT:"Créer un nouvel élément dans l'annuaire à partir de l'élément sélectionné.",delTplElTT:"Supprimer la sélection.",language:"Langue"};
+OpenLayers.Util.extend(OpenLayers.Lang.fr,GeoNetwork.Lang.fr);
+Ext.namespace("GeoNetwork","GeoNetwork.Lang");
+GeoNetwork.Lang.nl={previousPage:"Ga naar vorige pagina",nextPage:"Ga naar volgende pagina",upInPage:"Scroll naar boven in de resultaten",downInPage:"Scroll naar beneden in de resultaten",example:"Voorbeeld:",helper:"Suggestie:",toggleLayerManager:"Toon lagenbeheer",tagName:"Element naam:",enableTooltip:"Activeer tooltips om informatie te krijgen over elke parameter.",connectIssue:"Catalogus connectie probleem",connectIssueMsg:"Fout 404. Kan geen connectie maken met de catalogus via de url",featureInfoTooltipTitle:"Attribuut-informatie",featureInfoTooltipText:"Klik in de kaart om attribuut-informatie op te vragen van alle zichtbare lagen.",zoomToMaxExtentTooltipTitle:"Volledig kaartbeeld",zoomToMaxExtentTooltipText:"Klik op deze knop om naar het volledig kaartbeeld te zoomen.",zoominTooltipTitle:"Zoom in",zoominTooltipText:"Trek een kader in kaart om in te zoomen. Ook kan er geklikt worden in de kaart waarna er met een factor 2 ingezoomd wordt.",zoomoutTooltipTitle:"Zoom uit",zoomoutTooltipText:"Klik in de kaart om gecentreerd op dit punt met een factor 2 uit te zoomen. Ook kan er een kader in de kaart getrokken worden, hoe kleiner dit kader hoe verder er uitgezoomd zal worden.",dragTooltipTitle:"Verschuif kaart",dragTooltipText:"Houd de linker muisknop ingedrukt en versleep de kaart.",previousTooltipTitle:"Vorige kaartbegrenzing",previosTooltipText:"Klik op deze knop om terug te gaan naar de vorige kaartbegrenzing",nextTooltipTitle:"Volgende kaartbegrenzing",nextTooltipText:"Klik op deze knop om verder te gaan naar de volgende kaartbegrenzing",featureInfoTitle:"Attribuut-informatie",layerManagerTabTitle:"Kaartlagenbeheer",legendTabTitle:"Legenda",scaleTitle:"Schaal",xTitle:"X",yTitle:"Y",projectionTitle:"Projectie",FeatureInfoNotQueryable:"Er is geen bevraagbare kaartlaag",WMSBrowserTab1:"Selecteren",WMSBrowserTab3:"Extern",WMSBrowserPreviewTitle:"Voorbeeld kaartlaag",WMSBrowserAddButton:"Voeg toe",WMSBrowserDuplicateMsg:"Kaartlaag is reeds aanwezig.",WMSBrowserPreviewWaitMsg:"Voorbeeld afbeelding ophalen",WMSBrowserConnectButton:"Maak verbinding",WMSBrowserConnectError:"Er is een fout opgetreden bij het maken van de verbinding, controleer de URL.",infoTitle:"Informatie","mf.print.mapTitle":"Titel","mf.print.comment":"Opmerkingen","mf.print.dpi":"Resolutie","mf.print.scale":"Schaal","mf.print.rotation":"Rotatie","mf.print.resetPos":"Terug naar begininstellingen","mf.print.print":"Print","mf.print.generatingPDF":"Aanmaken PDF","mf.print.unableToPrint":"Het printen is niet gelukt, probeer het later nogmaals.","mf.error":"Fout",selectExtentTooltipTitle:"Begrens zoekgebied",selectExtentTooltipText:"Begrens het zoekgebied door in de kaart een kader te trekken.",clearExtentTooltipTitle:"Verwijder begrenzing",clearExtentTooltipText:"Verwijder begrenzing (ie. geen ruimtelijke criteria).",printTooltipTitle:"Print",printTooltipText:"Print de huidige kaart",savewmcTooltipTitle:"Opslaan WMC",savewmcTooltipText:"Sla een Web Map Context document op","saveWMCFile.windowTitle":"Opslaan Web Map Context","saveWMCFile.errorSaveWMC":"Kon het WMC bestand niet opslaan",loadwmcTooltipTitle:"Open WMC",loadwmcTooltipText:"Opent een bestaand Web Map Context document in de kaart viewer","selectWMCFile.windowTitle":"Openen Web Map Context",selectWMCFile:"Select WMC bestand","selectWMCFile.waitLoadingWMC":"Laden Web Map Context","selectWMCFile.loadButtonText":"Openen","selectWMCFile.mergeButtonText":"Samenvoegen","selectWMCFile.errorLoadingWMC":"Kon het Web Map Context bestand niet openen",opacityButtonText:"Transparantie",opacityWindowTitle:"Transparantie",metadataButtonText:"Metadata",removeButtonText:"Verwijderen",addWMSButtonText:"Voeg WMS toe",addWMSWindowTitle:"Voeg WMS toe","layerInfoPanel.windowTitle":"Metadata van de kaartlaag","layerInfoPanel.titleField":"Titel","layerInfoPanel.descriptionField":"Samenvatting","layerInfoPanel.queryableField":"Bevraagbaar",layerList:"Kaartlagen",baseLayerList:"Ondergrond","metadataResults.buttonText":"Metadata resultaten","metadataResults.tooltipTitle":"Metadata resultaten","metadataResults.tooltipText":"Ga naar de metadata resultaatpagina","metadataResults.alertTitle":"Metadata resultaten","metadataResults.alertText":"Geen metadata resultaten om te tonen","featureInfoWindow.windowTitle":"Attribuut-informatie","mf.information":"Print","mf.print.pdfReady":"PDF klaar","loadLayer.loadingMessage":"Ophalen kaartlaag","loadLayer.error.title":"Ophalen kaartlaag","loadLayer.error.message":"De kaartlaag kon niet worden geladen","disclaimer.windowTitle":"Disclaimer","disclaimer.loading":"Laden...","disclaimer.buttonClose":"Sluiten",gazetteerAddressField1Label:"Postcode",gazetteerAddressField2Label:"Straat",gazetteerAddressField3Label:"Plaats",gazetteerAddressField4Label:"Gemeente",gazetteerAddressField5Label:"Huisnummer",searchOptionButton:"Zoek",GazetteerWindowTitle:"Zoek adres",searchResults:"Zoekresultaten",errorTitle:"Fout",SearchOptionLoadFailureMsg:"Het is niet gelukt resultaten op te halen.\nMogelijk is de service tijdelijk niet beschikbaar.\n",gazetteerTooltipTitle:"Zoek op basis van een adres",gazetteerTooltipText:"Zoek een locatie op basis van een postcode, straatnaam, gemeente en/of plaats.",SearchOptionNoResults:"Geen resultaten gevonden",zoomlayerTooltipTitle:"Zoom naar laag",zoomlayerTooltipText:"Gebruik deze knop om naar de volledige begrenzing van de geselecteerde laag te zoomen.","zoomlayer.selectLayerTitle":"Zoom naar laag","zoomlayer.selectLayerText":"Geen laag geselecteerd",layerStylesWindowTitle:"Kaartlaag stijlen",layerStylesPreviewTitle:"Maak een voorbeeld van de legenda",selectStyleButton:"Selecteer kaartstijl",WMSTimeWindowTitle:"WMS Tijd",WMSTimePositionTitle:"Kies een tijdstip",WMSTimeMovieTitle:"Speel een animatie af",wmsTimeUpdateButtonText:"Doorvoeren",WMSTimeAnimationCheckbox:"Speel laatste ${steps} tijdstippen af",fullTextSearch:"Volledige tekst zoeken",keyword:"Trefwoord",org:"Organisatie",mapTypes:"Kaarttypes",rsIdentifier:"Bronidentificator",inspireSearchOptions:"INSPIRE criteria",inspireannex:"INSPIRE annex",inspirerelated:"Gerelateerd aan INSPIRE",inspirerelatedtt:"INSPIRE dataset met rapport over de conformiteit volgens de data specificaties",inspiretheme:"INSPIRE thema",inspireClassificationDataServices:"INSPIRE classificatie data services",serviceType:"Service type",serviceType_discovery:"Discovery Service (ontdekken)",serviceType_view:"View Service (bekijken)",serviceType_transformation:"Transformation Service (transformatie)",serviceType_invoke:"Invoke Spatial Data Service (aanroepen)",serviceType_other:"Andere Services (ander)",similarity:"Zoek nauwkeurigheid",wkt:"WKT geometrie",simpleViewMode:"Eenvoudige voorstelling",spatialSearch:"Ruimtelijke criteria",mdChangeDate:"Metadata wijzigingsdatum",tempExtent:"Temporele begrenzing",hitsPerPage:"Aantal per pagina",sortBy:"Sorteer volgens",relevance:"Relevantie",title:"Titel",options:"Opties",changeDate:"Wijzigingsdatum",rating:"Rating",popularity:"Populariteit",scaleDesc:"Schaal (aflopend)",scaleAsc:"Schaal (oplopend)","abstract":"Samenvatting",catalogue:"Catalogus",group:"Groep",chooseGroup:"Selecteer een groep",md:"Metadata",tpl:"Template",category:"Categorie",advTextSearch:"Geavanceerde tekst zoekmogelijkheden",eitherWords:"Elk van de woorden",exactPhrase:"Exacte zin",allWords:"Alle woorden",withoutWords:"Zonder de woorden",precise:"Exact",imprecise:"Niet exact",relationType:"Relatie type",within:"binnen in",touches:"raakt aan",crosses:"kruist",fullyOutsideOf:"volledig buiten",encloses:"omvat",overlaps:"overlapt",intersection:"doorsnijdt",nearYou:"nabij",from:"Van",to:"Tot",scaleNominator:"1:",scale:"Schaal",digital:"Digitaal",hardCopy:"Harde kopie",download:"Download",downloadable:"Download",interactive:"Interactief",resourceType:"Type",dataset:"Dataset",series:"Datasetserie",service:"Service",spatialRepType:"Ruimtelijke voorstelling",video:"Video",vector:"Vector",textTable:"Tekst, tabel",tin:"Tin",stereoModel:"Stereo model",grid:"Grid",kind:"Soort",enterGetCapURL:"Geef een GetCapabilities URL voor het registreren van een nieuwe service.",edit:"Editeer",duplicate:"Dupliceer","delete":"Verwijder",createChild:"Creëer kind",privileges:"Rechten",categories:"Categorieën",otherActions:"Andere acties",view:"Bekijk",zoomTo:"Zoom naar",saveXml:"Bewaar als XML",exportCsv:"Exporteer (CSV)",exportZip:"Exporteer (ZIP)",printSel:"Exporteer (PDF)",printTT:"Print. Open een nieuwe pagina voor het printen.",newOwner:"Nieuwe eigenaar",updateCategories:"Wijzig categorieën",updatePrivileges:"Wijzig rechten",noneSelected:"Niets geselecteerd",none:"geen enkele",all:"allemaal",allInPage:"alles in de pagina",select:"Selecteer",username:"Gebruikersnaam",password:"Paswoord",login:"Inloggen",logout:"Uitloggen",administration:"Beheer",validationReport:"Validatierapport",status:"Status",items:"onderdelen",item:"onderdeel",thumbnails:"Thumbnails",noimages:"Geen afbeeldingen om te tonen",add:"Voeg toe",small:"Klein",large:"Groot",selectImage:"Selecteer een afbeelding",selectFile:"Selecteer een bestand",image:"Beeld",uploading:"Opladen...",upload:"Opladen",success:"Succesvol",failure:"Gefaald",error:"Fout",save:"Bewaar",reset:"Herstel",fileProcessedMsg:"Behandelde bestanden ${res} op de server",suggestion:"Suggestie",logoSelect:"Selecteer een logo",relatedResources:"Gerelateerde bronnen",createLink:"Creëren links ...",featureCat:"objectencatalogus",serviceMd:"Service metadata",datasetMd:"Dataset metadata",parentMd:"Ouder metadata",updateChildren:"Wijzigen kinderen",records:"records",record:"record",help:"Help",publishError:"Publicatie gefaald.",outOfMemoryError:"Out of memory fout.",publishErrorCode:"foutcode:",saveAndCheck:"Bewaar en check",saveAndClose:"Bewaar en sluit",cancel:"Annuleer",layout:"Layout",collapseAll:"Klap alle secties in",editAttributes:"Beheer attributen",chooseAType:"Kies een type",chooseAView:"Kies een voorstelling",viewMode:"Voorstellingswijze",errorAndStatusMsg:"Fout. Status: ${status}, tekst: ${text}. Probeer opnieuw.",mdEditor:"Metadata editor",minorEditTT:"Wijzig de timestamp niet bij bewaren",editing:"Bewerken ${title} (${uuid})",GetCapabilitiesDocumentError:"Fout laden service GetCapabilities document van URL: ",maxResults:"Aantal resultaten",mdTitle:"Metadata titel",keywords:"Trefwoorden",createRelation:"Creëer relatie",createIfNotExistButton:"Maak een nieuw metadata record",getCapabilitiesLayer:"GetCapabilities laag",layerName:"Laagnaam",searching:"Zoeken...",perThesaurus:" per thesaurus",anyThesaurus:"Elke thesaurus",selectedKeywords:"Geselecteerde trefwoorden",foundKeywords:"Gevonden trefwoorden",clear:"Wis",publish:"Publiceer",publishTooltip:"Publiceer de huidige dataset naar een externe node. Indien de dataset reeds bestaat in de node, wordt deze bijgewerkt.",publishSuccess:"Publicatie geslaagd.",publishLayerAdded:" Laag toegevoegd aan het kaartvoorbeeld.",unpublish:"Maak publicatie ongedaan",unpublishTooltip:"Verwijder huidige dataset van de externe node.",unpublishSuccess:"Publicatie ongedaan maken geslaagd.",unpublishError:"Publicatie ongedaan maken is mislukt. ",check:"Check",errorDatasetNotFound:"Dataset niet gevonden.",datasetFound:"Dataset gevonden en toegevoegd aan het kaartvoorbeeld.",checkFailure:"Check dataset in externe node is mislukt.",addOnlineSourceTitle:"Link service aan metadata",addOnlineSource:"Toevoegen links",addOnlineSourceTT:"Voeg een online bronsectie toe aan het huidige metadata record verwijzend naar de WMS/WFS/WCS services. Indien de service een WMS is, kan de laag getoond worden in de kaartviewer.",statusInformation:"Status informatie.",publishing:"Publiceren ...",mapPreview:"Kaartvoorbeeld",selectANode:"Selecteer een node ...",geoPublisherWindowTitle:"Geo-publicatie: ",keywordSelectionWindowTitle:"Trefwoord selectie",crsSelectionWindowTitle:"Coördinaten referentie systeem selectie",linkedMetadataSelectionWindowTitle:"Gerelateerde metadata selectie",NotOwnerError:"U heeft geen rechten om dit gerelateerde record te wijzigen.",ServiceUpdateError:"Fout tijdens wijziging service metadata",associateService:"Link service metadata",associateDataset:"Link dataset metadata",logoSelectionWindow:"Kies een logo",fileUploadWindow:"Opladen data of document",selectedCRS:"Geselecteerde coördinaatsystemen",foundCRS:"Beschikbare coördinaatsystemen",search:"Zoeken",restrictSearchToMap:"Beperk zoekactie tot kaartbegrenzing",selected:"geselecteerd",selectRegion:"Selecteer in een gebied...",drawRectangle:"Teken rechthoek",drawPolygon:"Teken polygoon",drawPolygonTT:"Klik op de knop en teken een polygoon door het aanklikken van punten op de kaart. Dubbelklik voor het laatste punt om de polygoon af te sluiten.",drawCircle:"Teken cirkel",discovery:"Ontdekken",visualization:"Visualisatie",when:"Wanneer?",anyTime:"Altijd",onSelection:"Op selectie",adminAction:"Ander",newMetadata:"Nieuwe metadata",chooseTemplate:"Selecteer een template",process:"Behandeling",suggestions:"Suggesties",applySelected:"Pas geselecteerde taak toe",processParametersWindow:"Taak parameters",noSuggestion:"Geen suggestie.",thumbnailUploadWindow:"Opladen thumbnail",addThumbnail:"Voeg toe",createSmall:"Maak kleine thumbnail",scalingFactor:"Schaalfactor",smallScalingFactor:"Kleine schaalfactor",type:"Recordtype",clickToClose:"Klik om te sluiten",removeSelected:"Verwijder selectie",ownerName:"Metadata record eigenaar",setPrivileges:"Stel rechten in",setCategories:"Stel categorieën in",massiveOp:"Bulk operatie",prepareDownload:"Download bestanden",mdMenu:"Acties",deleteRecord:"Verwijder metadatarecord?",deleteConfirm:"Bent u zeker dat u dit metadatarecord wil verwijderen?",deleteRecordSuccess:"Metadata verwijderd.",deleteRecordFailure:"Fout bij het verwijderen van het metadatarecord.",advancedSearchOptions:"Geavanceerd zoeken",relatedservices:"Gerelateerde service",relatedchildren:"Kinderen",relatedfcats:"Gerelateerde objectencatalogus",relatedhasfeaturecat:"Datasets",relatedsources:"Bron datasets",getMEF:"Exporteer (ZIP)",metadataCategories:"Metadata categorieën",validityInfo:"Validatiestatus: ",lastUpdate:"Laatste wijziging: ",importMetadata:"Importeer metadata",validationStatus:"Validatiestatus",valid:"Geldig",notValid:"Niet geldig",notDetermined:"Onbepaald",addToMap:"Voeg toe aan kaart: ",downloadLink:"Download: ",webLink:"Web link: ",viewKml:"Open in GoogleEarth: ",layerTree:"Lagenbeheer",mdResultsLayer:"Zoekresultaten",printLayer:"Print pagina",relatedservices:"Gerelateerde services",relatedparent:"Ouder",relateddatasets:"Gerelateerde datasets",relatedchildren:"Kinderen",relatedrelated:"objectencatalogus/dataset link",delete19110Relation:"Verwijder relatie met objectencatalogus",newWindow:"Nieuw venster",addAsXLink:"Voeg toe als gelinkt element",contactSelectionWindowTitle:"Contact selectie",selectedContacts:"Geselecteerder contacten",foundContacts:"Beschikbare",contactRole:"Contact rol",mapNearYou:"Centreer de kaart op uw locatie",errorChangeProtocol:"Verwijder geüploade bestand voor het wijzigen van het protocol van de online bron.",resultBy:" resultaat(en) / ",subTemplateImport:"Folder entry import",xmlData:"XML",minorEdit:"Kleine wijziging",minorEditTT:"",create:"Aanmaken",runASearch:"Voer zoekopdracht uit",focusOnAny:"Verplaats focus naar het volledige tekst zoekveld",hideSearchForm:"Verberg of toon zoekformulier",switchMode:"Verander voorstellingswijze",resetSearchForm:"Herstel zoekformulier",focusOnLogin:"Focus op het aanmeldformulier voor toegang tot het catalogusbeheer of meld af indien reeds aangemeld",openAdmin:"Ga naar de beheeromgeving",displayInfoPanel:"Toon het informatiepaneel",displayHelpPanel:"Toon de help",SelectionWindowTitle:"Selecteer uit folder",found:"Gevonden records",selected:"Geselecteerd","add-extent-from-geokeywordsreplace":"Vervang bestaande begrenzing","add-info-from-wmssetExtent":"Stel begrenzing in","add-info-from-wmssetAndReplaceExtent":"Vervang bestaande begrenzing","add-info-from-wmssetCRS":"Stel het coördinaatreferentie systeem in","add-info-from-wmssetDynamicGraphicOverview":"Stel het grafisch overzicht in (gebruik makend van de GetMap request URL)","add-info-from-wmswmsServiceUrl":"Service URL","linked-data-checkerlinkUrl":"URL om te verwijderen","related-metadata-checkeruuidToRemove":"Identificator om te verwijderen","add-service-info-from-wxssetAndReplaceOperations":"Vervang bestaande bewerkingen","add-service-info-from-wxswxsServiceUrl":"Service URL",manageDirectories:"Beheer folders",directory:"Folder",thesaurusManager:"Beheer Thesaurus",Theme:"Thema",thesaurusFilePath:"Thesaurus bestand (.rdf)",ThesaurusName:"Thesaurus naam",createThesaurusFromURL:"van URL",createThesaurusFromRepository:"van thesaurus repository",creationMode:"Maak",thesaurusFromRepository:"Thesaurus",externalThesaurusURL:"URL",thesaurusCreation:"Voeg een thesaurus toe",Type:"Type",Activated:"Geactiveerd",emptyThesaurus:"Nieuwe lege thesaurus",thesaurusFromFile:"Van lokaal bestand",thesaurusFromURL:"Van extern bestand (URL)",id:"Identificator",label:"Label",definition:"-",xmin:"X min",ymin:"Y min",xmax:"X max",ymax:"Y max",newLabel:"Label",newDefinition:"Definitie",selDirectoryTT:"Selecteer een foldertype. Een folder groepeert alle elementen met dezelfde naam voor het root element (eg. gmd:CI_ResponsibleParty is een contact folder)",privTplElTT:"Beheer rechten voor de huidige selectie.",addTplElTT:"Voeg een element toe van een XML fragment aan een folder. De doelfolder is gebaseerd op de naam van het root element (eg. gmd:CI_ResponsibleParty).",copyTplElTT:"Maak een nieuw element in de folder voor de huidige selectie.",delTplElTT:"Verwijder geselecteerd element uit de folder."};
+OpenLayers.Util.extend(OpenLayers.Lang.nl,GeoNetwork.Lang.nl);
+Ext.namespace("GeoNetwork");
 GeoNetwork.Lang={};
-GeoNetwork.Util={defaultLocale:"en",locales:[["ar","عربي","ara"],["ca","Català","cat"],["cn","中文","chi"],["de","Deutsch","ger"],["en","English","eng"],["es","Español","spa"],["fr","Français","fre"],["nl","Nederlands","dut"],["no","Norsk","nor"],["pt","Рortuguês","por"],["ru","Русский","rus"]],setLang:function(lang,baseUrl){lang=lang||GeoNetwork.Util.defaultLocale;
-OpenLayers.Lang.setCode(lang);
+GeoNetwork.Util={defaultLocale:"eng",locales:[["ar","عربي","ara"],["ca","Català","cat"],["cn","中文","chi"],["de","Deutsch","ger"],["en","English","eng"],["es","Español","spa"],["fr","Français","fre"],["nl","Nederlands","dut"],["no","Norsk","nor"],["pt","Рortuguês","por"],["ru","Русский","rus"]],setLang:function(lang,baseUrl){lang=lang||GeoNetwork.Util.defaultLocale;
+var openlayerLang=this.getISO2LangCode(lang);
+OpenLayers.Lang.setCode(openlayerLang);
 var s=document.createElement("script");
 s.type="text/javascript";
-s.src=baseUrl+"/js/ext/src/locale/ext-lang-"+lang+".js";
+s.src=baseUrl+"/js/ext/src/locale/ext-lang-"+openlayerLang+".js";
 document.getElementsByTagName("head")[0].appendChild(s)
 },getCatalogueLang:function(lang){var i;
 for(i=0;
 i<GeoNetwork.Util.locales.length;
-i++){if(GeoNetwork.Util.locales[i][0]===lang){return GeoNetwork.Util.locales[i][0]
-}}return GeoNetwork.Util.defaultLocale
-},getISO3LangCode:function(lang){var i;
-for(i=0;
-i<GeoNetwork.Util.locales.length;
 i++){if(GeoNetwork.Util.locales[i][0]===lang){return GeoNetwork.Util.locales[i][2]
 }}return"eng"
+},getISO2LangCode:function(lang){var i;
+for(i=0;
+i<GeoNetwork.Util.locales.length;
+i++){if(GeoNetwork.Util.locales[i][2]===lang){return GeoNetwork.Util.locales[i][0]
+}}return"en"
 },getParameters:function(url){var parameters=OpenLayers.Util.getParameters(url);
 if(OpenLayers.String.contains(url,"#")){var start=url.indexOf("#")+1;
 var end=url.length;
@@ -13635,7 +13822,22 @@ var value=keyValue[1]||"";
 parameters[key]=value
 }}return parameters
 },getBaseUrl:function(url){return url.substring(0,url.indexOf("?")||url.indexOf("#")||url.length)
-}};Ext.namespace("GeoNetwork");
+},defaultColorMap:["#2205fd","#28bc03","#bc3303","#e4ff04","#ff04a0","#a6ff96","#408d5d","#7d253e","#2ce37e","#10008c","#ff9e05","#ff7b5d","#ff0000","#00FF00"],generateColorMap:function(classes){var colors=[];
+for(var i=0;
+i<classes;
+i++){colors[i]="#"+("00000"+(Math.random()*(1<<24)|0).toString(16)).slice(-6)
+}return colors
+},buildPermalinkMenu:function(l,scope){var menu=new Ext.menu.Menu();
+var permalinkMenu=new Ext.menu.TextItem({text:"<input/><br/><a>&nbsp;</a>"});
+menu.add('<b class="menu-title">'+OpenLayers.i18n("permalinkInfo")+"</b>",permalinkMenu);
+var updatePermalink=function(){var link=l;
+if(typeof(l)=="function"){link=l.apply(scope)
+}permalinkMenu.update('<input value="'+link+'"/></br><a href="'+link+'">Link</a>')
+};
+menu.on("show",updatePermalink,scope);
+return new Ext.Button({iconCls:"linkIcon",menu:menu})
+}};
+Ext.namespace("GeoNetwork");
 GeoNetwork.Catalogue=Ext.extend(Ext.util.Observable,{SERVERURL:null,URL:null,LANG:"en",DEFAULT_LANG:"en",EDITOR_MODE:{IN_OTHER_WINDOW:1,IN_EDITOR_POPUP:2},editMode:1,hostUrl:null,servlet:null,extentMap:null,services:{},windowOption:"menubar=no,location=no,toolbar=no,directories=no",windowName:"",startRecord:1,mdStore:null,summaryStore:null,statusBarId:null,mdDisplayPanelId:undefined,resultsView:undefined,mdOverlayedCmpId:undefined,identifiedUser:undefined,adminUser:false,metadataEditFn:undefined,adminAppUrl:"",selectedRecords:0,constructor:function(config){config=config||{};
 Ext.apply(this,config);
 if(this.hostUrl){if(this.hostUrl.indexOf("http")===-1){this.hostUrl=window.location.href.match(/http.*\//,"")+this.hostUrl
@@ -13646,7 +13848,7 @@ if(this.hostUrl){if(this.hostUrl.indexOf("http")===-1){this.hostUrl=window.locat
 }else{this.URL=this.SERVERURL+"geonetwork"
 }}this.LANG=(this.lang?this.lang:this.DEFAULT_LANG);
 var serviceUrl=this.URL+"/srv/"+this.LANG+"/";
-this.services={rootUrl:serviceUrl,csw:serviceUrl+"csw",xmlSearch:serviceUrl+"xml.search",mdSelect:serviceUrl+"metadata.select",mdView:serviceUrl+"view",mdXMLInsert:serviceUrl+"xml.metadata.insert",mdShow:serviceUrl+"metadata.show.embedded",mdMEF:serviceUrl+"mef.export",mdXMLGet:serviceUrl+"xml.metadata.get",mdXMLGet19139:serviceUrl+"xml_iso19139",mdXMLGetDC:serviceUrl+"xml_dublin-core",mdXMLGetFGDC:serviceUrl+"xml_fgdc-std",mdXMLGet19115:serviceUrl+"xml_iso19115to19139",mdDuplicate:serviceUrl+"metadata.duplicate.form",mdDelete:serviceUrl+"metadata.delete",mdPrint:serviceUrl+"pdf",mdEdit:serviceUrl+"edit",mdCreate:serviceUrl+"metadata.create.new",mdUpdate:serviceUrl+"metadata.update.new",mdProcessingXml:serviceUrl+"xml.metadata.processing",mdProcessing:serviceUrl+"metadata.processing.new",mdMassiveChildrenForm:serviceUrl+"metadata.batch.children.form",mdAdmin:serviceUrl+"metadata.admin.form",mdValidate:serviceUrl+"xml.metadata.validate",mdSuggestion:serviceUrl+"metadata.suggestion",mdCategory:serviceUrl+"metadata.category.form",mdRelationInsert:serviceUrl+"xml.relation.insert",mdRelationDelete:serviceUrl+"xml.relation.delete",mdRelation:serviceUrl+"xml.relation",mdGetThumbnail:serviceUrl+"metadata.thumbnail",mdSetThumbnail:serviceUrl+"metadata.thumbnail.set.new",mdUnsetThumbnail:serviceUrl+"metadata.thumbnail.unset.new",mdImport:serviceUrl+"metadata.xmlinsert.form",subTemplateType:serviceUrl+"subtemplate.types",subTemplate:serviceUrl+"subtemplate",upload:serviceUrl+"resources.upload.new",prepareDownload:serviceUrl+"prepare.file.download",fileDisclaimer:serviceUrl+"file.disclaimer",fileDownload:serviceUrl+"file.download",geopublisher:serviceUrl+"geoserver.publisher",login:serviceUrl+"xml.user.login",logout:serviceUrl+"xml.user.logout",mef:serviceUrl+"mef.export?format=full&version=2",csv:serviceUrl+"csv.search",pdf:serviceUrl+"pdf.selection.search",harvestingStart:serviceUrl+"xml.harvesting.start",harvestingStop:serviceUrl+"xml.harvesting.stop",harvestingRun:serviceUrl+"xml.harvesting.run",harvestingAdd:serviceUrl+"xml.harvesting.add",harvestingUpdate:serviceUrl+"xml.harvesting.update",harvestingRemove:serviceUrl+"xml.harvesting.remove",thesaurusAdd:serviceUrl+"thesaurus.add",thesaurusActivate:serviceUrl+"thesaurus.activate",thesaurusDelete:serviceUrl+"thesaurus.delete",thesaurusUpload:serviceUrl+"xml.thesaurus.upload",thesaurusDownload:serviceUrl+"thesaurus.download",thesaurusConceptAdd:serviceUrl+"thesaurus.addelement",thesaurusConceptUpdate:serviceUrl+"thesaurus.updateelement",thesaurusConceptDelete:serviceUrl+"thesaurus.deleteelement",getIcons:serviceUrl+"xml.harvesting.info?type=icons",opensearchSuggest:serviceUrl+"main.search.suggest",massiveOp:{NewOwner:serviceUrl+"metadata.batch.newowner.form",Categories:serviceUrl+"metadata.batch.category.form",Delete:serviceUrl+"metadata.batch.delete",Privileges:serviceUrl+"metadata.batch.admin.form"},metadataMassiveUpdatePrivilege:serviceUrl+"metadata.batch.update.privileges",metadataMassiveUpdateCategories:serviceUrl+"metadata.batch.update.categories",getGroups:serviceUrl+"xml.info?type=groups",getRegions:serviceUrl+"xml.info?type=regions",getSources:serviceUrl+"xml.info?type=sources",getUsers:serviceUrl+"xml.info?type=users",getSiteInfo:serviceUrl+"xml.info?type=site",schemaInfo:serviceUrl+"xml.schema.info",getZ3950repositories:serviceUrl+"xml.info?type=z3950repositories",getCategories:serviceUrl+"xml.info?type=categories",getHarvesters:serviceUrl+"xml.harvesting.get",rate:serviceUrl+"xml.metadata.rate",xmlConfig:serviceUrl+"xml.config.get",admin:serviceUrl+"admin",xmlError:serviceUrl+"xml.main.error",searchKeyword:serviceUrl+"xml.search.keywords",getThesaurus:serviceUrl+"xml.thesaurus.getList",getKeyword:serviceUrl+"xml.keyword.get",searchCRS:serviceUrl+"crs.search",getCRSTypes:serviceUrl+"crs.types",logoAdd:serviceUrl+"logo.add",logoUrl:this.URL+"/images/logos/",imgUrl:this.URL+"/images/",harvesterLogoUrl:this.URL+"/images/harvesting/"};
+this.services={rootUrl:serviceUrl,csw:serviceUrl+"csw",xmlSearch:serviceUrl+"xml.search",mdSelect:serviceUrl+"metadata.select",mdView:serviceUrl+"view",mdXMLInsert:serviceUrl+"xml.metadata.insert",mdShow:serviceUrl+"metadata.show.embedded",mdMEF:serviceUrl+"mef.export",mdXMLGet:serviceUrl+"xml.metadata.get",mdXMLGet19139:serviceUrl+"xml_iso19139",mdXMLGetDC:serviceUrl+"xml_dublin-core",mdXMLGetFGDC:serviceUrl+"xml_fgdc-std",mdXMLGet19115:serviceUrl+"xml_iso19115to19139",mdDuplicate:serviceUrl+"metadata.duplicate.form",mdDelete:serviceUrl+"metadata.delete",mdPrint:serviceUrl+"pdf",mdEdit:serviceUrl+"edit",mdCreate:serviceUrl+"metadata.create.new",mdUpdate:serviceUrl+"metadata.update.new",mdProcessingXml:serviceUrl+"xml.metadata.processing",mdProcessing:serviceUrl+"metadata.processing.new",mdMassiveChildrenForm:serviceUrl+"metadata.batch.children.form",mdAdmin:serviceUrl+"metadata.admin.form",mdValidate:serviceUrl+"xml.metadata.validate",mdSuggestion:serviceUrl+"metadata.suggestion",mdCategory:serviceUrl+"metadata.category.form",mdRelationInsert:serviceUrl+"xml.relation.insert",mdRelationDelete:serviceUrl+"xml.relation.delete",mdRelation:serviceUrl+"xml.relation",mdGetThumbnail:serviceUrl+"metadata.thumbnail",mdSetThumbnail:serviceUrl+"metadata.thumbnail.set.new",mdUnsetThumbnail:serviceUrl+"metadata.thumbnail.unset.new",mdImport:serviceUrl+"metadata.xmlinsert.form",mdStatus:serviceUrl+"metadata.status.form",mdVersioning:serviceUrl+"metadata.version",subTemplateType:serviceUrl+"subtemplate.types",subTemplate:serviceUrl+"subtemplate",upload:serviceUrl+"resources.upload.new",prepareDownload:serviceUrl+"prepare.file.download",fileDisclaimer:serviceUrl+"file.disclaimer",fileDownload:serviceUrl+"file.download",geopublisher:serviceUrl+"geoserver.publisher",login:serviceUrl+"xml.user.login",logout:serviceUrl+"xml.user.logout",mef:serviceUrl+"mef.export?format=full&version=2",csv:serviceUrl+"csv.search",pdf:serviceUrl+"pdf.selection.search",harvestingStart:serviceUrl+"xml.harvesting.start",harvestingStop:serviceUrl+"xml.harvesting.stop",harvestingRun:serviceUrl+"xml.harvesting.run",harvestingAdd:serviceUrl+"xml.harvesting.add",harvestingUpdate:serviceUrl+"xml.harvesting.update",harvestingRemove:serviceUrl+"xml.harvesting.remove",thesaurusAdd:serviceUrl+"thesaurus.add",thesaurusActivate:serviceUrl+"thesaurus.activate",thesaurusDelete:serviceUrl+"thesaurus.delete",thesaurusUpload:serviceUrl+"xml.thesaurus.upload",thesaurusDownload:serviceUrl+"thesaurus.download",thesaurusConceptAdd:serviceUrl+"thesaurus.addelement",thesaurusConceptUpdate:serviceUrl+"thesaurus.updateelement",thesaurusConceptDelete:serviceUrl+"thesaurus.deleteelement",getIcons:serviceUrl+"xml.harvesting.info?type=icons",opensearchSuggest:serviceUrl+"main.search.suggest",massiveOp:{NewOwner:serviceUrl+"metadata.batch.newowner.form",Categories:serviceUrl+"metadata.batch.category.form",Delete:serviceUrl+"metadata.batch.delete",Privileges:serviceUrl+"metadata.batch.admin.form",Versioning:serviceUrl+"metadata.batch.version",Status:serviceUrl+"metadata.batch.status.form"},metadataMassiveUpdatePrivilege:serviceUrl+"metadata.batch.update.privileges",metadataMassiveUpdateCategories:serviceUrl+"metadata.batch.update.categories",metadataMassiveNewOwner:serviceUrl+"metadata.batch.newowner",getGroups:serviceUrl+"xml.info?type=groups",getRegions:serviceUrl+"xml.info?type=regions",getSources:serviceUrl+"xml.info?type=sources",getUsers:serviceUrl+"xml.info?type=users",getSiteInfo:serviceUrl+"xml.info?type=site",getInspireInfo:serviceUrl+"xml.info?type=inspire",getIsoLanguages:serviceUrl+"isolanguages",schemaInfo:serviceUrl+"xml.schema.info",getZ3950repositories:serviceUrl+"xml.info?type=z3950repositories",getCategories:serviceUrl+"xml.info?type=categories",getHarvesters:serviceUrl+"xml.harvesting.get",rate:serviceUrl+"xml.metadata.rate",xmlConfig:serviceUrl+"xml.config.get",admin:serviceUrl+"admin",xmlError:serviceUrl+"xml.main.error",searchKeyword:serviceUrl+"xml.search.keywords",getThesaurus:serviceUrl+"xml.thesaurus.getList",getStatus:serviceUrl+"xml.metadata.status.values.list",getKeyword:serviceUrl+"xml.keyword.get",searchCRS:serviceUrl+"crs.search",getCRSTypes:serviceUrl+"crs.types",logoAdd:serviceUrl+"logo.add",logoUrl:this.URL+"/images/logos/",imgUrl:this.URL+"/images/",harvesterLogoUrl:this.URL+"/images/harvesting/"};
 this.extentMap=new GeoNetwork.map.ExtentMap();
 this.addEvents("selectionchange","afterLogin","afterLogout","afterBadLogin","afterBadLogout","afterDelete");
 GeoNetwork.Catalogue.superclass.constructor.call(this,config)
@@ -13667,6 +13869,14 @@ this.onSelectionChange()
 var properties=["name","organization","siteId"];
 var request=OpenLayers.Request.GET({url:this.services.getSiteInfo,async:false});
 if(request.responseXML){var xml=request.responseXML.documentElement;
+Ext.each(properties,function(item,idx){var children=xml.getElementsByTagName(item)[0];
+if(children){info[item]=children.childNodes[0].nodeValue
+}})
+}return info
+},getInspireInfo:function(){var info={};
+var properties=["enable","enableSearchPanel"];
+var request=OpenLayers.Request.GET({url:this.services.getInspireInfo,async:false});
+if(request.responseXML){var xml=request.responseXML.documentElement;
 Ext.each(properties,function(item,idx){info[item]=xml.getElementsByTagName(item)[0].childNodes[0].nodeValue
 })
 }return info
@@ -13676,7 +13886,7 @@ return
 }el=Ext.getDom(this.statusBarId);
 if(el){el.innerHTML=msg;
 return
-}}},search:function(formOrParams,onSuccess,onFailure,startRecord,updateStore,metadataStore,summaryStore){var isCatalogueMdStore=this.metadataStore===metadataStore;
+}}},search:function(formOrParams,onSuccess,onFailure,startRecord,updateStore,metadataStore,summaryStore,async){var isCatalogueMdStore=this.metadataStore===metadataStore;
 if(isCatalogueMdStore){this.updateStatus(OpenLayers.i18n("searching"))
 }if(updateStore!==false){updateStore=true
 }if(!startRecord){startRecord=this.startRecord
@@ -13685,16 +13895,16 @@ if(isCatalogueMdStore){this.updateStatus(OpenLayers.i18n("searching"))
 }if(metadataStore===undefined){metadataStore=this.metadataStore
 }if(summaryStore===undefined){summaryStore=this.summaryStore
 }if(updateStore){metadataStore.removeAll()
-}if(typeof formOrParams==="object"){GeoNetwork.util.SearchTools.doQueryFromParams(formOrParams,this,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore)
-}else{GeoNetwork.util.SearchTools.doQueryFromForm(formOrParams,this,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore)
-}},kvpSearch:function(query,onSuccess,onFailure,startRecord,updateStore,metadataStore,summaryStore){if(updateStore!==false){updateStore=true
+}if(typeof formOrParams==="object"){GeoNetwork.util.SearchTools.doQueryFromParams(formOrParams,this,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore,async)
+}else{GeoNetwork.util.SearchTools.doQueryFromForm(formOrParams,this,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore,async)
+}},kvpSearch:function(query,onSuccess,onFailure,startRecord,updateStore,metadataStore,summaryStore,async){if(updateStore!==false){updateStore=true
 }if(!startRecord){startRecord=this.startRecord
 }if(!onSuccess){onSuccess=Ext.emptyFn
 }if(!onFailure){onFailure=Ext.emptyFn
 }if(!metadataStore){metadataStore=this.metadataStore
 }if(!summaryStore){summaryStore=this.summaryStore
 }if(updateStore){metadataStore.removeAll()
-}GeoNetwork.util.SearchTools.doQuery(query,this,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore)
+}GeoNetwork.util.SearchTools.doQuery(query,this,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore,async)
 },cswSearch:function(formId,onSuccess,onFailure,startRecord){this.metadataCSWStore.removeAll();
 if(onSuccess){onSuccess=Ext.emptyFn
 }if(onFailure){onFailure=Ext.emptyFn
@@ -13725,14 +13935,21 @@ if(nb){app.setSelectedRecords(nb)
 },csvExport:function(){window.open(this.services.csv,this.windowName,this.windowOption)
 },mefExport:function(){location.replace(this.services.mef)
 },pdfExport:function(){location.replace(this.services.pdf)
-},metadataShow:function(uuid,maximized,width,height){var url=this.services.mdView+"?uuid="+uuid;
+},metadataShow:function(uuid,maximized,width,height){var url=this.services.mdView+"?uuid="+escape(uuid);
 var bd=Ext.getBody();
-if(this.resultsView){var win=new GeoNetwork.view.ViewWindow({serviceUrl:url,lang:this.lang,currTab:GeoNetwork.defaultViewMode||"simple",printDefaultForTabs:GeoNetwork.printDefaultForTabs||false,catalogue:this,maximized:maximized||false,metadataUuid:uuid,record:this.metadataStore.getAt(this.metadataStore.find("uuid",uuid)),resultsView:this.resultsView});
+if(this.resultsView){var record=this.metadataStore.getAt(this.metadataStore.find("uuid",uuid));
+if(!record){var store=GeoNetwork.data.MetadataResultsFastStore();
+this.kvpSearch("fast=index&_uuid="+uuid,null,null,null,true,store,null,false);
+record=store.getAt(store.find("uuid",uuid))
+}if(this.metadataShowFn){this.metadataShowFn(uuid,record,url,maximized,width,height)
+}else{var win=new GeoNetwork.view.ViewWindow({serviceUrl:url,lang:this.lang,currTab:GeoNetwork.defaultViewMode||"simple",printDefaultForTabs:GeoNetwork.printDefaultForTabs||false,catalogue:this,maximized:maximized||false,metadataUuid:uuid,record:record,resultsView:this.resultsView});
 win.show(this.resultsView);
 win.alignTo(bd,"tr-tr")
-}else{window.open(this.services.mdShow+"?uuid="+uuid,this.windowName,this.windowOption)
-}},metadataShowById:function(id,maximized,width,height){var url=this.services.mdView+"?id="+id;
-if(this.resultsView){var win=new GeoNetwork.view.ViewWindow({serviceUrl:url,currTab:GeoNetwork.defaultViewMode||"simple",catalogue:this,maximized:maximized||false,resultsView:this.resultsView});
+}}},metadataShowById:function(id,maximized,width,height){var url=this.services.mdView+"?id="+id,record;
+if(this.resultsView){if(!record){var store=GeoNetwork.data.MetadataResultsFastStore();
+this.kvpSearch("fast=index&_id="+id,null,null,null,true,store,null,false);
+record=store.getAt(store.find("id",id))
+}var win=new GeoNetwork.view.ViewWindow({serviceUrl:url,currTab:GeoNetwork.defaultViewMode||"simple",catalogue:this,maximized:maximized||false,record:record,metadataUuid:record?record.get("uuid"):undefined,resultsView:this.resultsView});
 win.show(this.resultsView);
 win.alignTo(Ext.getBody(),"r-r")
 }},metadataXMLShow:function(uuid,schema){var service=this.services.mdXMLGet;
@@ -13763,12 +13980,15 @@ catalogue.doAction(catalogue.services.mdDelete,params,OpenLayers.i18n("deleteRec
 }}})
 },isLoggedIn:function(){var response=OpenLayers.Request.GET({url:this.services.admin,async:false}),exception;
 exception=response.responseText.indexOf("Exception")!==-1;
-if(response.status===200&&!exception){this.identifiedUser={firstName:"TODO",surName:"TODO",role:"admin"};
+if(response.status===200&&!exception){this.identifiedUser={firstName:"",surName:"",role:""};
 this.onAfterLogin();
 return true
 }else{if(response.status===404){this.showError(OpenLayers.i18n("connectIssue"),OpenLayers.i18n("connectIssueMsg")+this.services.rootUrl+".")
-}else{if(exception){this.checkError()
-}else{return false
+}else{if(exception){this.checkError();
+return false
+}else{var cookie=Ext.state.Manager.getProvider();
+if(cookie){cookie.set("user",undefined)
+}return false
 }}}},login:function(username,password){var app=this,user;
 OpenLayers.Request.GET({url:this.services.login,params:{username:username,password:password,info:"true"},success:function(response){user=response.responseXML.getElementsByTagName("record")[0];
 app.identifiedUser={username:user?user.getElementsByTagName("username")[0].firstChild.nodeValue:"-",name:user?user.getElementsByTagName("name")[0].firstChild.nodeValue:"-",surname:user?user.getElementsByTagName("surname")[0].firstChild.nodeValue:"-",role:user?user.getElementsByTagName("profile")[0].firstChild.nodeValue:"guest"};
@@ -13794,19 +14014,24 @@ if(successCb){successCb(app,response)
 return{stack:error.getElementsByTagName("Stack")[0].firstChild.nodeValue,exc:error.getElementsByTagName("Exception")[0].firstChild.nodeValue,resource:error.getElementsByTagName("Resource")[0].firstChild.nodeValue,msg:error.getElementsByTagName("Message")[0].firstChild.nodeValue,provider:error.getElementsByTagName("Provider")[0].firstChild.nodeValue,info:error.getElementsByTagName("Error")[0].firstChild.nodeValue}
 },admin:function(){location.replace(this.adminAppUrl)
 },metadataImport:function(){location.replace(this.services.mdImport)
-},massiveOp:function(type){var url=this.services.massiveOp[type];
-this.modalAction(OpenLayers.i18n("massiveOp")+" - "+type,url)
+},massiveOp:function(type,cb){var url=this.services.massiveOp[type];
+this.modalAction(OpenLayers.i18n("massiveOp")+" - "+type,url,cb)
 },modalAction:function(title,url,cb){if(url){var win=new Ext.Window({id:"modalWindow",layout:"fit",width:700,height:400,closeAction:"destroy",plain:true,modal:true,draggable:false,title:title,items:new Ext.Panel({autoLoad:{url:url,callback:cb,scope:win},border:false,frame:false})});
 win.show(this);
 win.alignTo(Ext.getBody(),"t-t")
 }},metadataAdmin:function(id){var url=this.services.mdAdmin+"?id="+id;
 this.modalAction(OpenLayers.i18n("setPrivileges"),url)
+},metadataStatus:function(id){var url=this.services.mdStatus+"?id="+id;
+this.modalAction(OpenLayers.i18n("setStatus"),url)
+},metadataVersioning:function(id){var url=this.services.mdVersioning+"?id="+id;
+this.modalAction(OpenLayers.i18n("setVersioning"),url)
 },metadataCategory:function(id){var url=this.services.mdCategory+"?id="+id;
 this.modalAction(OpenLayers.i18n("setCategories"),url)
 },metadataPrepareDownload:function(id){var url=this.services.prepareDownload+"?id="+id;
 this.modalAction(OpenLayers.i18n("prepareDownload"),url)
 }});
-Ext.reg("gn_catalogue",GeoNetwork.Catalogue);Ext.namespace("GeoNetwork.util");
+Ext.reg("gn_catalogue",GeoNetwork.Catalogue);
+Ext.namespace("GeoNetwork.util");
 GeoNetwork.util.HelpTools={fields:[{name:"name",mapping:"@name"},{name:"id",mapping:"@id"},{name:"label"},{name:"description"},{name:"help",convert:function(v,record){var descs=[],i,j;
 var n=record.getElementsByTagName("help");
 for(i=0;
@@ -13832,33 +14057,44 @@ if(el[0]&&el[0].getAttribute("error")==="not-found"){return
 var r=pReader.readRecords(response.responseXML);
 if(cb){cb(r)
 }}})
-}};Ext.namespace("GeoNetwork.util");
-GeoNetwork.util.SearchTools={fast:"false",output:"full",sortBy:"relevance",hitsPerPage:"50",doQuery:function(query,cat,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore){OpenLayers.Request.GET({url:cat.services.xmlSearch+"?"+query,success:function(result){if(updateStore){var getRecordsFormat=new OpenLayers.Format.GeoNetworkRecords();
+}};
+Ext.namespace("GeoNetwork.util");
+GeoNetwork.util.SearchTools={fast:"false",output:"full",sortBy:"relevance",hitsPerPage:"50",doQuery:function(query,cat,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore,async){OpenLayers.Request.GET({url:cat.services.rootUrl+metadataStore.service+"?"+query,async:async===false?false:true,success:function(result){if(updateStore){var getRecordsFormat=new OpenLayers.Format.GeoNetworkRecords();
 var currentRecords=getRecordsFormat.read(result.responseText);
 var values=currentRecords.records;
 var isCatalogueMdStore=cat.metadataStore===metadataStore,isCatalogueSStore=cat.summaryStore===summaryStore;
 if(values.length>0){metadataStore.loadData(currentRecords)
 }if(isCatalogueSStore){var summary=currentRecords.summary;
-if(summary&&summary.count>0&&summaryStore){summaryStore.loadData(summary)
+if(summary&&summary.count>0&&summary.keywords.keyword&&summaryStore){summaryStore.loadData(summary)
 }}if(cat&&isCatalogueMdStore){cat.updateStatus(currentRecords.from+"-"+currentRecords.to+OpenLayers.i18n("resultBy")+summary.count)
 }}if(onSuccess){onSuccess(result,query)
 }},failure:function(response){if(onFailure){onFailure(response)
 }}})
-},doQueryFromForm:function(formId,cat,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore){var query=GeoNetwork.util.SearchTools.buildQueryFromForm(Ext.getCmp(formId),startRecord,GeoNetwork.util.SearchTools.sortBy,metadataStore.fast);
-GeoNetwork.util.SearchTools.doQuery(query,cat,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore)
-},doQueryFromParams:function(params,cat,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore){var filters=[],query;
+},doQueryFromForm:function(formId,cat,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore,async){var query=GeoNetwork.util.SearchTools.buildQueryFromForm(Ext.getCmp(formId),startRecord,GeoNetwork.util.SearchTools.sortBy,metadataStore.fast);
+GeoNetwork.util.SearchTools.doQuery(query,cat,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore,async)
+},doQueryFromParams:function(params,cat,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore,async){var filters=[],query;
 GeoNetwork.util.SearchTools.addFiltersFromPropertyMap(params,filters,startRecord);
 query=GeoNetwork.util.SearchTools.buildQueryGET(filters,startRecord,GeoNetwork.util.SearchTools.sortBy,metadataStore.fast);
-GeoNetwork.util.SearchTools.doQuery(query,cat,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore)
+GeoNetwork.util.SearchTools.doQuery(query,cat,startRecord,onSuccess,onFailure,updateStore,metadataStore,summaryStore,async)
 },buildQueryFromForm:function(form,startRecord,sortBy,fast){var values=GeoNetwork.util.SearchTools.getFormValues(form);
 var filters=[];
 GeoNetwork.util.SearchTools.addFiltersFromPropertyMap(values,filters,startRecord);
 return GeoNetwork.util.SearchTools.buildQueryGET(filters,startRecord,sortBy,fast)
 },populateFormFromParams:function(form,map){form.cascade(function(cur){if(cur.getName){var name=cur.getName();
-if(name.indexOf("_")!==-1){name=name.substring(2);
-if(map[name]){cur.setValue(map[name])
-}}else{if(map[name]){cur.setValue(map[name])
-}}}})
+if(map[name]){var value=map[name];
+if(cur.getXType()==="superboxselect"){if(value.indexOf(" or ")!==-1){value=value.split(" or ")
+}if(cur.mode==="local"){cur.getStore().on("load",function(){cur.setValue(value)
+});
+cur.setValue(value)
+}else{cur.setValue(value,true)
+}}else{if(name==="E_sortBy"){var cb=cur.linkedCombo;
+if(map.E_sortOrder){cb.setValue(value+"#"+map.E_sortOrder)
+}else{var idx=cb.getStore().find("id",new RegExp(value+"*"));
+if(idx!==-1){cb.setValue(cb.getStore().getAt(idx).id)
+}}}else{cur.setValue(value)
+}}Ext.each(cur.findParentByType("fieldset"),function(f){if(f.rendered&&f.collapsed){f.expand()
+}})
+}}})
 },addFiltersFromPropertyMap:function(values,filters,startRecord){var defaultSimilarity=".8",key,similarity=values.E_similarity,hits=values.E_hitsperpage;
 if(similarity!==undefined){defaultSimilarity=values.E_similarity;
 GeoNetwork.util.SearchTools.addFilter(filters,"E_similarity",defaultSimilarity)
@@ -13869,11 +14105,10 @@ GeoNetwork.util.SearchTools.addFilter(filters,"E_to",to);
 for(key in values){if(values.hasOwnProperty(key)){var value=values[key];
 if(value!==""&&key!=="E_similarity"){GeoNetwork.util.SearchTools.addFilter(filters,key,value)
 }}}},addFilter:function(filters,key,value){var field=key.match("^(\\[?)([^_]+)_(.*)$"),i,or=[];
-if(field){if(field[1]==="["){var values=value.split(",");
+if(field){var list=field[3].split("|");
 for(i=0;
-i<values.length;
-++i){GeoNetwork.util.SearchTools.addFilterImpl(values.length>1?or:filters,field[2],field[3],values[i])
-}}else{GeoNetwork.util.SearchTools.addFilterImpl(filters,field[2],field[3],value)
+i<list.length;
+++i){GeoNetwork.util.SearchTools.addFilterImpl(filters,field[2],list[i],value)
 }}},addFilterImpl:function(filters,type,name,value){if(type.charAt(0)==="E"){filters.push(name+"="+encodeURIComponent(value)+"")
 }else{if(type==="B"){filters.push(name+"="+(value?"on":"off")+"")
 }else{if(type==="O"){if(value){filters.push(name+"=on")
@@ -13881,19 +14116,19 @@ i<values.length;
 }}}},sortByMappings:{relevance:{name:"relevance",order:""},rating:{name:"changeDate",order:""},popularity:{name:"popularity",order:""},date:{name:"date",order:""},title:{name:"title",order:"reverse"}},buildQueryGET:function(filter,startRecord,sortBy,fast){var query="fast="+(fast?fast:GeoNetwork.util.SearchTools.fast)+"&";
 if(filter){query+=filter.join("&")
 }return query
-},getFormValues:function(form){var result=form.getForm().getValues()||{};
-form.cascade(function(cur){if(cur.disabled!==true&&cur.rendered){if(cur.isXType("boxselect")){if(cur.getValue&&cur.getValue()){result[cur.getName()]=cur.getValue()
-}}else{if(cur.isXType("combo")){if(cur.getValue&&cur.getValue()){result[cur.getName()]=cur.getValue()
+},getFormValues:function(form){var result={};
+form.cascade(function(cur){if(cur.disabled!==true&&!(cur.getName&&cur.getName().startsWith("ext-comp"))){if(cur.isXType("boxselect")||cur.isXType("combo")){if(cur.getValue&&cur.getValue()&&cur.getValue()!==""){result[cur.getName()]=cur.getValue()
 }}else{if(cur.isXType("fieldset")){if(cur.checkbox){result[cur.checkboxName]=!cur.collapsed
 }}else{if(cur.isXType("radiogroup")){var first=cur.items.get(0);
 result[first.getName()]=first.getGroupValue()
 }else{if(cur.isXType("checkbox")){result[cur.getName()]=cur.getValue()
 }else{if(cur.isXType("datefield")){if(cur.getValue()!==""){result[cur.getName()]=cur.getValue().format("Y-m-d")+(cur.postfix?cur.postfix:"")
-}}else{if(cur.getName){if(cur.getValue&&cur.getValue()!==""){result[cur.getName()]=cur.getValue()
-}}}}}}}}}return true
+}}else{if(cur.isXType("multislider")){}else{if(cur.getValue&&cur.getValue()&&cur.getValue()!==""){result[cur.getName()]=cur.getValue()
+}else{}}}}}}}}return true
 });
 return result
-}};var translations={};
+}};
+var translations={};
 function translate(text){return translations[text]||text
 }function checkAllInputsIn(id,checked){var list=Ext.getDom(id).getElementsByTagName("input"),i;
 for(i=0;
@@ -13908,6 +14143,16 @@ if(service==="metadata.admin"||service==="metadata.category"){pars+="id="+Ext.ge
 }});
 catalogue.doAction(service+pars,null,null,title,function(response){Ext.getDom(div).innerHTML=response.responseText;
 if(service==="metadata.admin"||service==="metadata.category"){Ext.getCmp("modalWindow").close()
+}},null)
+}function radioModalUpdate(div,service,modalbox,title){var pars="?";
+var inputs=Ext.DomQuery.select('input[type="hidden"],textarea,select',div);
+Ext.each(inputs,function(s){pars+="&"+s.name+"="+s.value
+});
+var radios=Ext.DomQuery.select('input[type="radio"]',div);
+Ext.each(radios,function(s){if(s.checked){pars+="&"+s.name+"="+s.value
+}});
+catalogue.doAction(service+pars,null,null,title,function(response){Ext.getDom(div).innerHTML=response.responseText;
+if(service==="metadata.status"){Ext.getCmp("modalWindow").close()
 }},null)
 }function addGroups(xmlRes){var list=xmlRes.getElementsByTagName("group"),i;
 Ext.getDom("group").options.length=0;
@@ -13950,8 +14195,19 @@ return
 catalogue.doAction(catalogue.services.fileDownload+"?"+Ext.Ajax.serializeForm(f),null,null,null,function(response){Ext.getDom("feedbackf").parentNode.innerHTML=response.responseText
 })
 }function goSubmit(form_name){document.forms[form_name].submit()
-};Ext.namespace("GeoNetwork.util");
-GeoNetwork.util.INSPIRESearchFormTools={getAnnexField:function(multi){var annexes=[["i","I"],["ii","II"],["iii","III"]],config={id:"inspireannex",name:"E_inspireannex",mode:"local",triggerAction:"all",fieldLabel:OpenLayers.i18n("inspireannex"),store:new Ext.data.ArrayStore({id:0,fields:["id","label"],data:annexes}),valueField:"id",displayField:"label"};
+}function checkBatchNewOwner(action,title){if(Ext.getDom("user").value==""){Ext.Msg.alert(title,"selectNewOwner");
+return false
+}if(Ext.getDom("group").value==""){Ext.Msg.alert(title,"selectOwnerGroup");
+return false
+}catalogue.doAction(catalogue.services.metadataMassiveNewOwner+"?"+Ext.Ajax.serializeForm(Ext.getDom("batchnewowner")),null,null,null,function(response){Ext.getDom("batchnewowner").parentNode.innerHTML=response.responseText
+})
+}Ext.namespace("GeoNetwork.util");
+GeoNetwork.util.INSPIRESearchFormTools={getServiceTypeField:function(multi){var serviceTypes=[["discovery",OpenLayers.i18n("serviceType_discovery")],["view",OpenLayers.i18n("serviceType_view")],["transformation",OpenLayers.i18n("serviceType_transformation")],["invoke",OpenLayers.i18n("serviceType_invoke")],["other",OpenLayers.i18n("serviceType_other")]];
+config={id:"serviceType",name:"E_serviceType",mode:"local",triggerAction:"all",fieldLabel:OpenLayers.i18n("serviceType"),store:new Ext.data.ArrayStore({id:0,fields:["id","label"],data:serviceTypes}),valueField:"id",displayField:"label"};
+if(multi){Ext.apply(config,{valueDelimiter:" or "});
+return new Ext.ux.form.SuperBoxSelect(config)
+}else{return new Ext.form.ComboBox(config)
+}},getAnnexField:function(multi){var annexes=[["i","I"],["ii","II"],["iii","III"]],config={id:"inspireannex",name:"E_inspireannex",mode:"local",triggerAction:"all",fieldLabel:OpenLayers.i18n("inspireannex"),store:new Ext.data.ArrayStore({id:0,fields:["id","label"],data:annexes}),valueField:"id",displayField:"label"};
 if(multi){Ext.apply(config,{valueDelimiter:" or "});
 return new Ext.ux.form.SuperBoxSelect(config)
 }else{return new Ext.form.ComboBox(config)
@@ -13967,14 +14223,30 @@ var config={id:"inspiretheme",name:"E_inspiretheme",mode:"local",triggerAction:"
 if(multi){Ext.apply(config,{valueDelimiter:" or ",stackItems:true});
 return new Ext.ux.form.SuperBoxSelect(config)
 }else{return new Ext.form.ComboBox(config)
-}},getINSPIREFields:function(services,multi){return[this.getAnnexField(multi),this.getThemesField(services,multi),this.getRelatedField()]
-}};Ext.namespace("GeoNetwork.util");
-GeoNetwork.util.SearchFormTools={getSimpleFormFields:function(services,layers,mapOptions,withTypes,activeMapControlExtent,typeCodelist){var fields=[];
+}},getClassificationDataServicesField:function(services,multi){var Keyword,classificationDataServicesStore;
+Keyword=Ext.data.Record.create([{name:"id"},{name:"value"},{name:"definition"},{name:"uri"}]);
+classificationDataServicesStore=new Ext.data.Store({proxy:new Ext.data.HttpProxy({url:services.searchKeyword,method:"GET"}),baseParams:{pNewSearch:true,pTypeSearch:1,pKeyword:"*",pThesauri:"external.theme.inspire-service-taxonomy",pMode:"searchBox",maxResults:"35"},reader:new Ext.data.XmlReader({record:"keyword",id:"id"},Keyword),fields:["id","value","definition","uri"],sortInfo:{field:"value"}});
+classificationDataServicesStore.load();
+var config={id:"keyword",name:"E_keyword",mode:"local",triggerAction:"all",fieldLabel:OpenLayers.i18n("inspireClassificationDataServices"),store:classificationDataServicesStore,valueField:"value",displayField:"value"};
+if(multi){Ext.apply(config,{valueDelimiter:" or ",stackItems:true});
+return new Ext.ux.form.SuperBoxSelect(config)
+}else{return new Ext.form.ComboBox(config)
+}},getINSPIREFields:function(services,multi,config){if(!config){return[this.getAnnexField(multi),this.getServiceTypeField(multi),this.getClassificationDataServicesField(services,multi),this.getThemesField(services,multi),this.getRelatedField()]
+}else{var f=[];
+config.withAnnex&&f.push(this.getAnnexField(multi));
+config.withServiceType&&f.push(this.getServiceTypeField(multi));
+config.withDataService&&f.push(this.getClassificationDataServicesField(services,multi));
+config.withTheme&&f.push(this.getThemesField(services,multi));
+config.withRelated&&f.push(this.getRelatedField());
+return f
+}}};
+Ext.namespace("GeoNetwork.util");
+GeoNetwork.util.SearchFormTools={getSimpleFormFields:function(services,layers,mapOptions,withTypes,activeMapControlExtent,typeCodelist,mapPanelOptions,withRelation,optionsConfig){var fields=[];
 if(services){fields.push(new GeoNetwork.form.OpenSearchSuggestionTextField({hideLabel:true,width:285,minChars:2,loadingText:"...",hideTrigger:true,url:services.opensearchSuggest,listeners:{}}))
 }else{fields.push(GeoNetwork.util.SearchFormTools.getFullTextField())
 }if(withTypes){fields.push(GeoNetwork.util.SearchFormTools.getTypesField(typeCodelist,true))
-}if(layers){fields.push(GeoNetwork.util.SearchFormTools.getSimpleMap(layers,mapOptions,activeMapControlExtent))
-}fields.push(GeoNetwork.util.SearchFormTools.getOptions());
+}if(layers){fields.push(GeoNetwork.util.SearchFormTools.getSimpleMap(layers,mapOptions,activeMapControlExtent,mapPanelOptions,withRelation))
+}fields.push(GeoNetwork.util.SearchFormTools.getOptions(services,optionsConfig));
 return fields
 },getAdvancedFormFields:function(services,layers,mapOptions){var fields=[],fullTextField,themekeyField,orgNameField;
 if(services){fullTextField=new GeoNetwork.form.OpenSearchSuggestionTextField({hideLabel:true,width:285,minChars:2,loadingText:"...",hideTrigger:true,url:services.opensearchSuggest});
@@ -14004,30 +14276,41 @@ var catalogueField=GeoNetwork.util.SearchFormTools.getCatalogueField(services.ge
 var groupField=GeoNetwork.util.SearchFormTools.getGroupField(services.getGroups);
 var metadataTypeField=GeoNetwork.util.SearchFormTools.getMetadataTypeField();
 var categoryField=GeoNetwork.util.SearchFormTools.getCategoryField(services.getCategories,null,true);
-var options=GeoNetwork.util.SearchFormTools.getOptions();
+var options=GeoNetwork.util.SearchFormTools.getOptions(services);
 fields.push(fullTextField,advancedTextField,titleField,abstractField,themekeyField,orgNameField,geoFields,types,mapTypes,denominatorField,when,catalogueField,groupField,metadataTypeField,categoryField,options,accuracySettings);
 return fields
-},getSimpleMap:function(layers,mapOptions,activeMapControlExtent){var fields=[],mapLayers=[],i;
-var geomField=new Ext.form.TextField({name:"E_geometry",id:"geometry",inputType:"hidden"});
+},getSimpleMap:function(layers,mapOptions,activeMapControlExtent,panelConfig,withRelation){var fields=[],mapLayers=[],i;
 for(i=0;
 i<layers.length;
 i++){mapLayers.push(layers[i].clone())
-}var geomWithMapField={xtype:"gn_geometrymapfield",geometryFieldId:"geometry",id:"geometryMap",width:290,layers:mapLayers,mapOptions:mapOptions,activated:activeMapControlExtent};
-fields.push(geomField,geomWithMapField);
-return fields
-},getOptions:function(hitsPerPageOptions){var hitsPerPage=hitsPerPageOptions||[["10"],["20"],["50"],["100"]];
-var sortByFields=GeoNetwork.util.SearchFormTools.getSortByCombo();
-var hitsPerPageField=new Ext.form.ComboBox({id:"E_hitsperpage",name:"E_hitsperpage",mode:"local",triggerAction:"all",fieldLabel:OpenLayers.i18n("hitsPerPage"),value:hitsPerPage[1],store:new Ext.data.ArrayStore({id:0,fields:["id"],data:hitsPerPage}),valueField:"id",displayField:"id"});
-var options=new Ext.form.FieldSet({title:"Options",autoWidth:true,collapsible:true,collapsed:true,defaults:{width:160},items:[sortByFields,hitsPerPageField]});
+}var geomWithMapField={xtype:"gn_geometrymapfield",id:"geometryMap",layers:mapLayers,mapOptions:mapOptions,activated:activeMapControlExtent};
+if(panelConfig){Ext.applyIf(geomWithMapField,panelConfig)
+}fields.push(geomWithMapField);
+if(withRelation){fields.push(GeoNetwork.util.SearchFormTools.getRelationField())
+}return fields
+},getOptions:function(services,cfg){var config={};
+Ext.applyIf(config,cfg);
+var hitsPerPage=config.hitsPerPage||[["10"],["20"],["50"],["100"]],items=[];
+if(config.withLanguage){items.push(GeoNetwork.util.SearchFormTools.getRequestedLanguageCombo(services.getIsoLanguages))
+}items.push(GeoNetwork.util.SearchFormTools.getSortByCombo());
+items.push(new Ext.form.ComboBox({id:"E_hitsperpage",name:"E_hitsperpage",mode:"local",triggerAction:"all",fieldLabel:OpenLayers.i18n("hitsPerPage"),value:hitsPerPage[1],store:new Ext.data.ArrayStore({id:0,fields:["id"],data:hitsPerPage}),valueField:"id",displayField:"id"}));
+var options=new Ext.form.FieldSet({title:OpenLayers.i18n("options"),autoWidth:true,collapsible:true,collapsed:true,defaults:{width:160},items:items});
 return options
-},getSortByCombo:function(){var sortByField=new Ext.form.TextField({name:"E_sortBy",id:"E_sortBy",inputType:"hidden"});
-var sortOrderField=new Ext.form.TextField({name:"E_sortOrder",id:"sortOrder",inputType:"hidden"});
-var combo=new Ext.form.ComboBox({mode:"local",fieldLabel:OpenLayers.i18n("sortBy"),triggerAction:"all",value:"relevance",store:GeoNetwork.util.SearchFormTools.getSortByStore(),valueField:"id",displayField:"name",listeners:{change:function(cb,newValue,oldValue){var tokens=newValue.split("#");
+},getRequestedLanguageCombo:function(url){var lang=GeoNetwork.Util.getCatalogueLang(OpenLayers.Lang.getCode()),languageStore=GeoNetwork.data.LanguageStore(url,lang),tpl='<tpl for="."><div class="x-combo-list-item">{[values.label.'+lang+"]}</div></tpl>",c=new Ext.form.ComboBox({name:"E_requestedLanguage",mode:"local",triggerAction:"all",fieldLabel:OpenLayers.i18n("language"),store:languageStore,valueField:"code",displayField:"name",tpl:tpl});
+languageStore.on("load",function(){c.setValue(lang)
+});
+languageStore.load();
+return c
+},getSortByCombo:function(defaultValue){var store=GeoNetwork.util.SearchFormTools.getSortByStore();
+var combo=new Ext.form.ComboBox({mode:"local",fieldLabel:OpenLayers.i18n("sortBy"),triggerAction:"all",store:store,valueField:"id",displayField:"name",listeners:{change:function(cb,newValue,oldValue){var tokens=newValue.split("#");
 sortByField.setValue(tokens[0]);
 sortOrderField.setValue(tokens[1])
 }}});
+var sortByField=new Ext.form.TextField({name:"E_sortBy",id:"E_sortBy",inputType:"hidden",linkedCombo:combo});
+var sortOrderField=new Ext.form.TextField({name:"E_sortOrder",id:"sortOrder",inputType:"hidden",linkedCombo:combo});
+combo.setValue(defaultValue||"relevance#");
 return[sortByField,sortOrderField,combo]
-},getSortByStore:function(){return new Ext.data.ArrayStore({id:0,fields:["id","name"],data:[["relevance#",OpenLayers.i18n("relevance")],["title#reverse",OpenLayers.i18n("title")],["changeDate#",OpenLayers.i18n("changeDate")],["rating#",OpenLayers.i18n("rating")],["popularity#",OpenLayers.i18n("popularity")],["denominator#",OpenLayers.i18n("scaleDesc")],["denominator#revers",OpenLayers.i18n("scaleAsc")]]})
+},getSortByStore:function(defaultValue){return new Ext.data.ArrayStore({id:0,fields:["id","name"],data:[["relevance#",OpenLayers.i18n("relevance")],["title#reverse",OpenLayers.i18n("title")],["changeDate#",OpenLayers.i18n("changeDate")],["rating#",OpenLayers.i18n("rating")],["popularity#",OpenLayers.i18n("popularity")],["denominator#",OpenLayers.i18n("scaleDesc")],["denominator#reverse",OpenLayers.i18n("scaleAsc")]]})
 },getFullTextField:function(){return new Ext.form.TextField({name:"E_any",id:"E_any",fieldLabel:OpenLayers.i18n("fullTextSearch"),hideLabel:false})
 },getTitleField:function(){return GeoNetwork.util.SearchFormTools.getTextField("E_title",OpenLayers.i18n("title"))
 },getAbstractField:function(){return GeoNetwork.util.SearchFormTools.getTextField("E_abstract",OpenLayers.i18n("abstract"))
@@ -14040,21 +14323,23 @@ var config={name:"E_siteId",mode:"local",triggerAction:"all",fieldLabel:OpenLaye
 if(multi){Ext.apply(config,{valueDelimiter:" or ",stackItems:true,displayFieldTpl:'<img style="max-width:16px;" src="'+logoUrl+'{id}.gif"/>{name}'});
 return new Ext.ux.form.SuperBoxSelect(config)
 }else{return new Ext.form.ComboBox(config)
-}},getGroupField:function(url,multi){var groupStore=GeoNetwork.data.GroupStore(url),tpl='<tpl for="."><div class="x-combo-list-item">{[values.label.'+OpenLayers.Lang.getCode()+"]}</div></tpl>";
+}},getGroupField:function(url,multi){var lang=GeoNetwork.Util.getCatalogueLang(OpenLayers.Lang.getCode());
+var groupStore=GeoNetwork.data.GroupStore(url),tpl='<tpl for="."><div class="x-combo-list-item">{[values.label.'+lang+"]}</div></tpl>";
 groupStore.load();
 var config={name:"E_group",mode:"local",triggerAction:"all",fieldLabel:OpenLayers.i18n("group"),store:groupStore,valueField:"id",displayField:"name",tpl:tpl};
-if(multi){Ext.apply(config,{valueDelimiter:" or ",stackItems:true,displayFieldTpl:"{[values.label."+OpenLayers.Lang.getCode()+"]}"});
+if(multi){Ext.apply(config,{valueDelimiter:" or ",stackItems:true,displayFieldTpl:"{[values.label."+lang+"]}"});
 return new Ext.ux.form.SuperBoxSelect(config)
 }else{return new Ext.form.ComboBox(config)
 }},getMetadataTypeField:function(multi){var config={name:"E_template",mode:"local",triggerAction:"all",fieldLabel:OpenLayers.i18n("kind"),store:new Ext.data.ArrayStore({id:0,fields:["id","name"],data:[["n",OpenLayers.i18n("md")],["y",OpenLayers.i18n("tpl")]]}),valueField:"id",displayField:"name"};
 if(multi){Ext.apply(config,{valueDelimiter:" or "});
 return new Ext.ux.form.SuperBoxSelect(config)
 }else{return new Ext.form.ComboBox(config)
-}},getCategoryField:function(url,imgUrl,multi){var store=GeoNetwork.data.CategoryStore(url);
+}},getCategoryField:function(url,imgUrl,multi){var lang=GeoNetwork.Util.getCatalogueLang(OpenLayers.Lang.getCode());
+var store=GeoNetwork.data.CategoryStore(url);
 store.load();
-var tpl=(imgUrl?'<tpl for="."><div class="x-combo-list-item"><img src="'+imgUrl+'{name}.png"/>{[values.label.'+OpenLayers.Lang.getCode()+"]}</div></tpl>":'<tpl for="."><div class="x-combo-list-item">{[values.label.'+OpenLayers.Lang.getCode()+"]}</div></tpl>");
+var tpl=(imgUrl?'<tpl for="."><div class="x-combo-list-item"><img src="'+imgUrl+'{name}.png"/>{[values.label.'+lang+"]}</div></tpl>":'<tpl for="."><div class="x-combo-list-item">{[values.label.'+lang+"]}</div></tpl>");
 var config={name:"E_category",mode:"local",fieldLabel:OpenLayers.i18n("category"),triggerAction:"all",store:store,valueField:"name",displayField:"name",tpl:tpl};
-if(multi){var displaytpl=(imgUrl?'<img src="'+imgUrl+'{name}.png"/>{[values.label.'+OpenLayers.Lang.getCode()+"]}":"{[values.label."+OpenLayers.Lang.getCode()+"]}");
+if(multi){var displaytpl=(imgUrl?'<img src="'+imgUrl+'{name}.png"/>{[values.label.'+lang+" || values]}":"{[values.label."+lang+"]}");
 Ext.apply(config,{valueDelimiter:" or ",stackItems:true,displayFieldTpl:displaytpl});
 return new Ext.ux.form.SuperBoxSelect(config)
 }else{return new Ext.form.ComboBox(config)
@@ -14103,7 +14388,7 @@ var denominatorFrom=new Ext.form.Field({name:"E_denominatorFrom",value:"",hidden
 var denominatorTo=new Ext.form.Field({name:"E_denominatorTo",value:"",hidden:true});
 var slider=new Ext.slider.MultiSlider({disabled:disabled?true:false,width:width,minValue:min,maxValue:max,increment:increment,values:[min,max],formFields:[denominatorFrom,denominatorTo],plugins:tip,listeners:{change:function(sliders,newValue,thumb){sliders.formFields[thumb.index].setValue(newValue)
 }}});
-var scaleCk=new Ext.form.Checkbox({fieldLabel:OpenLayers.i18n("scale"),value:disabled?true:false,handler:function(ch,checked){slider.setDisabled(!checked);
+var scaleCk=new Ext.form.Checkbox({fieldLabel:OpenLayers.i18n("scale"),name:"scaleOn",value:disabled?true:false,handler:function(ch,checked){slider.setDisabled(!checked);
 if(!checked){denominatorFrom.setValue("");
 denominatorTo.setValue("")
 }}});
@@ -14114,15 +14399,24 @@ return[{hideLabel:true,boxLabel:OpenLayers.i18n("digital"),name:"B_digital"},{hi
 if(multi){Ext.apply(config,{valueDelimiter:" or "});
 return new Ext.ux.form.SuperBoxSelect(config)
 }else{return new Ext.form.ComboBox(config)
-}},getTypesField:function(codeList,multi){var defaultCodeList=[["dataset",OpenLayers.i18n("dataset")],["series",OpenLayers.i18n("series")],["service",OpenLayers.i18n("service")]],config={name:"E_type",mode:"local",autoSelect:false,triggerAction:"all",fieldLabel:OpenLayers.i18n("resourceType"),store:new Ext.data.ArrayStore({id:0,fields:["id","name"],data:codeList||defaultCodeList}),valueField:"id",displayField:"name"};
-if(multi){Ext.apply(config,{valueDelimiter:" or "});
+}},getStatusField:function(url,multi){var lang=GeoNetwork.Util.getCatalogueLang(OpenLayers.Lang.getCode());
+var store=GeoNetwork.data.StatusStore(url);
+store.load();
+var tpl='<tpl for="."><div class="x-combo-list-item">{[values.label.'+lang+"]}</div></tpl>";
+var config={id:"E__status",name:"E__status",mode:"local",autoSelect:false,triggerAction:"all",fieldLabel:OpenLayers.i18n("status"),store:store,valueField:"id",displayField:"label",tpl:tpl};
+if(multi){Ext.apply(config,{valueDelimiter:" or ",displayFieldTpl:"{[values.label."+lang+"]}"});
+return new Ext.ux.form.SuperBoxSelect(config)
+}else{return new Ext.form.ComboBox(config)
+}},getTypesField:function(codeList,multi){var defaultCodeList=[["dataset",OpenLayers.i18n("dataset")],["series",OpenLayers.i18n("series")],["service",OpenLayers.i18n("service")],["model",OpenLayers.i18n("featureCat")]],config={name:"E_type",mode:"local",autoSelect:false,triggerAction:"all",fieldLabel:OpenLayers.i18n("resourceType"),store:new Ext.data.ArrayStore({id:0,fields:["id","name"],data:codeList||defaultCodeList}),valueField:"id",displayField:"name"};
+if(multi){Ext.apply(config,{valueDelimiter:" or ",allowAddNewData:true});
 return new Ext.ux.form.SuperBoxSelect(config)
 }else{return new Ext.form.ComboBox(config)
 }},getSpatialRepresentationTypeField:function(codeList,multi){var defaultCodeList=[["grid",OpenLayers.i18n("grid")],["stereoModel",OpenLayers.i18n("stereoModel")],["tin",OpenLayers.i18n("tin")],["textTabled",OpenLayers.i18n("textTable")],["vector",OpenLayers.i18n("vector")],["video",OpenLayers.i18n("video")]],config={name:"E_spatialRepresentationType",mode:"local",autoSelect:false,triggerAction:"all",fieldLabel:OpenLayers.i18n("spatialRepType"),store:new Ext.data.ArrayStore({id:0,fields:["id","name"],data:codeList||defaultCodeList}),valueField:"id",displayField:"name"};
 if(multi){Ext.apply(config,{valueDelimiter:" or "});
 return new Ext.ux.form.SuperBoxSelect(config)
 }else{return new Ext.form.ComboBox(config)
-}}};Ext.namespace("GeoNetwork.util");
+}}};
+Ext.namespace("GeoNetwork.util");
 GeoNetwork.util.CSWSearchTools={cswMethod:"POST",resultsMode:"results_with_summary",sortBy:"",maxRecords:"50",doCSWQueryFromForm:function(formId,cat,recordNum,onSuccess,onFailure,addFilters){var url=cat.services.csw;
 var query=GeoNetwork.util.CSWSearchTools.buildCSWQueryFromForm(GeoNetwork.util.CSWSearchTools.cswMethod,Ext.getCmp(formId),recordNum,GeoNetwork.util.CSWSearchTools.sortBy,addFilters);
 if(GeoNetwork.util.CSWSearchTools.cswMethod==="POST"){var getQuery=GeoNetwork.util.CSWSearchTools.buildCSWQueryFromForm("GET",Ext.getCmp(formId),recordNum,GeoNetwork.util.CSWSearchTools.sortBy,addFilters);
@@ -14201,9 +14495,11 @@ result[first.getName()]=first.getGroupValue()
 }}}}}}}}}return true
 });
 return result
-}};Ext.namespace("GeoNetwork.data");
+}};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.CatalogueSourceStore=function(url){return new Ext.data.XmlStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"GET",url:url,disableCaching:false}),record:"source",idPath:"id",fields:[{name:"id",mapping:"uuid"},{name:"name"}]})
-};Ext.namespace("GeoNetwork.data");
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.CategoryStore=function(url){function getLabel(v,record){var labels={};
 var label=record.getElementsByTagName("label");
 var i;
@@ -14215,7 +14511,8 @@ i<len;
 if(child.nodeType===1){labels[child.nodeName]=child.firstChild.nodeValue
 }}}return labels
 }return new Ext.data.XmlStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"GET",url:url,disableCaching:false}),record:"category",idPath:"id",fields:[{name:"id",mapping:"@id"},{name:"name"},{name:"label",convert:getLabel}]})
-};Ext.namespace("GeoNetwork.data");
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.CodeListStore=function(config){var schema=config.schema||"iso19139";
 var requestBody='<request><codelist schema="'+schema+'" name="'+config.codeListName+'" /></request>';
 var model=[{name:"code"},{name:"label"},{name:"description"}];
@@ -14228,7 +14525,8 @@ i++){var record=new DataRecord({code:help[i].getElementsByTagName("code")[0].fir
 store.add(record)
 }}});
 return store
-};Ext.namespace("GeoNetwork.data");
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.GroupStore=function(url){function getLabel(v,record){var labels={};
 var i;
 var label=record.getElementsByTagName("label");
@@ -14240,7 +14538,8 @@ i<len;
 if(child.nodeType===1){labels[child.nodeName]=child.firstChild.nodeValue
 }}}return labels
 }return new Ext.data.XmlStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"GET",url:url,disableCaching:false}),record:"group",idPath:"id",fields:[{name:"id",mapping:"@id"},{name:"name"},{name:"description"},{name:"email"},{name:"referrer"},{name:"label",convert:getLabel}]})
-};Ext.namespace("GeoNetwork.data");
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.HarvesterStore=function(url){function getCategories(v,record){var categories=[],i,catNode=record.getElementsByTagName("categories");
 if(catNode.length===1){var cats=catNode[0].getElementsByTagName("category");
 for(i=0;
@@ -14258,7 +14557,32 @@ var pReader=new Ext.data.XmlReader({record:"group"},Privilege);
 var r=pReader.readRecords(record);
 return r
 }return new Ext.data.XmlStore({autoDestroy:true,url:url,record:"node",idPath:"@id",fields:[{name:"id",mapping:"@id"},{name:"type",mapping:"@type"},{name:"site_name",mapping:"site/name"},{name:"site_uuid",mapping:"site/uuid"},{name:"site_host",mapping:"site/host"},{name:"site_servlet",mapping:"site/servlet"},{name:"site_port",mapping:"site/port"},{name:"site_url",mapping:"site/url"},{name:"site_icon",mapping:"site/icon"},{name:"site_ogctype",mapping:"site/ogctype"},{name:"options_lang",mapping:"options/lang"},{name:"options_topic",mapping:"options/topic"},{name:"options_createthumbnails",mapping:"options/createthumbnails"},{name:"options_uselayer",mapping:"options/uselayer"},{name:"options_uselayermd",mapping:"options/uselayermd"},{name:"options_datasetcategory",mapping:"options/datasetcategory"},{name:"privileges",convert:getPrivileges},{name:"categories",convert:getCategories},{name:"site_account_use",mapping:"site/account/use"},{name:"site_account_username",mapping:"site/account/username"},{name:"site_account_password",mapping:"site/account/password"},{name:"options_every",mapping:"options/every"},{name:"options_onerunonly",mapping:"options/onerunonly"},{name:"options_status",mapping:"options/status"},{name:"info_lastrun",mapping:"info/lastRun"},{name:"info_running",mapping:"info/running"},{name:"info_result_total",mapping:"info/result/total"},{name:"info_result_added",mapping:"info/result/added"},{name:"info_result_layer",mapping:"info/result/layer"},{name:"info_result_layerUuidExist",mapping:"info/result/layerUuidExist"},{name:"info_result_layerUsingMdUrl",mapping:"info/result/layerUsingMdUrl"},{name:"info_result_unknownSchema",mapping:"info/result/unknownSchema"},{name:"info_result_removed",mapping:"info/result/removed"},{name:"info_result_unretrievable",mapping:"info/result/unretrievable"},{name:"info_result_badFormat",mapping:"info/result/badFormat"},{name:"info_result_doesNotValidate",mapping:"info/result/doesNotValidate"},{name:"info_result_thumbnails",mapping:"info/result/thumbnails"},{name:"info_result_thumbnailsFailed",mapping:"info/result/thumbnailsFailed"},{name:"error_message",mapping:"error/message"},{name:"error_class",mapping:"error/class"},{name:"error_stack"}]})
-};Ext.namespace("GeoNetwork.data");
+};
+Ext.namespace("GeoNetwork.data");
+GeoNetwork.data.LanguageStore=function(url,lang){var ln=lang;
+function getLabel(v,record){var labels={};
+var i;
+var label=record.getElementsByTagName("label");
+if(label.length===1){var children=label[0].childNodes;
+var child;
+for(i=0,len=children.length;
+i<len;
+++i){child=children[i];
+if(child.nodeType===1){labels[child.nodeName]=child.firstChild.nodeValue
+}}}return labels
+}function getName(v,record){var labels={};
+var i;
+var label=record.getElementsByTagName("label");
+if(label.length===1){var children=label[0].childNodes;
+var child;
+for(i=0,len=children.length;
+i<len;
+++i){child=children[i];
+if((child.nodeType===1)&&(child.nodeName==ln)){return child.firstChild.nodeValue
+}}}return""
+}return new Ext.data.XmlStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"GET",url:url,disableCaching:false}),record:"record ",idPath:"id",fields:[{name:"id"},{name:"code"},{name:"label",convert:getLabel},{name:"name",convert:getName}]})
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.MetadataCSWResultsStore=function(){function getThumbnails(v,record){var i,uri;
 if(record.URI){for(i=0;
 i<record.URI.length;
@@ -14287,12 +14611,14 @@ if(uri.protocol&&uri.protocol.indexOf("http-get-capabilities")!==-1){return uri.
 }}function getEdit(v,record){if(record.geonet_info&&record.geonet_info.edit){return record.geonet_info.edit
 }else{return"false"
 }}return new Ext.data.JsonStore({totalProperty:"SearchResults.numberOfRecordsMatched",root:"records",fields:[{name:"title",mapping:"title[0].value",defaultValue:""},{name:"abstract",mapping:"abstract",defaultValue:""},{name:"subject",mapping:"subject"},{name:"uuid",mapping:"identifier[0].value",defaultValue:""},{name:"thumbnail",convert:getThumbnails},{name:"uri",mapping:"uri",defaultValue:""},{name:"getCapabilitiesUrl",convert:getCapabilitiesUrl},{name:"isharvested",convert:getIsHarvested},{name:"source",convert:getSource},{name:"rating",convert:getRating},{name:"popularity",convert:getPopularity},{name:"download",convert:getDownload},{name:"ownername",convert:getOwnerName},{name:"edit",convert:getEdit},{name:"bbox",mapping:"BoundingBox",defaultValue:""}]})
-};Ext.namespace("GeoNetwork.data");
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.MetadataRelationStore=function(url,params,grouping){var fields=[{name:"id"},{name:"uuid"},{name:"title"},{name:"abstract"},{name:"keyword"},{name:"type",mapping:"@type"}];
 if(grouping){var reader=new Ext.data.XmlReader({record:"relation",idProperty:"uuid"},fields);
 return new Ext.data.GroupingStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"POST",url:url,params:params,disableCaching:false}),reader:reader,groupField:"type",sortInfo:{field:"type",direction:"ASC"}})
 }else{return new Ext.data.XmlStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"GET",url:url,disableCaching:false}),record:"relation",idPath:"uuid",fields:fields})
-}};Ext.namespace("GeoNetwork.data");
+}};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.MetadataResultsStore=function(){function getTitle(v,record){if(record.title&&record.title){return record.title[0].value
 }else{return""
 }}function getValidationInfo(v,record){var i,validity=[],validInfo;
@@ -14342,12 +14668,15 @@ contact.push({applies:el.appliesTo,logo:el.logo,role:el.role,name:name})
 }else{return""
 }}function getAbstract(v,record){if(record["abstract"]){return record["abstract"][0].value
 }else{return""
+}}function getType(v,record){if(record.type){return record.type[0].value
+}else{return""
 }}function getEdit(v,record){if(record.geonet_info&&record.geonet_info.edit){return record.geonet_info.edit[0].value
 }else{return"false"
 }}function getDisplayOrder(v,record){if(record.geonet_info&&record.geonet_info.displayOrder){return record.geonet_info.displayOrder[0].value
 }else{return 0
-}}return new Ext.data.JsonStore({totalProperty:"summary.count",root:"records",fast:"false",fields:[{name:"title",convert:getTitle},{name:"abstract",convert:getAbstract},{name:"subject",mapping:"keyword",defaultValue:""},{name:"uuid",mapping:"geonet_info.uuid[0].value",defaultValue:""},{name:"id",mapping:"geonet_info.id[0].value",defaultValue:""},{name:"schema",mapping:"geonet_info.schema[0].value",defaultValue:""},{name:"contact",convert:getContact},{name:"thumbnail",convert:getThumbnails},{name:"links",convert:getLinks},{name:"uri",mapping:"uri",defaultValue:""},{name:"isharvested",convert:getIsHarvested},{name:"harvestertype",convert:getHarvesterType},{name:"createdate",convert:getCreateDate},{name:"changedate",convert:getChangeDate},{name:"selected",convert:getSelected},{name:"source",convert:getSource},{name:"category",convert:getCategory},{name:"rating",convert:getRating},{name:"popularity",convert:getPopularity},{name:"download",convert:getDownload},{name:"ownername",convert:getOwnerName},{name:"edit",convert:getEdit},{name:"bbox",mapping:"BoundingBox",defaultValue:""},{name:"displayOrder",convert:getDisplayOrder,sortType:"asInt"},{name:"valid",mapping:"geonet_info.valid[0].value",defaultValue:"-1"},{name:"valid_details",convert:getValidationInfo}]})
-};Ext.namespace("GeoNetwork.data");
+}}return new Ext.data.JsonStore({totalProperty:"summary.count",root:"records",fast:"false",service:"xml.search",fields:[{name:"title",convert:getTitle},{name:"abstract",convert:getAbstract},{name:"type",convert:getType},{name:"subject",mapping:"keyword",defaultValue:""},{name:"uuid",mapping:"geonet_info.uuid[0].value",defaultValue:""},{name:"id",mapping:"geonet_info.id[0].value",defaultValue:""},{name:"schema",mapping:"geonet_info.schema[0].value",defaultValue:""},{name:"contact",convert:getContact},{name:"thumbnail",convert:getThumbnails},{name:"links",convert:getLinks},{name:"uri",mapping:"uri",defaultValue:""},{name:"isharvested",convert:getIsHarvested},{name:"harvestertype",convert:getHarvesterType},{name:"createdate",convert:getCreateDate},{name:"changedate",convert:getChangeDate},{name:"selected",convert:getSelected},{name:"source",convert:getSource},{name:"category",convert:getCategory},{name:"rating",convert:getRating},{name:"popularity",convert:getPopularity},{name:"download",convert:getDownload},{name:"ownername",convert:getOwnerName},{name:"edit",convert:getEdit},{name:"bbox",mapping:"BoundingBox",defaultValue:""},{name:"displayOrder",convert:getDisplayOrder,sortType:"asInt"},{name:"valid",mapping:"geonet_info.valid[0].value",defaultValue:"-1"},{name:"valid_details",convert:getValidationInfo}]})
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.MetadataResultsFastStore=function(){var separator="|";
 function getTitle(v,record){if(record.title&&record.title){return record.title[0].value
 }else{return""
@@ -14404,12 +14733,15 @@ try{return userinfo[2]+" "+userinfo[1]
 }else{return""
 }}function getAbstract(v,record){if(record["abstract"]){return record["abstract"][0].value
 }else{return""
+}}function getType(v,record){if(record.type){return record.type[0].value
+}else{return""
 }}function getEdit(v,record){if(record.geonet_info&&record.geonet_info.edit){return record.geonet_info.edit[0].value
 }else{return"false"
 }}function getDisplayOrder(v,record){if(record.geonet_info&&record.geonet_info.displayOrder){return record.geonet_info.displayOrder[0].value
 }else{return 0
-}}return new Ext.data.JsonStore({totalProperty:"summary.count",root:"records",fast:"index",fields:[{name:"title",convert:getTitle},{name:"abstract",convert:getAbstract},{name:"subject",mapping:"keyword",defaultValue:""},{name:"uuid",mapping:"geonet_info.uuid[0].value",defaultValue:""},{name:"id",mapping:"geonet_info.id[0].value",defaultValue:""},{name:"schema",mapping:"geonet_info.schema[0].value",defaultValue:""},{name:"contact",convert:getContact},{name:"thumbnail",convert:getThumbnails},{name:"links",convert:getLinks},{name:"uri",mapping:"uri",defaultValue:""},{name:"isharvested",convert:getIsHarvested},{name:"harvestertype",convert:getHarvesterType},{name:"createdate",convert:getCreateDate},{name:"changedate",convert:getChangeDate},{name:"selected",convert:getSelected},{name:"source",convert:getSource},{name:"category",convert:getCategory},{name:"rating",convert:getRating},{name:"popularity",convert:getPopularity},{name:"download",convert:getDownload},{name:"ownername",convert:getOwnerName},{name:"edit",convert:getEdit},{name:"bbox",mapping:"BoundingBox",defaultValue:""},{name:"displayOrder",convert:getDisplayOrder,sortType:"asInt"},{name:"valid",convert:getValidationInfo},{name:"valid_details",convert:getValidationDetails}]})
-};Ext.namespace("GeoNetwork.data");
+}}return new Ext.data.JsonStore({totalProperty:"summary.count",root:"records",fast:"index",service:"q",fields:[{name:"title",convert:getTitle},{name:"abstract",convert:getAbstract},{name:"type",convert:getType},{name:"subject",mapping:"keyword",defaultValue:""},{name:"uuid",mapping:"geonet_info.uuid[0].value",defaultValue:""},{name:"id",mapping:"geonet_info.id[0].value",defaultValue:""},{name:"schema",mapping:"geonet_info.schema[0].value",defaultValue:""},{name:"contact",convert:getContact},{name:"thumbnail",convert:getThumbnails},{name:"links",convert:getLinks},{name:"uri",mapping:"uri",defaultValue:""},{name:"isharvested",convert:getIsHarvested},{name:"harvestertype",convert:getHarvesterType},{name:"createdate",convert:getCreateDate},{name:"changedate",convert:getChangeDate},{name:"selected",convert:getSelected},{name:"source",convert:getSource},{name:"category",convert:getCategory},{name:"rating",convert:getRating},{name:"popularity",convert:getPopularity},{name:"download",convert:getDownload},{name:"ownername",convert:getOwnerName},{name:"edit",convert:getEdit},{name:"bbox",mapping:"BoundingBox",defaultValue:""},{name:"displayOrder",convert:getDisplayOrder,sortType:"asInt"},{name:"valid",convert:getValidationInfo},{name:"valid_details",convert:getValidationDetails}]})
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.MetadataSummaryStore=function(){return new Ext.data.JsonStore({totalProperty:"count",root:"keywords.keyword",listeners:{load:function(store,records,opt){var valueField="count";
 var normalizedField="class";
 var typeField="type";
@@ -14427,10 +14759,12 @@ if(params.type.maxValue!==params.type.minValue){normalizedValue=(v.get(valueFiel
 }v.set(normalizedField,Math.round(normalizedValue))
 })
 }},sortInfo:{field:"value",direction:"ASC"},fields:[{name:"type",defaultValue:null},{name:"value",mapping:"name",defaultValue:""},{name:"count",mapping:"count",defaultValue:""},{name:"class",defaultValue:"0"}]})
-};Ext.namespace("GeoNetwork.data");
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.MetadataThumbnailStore=function(url,params){var fields=[{name:"href"},{name:"desc"},{name:"type"},{name:"mimetype"}];
 return new Ext.data.XmlStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"POST",url:url,params:params,disableCaching:false}),record:"thumbnail",idPath:"href",fields:fields})
-};Ext.namespace("GeoNetwork.data");
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.OpenSearchSuggestionReader=function(meta,recordType){meta=meta||{};
 GeoNetwork.data.OpenSearchSuggestionReader.superclass.constructor.call(this,meta,recordType||meta.fields)
 };
@@ -14457,12 +14791,14 @@ if(!isNaN(v)){totalRecords=v
 }}if(s.successProperty){v=this.getSuccess(o);
 if(v===false||v==="false"){success=false
 }}return{success:true,records:records,totalRecords:records.length}
-}});Ext.namespace("GeoNetwork.data");
+}});
+Ext.namespace("GeoNetwork.data");
 Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.OpenSearchSuggestionStore=function(c){c=c||{};
 GeoNetwork.data.OpenSearchSuggestionStore.superclass.constructor.call(this,Ext.apply(c,{proxy:c.proxy||(!c.data?new Ext.data.HttpProxy({url:c.url,disableCaching:false,method:"GET"}):undefined),reader:new GeoNetwork.data.OpenSearchSuggestionReader(c,c.fields||["value"])}))
 };
-Ext.extend(GeoNetwork.data.OpenSearchSuggestionStore,Ext.data.Store);Ext.namespace("GeoNetwork.data");
+Ext.extend(GeoNetwork.data.OpenSearchSuggestionStore,Ext.data.Store);
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.RegionStore=function(url){function getLabel(v,record){var labels={};
 var i;
 var label=record.getElementsByTagName("label");
@@ -14474,20 +14810,37 @@ i<len;
 if(child.nodeType===1){labels[child.nodeName]=child.firstChild.nodeValue
 }}}return labels
 }return new Ext.data.XmlStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"GET",url:url,disableCaching:false}),record:"region",idPath:"@id",fields:[{name:"id",mapping:"@id"},{name:"north"},{name:"south"},{name:"east"},{name:"west"},{name:"label",convert:getLabel}]})
-};Ext.namespace("GeoNetwork.data");
+};
+Ext.namespace("GeoNetwork.data");
+GeoNetwork.data.StatusStore=function(url){function getLabel(v,record){var labels={};
+var label=record.getElementsByTagName("label");
+var i;
+if(label.length===1){var children=label[0].childNodes;
+var child;
+for(i=0,len=children.length;
+i<len;
+++i){child=children[i];
+if(child.nodeType===1){labels[child.nodeName]=child.firstChild.nodeValue
+}}}return labels
+}return new Ext.data.XmlStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"GET",url:url,disableCaching:false}),record:"record",idPath:"id",fields:[{name:"id"},{name:"name"},{name:"reserved"},{name:"label",convert:getLabel}]})
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.SubTemplateTypeStore=function(url){return new Ext.data.XmlStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"GET",url:url,disableCaching:false}),record:"record",idPath:"type",fields:[{name:"type"},{name:"schema"},{name:"label"},{name:"description"}]})
-};Ext.namespace("GeoNetwork.data");
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.SuggestionStore=function(url,params,grouping){function getStatusIcon(v,record){var status=record.getAttribute("type");
 return'<span class="'+status+'">&#160;</span>'
 }var fields=[{name:"id",mapping:"@id"},{name:"name",mapping:"@process"},{name:"target",mapping:"@target"},{name:"category",mapping:"@category"},{name:"desc",mapping:"name"},{name:"params",mapping:"params"},{name:"operational",mapping:"operational"}];
 if(grouping){var reader=new Ext.data.XmlReader({record:"suggestion",idProperty:"@id"},fields);
 return new Ext.data.GroupingStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"POST",url:url,params:params,disableCaching:false}),reader:reader,groupField:"category",sortInfo:{field:"target",direction:"ASC"}})
 }else{return new Ext.data.XmlStore({autoDestroy:true,baseParams:params,proxy:new Ext.data.HttpProxy({method:"GET",url:url,disableCaching:false}),record:"suggestion",idPath:"@id",fields:fields})
-}};Ext.namespace("GeoNetwork.data");
+}};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.ThesaurusFeedStore=function(feed){var defaultFeed="http://geonetwork.svn.sourceforge.net/svnroot/geonetwork/utilities/repository/thesaurus.xml";
 var store=new Ext.data.XmlStore({autoDestroy:true,autoLoad:true,proxy:new Ext.data.HttpProxy({method:"GET",url:feed||defaultFeed,disableCaching:false}),record:"entry",idPath:"id",fields:[{name:"id"},{name:"title"},{name:"link",mapping:"link/@href"},{name:"updated"},{name:"summary"},{name:"category"}]});
 return store
-};Ext.namespace("GeoNetwork.data");
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.ThesaurusStore=function(config){var DataRecord=Ext.data.Record.create([{name:"filename"},{name:"title"},{name:"theme",mapping:"dname"},{name:"id",mapping:"key"},{name:"type"},{name:"activated"}]);
 var store=new Ext.data.Store({url:config.url,reader:new Ext.data.XmlReader({record:"thesaurus"},DataRecord),sortInfo:{field:"id",direction:"ASC"},fields:["filename","theme","id","title","type","activated"]});
 if(config.allOption){var record=new DataRecord({filename:OpenLayers.i18n("anyThesaurus"),activated:"y"});
@@ -14499,18 +14852,22 @@ coll.each(function(item,idx){this.removeAt(this.indexOf(item))
 },store)
 }store.load({add:true});
 return store
-};Ext.namespace("GeoNetwork.data");
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.UserStore=function(url){return new Ext.data.XmlStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"GET",url:url,disableCaching:false}),record:"user",idPath:"id",fields:[{name:"id"},{name:"username"},{name:"surname"},{name:"name"},{name:"profile"},{name:"address"},{name:"email"},{name:"city"},{name:"state"},{name:"zip"},{name:"country"},{name:"organisation"},{name:"kind"}]})
-};Ext.namespace("GeoNetwork.data");
+};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.ValidationRuleStore=function(url,params,grouping){function getStatusIcon(v,record){var status=record.getAttribute("type");
 return'<span class="'+status+'">&#160;</span>'
 }var fields=[{name:"id",mapping:"@id"},{name:"group",mapping:"@group"},{name:"status",mapping:"@type"},{name:"statusIcon",convert:getStatusIcon},{name:"title"},{name:"details"},{name:"msg"}];
 if(grouping){var reader=new Ext.data.XmlReader({record:"rule",idProperty:"id"},fields);
 return new Ext.data.GroupingStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"POST",url:url,params:params,disableCaching:false}),reader:reader,groupField:"group",sortInfo:{field:"status",direction:"ASC"}})
 }else{return new Ext.data.XmlStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"GET",url:url,params:params,disableCaching:false}),record:"rule",idPath:"@id",fields:fields})
-}};Ext.namespace("GeoNetwork.data");
+}};
+Ext.namespace("GeoNetwork.data");
 GeoNetwork.data.Z3950RepositoryStore=function(url){return new Ext.data.XmlStore({autoDestroy:true,proxy:new Ext.data.HttpProxy({method:"GET",url:url,disableCaching:false}),record:"repository",idPath:"id",fields:[{name:"id",mapping:"@id"},{name:"code",mapping:"id/@code"},{name:"name",mapping:"label"}]})
-};Ext.namespace("GeoNetwork.form");
+};
+Ext.namespace("GeoNetwork.form");
 GeoNetwork.form.GeometryMapField=Ext.extend(GeoExt.MapPanel,{layer_style:OpenLayers.Util.extend({},OpenLayers.Feature.Vector.style["default"]),geometryFieldId:undefined,geometryField:undefined,mapOptions:undefined,extentBox:undefined,vectorLayer:undefined,nearYou:undefined,initStyle:function(){this.layer_style.fillOpacity=0;
 this.layer_style.strokeOpacity=0.8;
 this.layer_style.strokeDashstyle="dash";
@@ -14548,8 +14905,7 @@ var zoomOutAction=new GeoExt.Action({control:new OpenLayers.Control.ZoomBox({dis
 var panAction=new GeoExt.Action({control:new OpenLayers.Control.DragPan({isDefault:true}),toggleGroup:this.map.id+"move",allowDepress:false,pressed:this.activated?false:true,map:this.map,iconCls:"pan",tooltip:{title:OpenLayers.i18n("dragTooltipTitle"),text:OpenLayers.i18n("dragTooltipText")}});
 items.push(zoomAllAction,zoomInAction,zoomOutAction,panAction,"->");
 return items
-},defaultConfig:{id:"geometryMap",width:270,height:270,border:false,activated:false,restrictToMapExtent:false,nearYouControl:true},initComponent:function(config){Ext.apply(this,config);
-Ext.applyIf(this,this.defaultConfig);
+},defaultConfig:{id:"geometryMap",width:290,height:180,stateful:false,border:false,activated:false,restrictToMapExtent:false,nearYouControl:true},initComponent:function(){Ext.applyIf(this,this.defaultConfig);
 var options=this.mapOptions||{projection:"EPSG:4326",units:"degrees",maxExtent:new OpenLayers.Bounds(-180,-90,180,90),restrictedExtent:new OpenLayers.Bounds(-180,-90,180,90),controls:[]};
 if(!options.controls){options.controls=[]
 }this.map=new OpenLayers.Map("search_map",options);
@@ -14557,18 +14913,24 @@ this.map.addControl(new GeoNetwork.Control.ZoomWheel());
 this.map.addControl(new OpenLayers.Control.LoadingPanel());
 this.map.addControl(new OpenLayers.Control.MousePosition());
 this.tbar=this.createNavBar();
-this.geometryField=Ext.getCmp(this.geometryFieldId);
-GeoNetwork.form.GeometryMapField.superclass.initComponent.call(this);
+if(this.geometryFieldId){this.geometryField=Ext.getCmp(this.geometryFieldId)
+}else{var gmf=this;
+this.geometryField=new Ext.form.TextField({name:"E_geometry",inputType:"hidden",listeners:{valid:function(cpt){if(cpt.getValue()!==""&&this.extentBox.getOrCreateLayer().features.length===0){this.extentBox.updateFieldsWKT(cpt.getValue())
+}},scope:gmf}})
+}GeoNetwork.form.GeometryMapField.superclass.initComponent.call(this);
+this.add(this.geometryField);
 this.createExtentControl()
 },setExtent:function(bounds){if(bounds){this.extentBox.updateFields(bounds)
 }else{this.extentBox.updateFields(this.map.getMaxExtent())
 }},setField:function(){if(this.geometryField!==undefined){var bounds=this.map.getExtent().toArray();
 var wkt="POLYGON(("+bounds[0]+" "+bounds[1]+","+bounds[0]+" "+bounds[3]+","+bounds[2]+" "+bounds[3]+","+bounds[2]+" "+bounds[1]+","+bounds[0]+" "+bounds[1]+"))";
-this.geometryField.setValue(wkt)
+this.geometryField.setValue(wkt);
+this.geometryField.fireEvent("change")
 }}});
-Ext.reg("gn_geometrymapfield",GeoNetwork.form.GeometryMapField);Ext.namespace("GeoNetwork.form");
-GeoNetwork.form.OpenSearchSuggestionTextField=Ext.extend(Ext.form.ComboBox,{defaultConfig:{hideLabel:true,width:400,minChars:2,loadingText:"...",hideTrigger:true,forceLowerCase:true},url:undefined,field:"any",fieldLabel:undefined,name:"E_any",displayField:"value",tpl:undefined,mode:"remote",store:undefined,queryParam:"q",itemSelector:"div.search-item",initComponent:function(){Ext.applyIf(this,this.defaultConfig);
-this.id="E_"+this.field;
+Ext.reg("gn_geometrymapfield",GeoNetwork.form.GeometryMapField);
+Ext.namespace("GeoNetwork.form");
+GeoNetwork.form.OpenSearchSuggestionTextField=Ext.extend(Ext.form.ComboBox,{defaultConfig:{hideLabel:true,width:400,minChars:2,loadingText:"...",hideTrigger:true,field:"any",name:"E_any",forceLowerCase:true},url:undefined,fieldLabel:undefined,displayField:"value",tpl:undefined,mode:"remote",store:undefined,queryParam:"q",autoSelect:false,itemSelector:"div.search-item",initComponent:function(){Ext.applyIf(this,this.defaultConfig);
+this.id=this.name;
 GeoNetwork.form.OpenSearchSuggestionTextField.superclass.initComponent.call(this);
 if(!this.tpl){var tpl='<tpl for="."><div class="search-item"><h3>{[values.value.replace(Ext.getDom(\''+this.id+"').value, '<span>' + Ext.getDom('"+this.id+"').value + '</span>')]}</h3></div></tpl>";
 this.tpl=new Ext.XTemplate(tpl)
@@ -14576,7 +14938,8 @@ this.tpl=new Ext.XTemplate(tpl)
 })
 }this.store=new GeoNetwork.data.OpenSearchSuggestionStore({url:this.url,rootId:1,baseParams:{field:this.field}})
 }});
-Ext.reg("gn_opensearchsuggestiontextfield",GeoNetwork.form.OpenSearchSuggestionTextField);Ext.namespace("GeoNetwork.form");
+Ext.reg("gn_opensearchsuggestiontextfield",GeoNetwork.form.OpenSearchSuggestionTextField);
+Ext.namespace("GeoNetwork.form");
 GeoNetwork.form.SearchField=Ext.extend(Ext.form.TwinTriggerField,{initComponent:function(){if(!this.store.baseParams){this.store.baseParams={}
 }GeoNetwork.form.SearchField.superclass.initComponent.call(this);
 this.on("specialkey",function(f,e){if(e.getKey()===e.ENTER){this.onTrigger2Click()
@@ -14596,10 +14959,12 @@ if(v.length<1){this.store.baseParams[this.paramName]="*"
 this.triggers[0].show();
 this.focus()
 }});
-Ext.reg("gn_searchfield",GeoNetwork.form.SearchField);Ext.namespace("GeoNetwork");
-GeoNetwork.LoginForm=Ext.extend(Ext.FormPanel,{url:"",catalogue:undefined,defaultConfig:{border:false,layout:"form",id:"loginForm",hideLoginLabels:true,width:340},defaultType:"textfield",userInfo:undefined,username:undefined,password:undefined,toggledFields:[],toggledFieldsOff:[],initComponent:function(){Ext.applyIf(this,this.defaultConfig);
+Ext.reg("gn_searchfield",GeoNetwork.form.SearchField);
+Ext.namespace("GeoNetwork");
+GeoNetwork.LoginForm=Ext.extend(Ext.FormPanel,{url:"",catalogue:undefined,defaultConfig:{border:false,layout:"form",id:"loginForm",hideLoginLabels:true,width:340},defaultType:"textfield",userInfo:undefined,username:undefined,password:undefined,toggledFields:[],toggledFieldsOff:[],keys:[{key:[Ext.EventObject.ENTER],handler:function(){Ext.getCmp("btnLoginForm").fireEvent("click")
+}}],initComponent:function(){Ext.applyIf(this,this.defaultConfig);
 var form=this;
-var loginBt=new Ext.Button({width:50,text:OpenLayers.i18n("login"),iconCls:"md-mn mn-login",listeners:{click:function(){this.catalogue.login(this.username.getValue(),this.password.getValue())
+var loginBt=new Ext.Button({width:50,text:OpenLayers.i18n("login"),iconCls:"md-mn mn-login",id:"btnLoginForm",listeners:{click:function(){this.catalogue.login(this.username.getValue(),this.password.getValue())
 },scope:form}}),adminBt=new Ext.Button({width:80,text:OpenLayers.i18n("administration"),listeners:{click:function(){catalogue.admin()
 },scope:this}}),logoutBt=new Ext.Button({width:80,text:OpenLayers.i18n("logout"),iconCls:"md-mn mn-logout",listeners:{click:function(){catalogue.logout()
 },scope:this}});
@@ -14626,10 +14991,11 @@ if(cat.identifiedUser&&cat.identifiedUser.username){this.userInfo.setText(cat.id
 }else{this.userInfo.setText("")
 }this.doLayout(false,true)
 }});
-Ext.reg("gn_loginform",GeoNetwork.LoginForm);Ext.namespace("GeoNetwork");
+Ext.reg("gn_loginform",GeoNetwork.LoginForm);
+Ext.namespace("GeoNetwork");
 GeoNetwork.MetadataMenu=Ext.extend(Ext.menu.Menu,{record:undefined,setRecord:function(record){this.record=record;
 this.updateMenu()
-},resultsView:undefined,catalogue:undefined,editAction:undefined,deleteAction:undefined,zoomToAction:undefined,otherActions:undefined,adminMenuSeparator:undefined,duplicateAction:undefined,createChildAction:undefined,adminAction:undefined,categoryAction:undefined,viewAction:undefined,printAction:undefined,viewXMLAction:undefined,getMEFAction:undefined,ratingWidget:undefined,defaultConfig:{},create:function(){this.editAction=new Ext.Action({text:OpenLayers.i18n("edit"),iconCls:"md-mn-edit",handler:function(){var id=this.record.get("id");
+},resultsView:undefined,catalogue:undefined,editAction:undefined,deleteAction:undefined,zoomToAction:undefined,otherActions:undefined,adminMenuSeparator:undefined,duplicateAction:undefined,createChildAction:undefined,statusAction:undefined,versioningAction:undefined,adminAction:undefined,categoryAction:undefined,viewAction:undefined,printAction:undefined,viewXMLAction:undefined,getMEFAction:undefined,ratingWidget:undefined,defaultConfig:{},create:function(){this.editAction=new Ext.Action({text:OpenLayers.i18n("edit"),iconCls:"md-mn-edit",handler:function(){var id=this.record.get("id");
 this.catalogue.metadataEdit(id)
 },scope:this});
 this.add(this.editAction);
@@ -14640,16 +15006,22 @@ this.add(this.deleteAction);
 this.duplicateAction=new Ext.Action({text:OpenLayers.i18n("duplicate"),iconCls:"md-mn-copy",handler:function(){var id=this.record.get("id");
 GeoNetwork.editor.EditorTools.showNewMetadataWindow(this,id,OpenLayers.i18n("duplicate"),false)
 },scope:this});
-this.createChildAction=new Ext.Action({text:OpenLayers.i18n("createChild"),iconCls:"md-mn-copy",handler:function(){var id=this.record.get("id");
+this.createChildAction=new Ext.Action({text:OpenLayers.i18n("createChild"),iconCls:"childIcon",handler:function(){var id=this.record.get("id");
 GeoNetwork.editor.EditorTools.showNewMetadataWindow(this,id,OpenLayers.i18n("createChild"),true)
 },scope:this});
-this.adminAction=new Ext.Action({text:OpenLayers.i18n("privileges"),iconCls:"privIcon",handler:function(){var id=this.record.get("id");
+this.adminAction=new Ext.Action({text:OpenLayers.i18n("privileges"),tooltip:OpenLayers.i18n("privilegesTT"),iconCls:"privIcon",handler:function(){var id=this.record.get("id");
 this.catalogue.metadataAdmin(id)
+},scope:this});
+this.statusAction=new Ext.Action({text:OpenLayers.i18n("status"),tooltip:OpenLayers.i18n("statusTT"),iconCls:"statusIcon",handler:function(){var id=this.record.get("id");
+this.catalogue.metadataStatus(id)
+},scope:this});
+this.versioningAction=new Ext.Action({text:OpenLayers.i18n("versioning"),tooltip:OpenLayers.i18n("versioningTT"),iconCls:"versioningIcon",handler:function(){var id=this.record.get("id");
+this.catalogue.metadataVersioning(id)
 },scope:this});
 this.categoryAction=new Ext.Action({text:OpenLayers.i18n("categories"),handler:function(){var id=this.record.get("id");
 this.catalogue.metadataCategory(id)
 },scope:this});
-this.otherActions=new Ext.menu.Item({text:OpenLayers.i18n("otherActions"),menu:{items:[this.duplicateAction,this.createChildAction,this.adminAction,this.categoryAction]}});
+this.otherActions=new Ext.menu.Item({text:OpenLayers.i18n("otherActions"),menu:{items:[this.duplicateAction,this.createChildAction,this.adminAction,this.statusAction,this.versioningAction,this.categoryAction]}});
 this.add(this.otherActions);
 this.adminMenuSeparator=new Ext.menu.Separator();
 this.add(this.adminMenuSeparator);
@@ -14688,6 +15060,8 @@ this.deleteAction.show()
 this.adminMenuSeparator.setVisible(identified);
 this.editAction.setDisabled(!isEditable);
 this.adminAction.setDisabled(!isEditable&&!isHarvested);
+this.statusAction.setDisabled(!isEditable&&!isHarvested);
+this.versioningAction.setDisabled(!isEditable&&!isHarvested);
 this.categoryAction.setDisabled(!isEditable&&!isHarvested);
 this.deleteAction.setDisabled(!isEditable&&!isHarvested);
 if(this.ratingWidget){this.ratingWidget.reset();
@@ -14697,36 +15071,37 @@ if(isHarvested&&harvesterType!=="geonetwork"){this.ratingWidget.disable()
 GeoNetwork.MetadataMenu.superclass.initComponent.call(this);
 this.create()
 }});
-Ext.reg("gn_metadatamenu",GeoNetwork.MetadataMenu);Ext.namespace("GeoNetwork");
-GeoNetwork.MetadataResultsView=Ext.extend(Ext.DataView,{catalogue:undefined,templates:null,overClass:"md-over",itemSelector:"li.md",emptyText:"",autoWidth:true,maps:[],mapsProjection:"EPSG:4326",projectionFrom:undefined,projectionTo:undefined,mdSelectionUuids:[],layer_style:OpenLayers.Util.extend({},OpenLayers.Feature.Vector.style["default"]),layer_style_hover:OpenLayers.Util.extend({},OpenLayers.Feature.Vector.style["default"]),layer_style_selected:OpenLayers.Util.extend({},OpenLayers.Feature.Vector.style["default"]),features:[],hover_feature:[],contextMenu:undefined,contextMenuNodeId:undefined,acMenu:undefined,newMetadataWindow:undefined,plugins:[],listeners:{dblclick:{fn:function(dv,idx,node,e){if(this.maps){var record=this.getStore().getAt(idx);
+Ext.reg("gn_metadatamenu",GeoNetwork.MetadataMenu);
+Ext.namespace("GeoNetwork");
+GeoNetwork.MetadataResultsView=Ext.extend(Ext.DataView,{catalogue:undefined,templates:null,overClass:"md-over",itemSelector:"li.md",emptyText:"",autoWidth:true,maps:[],mapsProjection:"EPSG:4326",projectionFrom:undefined,projectionTo:undefined,styleInitialized:false,mdSelectionUuids:[],layer_style_selected:OpenLayers.Util.extend({},OpenLayers.Feature.Vector.style["default"]),defaultConfig:{featurecolor:"#ee9900",colormap:undefined,layer_style:new OpenLayers.Style({strokeOpacity:1,strokeWidth:1,fillOpacity:0,strokeColor:"${featurecolor}",fillColor:"${featurecolor}"}),layer_style_hover:new OpenLayers.Style({strokeOpacity:1,strokeWidth:3,fillOpacity:0.3,strokeColor:"${featurecolor}",fillColor:"${featurecolor}"})},features:[],hover_feature:[],displayContextualMenu:true,contextMenu:undefined,contextMenuNodeId:undefined,acMenu:undefined,displaySerieMembers:false,maxOfMembers:50,relatedTpl:undefined,newMetadataWindow:undefined,plugins:[],listeners:{dblclick:{fn:function(dv,idx,node,e){if(this.maps.length!==0){var record=this.getStore().getAt(idx);
 var uuid=record.get("uuid");
 this.zoomTo(uuid)
 }}},mouseenter:{fn:function(dv,idx,node,e){var i,j;
-if(this.maps){var record=this.getStore().getAt(idx);
+if(this.maps.length!==0){var record=this.getStore().getAt(idx);
 var uuid=record.get("uuid");
 for(j=0;
 j<this.maps.length;
 j++){var l=this.maps[j].layer;
 if(l.features){for(i=0;
 i<l.features.length;
-i++){if(uuid===l.features[i].attributes.id){l.drawFeature(l.features[i],this.layer_style_hover);
-this.hover_feature[j]=l.features[i];
-continue
+i++){if(uuid===l.features[i].attributes.id){if(!this.hover_feature[j]){l.drawFeature(l.features[i],"hover");
+this.hover_feature[j]=l.features[i]
+}continue
 }}}}}this.actionMenuInit(idx,node)
 }},mouseleave:{fn:function(dv,idx,node,e){var i;
 if(this.acMenu){this.acMenu.hide()
 }this.acMenu=undefined;
-if(this.maps){for(i=0;
+for(i=0;
 i<this.maps.length;
 i++){if(this.hover_feature[i]){var l=this.maps[i].layer;
-l.drawFeature(this.hover_feature[i],this.layer_style);
+l.drawFeature(this.hover_feature[i],"default");
 this.hover_feature[i]=null;
 continue
-}}}}},contextmenu:{fn:function(dv,idx,node,e){this.contextMenuNodeId=idx;
+}}}},contextmenu:{fn:function(dv,idx,node,e){if(this.displayContextualMenu){this.contextMenuNodeId=idx;
 this.createMenu(idx,dv);
 this.contextMenu.showAt(e.getXY());
 e.stopEvent()
-}}},actionMenuInit:function(idx,node){this.acMenu=Ext.get(Ext.DomQuery.selectNode("span.md-action-menu",node));
+}}}},actionMenuInit:function(idx,node){this.acMenu=Ext.get(Ext.DomQuery.selectNode("span.md-action-menu",node));
 this.acMenu.on("click",function(){this.createMenu(idx,this);
 this.contextMenu.showAt([this.acMenu.getX(),this.acMenu.getY()+this.acMenu.getHeight()])
 }.bind(this));
@@ -14744,10 +15119,11 @@ i++){if(uuid===l.features[i].attributes.id){var bounds=l.features[i].geometry.ge
 if(bounds){this.maps[j].map.zoomToExtent(bounds)
 }break
 }}}}},initComponent:function(){var i;
+Ext.applyIf(this,this.defaultConfig);
 this.templates=this.templates||{SIMPLE:GeoNetwork.Templates.SIMPLE,THUMBNAIL:GeoNetwork.Templates.THUMBNAIL,FULL:GeoNetwork.Templates.FULL};
 GeoNetwork.MetadataResultsView.superclass.initComponent.call(this);
-this.store=this.catalogue.metadataStore;
-this.initStyle();
+this.setStore(this.catalogue.metadataStore);
+this.relatedTpl=new Ext.XTemplate(this.relatedTpl||GeoNetwork.Templates.Relation.SHORT);
 if(this.maps){if(this.maps instanceof OpenLayers.Map){var map=this.maps;
 this.maps=[];
 this.addMap(map)
@@ -14756,8 +15132,11 @@ i<this.maps.length;
 i++){var m=this.maps[i];
 this.initMap(m)
 }}}else{this.maps=[]
-}this.getStore().on({load:this.resultsLoaded,clear:this.destroyMetadataBbox,scope:this});
-this.on("selectionchange",this.selectionChange)
+}this.on("selectionchange",this.selectionChange)
+},setStore:function(store){if(this.getStore()){this.getStore().un("load",this.resultsLoaded,this);
+this.getStore().un("clear",this.destroyMetadataBbox,this)
+}this.store=store;
+this.getStore().on({load:this.resultsLoaded,clear:this.destroyMetadataBbox,scope:this})
 },addMap:function(map,zoomToExtentOnSearch){var found=false,i;
 for(i=0;
 i<this.maps.length;
@@ -14769,7 +15148,9 @@ this.projectionFrom=new OpenLayers.Projection("EPSG:4326");
 this.projectionTo=new OpenLayers.Projection(this.mapsProjection);
 this.maps.push(m);
 this.initMap(m)
-}},initMap:function(map){var l=new OpenLayers.Layer.Vector(OpenLayers.i18n("mdResultsLayer"),{style:this.layer_style});
+}},initMap:function(map){if(!this.styleInitialized){this.initStyle();
+this.styleInitialized=true
+}var l=new OpenLayers.Layer.Vector(OpenLayers.i18n("mdResultsLayer"),{styleMap:new OpenLayers.StyleMap({"default":this.layer_style,hover:this.layer_style_hover}),});
 this.addCurrentFeatures(l);
 map.layer=l;
 map.map.addLayer(l)
@@ -14779,12 +15160,10 @@ map.map.addLayer(l)
 },addTemplate:function(name,template){this.templates[name]=template
 },applyTemplate:function(name){this.tpl=this.templates[name];
 this.refresh()
-},initStyle:function(){this.layer_style.fillOpacity=0;
-this.layer_style.graphicOpacity=1;
-this.layer_style_selected.fillOpacity=0.1;
-this.layer_style_hover.fillOpacity=0.3;
-this.layer_style_hover.strokeWidth=3
-},destroyMetadataBbox:function(){var i;
+},initStyle:function(){if(!this.colormap){this.colormap=[this.featurecolor]
+}if(this.colormap.length>1){this.featurecolorCSS=this.featurecolorCSS||"border-left-width: 3px;border-left-style: solid; border-left-color: ${featurecolor}"
+}else{this.featurecolorCSS=undefined
+}},destroyMetadataBbox:function(){var i;
 for(i=0;
 i<this.maps.length;
 i++){var l=this.maps[i].layer;
@@ -14793,9 +15172,25 @@ l.destroyFeatures()
 }}}},resultsLoaded:function(view,records,options){this.drawMetadataBbox(view,records,options);
 this.contextMenu=undefined;
 this.initRatingWidget();
-this.initSelector()
-},drawMetadataBbox:function(view,records,options){var i,j;
-Ext.each(records,function(r){var bboxes=r.get("bbox");
+this.dislayLinks(records)
+},dislayLinks:function(records){var relationTypes="children",view=this;
+if(this.displaySerieMembers){Ext.each(records,function(r){var isSerie=r.get("type")==="series",id=r.get("id");
+if(isSerie){var store=new GeoNetwork.data.MetadataRelationStore(this.catalogue.services.mdRelation+"?type="+relationTypes+"&fast=false&uuid="+escape(r.get("uuid")),null,true);
+store.load();
+store.on("load",function(store,records){Ext.each(records,function(md){var div=Ext.query("#md-relation-"+id,view.el.dom.body),el=Ext.get(div[0]),container=el.parent();
+if(container&&container.isScrollable()){container.addClass("more")
+}if(el){el.insertHtml("beforeEnd",view.relatedTpl.apply(md.data));
+container.setVisible(true)
+}},this)
+})
+}},this)
+}},drawMetadataBbox:function(view,records,options){var i,j;
+if(this.maps.length===0){return
+}this.features=[];
+Ext.each(records,function(r,idx){var featurecolor=this.colormap&&this.colormap[idx%this.colormap.length];
+r.set("featurecolor",featurecolor);
+r.set("featurecolorCSS",this.featurecolorCSS?OpenLayers.String.format(this.featurecolorCSS,{featurecolor:featurecolor}):"");
+var bboxes=r.get("bbox");
 if(bboxes){var polygons=[];
 for(j=0;
 j<bboxes.length;
@@ -14812,7 +15207,7 @@ p4.transform(this.projectionFrom,this.projectionTo)
 var linearRing=new OpenLayers.Geometry.LinearRing(pointList);
 var polygon=new OpenLayers.Geometry.Polygon([linearRing]);
 polygons.push(polygon.clone())
-}var multipolygon=new OpenLayers.Feature.Vector(new OpenLayers.Geometry.MultiPolygon(polygons),{id:r.get("uuid")});
+}var multipolygon=new OpenLayers.Feature.Vector(new OpenLayers.Geometry.MultiPolygon(polygons),{id:r.get("uuid"),featurecolor:featurecolor});
 this.features.push(multipolygon.clone())
 }},this);
 for(i=0;
@@ -14827,7 +15222,7 @@ for(idx=0;
 idx<ratingWidgets.length;
 ++idx){if(Ext.ux.RatingItem){var ri=new Ext.ux.RatingItem(ratingWidgets[idx],{disabled:true,name:"rating"+idx})
 }else{ratingWidgets[idx].style.display="none"
-}}},initSelector:function(){},selectAll:function(){var checkboxes=Ext.DomQuery.select("input.selector"),idx;
+}}},selectAll:function(){var checkboxes=Ext.DomQuery.select("input.selector"),idx;
 for(idx=0;
 idx<checkboxes.length;
 ++idx){checkboxes[idx].checked=true
@@ -14842,13 +15237,7 @@ this.catalogue.metadataSelect("add",[uuid])
 for(idx=0;
 idx<checkboxes.length;
 ++idx){checkboxes[idx].checked=false
-}},initSelection:function(records){var selection=[];
-Ext.each(records,function(r){var isSelected=r.get("selected");
-if(isSelected==="true"){selection.push(r)
-}});
-this.select(selection);
-this.on("selectionchange",this.selectionChange)
-},selectionChange:function(dv,nodes){if(this.catalogue){var records=this.getRecords(nodes);
+}},selectionChange:function(dv,nodes){if(this.catalogue){var records=this.getRecords(nodes);
 var selected={};
 var toAdd=[];
 var toRemove=[];
@@ -14879,15 +15268,18 @@ clones[j]=clone
 }layer.addFeatures(clones)
 }},onDestroy:function(){GeoNetwork.MetadataResultsView.superclass.onDestroy.apply(this,arguments)
 }});
-Ext.reg("gn_metadataresultsview",GeoNetwork.MetadataResultsView);Ext.namespace("GeoNetwork");
-GeoNetwork.MetadataResultsToolbar=Ext.extend(Ext.Toolbar,{catalogue:undefined,metadataResultsView:undefined,mdSelectionInfoCmp:undefined,searchBtCmp:undefined,sortByCmp:undefined,sortByCombo:undefined,mdSelectionInfo:"md-selection-info",selectionActions:[],deleteAction:undefined,otherItem:undefined,ownerAction:undefined,updateCategoriesAction:undefined,updatePrivilegesAction:undefined,createMetadataAction:undefined,newMetadataWindow:undefined,mdImportAction:undefined,adminAction:undefined,actionMenu:undefined,item:null,actionOnSelectionMenu:undefined,admin:false,initComponent:function(){var cmp=[];
+Ext.reg("gn_metadataresultsview",GeoNetwork.MetadataResultsView);
+Ext.namespace("GeoNetwork");
+GeoNetwork.MetadataResultsToolbar=Ext.extend(Ext.Toolbar,{catalogue:undefined,metadataResultsView:undefined,mdSelectionInfoCmp:undefined,mdSelectionAsMenu:true,searchBtCmp:undefined,sortByCmp:undefined,sortByCombo:undefined,mdSelectionInfo:"md-selection-info",selectionActions:[],deleteAction:undefined,otherItem:undefined,ownerAction:undefined,updateCategoriesAction:undefined,updatePrivilegesAction:undefined,updateStatusAction:undefined,updateVersionAction:undefined,createMetadataAction:undefined,newMetadataWindow:undefined,mdImportAction:undefined,adminAction:undefined,permalinkProvider:undefined,actionMenu:undefined,item:null,actionOnSelectionMenu:undefined,admin:false,initComponent:function(){var cmp=[];
 cmp.push(this.createSelectionToolBar());
 cmp.push(["->"]);
 var sortOption=this.getSortByCombo();
 cmp.push(OpenLayers.i18n("sortBy"),sortOption,"|");
 cmp.push(this.createTemplateMenu());
 cmp.push(this.createOtherActionMenu());
-GeoNetwork.MetadataResultsToolbar.superclass.initComponent.call(this);
+if(this.permalinkProvider){var l=this.permalinkProvider.getLink;
+cmp.push(GeoNetwork.Util.buildPermalinkMenu(l,this.permalinkProvider))
+}GeoNetwork.MetadataResultsToolbar.superclass.initComponent.call(this);
 this.add(cmp);
 this.catalogue.on("selectionchange",this.updateSelectionInfo,this);
 this.catalogue.on("afterLogin",this.updatePrivileges,this);
@@ -14903,7 +15295,8 @@ Ext.getCmp("sortOrder").setValue(tokens[1])
 return this.sortByCombo
 },clickTemplateMenu:function(item,pressed){if(pressed){this.applyTemplate(item.getId())
 }this.initRatingWidget()
-},createMassiveActionMenu:function(hide){this.deleteAction=new Ext.menu.Item({text:OpenLayers.i18n("delete"),iconCls:"cancel",id:"deleteAction",handler:function(){this.catalogue.massiveOp("Delete")
+},createMassiveActionMenu:function(hide){this.deleteAction=new Ext.menu.Item({text:OpenLayers.i18n("delete"),iconCls:"cancel",id:"deleteAction",handler:function(){this.catalogue.massiveOp("Delete",function(){this.catalogue.metadataSelectNone()
+})
 },scope:this,hidden:hide});
 this.ownerAction=new Ext.menu.Item({text:OpenLayers.i18n("newOwner"),id:"ownerAction",handler:function(){this.catalogue.massiveOp("NewOwner")
 },scope:this,hidden:hide});
@@ -14911,11 +15304,17 @@ this.updateCategoriesAction=new Ext.menu.Item({text:OpenLayers.i18n("updateCateg
 },scope:this,hidden:hide});
 this.updatePrivilegesAction=new Ext.menu.Item({text:OpenLayers.i18n("updatePrivileges"),id:"updatePrivilegesAction",iconCls:"privIcon",handler:function(){this.catalogue.massiveOp("Privileges")
 },scope:this,hidden:hide});
-this.selectionActions.push(this.deleteAction,this.ownerAction,this.updateCategoriesAction,this.updatePrivilegesAction);
+this.updateStatusAction=new Ext.menu.Item({text:OpenLayers.i18n("updateStatus"),id:"updateStatusAction",iconCls:"statusIcon",handler:function(){this.catalogue.massiveOp("Status")
+},scope:this,hidden:hide});
+this.updateVersionAction=new Ext.menu.Item({text:OpenLayers.i18n("updateVersion"),id:"updateVersionAction",iconCls:"versioningIcon",handler:function(){this.catalogue.massiveOp("Versioning")
+},scope:this,hidden:hide});
+this.selectionActions.push(this.deleteAction,this.ownerAction,this.updateCategoriesAction,this.updatePrivilegesAction,this.updateStatusAction,this.updateVersionAction);
 this.actionMenu.addItem(this.deleteAction);
 this.actionMenu.addItem(this.ownerAction);
 this.actionMenu.addItem(this.updateCategoriesAction);
-this.actionMenu.addItem(this.updatePrivilegesAction)
+this.actionMenu.addItem(this.updatePrivilegesAction);
+this.actionMenu.addItem(this.updateStatusAction);
+this.actionMenu.addItem(this.updateVersionAction)
 },createAdminMenu:function(hide){this.actionMenu.addItem("-");
 this.otherItem=new Ext.menu.TextItem({html:'<b class="menu-title">'+OpenLayers.i18n("adminAction")+"</b>",hidden:true});
 this.actionMenu.addItem(this.otherItem);
@@ -14951,7 +15350,8 @@ this.createMassiveActionMenu(!this.catalogue.isIdentified());
 this.createAdminMenu(!this.catalogue.isIdentified());
 this.actionOnSelectionMenu=new Ext.Button({text:OpenLayers.i18n("otherActions"),menu:this.actionMenu});
 return this.actionOnSelectionMenu
-},createSelectionToolBar:function(){var selectAllInPageAction=new Ext.Action({text:OpenLayers.i18n("allInPage"),handler:function(){this.metadataResultsView.selectAllInPage()
+},createSelectionToolBar:function(){var selectAllInPageAction=new Ext.Action({text:OpenLayers.i18n("allInPage"),handler:function(){this.catalogue.metadataSelectNone();
+this.metadataResultsView.selectAllInPage()
 },scope:this});
 var selectAllAction=new Ext.Action({text:OpenLayers.i18n("all"),handler:function(){this.catalogue.metadataSelectAll();
 this.metadataResultsView.selectAll()
@@ -14959,10 +15359,10 @@ this.metadataResultsView.selectAll()
 var selectNoneAction=new Ext.Action({text:OpenLayers.i18n("none"),handler:function(){this.catalogue.metadataSelectNone();
 this.metadataResultsView.selectNone()
 },scope:this});
-var mdSelectionInfoCmp={id:"md-selection-info",xtype:"tbtext",text:OpenLayers.i18n("noneSelected")};
 this.catalogue.on("selectionchange",this.updateSelectionInfo,this);
-return[mdSelectionInfoCmp,"|",{xtype:"tbtext",text:OpenLayers.i18n("select")},selectAllInPageAction,{xtype:"tbtext",text:", "},selectAllAction,{xtype:"tbtext",text:", "},selectNoneAction]
-},updateSelectionInfo:function(catalogue,nb){if(!this.mdSelectionInfoCmp){this.mdSelectionInfoCmp=Ext.getCmp(this.mdSelectionInfo)
+if(this.mdSelectionAsMenu){return[{id:"md-selection-info",text:OpenLayers.i18n("noneSelected"),menu:{xtype:"menu",items:['<b class="menu-title">'+OpenLayers.i18n("select")+"</b>",selectAllAction,selectAllInPageAction,selectNoneAction]}}]
+}else{return[{id:"md-selection-info",xtype:"tbtext",text:OpenLayers.i18n("noneSelected")},"|",{xtype:"tbtext",text:OpenLayers.i18n("select")},selectAllInPageAction,{xtype:"tbtext",text:", "},selectAllAction,{xtype:"tbtext",text:", "},selectNoneAction]
+}},updateSelectionInfo:function(catalogue,nb){if(!this.mdSelectionInfoCmp){this.mdSelectionInfoCmp=Ext.getCmp(this.mdSelectionInfo)
 }Ext.each(this.selectionActions,function(e){if(nb===0){e.disable()
 }else{e.enable()
 }});
@@ -14972,36 +15372,85 @@ Ext.each(actions,function(){this.setVisible(user)
 })
 },onDestroy:function(){GeoNetwork.MetadataResultsToolbar.superclass.onDestroy.apply(this,arguments)
 }});
-Ext.reg("gn_metadataresultstoolbar",GeoNetwork.MetadataResultsToolbar);Ext.namespace("GeoNetwork");
+Ext.reg("gn_metadataresultstoolbar",GeoNetwork.MetadataResultsToolbar);
+Ext.namespace("GeoNetwork");
 GeoNetwork.TagCloudView=Ext.extend(Ext.DataView,{catalogue:undefined,multiSelect:true,root:"keywords.keyword",qurey:undefined,searchField:"themekey",onSuccess:null,onFailure:null,overClass:"tag-cloud-hover",itemSelector:"li.tag-cloud",emptyText:"",autoWidth:true,initComponent:function(){GeoNetwork.TagCloudView.superclass.initComponent.call(this);
-var mds=this.catalogue.metadataStore,fast="fast="+(mds.fast?mds.fast:GeoNetwork.util.SearchTools.fast);
-this.tpl=this.tpl||new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="tag-cloud tag-cloud-{class}">','<a href="#" onclick="javascript:catalogue.kvpSearch(\''+fast+"&summaryOnly=0&from=1&to=20&hitsPerPage=20&"+this.searchField+"={value}', "+this.onSuccess+","+this.onFailure+', null);" alt="{value}" title="{count} records">{value}</a>',"</li>","</tpl>","</ul>");
+this.tpl=this.tpl||new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="tag-cloud tag-cloud-{class}">','<a href="#" onclick="javascript:catalogue.kvpSearch(\'fast='+this.catalogue.metadataStore.fast+"&summaryOnly=0&from=1&to=20&hitsPerPage=20&"+this.searchField+"={value}', "+this.onSuccess+","+this.onFailure+', null);" alt="{value}" title="{count} records">{value}</a>',"</li>","</tpl>","</ul>");
 this.store=this.catalogue.summaryStore;
 if(this.query){this.catalogue.kvpSearch(this.query,null,null,null,true)
 }}});
-Ext.reg("gn_tagcloudview",GeoNetwork.TagCloudView);Ext.namespace("GeoNetwork");
+Ext.reg("gn_tagcloudview",GeoNetwork.TagCloudView);
+Ext.namespace("GeoNetwork");
 GeoNetwork.Templates=Ext.extend(Ext.XTemplate,{compiled:false,disableFormats:false,catalogue:null,sortOrder:0,abstractMaxSize:50,xmlTplMarkup:['<?xml version="1.0" encoding="UTF-8"?>','<node id="{id}" type="{type}">',"<site>","<name>{site_name}</name>",'<tpl if="values.site_ogctype">',"<ogctype>{site_ogctype}</ogctype>","</tpl>",'<tpl if="values.site_url">',"<url>{site_url}</url>","</tpl>",'<tpl if="values.site_icon">',"<icon>{site_icon}</icon>","</tpl>",'<tpl if="values.site_account_use">',"<account>","<use>{site_account_use}</use>","<username>{site_account_username}</username>","<password>{site_account_password}</password>","</account>","</tpl>","</site>","<options>",'<tpl if="values.options_every">',"<every>{options_every}</every>","</tpl>",'<tpl if="values.options_onerunonly">',"<oneRunOnly>{options_onerunonly}</oneRunOnly>","</tpl>",'<tpl if="values.options_lang">',"<lang>{options_lang}</lang>","</tpl>",'<tpl if="values.options_topic">',"<topic>{options_topic}</topic>","</tpl>",'<tpl if="values.options_createthumbnails">',"<createThumbnails>{options_createthumbnails}</createThumbnails>","</tpl>",'<tpl if="values.options_uselayer">',"<useLayer>{options_uselayer}</useLayer>","</tpl>",'<tpl if="values.options_uselayermd">',"<useLayerMd>{options_uselayermd}</useLayerMd>","</tpl>",'<tpl if="values.options_datasetcategory">',"<datasetcategory>{options_datasetcategory}</datasetcategory>","</tpl>","</options>","<content>","</content>","<privileges>","</privileges>",'<group id="1">','<operation name="view" />','<operation name="dynamic" />',"</group>","<categories>","</categories>",'<tpl if="values.info_result_total">',"</tpl>","</node>"],initComponent:function(){GeoNetwork.Templates.superclass.initComponent.call(this)
 },getHarvesterTemplate:function(){return new Ext.XTemplate(this.xmlTplMarkup)
 }});
 GeoNetwork.Templates.TITLE='<h1><input type="checkbox" <tpl if="selected==\'true\'">checked="true"</tpl> class="selector" onclick="javascript:catalogue.metadataSelect((this.checked?\'add\':\'remove\'), [\'{uuid}\']);"/><a href="#" onclick="javascript:catalogue.metadataShow(\'{uuid}\');return false;">{title}</a><span class="md-action-menu"> - <a rel="mdMenu">'+OpenLayers.i18n("mdMenu")+"</a></span></h1>";
 GeoNetwork.Templates.RATING_TPL='<tpl if="isharvested==\'n\' || harvestertype==\'geonetwork\'"><div class="rating"><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'1\'">checked="true"</tpl> value="1"/><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'2\'">checked="true"</tpl> value="2"/><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'3\'">checked="true"</tpl> value="3"/><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'4\'">checked="true"</tpl> value="4"/><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'5\'">checked="true"</tpl> value="5"/></div></tpl>';
 GeoNetwork.Templates.LOGO='<div class="md-logo"><img src="{[catalogue.URL]}/images/logos/{source}.gif"/></div>';
-GeoNetwork.Templates.SIMPLE=new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="md md-simple" title="{abstract}">','<table><tr><td style="width:30px;">',GeoNetwork.Templates.LOGO,'</td><td id="{uuid}">',GeoNetwork.Templates.TITLE,'<span class="subject"><tpl for="subject">','{value}{[xindex==xcount?"":", "]}',"</tpl></span>","</td></tr></table>","</li>","</tpl>","</ul>");
-GeoNetwork.Templates.THUMBNAIL=new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="md md-thumbnail">','<div class="md-wrap" id="{uuid}" title="{abstract}">',GeoNetwork.Templates.TITLE,'<div class="thumbnail">','<tpl if="thumbnail">','<a rel="lightbox" href="{thumbnail}"><img src="{thumbnail}" alt="Thumbnail"/></a>',"</tpl>","<tpl if=\"thumbnail==''\"></tpl>","</div>",'<tpl for="links">',"<tpl if=\"values.type == 'application/vnd.ogc.wms_xml'\">","<a href=\"#\" class=\"md-mn addLayer\" title=\"{title}\" alt=\"{title}\" onclick=\"app.switchMode('1', true);app.getIMap().addWMSLayer([['{title}', '{href}', '{name}', '{id}']]);\">&nbsp;</a>","</tpl>","</tpl>","</div>","</li>","</tpl>","</ul>");
-GeoNetwork.Templates.FULL=new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="md md-full">',"<table><tr>",'<td class="left">',GeoNetwork.Templates.LOGO,"</td>",'<td id="{uuid}">',GeoNetwork.Templates.TITLE,'<p class="abstract">{[values.abstract.substring(0, 350)]} ...</p>','<p class="subject"><tpl for="subject">','{value}{[xindex==xcount?"":", "]}',"</tpl></p>",'<div class="md-links">','<tpl for="links">',"<tpl if=\"values.type == 'application/vnd.ogc.wms_xml' || values.type == 'OGC:WMS'\">",'<a href="#" class="md-mn addLayer" title="'+OpenLayers.i18n("addToMap")+" {title}\" alt=\"Add layer to map\" onclick=\"app.switchMode('1', true);app.getIMap().addWMSLayer([['{[escape(values.title)]}', '{href}', '{name}', '{id}']]);\">&nbsp;</a>","</tpl>","<tpl if=\"values.type == 'application/vnd.google-earth.kml+xml'\">",'<a href="{href}" class="md-mn md-mn-kml" title="'+OpenLayers.i18n("viewKml")+' {title}" alt="Open kml">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'application/zip' || values.type == 'application/x-compressed'\">",'<a href="{href}" class="md-mn md-mn-zip" title="'+OpenLayers.i18n("downloadLink")+' {title}" alt="Download">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'text/html'\">",'<a href="{href}" class="md-mn md-mn-www" title="'+OpenLayers.i18n("webLink")+' {title}" alt="Web link" target="_blank">&nbsp;</a>',"</tpl>","</tpl>",'<tpl if="this.hasDownloadLinks(values.links)">','<a href="#" onclick="catalogue.metadataPrepareDownload({id});" class="md-mn downloadAllIcon" title="'+OpenLayers.i18n("prepareDownload")+'" alt="download">&nbsp;</a>',"</tpl>","</div>",'</td><td class="thumb">',GeoNetwork.Templates.RATING_TPL,'<div class="thumbnail">','<tpl if="thumbnail">','<a rel="lightbox" href="{thumbnail}"><img src="{thumbnail}" alt="Thumbnail"/></a>',"</tpl>","<tpl if=\"thumbnail==''\"></tpl>","</div>",'</td><td class="icon">','<div class="md-mn valid-{valid}" title="'+OpenLayers.i18n("validityInfo"),'<tpl for="valid_details">',"{values.type}: ","<tpl if=\"values.valid == '1'\">"+OpenLayers.i18n("valid")+"</tpl>","<tpl if=\"values.valid == '0'\">"+OpenLayers.i18n("notValid")+"</tpl>","<tpl if=\"values.valid == '-1'\">"+OpenLayers.i18n("notDetermined")+"</tpl>","<tpl if=\"values.ratio != ''\"> ({values.ratio}) </tpl> - ","</tpl>",'">&nbsp;</div>','</td><td class="icon" title="'+OpenLayers.i18n("metadataCategories")+'">','<tpl for="category">','<div class="md-mn cat-{value}" title="{value}">&nbsp;</div>',"</tpl>","</td></tr></table>",'<div class="md-contact">','<tpl for="contact">',"<tpl if=\"applies=='resource'\">",'<span title="{role} - {applies}"><tpl if="values.logo !== undefined && values.logo !== \'\'">','<img src="{logo}" class="orgLogo"/>',"</tpl>","{name}&nbsp;&nbsp;</span>","</tpl>","</tpl>","<tpl if=\"edit=='true' && isharvested!='y'\">",'<br/><span class="md-mn md-mn-user" title="'+OpenLayers.i18n("ownerName")+'">{ownername} - '+OpenLayers.i18n("lastUpdate")+"{[values.changedate.split('T')[0]]}</span>","</tpl>","</div>","</li>","</tpl>","</ul>",{hasDownloadLinks:function(values){var i;
+GeoNetwork.Templates.SIMPLE=new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="md md-simple" title="{abstract}" style="{featurecolorCSS}">','<table><tr><td style="width:30px;">',GeoNetwork.Templates.LOGO,'</td><td id="{uuid}">',GeoNetwork.Templates.TITLE,'<tpl if="subject">','<span class="subject"><tpl for="subject">','{value}{[xindex==xcount?"":", "]}',"</tpl></span>","</tpl>","</td></tr></table>","</li>","</tpl>","</ul>");
+GeoNetwork.Templates.THUMBNAIL=new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="md md-thumbnail" style="{featurecolorCSS}">','<div class="md-wrap" id="{uuid}" title="{abstract}">',GeoNetwork.Templates.TITLE,'<div class="thumbnail">','<tpl if="thumbnail">','<a rel="lightbox" href="{thumbnail}"><img src="{thumbnail}" alt="Thumbnail"/></a>',"</tpl>","<tpl if=\"thumbnail==''\"></tpl>","</div>",'<tpl for="links">',"<tpl if=\"values.type == 'application/vnd.ogc.wms_xml'\">","<a href=\"#\" class=\"md-mn addLayer\" title=\"{title}\" alt=\"{title}\" onclick=\"app.switchMode('1', true);app.getIMap().addWMSLayer([['{title}', '{href}', '{name}', '{id}']]);\">&nbsp;</a>","</tpl>","</tpl>","</div>","</li>","</tpl>","</ul>");
+GeoNetwork.Templates.FULL=new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="md md-full" style="{featurecolorCSS}">',"<table><tr>",'<td class="left">',GeoNetwork.Templates.LOGO,"</td>",'<td id="{uuid}">',GeoNetwork.Templates.TITLE,'<p class="abstract">{[values.abstract.substring(0, 350)]} ...</p>','<tpl if="subject">','<p class="subject"><tpl for="subject">','{value}{[xindex==xcount?"":", "]}',"</tpl></p>","</tpl>",'<div class="md-links">','<tpl for="links">',"<tpl if=\"values.type == 'application/vnd.ogc.wms_xml' || values.type == 'OGC:WMS'\">",'<a href="#" class="md-mn addLayer" title="'+OpenLayers.i18n("addToMap")+" {title}\" alt=\"Add layer to map\" onclick=\"app.switchMode('1', true);app.getIMap().addWMSLayer([['{[escape(values.title)]}', '{href}', '{name}', '{id}']]);\">&nbsp;</a>","</tpl>","<tpl if=\"values.type == 'application/vnd.google-earth.kml+xml'\">",'<a href="{href}" class="md-mn md-mn-kml" title="'+OpenLayers.i18n("viewKml")+' {title}" alt="Open kml">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'application/zip' || values.type == 'application/x-compressed'\">",'<a href="{href}" class="md-mn md-mn-zip" title="'+OpenLayers.i18n("downloadLink")+' {title}" alt="Download">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'text/html'\">",'<a href="{href}" class="md-mn md-mn-www" title="'+OpenLayers.i18n("webLink")+' {title}" alt="Web link" target="_blank">&nbsp;</a>',"</tpl>","</tpl>",'<tpl if="this.hasDownloadLinks(values.links)">','<a href="#" onclick="catalogue.metadataPrepareDownload({id});" class="md-mn downloadAllIcon" title="'+OpenLayers.i18n("prepareDownload")+'" alt="download">&nbsp;</a>',"</tpl>","</div>",'</td><td class="thumb">',GeoNetwork.Templates.RATING_TPL,'<div class="thumbnail">','<tpl if="thumbnail">','<a rel="lightbox" href="{thumbnail}"><img src="{thumbnail}" alt="Thumbnail"/></a>',"</tpl>","<tpl if=\"thumbnail==''\"></tpl>","</div>",'</td><td class="icon">','<div class="md-mn valid-{valid}" title="'+OpenLayers.i18n("validityInfo"),'<tpl for="valid_details">',"{values.type}: ","<tpl if=\"values.valid == '1'\">"+OpenLayers.i18n("valid")+"</tpl>","<tpl if=\"values.valid == '0'\">"+OpenLayers.i18n("notValid")+"</tpl>","<tpl if=\"values.valid == '-1'\">"+OpenLayers.i18n("notDetermined")+"</tpl>","<tpl if=\"values.ratio != ''\"> ({values.ratio}) </tpl> - ","</tpl>",'">&nbsp;</div>','</td><td class="icon" title="'+OpenLayers.i18n("metadataCategories")+'">','<tpl for="category">','<div class="md-mn cat-{value}" title="{value}">&nbsp;</div>',"</tpl>","</td></tr></table>",'<div class="relation" title="'+OpenLayers.i18n("relateddatasets")+'"><span></span><ul id="md-relation-{id}"></ul></div>','<div class="md-contact">','<tpl for="contact">',"<tpl if=\"applies=='resource'\">",'<span title="{role} - {applies}"><tpl if="values.logo !== undefined && values.logo !== \'\'">','<img src="{logo}" class="orgLogo"/>',"</tpl>","{name}&nbsp;&nbsp;</span>","</tpl>","</tpl>","<tpl if=\"edit=='true' && isharvested!='y'\">",'<br/><span class="md-mn md-mn-user" title="'+OpenLayers.i18n("ownerName")+'">{ownername} - '+OpenLayers.i18n("lastUpdate")+"{[values.changedate.split('T')[0]]}</span>","</tpl>","</div>","</li>","</tpl>","</ul>",{hasDownloadLinks:function(values){var i;
 for(i=0;
 i<values.length;
 i++){if(values[i].type==="application/x-compressed"){return true
 }}return false
-}});Ext.namespace("GeoNetwork.view");
-GeoNetwork.view.ViewWindow=Ext.extend(Ext.Window,{defaultConfig:{layout:"fit",width:700,height:740,border:false,lang:"en",autoScroll:true,closeAction:"destroy",currTab:"simple",displayTooltip:true,printDefaultForTabs:false,printMode:undefined,relationTypes:"service|children|related|parent|dataset",maximizable:true,maximized:false,collapsible:true,collapsed:false},serviceUrl:undefined,catalogue:undefined,metadataUuid:undefined,record:undefined,resultsView:undefined,actionMenu:undefined,tipTpl:undefined,metadataSchema:undefined,cache:{},tooltips:[],getLinkedData:function(){var store=new GeoNetwork.data.MetadataRelationStore(this.catalogue.services.mdRelation+"?type="+this.relationTypes+"&fast=false&uuid="+this.metadataUuid,null,true),view=this;
+}});
+GeoNetwork.Templates.Relation={SHORT:['<li class="{type}">','<a href="#" onclick="javascript:catalogue.metadataShow(\'{uuid}\');return false;" title="{abstract}">{title}</a>',"</li>"]};
+Ext.namespace("GeoNetwork");
+GeoNetwork.CategoryView=Ext.extend(Ext.DataView,{catalogue:undefined,url:"xml.info?type=categories",imgUrl:"",searchField:"category",onSuccess:null,onFailure:null,emptyText:"",autoWidth:true,initComponent:function(){GeoNetwork.CategoryView.superclass.initComponent.call(this);
+this.tpl=this.tpl||new Ext.XTemplate('<tpl for="."><div class="category-view-item">',"<a href=\"javascript:void(catalogue.kvpSearch('fast="+this.catalogue.metadataStore.fast+"&summaryOnly=0&from=1&to=20&hitsPerPage=20&"+this.searchField+"={name}', "+this.onSuccess+","+this.onFailure+', null));" alt="{name}">',this.imgUrl?'<img src="'+this.imgUrl+'{name}.png" border="0" />':"","{[values.label."+OpenLayers.Lang.getCode()+"]}</a></div></tpl>");
+this.store=GeoNetwork.data.CategoryStore(this.url);
+this.store.load()
+}});
+Ext.reg("gn_categoryview",GeoNetwork.CategoryView);
+Ext.namespace("GeoNetwork");
+GeoNetwork.SearchFormPanel=Ext.extend(Ext.FormPanel,{searchTriggered:false,defaultConfig:{border:false,stateful:true,searchCb:undefined,searchBt:new Ext.Button({text:OpenLayers.i18n("search"),iconCls:"md-mn-find",iconAlign:"right"}),resetCb:function(){this.getForm().reset()
+},resetBt:new Ext.Button({tooltip:OpenLayers.i18n("resetSearchForm"),iconCls:"md-mn-reset"})},getSearchBt:function(){return this.searchBt
+},stateEvents:["onsearch","onreset"],applyState:function(state){this.on("afterrender",function(){this.doLayout(false,true);
+GeoNetwork.util.SearchTools.populateFormFromParams(this,state)
+},this)
+},getState:function(){var state={};
+if(this.searchTriggered){state.search=""
+}var parameters=GeoNetwork.util.SearchTools.getFormValues(this);
+Ext.apply(state,parameters);
+return state
+},search:function(){this.searchTriggered=true,this.searchCb();
+this.fireEvent("onsearch")
+},reset:function(){this.searchTriggered=false;
+this.resetCb();
+this.fireEvent("onreset")
+},initComponent:function(){Ext.applyIf(this,this.defaultConfig);
+GeoNetwork.SearchFormPanel.superclass.initComponent.call(this);
+this.addButton(this.resetBt,this.reset,this);
+this.addButton(this.searchBt,this.search,this);
+this.addEvents("search","reset");
+this.on({search:this.search,scope:this});
+this.on({reset:this.reset,scope:this})
+}});
+Ext.reg("gn_searchformpanel",GeoNetwork.SearchFormPanel);
+Ext.namespace("GeoNetwork.view");
+GeoNetwork.view.ViewWindow=Ext.extend(Ext.Window,{defaultConfig:{layout:"fit",width:700,height:740,border:false,lang:"eng",closeAction:"destroy",currTab:"simple",displayTooltip:true,printDefaultForTabs:false,printMode:undefined,relationTypes:"service|children|related|parent|dataset|fcat",maximizable:true,maximized:false,collapsible:true,collapsed:false,permalink:true},serviceUrl:undefined,catalogue:undefined,metadataUuid:undefined,record:undefined,resultsView:undefined,actionMenu:undefined,tipTpl:undefined,panel:undefined,metadataSchema:undefined,cache:{},tooltips:[],relatedTpl:undefined,getPanel:function(){return this.panel
+},initComponent:function(){Ext.applyIf(this,this.defaultConfig);
+this.tools=[{id:"newwindow",qtip:OpenLayers.i18n("newWindow"),handler:function(e,toolEl,panel,tc){window.open(GeoNetwork.Util.getBaseUrl(location.href)+"?uuid="+this.metadataUuid);
+this.hide()
+},scope:this}];
+GeoNetwork.view.ViewWindow.superclass.initComponent.call(this);
+this.setTitle(this.record?this.record.get("title"):"");
+this.panel=new GeoNetwork.view.ViewPanel({serviceUrl:this.serviceUrl,lang:this.lang,currTab:GeoNetwork.defaultViewMode||"simple",printDefaultForTabs:GeoNetwork.printDefaultForTabs||false,catalogue:this.catalogue,metadataUuid:this.metadataUuid,record:this.record,resultsView:this.resultsView,border:false,frame:false,autoScroll:true,permalink:this.permalink});
+this.add(this.panel);
+this.on("beforeshow",function(el){el.setSize(el.getWidth()>Ext.getBody().getWidth()?Ext.getBody().getWidth():el.getWidth(),el.getHeight()>Ext.getBody().getHeight()?Ext.getBody().getHeight():el.getHeight())
+})
+}});
+Ext.reg("gn_view_viewwindow",GeoNetwork.view.ViewWindow);
+Ext.namespace("GeoNetwork.view");
+GeoNetwork.view.ViewPanel=Ext.extend(Ext.Panel,{defaultConfig:{border:false,lang:"en",autoScroll:true,currTab:"simple",displayTooltip:true,printDefaultForTabs:false,printMode:undefined,permalink:false,relationTypes:"service|children|related|parent|dataset"},serviceUrl:undefined,catalogue:undefined,metadataUuid:undefined,record:undefined,resultsView:undefined,actionMenu:undefined,permalinkMenu:undefined,tipTpl:undefined,metadataSchema:undefined,cache:{},tooltips:[],getLinkedData:function(){var store=new GeoNetwork.data.MetadataRelationStore(this.catalogue.services.mdRelation+"?type="+this.relationTypes+"&fast=false&uuid="+escape(this.metadataUuid),null,true),view=this;
 store.load();
 store.on("load",function(){this.each(view.displayLinkedData,view)
 })
 },displayLinkedData:function(record){var table=Ext.query("table.related",this.body.dom),type=record.get("type");
 var el=Ext.get(table[0]);
 var exist=el.child("tr td[class*="+type+"]");
-var link='<li><a href="#" onclick="javascript:catalogue.metadataShow(\''+record.get("uuid")+'\');return false;" title="'+record.get("abstract")+'">'+record.get("title")+"</a></li>";
+var link=this.relatedTpl.apply(record.data);
 if(exist!==null){exist.next().child("li").insertHtml("afterEnd",link)
 }else{el.child("tr").insertHtml("beforeBegin",'<tr><td class="main '+type+'"><span class="cat-'+type+' icon">'+OpenLayers.i18n("related"+type)+"</span></td><td><ul>"+link+"</ul></td></tr>")
 }},createActionMenu:function(){if(!this.actionMenu){this.actionMenu=new GeoNetwork.MetadataMenu({catalogue:this.catalogue,record:this.record,resultsView:this.resultsView})
@@ -15013,7 +15462,6 @@ var viewButton={text:OpenLayers.i18n("viewMode"),iconCls:"viewModeIcon",menu:thi
 return viewButton
 },updateViewMenu:function(){var modes=Ext.query("span.mode",this.body.dom),menu=[],i,j,e,cmpId=this.getId(),isSimpleModeActive=true;
 menu.push([OpenLayers.i18n("simpleViewMode"),"view-simple",isSimpleModeActive]);
-Ext.ux.Lightbox.register("a[rel^=lightbox-viewset]",true);
 this.printMode=this.currTab;
 for(i=0;
 i<modes.length;
@@ -15044,8 +15492,10 @@ this.viewMenu.add({text:m[0],checked:false,disabled:m[2],group:"mode",value:m[1]
 }this.viewMenu.doLayout()
 },switchToTab:function(tab){this.currTab=tab;
 this.onViewCheck({value:this.currTab},true)
-},onViewCheck:function(item,checked){if(checked){this.currTab=item.value;
-this.load({url:this.serviceUrl+"&currTab="+this.currTab,callback:this.afterMetadataLoad,scope:this})
+},onViewCheck:function(item,checked){if(checked){this.removeAll();
+this.currTab=item.value;
+this.load({url:this.serviceUrl+"&currTab="+this.currTab,callback:function(){this.fireEvent("aftermetadataload",this)
+},scope:this})
 }},afterMetadataLoad:function(){this.cache={};
 this.tooltips=[];
 this.updateViewMenu();
@@ -15079,18 +15529,19 @@ panel.tooltips.push(t)
 })
 }},initComponent:function(){Ext.applyIf(this,this.defaultConfig);
 this.tipTpl=new Ext.XTemplate(GeoNetwork.util.HelpTools.Templates.SIMPLE);
-this.tools=[{id:"newwindow",qtip:OpenLayers.i18n("newWindow"),handler:function(e,toolEl,panel,tc){window.open(GeoNetwork.Util.getBaseUrl(location.href)+"#uuid="+this.metadataUuid);
-this.hide()
-},scope:this}];
+this.relatedTpl=new Ext.XTemplate(this.relatedTpl||GeoNetwork.Templates.Relation.SHORT);
 this.tbar=[this.createViewMenu(),this.createActionMenu(),"->",this.createPrintMenu(),this.createTooltipMenu()];
-GeoNetwork.view.ViewWindow.superclass.initComponent.call(this);
+GeoNetwork.view.ViewPanel.superclass.initComponent.call(this);
 this.metadataSchema=this.record?this.record.get("schema"):"";
-this.setTitle(this.record?this.record.get("title"):"");
-this.add(new Ext.Panel({autoLoad:{url:this.serviceUrl+"&currTab="+this.currTab,callback:this.afterMetadataLoad,scope:this},border:false,frame:false,autoScroll:true}));
-this.on("beforeshow",function(el){el.setSize(el.getWidth()>Ext.getBody().getWidth()?Ext.getBody().getWidth():el.getWidth(),el.getHeight()>Ext.getBody().getHeight()?Ext.getBody().getHeight():el.getHeight())
-})
+this.add(new Ext.Panel({autoLoad:{url:this.serviceUrl+"&currTab="+this.currTab,callback:function(){this.fireEvent("aftermetadataload",this)
+},scope:this},border:false,frame:false,autoScroll:true}));
+if(this.permalink){var l=GeoNetwork.Util.getBaseUrl(location.href)+"?uuid="+this.metadataUuid;
+this.getTopToolbar().add(GeoNetwork.Util.buildPermalinkMenu(l))
+}this.addEvents("aftermetadataload");
+this.on({aftermetadataload:this.afterMetadataLoad,scope:this})
 }});
-Ext.reg("gn_view_viewwindow",GeoNetwork.view.ViewWindow);Ext.namespace("GeoNetwork.editor");
+Ext.reg("gn_view_viewpanel",GeoNetwork.view.ViewPanel);
+Ext.namespace("GeoNetwork.editor");
 GeoNetwork.editor.SubTemplateSelectionPanel=Ext.extend(Ext.FormPanel,{border:false,catalogue:undefined,namespaces:{xlink:"http://www.w3.org/1999/xlink",gmd:"http://www.isotc211.org/2005/gmd",gmx:"http://www.isotc211.org/2005/gmx",gco:"http://www.isotc211.org/2005/gco",gts:"http://www.isotc211.org/2005/gts",gml:"http://www.opengis.net/gml"},id:"subTemplateSearchForm",contact:Ext.data.Record.create([{name:"xlink"},{name:"name"}]),subTemplateStore:undefined,codeListStore:undefined,subTplTypeField:undefined,addAsXLink:false,itemSelector:null,loadingMask:null,subTemplateCount:null,ref:null,name:null,elementName:null,codeListConfig:{"gmd:CI_ResponsibleParty":{xpath:"gmd:role/gmd:CI_RoleCode/@codeListValue",url:"",label:OpenLayers.i18n("contactRole"),code:"gmd:CI_RoleCode"}},codeListCombo:null,role:"",defaultRole:"pointOfContact",SubTemplateSelected:[],initComponent:function(){this.subTemplateStore=GeoNetwork.data.MetadataResultsStore();
 this.items=[{xtype:"panel",layout:"fit",bodyStyle:"padding: 5px;",border:false,tbar:[this.getSearchField()],items:[this.getSubTemplateItemSelector()]}];
 this.subTemplateStore.on({loadexception:function(){},beforeload:function(store,options){if(!this.loadingMask){this.loadingMask=new Ext.LoadMask(this.itemSelector.fromMultiselect.getEl(),{msg:OpenLayers.i18n("searching")})
@@ -15167,7 +15618,8 @@ var r=getRecordsFormat.read(response.responseText);
 var values=r.records;
 if(values.length>0){this.subTemplateStore.loadData(r)
 }}});
-Ext.reg("gn_editor_subtemplateselectionpanel",GeoNetwork.editor.SubTemplateSelectionPanel);Ext.namespace("GeoNetwork.editor");
+Ext.reg("gn_editor_subtemplateselectionpanel",GeoNetwork.editor.SubTemplateSelectionPanel);
+Ext.namespace("GeoNetwork.editor");
 GeoNetwork.editor.CRSSelectionPanel=Ext.extend(Ext.FormPanel,{CRS:Ext.data.Record.create([{name:"authority"},{name:"code"},{name:"version"},{name:"codeSpace"},{name:"description"}]),crsStore:undefined,catalogue:undefined,border:false,first:null,itemSelector:null,loadingMask:null,crsCount:null,ref:null,crsSelected:"",initComponent:function(){this.crsStore=new Ext.data.Store({proxy:new Ext.data.HttpProxy({url:this.catalogue.services.searchCRS,method:"GET"}),baseParams:{name:"",type:"",maxResults:50},reader:new Ext.data.XmlReader({record:"crs",id:"code"},this.CRS),fields:["code","codeSpace","authority","description","version"],sortInfo:{field:"description"}});
 this.items=[{xtype:"panel",layout:"fit",bodyStyle:"padding: 5px;",border:false,tbar:[this.getCRSTypeCombo()," ",this.getCRS(),"->",OpenLayers.i18n("maxResults"),this.getLimitInput()],items:[this.getCRSItemSelector()]}];
 this.crsStore.on({loadexception:function(){},beforeload:function(store,options){if(Ext.getCmp("maxResults")){store.baseParams.maxResults=Ext.getCmp("maxResults").getValue()
@@ -15216,7 +15668,8 @@ this.first=false
 if(this.crsSelected!==""){this.fireEvent("crsSelected",this.crsSelected);
 this.ownerCt.hide()
 }}});
-Ext.reg("gn_editor_crsselectionpanel",GeoNetwork.editor.CRSSelectionPanel);Ext.namespace("GeoNetwork.editor");
+Ext.reg("gn_editor_crsselectionpanel",GeoNetwork.editor.CRSSelectionPanel);
+Ext.namespace("GeoNetwork.editor");
 GeoNetwork.editor.EditorPanel=Ext.extend(Ext.Panel,{border:false,editUrl:undefined,updateUrl:undefined,frame:false,editorToolBar:undefined,tbarConfig:undefined,id:"editorPanel",defaultConfig:{defaultViewMode:"simple",layout:"border",height:800,xlinkOptions:{},utilityPanelCollapsed:false,utilityPanelConfig:{thumbnailPanel:{collapsed:false},relationPanel:{collapsed:true},validationPanel:{collapsed:true},suggestionPanel:{collapsed:true},helpPanel:{collapsed:false}}},catalogue:undefined,toolbar:undefined,validationPanel:undefined,relationPanel:undefined,helpPanel:undefined,suggestionPanel:undefined,thumbnailPanel:undefined,editorMainPanel:undefined,metadataId:undefined,versionId:undefined,metadataMode:undefined,metadataSchema:undefined,metadataType:undefined,position:undefined,relatedMetadataStore:undefined,keywordSelectionWindow:undefined,contactSelectionWindow:undefined,subTemplateSelectionWindow:undefined,crsSelectionWindow:undefined,logoSelectionWindow:undefined,linkedMetadataSelectionWindow:undefined,geoPublisherWindow:undefined,lang:undefined,fileUploadWindow:undefined,mask:undefined,managerInitialized:false,container:undefined,setContainer:function(el){if(!this.container){this.container=el
 }},showLogoSelectionPanel:function(ref){if(!this.logoSelectionWindow){var logoSelectionPanel=new GeoNetwork.editor.LogoSelectionPanel({ref:ref,serviceUrl:this.catalogue.services.getIcons,logoAddUrl:this.catalogue.services.logoAdd,logoUrl:this.catalogue.services.harvesterLogoUrl,listeners:{logoselected:function(panel,idx){var record=panel.store.getAt(idx);
 Ext.getDom(panel.ref).value=panel.logoUrl+record.get("name")
@@ -15287,7 +15740,8 @@ var single=((mode==="uuidref"||mode==="iso19110"||mode==="")?true:false);
 var editorPanel=this;
 this.linkedMetadataSelectionPanel=new GeoNetwork.editor.LinkedMetadataSelectionPanel({ref:ref,catalogue:this.catalogue,singleSelect:single,mode:mode,listeners:{linkedmetadataselected:function(panel,metadata){if(single){if(this.ref!==null){Ext.get("_"+this.ref+(name!==""?"_"+name:"")).dom.value=metadata[0].data.uuid
 }else{if(this.mode==="iso19110"){var url=panel.catalogue.services.mdRelationInsert+"?parentId="+document.mainForm.id.value+"&childUuid="+metadata[0].data.uuid;
-var request=Ext.Ajax.request({url:url,method:"GET",success:function(result,request){editorPanel.relationPanel.reload()
+var request=Ext.Ajax.request({url:url,method:"GET",success:function(result,request){var urlProcessing=panel.catalogue.services.mdProcessing+"?uuidref="+metadata[0].data.uuid+"&id="+document.mainForm.id.value+"&process=update-attachFeatureCatalogue";
+editorPanel.process(urlProcessing)
 },failure:function(result,request){Ext.MessageBox.alert(OpenLayers.String.format(OpenLayers.i18n("errorAndStatusMsg"),{status:result.status,text:result.statusText}));
 setBunload(true)
 }})
@@ -15400,8 +15854,9 @@ if(typeof ch==="function"){ch=ch.toString()
 }},validateMetadataFields:function(){var items=Ext.DomQuery.select("select.lang_selector");
 Ext.each(items,function(input){for(i=0;
 i<input.options.length;
-i+=1){if(input.options[i].getAttribute("code").toLowerCase()===this.lang){input.options[i].selected=true
-}}});
+i++){if(input.options[i].getAttribute("code").toLowerCase()===this.lang){input.options[i].selected=true;
+i=input.options.length
+}}},this);
 items=Ext.DomQuery.select("input,textarea,select");
 Ext.each(items,function(input){this.validateMetadataField(input)
 },this)
@@ -15411,7 +15866,7 @@ i<calendars.length;
 i++){var cal=calendars[i];
 var id=cal.id;
 cal.id=id+"Id";
-if(cal.firstChild===null||cal.childNodes.length===1){var format="Y-m-d";
+if(cal.firstChild===null||cal.childNodes.length===0){var format="Y-m-d";
 var formatEl=Ext.getDom(id+"_format",this.editorMainPanel.dom);
 if(formatEl){format=formatEl.value
 }var valueEl=Ext.getDom(id+"_cal",this.editorMainPanel.dom);
@@ -15450,7 +15905,7 @@ this.managerInitialized=true
 }else{}}}},initComponent:function(){var optionsPanel;
 Ext.applyIf(this,this.defaultConfig);
 this.disabled=(this.metadataId?false:true);
-this.lang=(this.lang?this.lang:"en");
+this.lang=(this.catalogue.lang?this.catalogue.lang:"eng");
 this.editUrl=this.catalogue.services.mdEdit;
 this.createUrl=this.catalogue.services.mdCreate;
 this.updateUrl=this.catalogue.services.mdUpdate;
@@ -15474,8 +15929,9 @@ this.on("added",function(el,container,index){if(container){this.setContainer(con
 }this.initPanelLayout()
 },this)
 }});
-Ext.reg("gn_editor_editorpanel",GeoNetwork.editor.EditorPanel);Ext.namespace("GeoNetwork.editor");
-GeoNetwork.editor.EditorToolbar=Ext.extend(Ext.Toolbar,{catalogue:undefined,editor:undefined,defaultConfig:{isTemplate:false,hideTypeMenu:false},mapOptions:undefined,layers:undefined,typeMenu:undefined,viewMenu:undefined,saveAction:undefined,saveAndCloseAction:undefined,checkAction:undefined,resetAction:undefined,cancelAction:undefined,minorCheckbox:undefined,minorEdit:false,initComponent:function(){Ext.applyIf(this,this.defaultConfig);
+Ext.reg("gn_editor_editorpanel",GeoNetwork.editor.EditorPanel);
+Ext.namespace("GeoNetwork.editor");
+GeoNetwork.editor.EditorToolbar=Ext.extend(Ext.Toolbar,{catalogue:undefined,editor:undefined,defaultConfig:{isTemplate:false,hideTypeMenu:false,editAttributes:false},mapOptions:undefined,layers:undefined,typeMenu:undefined,configMenu:undefined,viewMenu:undefined,saveAction:undefined,saveAndCloseAction:undefined,checkAction:undefined,resetAction:undefined,cancelAction:undefined,minorCheckbox:undefined,minorEdit:false,initComponent:function(){Ext.applyIf(this,this.defaultConfig);
 var cmp=[];
 if(!this.hideTypeMenu){cmp.push(this.createTypeMenu());
 cmp.push(["-"])
@@ -15491,7 +15947,7 @@ this.resetAction=new Ext.Action({text:OpenLayers.i18n("reset"),iconCls:"refreshM
 },scope:this.editor});
 this.cancelAction=new Ext.Action({text:OpenLayers.i18n("cancel"),iconCls:"cancel",handler:function(){this.cancel()
 },scope:this.editor});
-cmp.push(this.createViewMenu(),["-"],this.saveAction,this.checkAction,this.saveAndCloseAction,this.minorCheckbox,["->"],this.resetAction,this.cancelAction);
+cmp.push(this.createViewMenu(),["-"],this.saveAction,this.checkAction,this.saveAndCloseAction,this.minorCheckbox,["->"],this.resetAction,this.cancelAction,this.configMenu());
 GeoNetwork.editor.EditorToolbar.superclass.initComponent.call(this);
 this.add(cmp)
 },setIsTemplate:function(is){if(!this.hideTypeMenu){var isTemplate=is==="y";
@@ -15500,10 +15956,19 @@ Ext.getCmp("type_n").setChecked(!isTemplate)
 }},setIsMinor:function(minor){var state=true;
 if(minor===""||minor==="false"){state=false
 }this.minorCheckbox.toggle(state)
-},createLayoutMenu:function(){var menu={text:OpenLayers.i18n("layout"),menu:{items:[{text:OpenLayers.i18n("collapseAll"),checked:false,checkHandler:this.collapseAll}]}};
-return menu
 },createTypeMenu:function(){this.typeMenu={text:OpenLayers.i18n("type"),menu:{items:['<b class="menu-title">'+OpenLayers.i18n("chooseAType")+"</b>",{text:OpenLayers.i18n("md"),checked:true,value:"n",id:"type_n",group:"type",checkHandler:this.onTypeCheck},{text:OpenLayers.i18n("tpl"),checked:true,id:"type_y",group:"type",value:"y",checkHandler:this.onTypeCheck}]}};
 return this.typeMenu
+},configMenu:function(){this.configMenu={iconCls:"configIcon",menu:{items:[{text:OpenLayers.i18n("collapseAll"),checked:false,checkHandler:function(){Ext.each(Ext.DomQuery.select("div.toggle"),function(i){if(i.onclick){i.onclick()
+}})
+}},{text:OpenLayers.i18n("editAttributes"),checked:this.editAttributes,checkHandler:function(item,checked){this.editAttributes=checked;
+this.editAttributesVisibility()
+},scope:this}]}};
+this.editor.on("metadataUpdated",function(){this.editAttributesVisibility()
+},this);
+return this.configMenu
+},editAttributesVisibility:function(){Ext.each(Ext.select("div.toggle-attr"),function(i){i.setVisibilityMode(Ext.Element.DISPLAY);
+i.setVisible(this.editAttributes)
+},this)
 },createViewMenu:function(modes){var items=['<b class="menu-title">'+OpenLayers.i18n("chooseAView")+"</b>"];
 this.viewMenu=new Ext.menu.Menu({items:items});
 var viewButton={text:OpenLayers.i18n("viewMode"),iconCls:"viewModeIcon",menu:this.viewMenu};
@@ -15519,15 +15984,10 @@ this.viewMenu.add({text:m[0],checked:false,disabled:m[2],group:"mode",value:m[1]
 document.mainForm.currTab.value=item.value;
 this.saveAction.execute()
 }},onTypeCheck:function(item,checked){if(checked){Ext.get("template").dom.value=item.value
-}},collapseAll:function(item,checked){var mainTitles=Ext.DomQuery.select("div.toggle"),idx;
-for(idx=0;
-idx<mainTitles.length;
-++idx){var elem=mainTitles[idx];
-elem.checked=checked;
-if(elem.onclick){elem.onclick()
-}}},onDestroy:function(){GeoNetwork.EditorToolbar.superclass.onDestroy.apply(this,arguments)
+}},onDestroy:function(){GeoNetwork.EditorToolbar.superclass.onDestroy.apply(this,arguments)
 }});
-Ext.reg("gn_editor_editortoolbar",GeoNetwork.editor.EditorToolbar);Ext.namespace("GeoNetwork.editor");
+Ext.reg("gn_editor_editortoolbar",GeoNetwork.editor.EditorToolbar);
+Ext.namespace("GeoNetwork.editor");
 GeoNetwork.editor.EditorTools={addHiddenFormFieldForFragment:function(panel,xmlFragments,editorPanel){var id="_X"+panel.ref+"_"+panel.name.replace(":","COLON");
 var xml;
 var first=true;
@@ -15593,17 +16053,35 @@ var thisElement=Ext.get(id);
 var nextElement=thisElement.next();
 var prevElement=thisElement.prev();
 Ext.Ajax.request({url:catalogue.services.rootUrl+action,method:"GET",params:{id:metadataId,ref:ref,parent:parentref},success:function(result,request){var html=result.responseText;
-if(html==""){if(bottomElement(thisElement)&&document.mainForm.currTab.value!="simple"){swapControls(thisElement,prevElement);
+if(html==""){var originalElementType=id.split("_")[0];
+var prevElementType=((prevElement==null)?"":prevElement.id.split("_")[0]);
+var nextElementType=((nextElement==null)?"":nextElement.id.split("_")[0]);
+if(bottomElement(thisElement)){var doSwapControls=true;
+if(document.mainForm.currTab.value==="simple"){doSwapControls=(originalElementType===prevElementType)
+}if(doSwapControls){swapControls(thisElement,prevElement);
 thisElement.remove();
-thisElement=prevElement
-}else{thisElement.remove();
-thisElement=nextElement
-}if(topElement(thisElement)){topControls(thisElement,min)
-}}else{if(orElement(thisElement)){thisElement.remove()
+thisElement=prevElement;
+if(originalElementType===prevElementType){if(topElement(thisElement)){topControls(thisElement,min)
+}}}else{thisElement.remove();
+thisElement=nextElement;
+if(originalElementType===nextElementType){if(topElement(thisElement)){topControls(thisElement,min)
+}}}}else{thisElement.remove();
+thisElement=nextElement;
+if(originalElementType===nextElementType){if(topElement(thisElement)){topControls(thisElement,min)
+}}}}else{if(orElement(thisElement)){thisElement.remove()
 }else{Ext.DomHelper.insertHtml("afterEnd",thisElement.dom,html);
 thisElement.remove()
 }}setBunload(true)
 },failure:function(result,request){Ext.MessageBox.alert(translate("errorDeleteElement")+name+" "+translate("errorFromDoc")+" / status "+result.status+" text: "+result.statusText+" - "+translate("tryAgain"));
+setBunload(true)
+}})
+}function doRemoveAttributeAction(action,ref,parentref){var metadataId=document.mainForm.id.value;
+var thisElement=Ext.get(ref+"_block");
+Ext.Ajax.request({url:catalogue.services.rootUrl+action,method:"GET",params:{id:metadataId,ref:ref},success:function(result,request){var html=result.responseText;
+var editor=Ext.getCmp("editorPanel");
+editor.save();
+setBunload(true)
+},failure:function(result,request){Ext.MessageBox.alert(translate("errorDeleteAttribute")+name+" "+translate("errorFromDoc")+" / status "+result.status+" text: "+result.statusText+" - "+translate("tryAgain"));
 setBunload(true)
 }})
 }function updateEditorContent(result,request){var editor=Ext.getCmp("editorPanel");
@@ -15797,7 +16275,7 @@ Ext.get(div).hide()
 }else{Ext.MessageBox.alert(OpenLayers.i18n("updateChildren"),onFailureMsg)
 }},failure:function(result,request){Ext.MessageBox.alert(OpenLayers.i18n("updateChildren"),onFailureMsg)
 }})
-};Ext.namespace("GeoNetwork.editor");
+}Ext.namespace("GeoNetwork.editor");
 GeoNetwork.editor.HelpPanel=Ext.extend(Ext.Panel,{defaultConfig:{border:false,frame:false,iconCls:"book",title:undefined,collapsible:true,collapsed:false},editor:undefined,tipTpl:undefined,cache:{},loadHelp:function(id,sectionId,updateMessage,cb){if(!this.cache[id]){var panel=this;
 GeoNetwork.util.HelpTools.get(id,this.editor.metadataSchema,this.editor.catalogue.services.schemaInfo,function(r){panel.cache[id]=panel.tipTpl.apply(r.records[0].data);
 panel.update(panel.cache[id])
@@ -15817,7 +16295,8 @@ this.title=OpenLayers.i18n("help");
 GeoNetwork.editor.HelpPanel.superclass.initComponent.call(this);
 panel=this
 }});
-Ext.reg("gn_editor_helppanel",GeoNetwork.editor.HelpPanel);Ext.namespace("GeoNetwork.editor");
+Ext.reg("gn_editor_helppanel",GeoNetwork.editor.HelpPanel);
+Ext.namespace("GeoNetwork.editor");
 GeoNetwork.editor.keyword={};
 GeoNetwork.editor.KeywordSelectionPanel=Ext.extend(Ext.FormPanel,{catalogue:undefined,Keyword:Ext.data.Record.create([{name:"value"},{name:"thesaurus"},{name:"uri"}]),keywordStore:undefined,border:false,addAsXLink:false,itemSelector:null,loadingMask:null,ThesaurusCount:null,ref:null,name:"gmd:descriptiveKeywords",keywordsSelected:[],initComponent:function(){this.keywordStore=new Ext.data.Store({proxy:new Ext.data.HttpProxy({url:this.catalogue.services.searchKeyword,method:"GET"}),baseParams:{pNewSearch:true,pTypeSearch:1,pThesauri:"",pMode:"searchBox"},reader:new Ext.data.XmlReader({record:"keyword",id:"uri"},this.Keyword),fields:["value","thesaurus","uri"],sortInfo:{field:"thesaurus"}});
 this.items=[{xtype:"panel",layout:"fit",bodyStyle:"padding: 5px;",border:false,tbar:[this.getThesaurusCombo()," ",this.getKeyword(),"->",OpenLayers.i18n("maxResults")+" "+OpenLayers.i18n("perThesaurus"),this.getLimitInput()],items:[this.getKeywordsItemSelector()]}];
@@ -15885,7 +16364,8 @@ if(this.ThesaurusCount===0){this.fireEvent("keywordselected",this,this.keywordsS
 this.ownerCt.hide()
 }}})
 }});
-Ext.reg("gn_editor_keywordselectionpanel",GeoNetwork.editor.KeywordSelectionPanel);Ext.namespace("GeoNetwork.editor");
+Ext.reg("gn_editor_keywordselectionpanel",GeoNetwork.editor.KeywordSelectionPanel);
+Ext.namespace("GeoNetwork.editor");
 GeoNetwork.editor.LinkedMetadataPanel=Ext.extend(Ext.Panel,{title:undefined,editor:undefined,metadataId:undefined,selectedUuid:undefined,selectedType:undefined,metadataSchema:undefined,serviceUrl:undefined,store:undefined,parentAction:undefined,datasetAction:undefined,serviceAction:undefined,featureCatAction:undefined,delFeatureCatAction:undefined,updateChildrenAction:undefined,colModel:undefined,expander:undefined,defaultConfig:{border:false,frame:false,iconCls:"linkIcon",collapsible:true,collapsed:false},createColumnDef:function(){this.expander=new Ext.grid.RowExpander({tpl:new Ext.XTemplate('<div title=""><a href="#" onclick="javascript:catalogue.metadataShow(\'{uuid}\');">{title}</a></div>{msg}')});
 return[this.expander,{id:"type",header:OpenLayers.i18n("type"),width:60,sortable:true,hidden:true,dataIndex:"type"},{header:OpenLayers.i18n("title"),hidden:false,dataIndex:"title"}]
 },createColumnModel:function(){this.colModel=new Ext.grid.ColumnModel({defaults:{width:120,sortable:true},columns:this.createColumnDef()});
@@ -15919,7 +16399,7 @@ return uuidList
 this.title=OpenLayers.i18n("relatedResources");
 this.tools=[{id:"refresh",handler:function(e,toolEl,panel,tc){panel.reload(panel,panel.metadataId)
 }}];
-this.parentAction=new Ext.Action({text:OpenLayers.i18n("parentMd"),handler:function(){this.switchToTab("metadata")
+this.parentAction=new Ext.Action({text:OpenLayers.i18n("parentMd"),iconCls:"cat-parent",handler:function(){this.switchToTab("metadata")
 },scope:this.editor});
 this.datasetAction=new Ext.Action({text:OpenLayers.i18n("datasetMd"),iconCls:"cat-dataset",handler:function(){this.showLinkedServiceMetadataSelectionPanel("coupledResource","","")
 },scope:this.editor});
@@ -15927,7 +16407,9 @@ this.serviceAction=new Ext.Action({text:OpenLayers.i18n("serviceMd"),iconCls:"ca
 },scope:this.editor});
 this.featureCatAction=new Ext.Action({text:OpenLayers.i18n("featureCat"),iconCls:"cat-featureCatalogue",handler:function(){this.showLinkedMetadataSelectionPanel(null,"iso19110")
 },scope:this.editor});
-this.delFeatureCatAction=new Ext.Action({text:OpenLayers.i18n("delete19110Relation"),handler:function(){this.editor.catalogue.doAction(this.editor.catalogue.services.mdRelationDelete,{childUuid:this.selectedUuid,parentId:this.metadataId},null,null,this.reload.bind(this),null)
+this.delFeatureCatAction=new Ext.Action({text:OpenLayers.i18n("delete19110Relation"),handler:function(){this.editor.catalogue.doAction(this.editor.catalogue.services.mdRelationDelete,{childUuid:this.selectedUuid,parentId:this.metadataId},null,null,this.reload.bind(this),null);
+var urlProcessing=this.editor.catalogue.services.mdProcessing+"?uuidref="+this.selectedUuid+"&id="+this.metadataId+"&process=update-detachFeatureCatalogue";
+this.editor.process(urlProcessing)
 },scope:this,disabled:true});
 this.updateChildrenAction=new Ext.Action({text:OpenLayers.i18n("updateChildren"),handler:function(){this.editor.catalogue.modalAction(OpenLayers.i18n("updateChildren"),this.editor.catalogue.services.mdMassiveChildrenForm+"?parentUuid="+document.mainForm.uuid.value+"&schema="+document.mainForm.schema.value+"&childrenIds="+this.getChildrenIds().join(","))
 },scope:this,disabled:true});
@@ -15943,10 +16425,11 @@ this.editor.on("metadataUpdated",this.reload,this);
 this.on("expand",this.reload);
 this.store.on("load",this.updateStatus,this)
 }});
-Ext.reg("gn_editor_linkedmetadatapanel",GeoNetwork.editor.LinkedMetadataPanel);Ext.namespace("GeoNetwork.editor");
+Ext.reg("gn_editor_linkedmetadatapanel",GeoNetwork.editor.LinkedMetadataPanel);
+Ext.namespace("GeoNetwork.editor");
 GeoNetwork.editor.Filter={SERVICE:[{name:"E_type",value:"service"}],DATASET:[{name:"E_type",value:"dataset"}],FEATURE_CATALOGUE:[{name:"E__schema",value:"iso19110"}]};
 GeoNetwork.editor.linkedMetadata={};
-GeoNetwork.editor.LinkedMetadataSelectionPanel=Ext.extend(Ext.FormPanel,{catalogue:undefined,border:false,layout:"fit",createIfNotExistURL:null,hiddenParameters:GeoNetwork.editor.Filter.DATASET,singleSelect:true,loadingMask:null,mdStore:null,ref:null,proxy:null,mode:null,serviceUrl:null,capabilitiesStore:null,linkedMetadataStore:undefined,initComponent:function(){this.addEvents("linkedmetadataselected");
+GeoNetwork.editor.LinkedMetadataSelectionPanel=Ext.extend(Ext.FormPanel,{catalogue:undefined,border:false,layout:"fit",createIfNotExistURL:null,hiddenParameters:undefined,singleSelect:true,loadingMask:null,mdStore:null,ref:null,proxy:null,mode:null,serviceUrl:null,capabilitiesStore:null,linkedMetadataStore:undefined,initComponent:function(){this.addEvents("linkedmetadataselected");
 this.mdStore=GeoNetwork.data.MetadataResultsStore();
 this.linkedMetadataStore=GeoNetwork.data.MetadataCSWResultsStore();
 if(this.mode==="attachService"||this.mode==="coupledResource"){this.capabilitiesStore=new GeoExt.data.WMSCapabilitiesStore({url:this.serviceUrl,id:"capabilitiesStore",listeners:{exception:function(proxy,type,action,options,res,arg){Ext.MessageBox.alert(OpenLayers.i18n("error"))
@@ -15982,10 +16465,10 @@ GeoNetwork.editor.LinkedMetadataSelectionPanel.superclass.initComponent.call(thi
 },scope:this}
 },setRef:function(ref){this.ref=ref
 },addHiddenFormInput:function(items){var i;
-for(i=0;
+if(this.hiddenParameters){for(i=0;
 i<this.hiddenParameters.length;
 i++){items.push({xtype:"textfield",fieldLabel:this.hiddenParameters[i].name,name:this.hiddenParameters[i].name,value:this.hiddenParameters[i].value,hidden:true})
-}return items
+}}return items
 },getSearchInput:function(){return new GeoNetwork.form.SearchField({name:"E.8_AnyText",width:240,store:this.linkedMetadataStore,triggerAction:function(scope){scope.doSearch()
 },scope:this})
 },getLimitInput:function(){return{xtype:"textfield",name:"nbResultPerPage",id:"nbResultPerPage",value:20,width:40}
@@ -16003,8 +16486,10 @@ if(Ext.getCmp("nbResultPerPage")){GeoNetwork.editor.nbResultPerPage=Ext.getCmp("
 var r=getRecordsFormat.read(response.responseText);
 var values=r.records;
 if(values.length>0){this.linkedMetadataStore.loadData(r)
+}if(this.loadingMask!==null){this.loadingMask.hide()
 }}});
-Ext.reg("gn_editor_linkedmetadataselectionpanel",GeoNetwork.editor.LinkedMetadataSelectionPanel);Ext.namespace("GeoNetwork.editor");
+Ext.reg("gn_editor_linkedmetadataselectionpanel",GeoNetwork.editor.LinkedMetadataSelectionPanel);
+Ext.namespace("GeoNetwork.editor");
 GeoNetwork.editor.LogoSelectionPanel=Ext.extend(Ext.Panel,{defaultConfig:{autoScroll:true,autoWidth:true,layout:"border"},store:undefined,view:undefined,uploadForm:undefined,serviceUrl:undefined,logoAddUrl:undefined,ref:undefined,setRef:function(ref){this.ref=ref
 },getUploadForm:function(){this.uploadForm=new Ext.form.FormPanel({fileUpload:true,region:"south",height:80,split:true,items:{xtype:"fileuploadfield",allowBlank:false,emptyText:OpenLayers.i18n("logoSelect"),hideLabel:true,name:"fname",buttonCfg:{iconCls:"thumbnailAddIcon"}},buttons:[{text:OpenLayers.i18n("upload"),scope:this,iconCls:"thumbnailGoIcon",handler:function(){if(this.uploadForm.getForm().isValid()){this.uploadForm.getForm().submit({url:this.logoAddUrl,scope:this,success:function(fp,action){this.store.reload()
 },failure:function(response){Ext.Msg.alert(OpenLayers.i18n("failure"),response.responseText)
@@ -16024,7 +16509,8 @@ GeoNetwork.editor.LogoSelectionPanel.superclass.initComponent.call(this);
 this.addEvents("logoselected");
 this.store.load()
 }});
-Ext.reg("gn_editor_logoselectionpanel",GeoNetwork.editor.LogoSelectionPanel);Ext.namespace("GeoNetwork.editor");
+Ext.reg("gn_editor_logoselectionpanel",GeoNetwork.editor.LogoSelectionPanel);
+Ext.namespace("GeoNetwork.editor");
 GeoNetwork.editor.NewMetadataPanel=Ext.extend(Ext.Panel,{defaultConfig:{border:false,frame:false,isTemplate:"n"},editor:undefined,getGroupUrl:undefined,groupStore:undefined,catalogue:undefined,tplStore:undefined,selectedGroup:undefined,selectedTpl:undefined,isChild:undefined,filter:undefined,createBt:undefined,validate:function(){if(this.selectedGroup!==undefined&&this.selectedTpl!==undefined){this.createBt.setDisabled(false)
 }else{this.createBt.setDisabled(true)
 }},initComponent:function(){Ext.applyIf(this,this.defaultConfig);
@@ -16047,12 +16533,13 @@ if(grid.getSelectionModel().getCount()!==0){this.selectedTpl=data.id
 }this.validate()
 },scope:this}}));
 this.catalogue.search({E_template:"y"},null,null,1,true,this.tplStore,null)
-}this.add(new Ext.form.ComboBox({name:"E_group",mode:"local",emptyText:OpenLayers.i18n("chooseGroup"),triggerAction:"all",fieldLabel:OpenLayers.i18n("group"),store:this.groupStore,allowBlank:false,valueField:"id",displayField:"name",tpl:'<tpl for="."><div class="x-combo-list-item">{[values.label.'+OpenLayers.Lang.getCode()+"]}</div></tpl>",listeners:{select:function(field,record,idx){this.selectedGroup=record.get("id");
+}this.add(new Ext.form.ComboBox({name:"E_group",mode:"local",emptyText:OpenLayers.i18n("chooseGroup"),triggerAction:"all",fieldLabel:OpenLayers.i18n("group"),store:this.groupStore,allowBlank:false,valueField:"id",displayField:"name",tpl:'<tpl for="."><div class="x-combo-list-item">{[values.label.'+GeoNetwork.Util.getCatalogueLang(OpenLayers.Lang.getCode())+"]}</div></tpl>",listeners:{select:function(field,record,idx){this.selectedGroup=record.get("id");
 this.validate()
 },scope:this}}));
 this.add({xtype:"textfield",name:"isTemplate",hidden:true,value:this.isTemplate})
 }});
-Ext.reg("gn_editor_newmetadatapanel",GeoNetwork.editor.NewMetadataPanel);Ext.namespace("GeoNetwork.editor");
+Ext.reg("gn_editor_newmetadatapanel",GeoNetwork.editor.NewMetadataPanel);
+Ext.namespace("GeoNetwork.editor");
 GeoNetwork.editor.GeoPublisherPanel=Ext.extend(Ext.form.FormPanel,{border:false,serviceUrl:undefined,itemSelector:null,geoserverStore:undefined,loadingMask:null,metadataId:null,metadataUuid:null,metadataTitle:null,fileName:null,layerName:null,accessStatus:null,nodeId:null,geoPublicationMap:null,geoPublicationMapPanel:null,geoPublicationTb:null,layers:null,extent:null,stylerBt:null,publishBt:null,unpublishBt:null,checkBt:null,protocols:{wms:{checked:true,label:"OGC:WMS"},wfs:{checked:false,label:"OGC:WFS"},wcs:{checked:false,label:"OGC:WCS"}},addOnLineSourceBt:null,addOnLineSourceMenu:null,enableStyler:false,statusBar:null,layerPreviewName:"DatasetPreview",initComponent:function(){var panel=this;
 var record=Ext.data.Record.create([{name:"id"},{name:"name"},{name:"adminUrl"},{name:"wmsUrl"},{name:"wfsUrl"},{name:"wcsUrl"},{name:"stylerUrl"},{name:"namespacePrefix"}]);
 this.geoserverStore=new Ext.data.Store({proxy:new Ext.data.HttpProxy({url:panel.serviceUrl+"?action=LIST",method:"GET"}),baseParams:{action:"LIST"},reader:new Ext.data.XmlReader({record:"node",id:"id"},record),sortInfo:{field:"name"}});
@@ -16119,12 +16606,16 @@ GeoNetwork.editor.GeoPublisherPanel.superclass.initComponent.call(this);
 this.on("resize",function(el,w,h){el.geoPublicationMapPanel.setSize(w,h)
 });
 if(!this.loadingMask){this.loadingMask=new Ext.LoadMask(Ext.getBody(),{msg:OpenLayers.i18n("publishing")})
-}},getGeoPublicationMapPanel:function(){var map=new OpenLayers.Map(),i;
-this.geoPublicationMapPanel=new GeoExt.MapPanel({id:"mapPanel",extent:this.extent,layers:GeoNetwork.map.BACKGROUND_LAYERS||[],map:map,width:this.width,height:this.height});
+}},getGeoPublicationMapPanel:function(){var options={projection:GeoNetwork.map.PROJECTION,theme:null,maxExtent:GeoNetwork.map.EXTENT};
+var map=new OpenLayers.Map(options),i;
+this.geoPublicationMapPanel=new GeoExt.MapPanel({id:"mapPanel",layers:GeoNetwork.map.BACKGROUND_LAYERS||[],map:map,width:this.width,height:this.height});
 return this.geoPublicationMapPanel
 },addLayer:function(title,name){var map=Ext.getCmp("mapPanel").map;
+var extent=new OpenLayers.Bounds.fromArray(this.extent);
+if(GeoNetwork.map.PROJECTION!=="EPSG:4326"){extent.transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection(GeoNetwork.map.PROJECTION))
+}map.zoomToExtent(extent||GeoNetwork.map.EXTENT);
 this.cleanLayerPreview();
-var layer=new OpenLayers.Layer.WMS(title,this.geoserverStore.getById(this.nodeId).get("wmsUrl"),{transparent:"true",layers:name});
+var layer=new OpenLayers.Layer.WMS(title,this.geoserverStore.getById(this.nodeId).get("wmsUrl"),{transparent:"true",layers:name},{singleTile:true});
 map.addLayer(layer)
 },cleanLayerPreview:function(){var map=Ext.getCmp("mapPanel").map;
 var currentLayers=map.getLayersByName(this.layerPreviewName);
@@ -16163,7 +16654,8 @@ if(this.fileName.indexOf("tif")!==-1||!this.enableStyler){this.stylerBt.disable(
 }else{this.stylerBt.enable()
 }break
 }}});
-Ext.reg("gn_editor_geopublisherpanel",GeoNetwork.editor.GeoPublisherPanel);Ext.namespace("GeoNetwork.editor");
+Ext.reg("gn_editor_geopublisherpanel",GeoNetwork.editor.GeoPublisherPanel);
+Ext.namespace("GeoNetwork.editor");
 GeoNetwork.editor.SuggestionsPanel=Ext.extend(Ext.Panel,{defaultConfig:{border:false,frame:false,iconCls:"suggestionIcon",title:undefined,collapsible:true,collapsed:true},metadataId:undefined,processName:undefined,processParams:undefined,processParametersWindow:undefined,catalogue:undefined,editor:undefined,store:undefined,clear:function(){this.store.removeAll()
 },reload:function(e,id){this.metadataId=id||this.metadataId;
 if(this.collapsed){return
@@ -16213,7 +16705,8 @@ this.editor.on("editorClosed",this.clear,this);
 this.editor.on("metadataUpdated",this.reload,this);
 this.on("expand",this.reload)
 }});
-Ext.reg("gn_editor_suggestionspanel",GeoNetwork.editor.SuggestionsPanel);Ext.namespace("GeoNetwork.editor");
+Ext.reg("gn_editor_suggestionspanel",GeoNetwork.editor.SuggestionsPanel);
+Ext.namespace("GeoNetwork.editor");
 GeoNetwork.editor.ThumbnailPanel=Ext.extend(Ext.Panel,{title:undefined,metadataId:undefined,versionId:undefined,setThumbnail:undefined,unsetThumbnail:undefined,getThumbnail:undefined,uploadForm:undefined,idField:undefined,versionField:undefined,thumbnail:undefined,editor:undefined,dataView:undefined,store:undefined,thumbnailUploadWindow:undefined,addButton:undefined,delButton:undefined,defaultConfig:{border:false,frame:false,iconCls:"thumbnailIcon",collapsible:true,collapsed:false,autoScroll:true},clear:function(){this.store.removeAll()
 },reload:function(e,id,schema,version){this.metadataId=id||this.metadataId;
 this.versionId=version||this.metadataId;
@@ -16263,7 +16756,8 @@ if(this.metadataId){this.reload(this,this.metadataId)
 this.editor.on("metadataUpdated",this.reload,this);
 this.on("expand",this.reload)
 }});
-Ext.reg("gn_editor_thumbnailpanel",GeoNetwork.editor.ThumbnailPanel);Ext.namespace("GeoNetwork.editor");
+Ext.reg("gn_editor_thumbnailpanel",GeoNetwork.editor.ThumbnailPanel);
+Ext.namespace("GeoNetwork.editor");
 GeoNetwork.editor.ValidationPanel=Ext.extend(Ext.Panel,{title:undefined,editor:undefined,metadataId:undefined,serviceUrl:undefined,store:undefined,defaultConfig:{border:false,frame:false,collapsible:true,collapsed:true,iconCls:"validateMetadata"},validate:function(){this.editor.validate(function(){this.updateValidationReport()
 }.bind(this))
 },updateValidationReport:function(){if(this.collapsed){this.toggleCollapse()
@@ -16287,11 +16781,13 @@ this.editor.on("editorClosed",this.clear,this);
 this.editor.on("metadataUpdated",this.reload,this);
 this.on("expand",this.reload)
 }});
-Ext.reg("gn_editor_validationpanel",GeoNetwork.editor.ValidationPanel);Ext.namespace("GeoNetwork.admin");
+Ext.reg("gn_editor_validationpanel",GeoNetwork.editor.ValidationPanel);
+Ext.namespace("GeoNetwork.admin");
 GeoNetwork.admin.AdminTools={showImportMetadataWindow:function(metadataType,windowTitle){var metadataPanel=new GeoNetwork.admin.MetadataInsertPanel({metadataType:metadataType});
 var newMetadataWindow=new Ext.Window({title:windowTitle||OpenLayers.i18n("importMetadata"),width:450,height:450,layout:"fit",modal:true,items:metadataPanel,closeAction:"destroy",constrain:true,iconCls:"addIcon"});
 newMetadataWindow.show()
-}};Ext.namespace("GeoNetwork.admin");
+}};
+Ext.namespace("GeoNetwork.admin");
 GeoNetwork.admin.HarvesterPanel=Ext.extend(Ext.Panel,{border:false,frame:false,layout:"border",height:800,catalogue:undefined,harvesterStore:undefined,harvesterTplMarkup:["Information: {site_name}<br/>","Last run: {info_lastrun}<br/>",'<tpl if="info_result_total">',"Total: {info_result_total}<br/>","Added: {info_result_added}<br/>","Removed: {info_result_removed}<br/>","Schema unknwon: {info_result_unknowSchema}<br/>","</tpl>"],harvesterTpl:undefined,xmlTpl:undefined,harvesterGrid:undefined,currentHarvester:undefined,initComponent:function(){GeoNetwork.admin.HarvesterPanel.superclass.initComponent.call(this);
 panel=this;
 this.createGrid();
@@ -16395,11 +16891,12 @@ OpenLayers.Request.POST(opts)
 this.doAction(this.catalogue.services.harvestingRemove,params,this.refreshHarvester,null,null,"Failed to delete the harvester")
 }},refreshHarvester:function(){Ext.getCmp("harvestRefreshBt").fireEvent("click")
 }});
-Ext.reg("gn_admin_harvesterpanel",GeoNetwork.admin.HarvesterPanel);Ext.namespace("GeoNetwork.admin");
+Ext.reg("gn_admin_harvesterpanel",GeoNetwork.admin.HarvesterPanel);
+Ext.namespace("GeoNetwork.admin");
 GeoNetwork.admin.MetadataInsertPanel=Ext.extend(Ext.Panel,{defaultConfig:{autoScroll:true,autoWidth:true,layout:"border"},store:undefined,view:undefined,uploadForm:undefined,serviceUrl:undefined,ref:undefined,setRef:function(ref){this.ref=ref
 },getForm:function(){var groupStore=GeoNetwork.data.GroupStore(catalogue.services.getGroups);
 groupStore.load();
-this.uploadForm=new Ext.form.FormPanel({region:"center",split:true,errorReader:new Ext.data.XmlReader({record:"response"},["id"]),items:[{xtype:"textfield",hidden:true,name:"insert_mode",value:"0"},{xtype:"textfield",hidden:true,name:"template",value:"s"},{xtype:"textarea",name:"data",fieldLabel:OpenLayers.i18n("xmlData"),allowBlank:false,width:300,height:200},new Ext.form.ComboBox({name:"group",hiddenName:"group",mode:"local",emptyText:OpenLayers.i18n("chooseGroup"),triggerAction:"all",fieldLabel:OpenLayers.i18n("group"),store:groupStore,allowBlank:false,valueField:"id",displayField:"name",tpl:'<tpl for="."><div class="x-combo-list-item">{[values.label.'+OpenLayers.Lang.getCode()+"]}</div></tpl>"})],buttons:[{text:OpenLayers.i18n("add"),scope:this,iconCls:"thumbnailGoIcon",handler:function(){if(this.uploadForm.getForm().isValid()){this.uploadForm.getForm().submit({url:catalogue.services.mdXMLInsert,scope:this,success:function(fp,action){if(this.ownerCt){this.ownerCt.close()
+this.uploadForm=new Ext.form.FormPanel({region:"center",split:true,errorReader:new Ext.data.XmlReader({record:"response"},["id"]),items:[{xtype:"textfield",hidden:true,name:"insert_mode",value:"0"},{xtype:"textfield",hidden:true,name:"template",value:"s"},{xtype:"textarea",name:"data",fieldLabel:OpenLayers.i18n("xmlData"),allowBlank:false,width:300,height:200},new Ext.form.ComboBox({name:"group",hiddenName:"group",mode:"local",emptyText:OpenLayers.i18n("chooseGroup"),triggerAction:"all",fieldLabel:OpenLayers.i18n("group"),store:groupStore,allowBlank:false,valueField:"id",displayField:"name",tpl:'<tpl for="."><div class="x-combo-list-item">{[values.label.'+GeoNetwork.Util.getCatalogueLang(OpenLayers.Lang.getCode())+"]}</div></tpl>"})],buttons:[{text:OpenLayers.i18n("add"),scope:this,iconCls:"thumbnailGoIcon",handler:function(){if(this.uploadForm.getForm().isValid()){this.uploadForm.getForm().submit({url:catalogue.services.mdXMLInsert,scope:this,success:function(fp,action){if(this.ownerCt){this.ownerCt.close()
 }},failure:function(response){Ext.Msg.alert(OpenLayers.i18n("failure"),response.responseText)
 }})
 }}}]});
@@ -16408,7 +16905,8 @@ return this.uploadForm
 this.items=[this.getForm()];
 GeoNetwork.admin.MetadataInsertPanel.superclass.initComponent.call(this)
 }});
-Ext.reg("gn_admin_metadatainsertpanel",GeoNetwork.admin.MetadataInsertPanel);Ext.namespace("GeoNetwork.admin");
+Ext.reg("gn_admin_metadatainsertpanel",GeoNetwork.admin.MetadataInsertPanel);
+Ext.namespace("GeoNetwork.admin");
 GeoNetwork.admin.SubTemplateManagerPanel=Ext.extend(Ext.Panel,{border:false,frame:false,record:undefined,layout:"border",catalogue:undefined,toolbar:undefined,searchPanel:undefined,searchForm:undefined,searchField:undefined,newMetadataWindow:undefined,searchResultGrid:undefined,subTemplateEditor:undefined,subTemplateToolbar:undefined,subTemplateType:undefined,subTemplateTypeStore:undefined,defaultConfig:{defaultViewMode:"simple",height:800,autoWidth:true,layout:"border",iconCls:"subtemplateIcon"},getSubTemplateTypeField:function(){return{xtype:"combo",name:"E__root",mode:"local",title:OpenLayers.i18n("selDirectoryTT"),triggerAction:"all",store:this.subTemplateTypeStore,valueField:"type",tpl:'<tpl for="."><div class="x-combo-list-item" title="{description}">{label} ({type})</div></tpl>',displayField:"label"}
 },initComponent:function(config){Ext.apply(this,config);
 Ext.applyIf(this,this.defaultConfig);
@@ -16456,7 +16954,8 @@ Ext.each(bbar.items,function(item,idx){if(idx!==0){bbar.get(idx).setDisabled(dis
 this.editorPanel=new GeoNetwork.editor.EditorPanel({defaultViewMode:this.defaultViewMode,tbarConfig:{hideTypeMenu:true},utilityPanelConfig:{thumbnailPanel:disableConfig,relationPanel:disableConfig,validationPanel:{collapsed:true},suggestionPanel:disableConfig,helpPanel:{collapsed:false}},catalogue:this.catalogue,utilityPanelCollapsed:true})
 },refresh:function(){this.subTemplateTypeStore.load()
 }});
-Ext.reg("gn_admin_subtemplatemanagerpanel",GeoNetwork.admin.SubTemplateManagerPanel);Ext.namespace("GeoNetwork.admin");
+Ext.reg("gn_admin_subtemplatemanagerpanel",GeoNetwork.admin.SubTemplateManagerPanel);
+Ext.namespace("GeoNetwork.admin");
 GeoNetwork.admin.ThesaurusManagerPanel=Ext.extend(Ext.Panel,{defaultConfig:{autoWidth:true,layout:"border",maxResults:50,defaultThesaurusType:"theme"},border:false,frame:false,selectedThesaurus:undefined,layout:"border",catalogue:undefined,toolbar:undefined,thesaurusGrid:undefined,thesaurusStore:undefined,keywordGrid:undefined,createEmptyThesaurusWindow:undefined,createThesaurusFromLocalFileWindow:undefined,createThesaurusFromRemoteFileWindow:undefined,createEmptyThesaurusForm:undefined,createThesaurusFromLocalFileForm:undefined,createThesaurusFromRemoteFileForm:undefined,initComponent:function(){Ext.applyIf(this,this.defaultConfig);
 this.thesaurusStore=new GeoNetwork.data.ThesaurusStore({url:this.catalogue.services.getThesaurus});
 var Keyword=Ext.data.Record.create([{name:"id"},{name:"value"},{name:"thesaurus"},{name:"definition"},{name:"uri"},{name:"east"},{name:"west"},{name:"south"},{name:"north"}]);
@@ -16620,7 +17119,8 @@ return this.createThesaurusFromRemoteFileForm
 },getLimitInput:function(){return{xtype:"textfield",name:"maxResults",id:"maxResults",value:this.maxResults,width:40,listeners:{scope:this,change:function(field,newValue,oldValue){this.keywordStore.baseParams.maxResults=newValue
 }}}
 }});
-Ext.reg("gn_admin_thesaurusmanagerpanel",GeoNetwork.admin.ThesaurusManagerPanel);Ext.namespace("GeoNetwork");
+Ext.reg("gn_admin_thesaurusmanagerpanel",GeoNetwork.admin.ThesaurusManagerPanel);
+Ext.namespace("GeoNetwork");
 GeoNetwork.OGCServiceQuickRegister=Ext.extend(Ext.menu.Menu,{catalogue:undefined,harvesterStore:undefined,textInfo:undefined,textExample:"eg. http://services.sandre.eaufrance.fr/geo/ouvrage?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetCapabilities",textValidButton:"Check & Add",urlFieldWidth:250,urlField:undefined,initComponent:function(){this.textInfo=OpenLayers.i18n("enterGetCapURL");
 var cmp=[];
 cmp.push({text:this.textInfo,canActivate:false});
@@ -16662,7 +17162,8 @@ if(menu.harvesterStore){menu.harvesterStore.reload()
 }},failure:function(response){Ext.Msg.alert("Registration failed",response.responseText)
 }})
 }});
-Ext.reg("gn_ogcservicequickregister",GeoNetwork.OGCServiceQuickRegister);Ext.namespace("GeoNetwork.map");
+Ext.reg("gn_ogcservicequickregister",GeoNetwork.OGCServiceQuickRegister);
+Ext.namespace("GeoNetwork.map");
 GeoNetwork.map.ExtentMap=function(){var maps=[];
 var vectorLayers=[];
 var vectorLayerStyle=OpenLayers.Feature.Vector.style["default"];
@@ -16909,11 +17410,13 @@ gmlNode.setAttribute("gml:id",geometry.id);
 gml.appendChild(gmlNode);
 return gml
 }else{return GeoNetwork.map.ExtentMap.prev_geometry.apply(this,arguments)
-}};if(!window.GeoNetwork){window.GeoNetwork={}
+}};
+if(!window.GeoNetwork){window.GeoNetwork={}
 }if(!GeoNetwork.Control){GeoNetwork.Control={}
 }GeoNetwork.Control.ZoomWheel=OpenLayers.Class(OpenLayers.Control,{wheelChange:OpenLayers.Control.Navigation.prototype.wheelChange,draw:function(){this.handler=new OpenLayers.Handler.MouseWheel(this,{up:OpenLayers.Control.Navigation.prototype.wheelUp,down:OpenLayers.Control.Navigation.prototype.wheelDown});
 this.activate()
-},CLASS_NAME:"GeoNetwork.Control.ZoomWheel"});if(!window.GeoNetwork){window.GeoNetwork={}
+},CLASS_NAME:"GeoNetwork.Control.ZoomWheel"});
+if(!window.GeoNetwork){window.GeoNetwork={}
 }if(!GeoNetwork.Control){GeoNetwork.Control={}
 }GeoNetwork.Control.ExtentBox=OpenLayers.Class(OpenLayers.Control,{type:OpenLayers.Control.TYPE_TOOL,wktelement:null,minxelement:null,minyelement:null,maxxelement:null,maxyelement:null,EVENT_TYPES:["finishBox"],initialize:function(options){this.EVENT_TYPES=GeoNetwork.Control.ExtentBox.prototype.EVENT_TYPES.concat(OpenLayers.Control.prototype.EVENT_TYPES);
 OpenLayers.Control.prototype.initialize.apply(this,arguments);
@@ -16924,6 +17427,7 @@ this.vectorLayer.destroyFeatures()
 },endBox:function(){var bounds=this.handler.feature.geometry.getBounds();
 this.updateFields(bounds);
 this.events.triggerEvent("finishBox",null)
+},updateFieldsWKT:function(wkt){this.updateFields(OpenLayers.Geometry.fromWKT(wkt).getBounds())
 },updateFields:function(bounds){var polFeature=new OpenLayers.Feature.Vector(bounds.toGeometry(),null,this.vectorLayerStyle);
 this.vectorLayer.addFeatures([polFeature]);
 this.vectorLayer.refresh();
@@ -16979,9 +17483,10 @@ bounds.extend(maxxy);
 this.map.zoomToExtent(bounds)
 },CLASS_NAME:"GeoNetwork.Control.ExtentBox"});GeoNetwork.Settings={};
 EEA={};
-EEA.MAPVIEWER_URL="http://swordfish/paul/databrowser/map_default.phtml?resetsession=ALL&uuid=";
-EEA.WEBDAV_URL="https://gisdata.eea.europa.eu/data/gis_sdi";
-EEA.CIFS_URL="file:////sandfish/gis_sdi";
+EEA.MAPVIEWER_URL="https://sdi.eea.europa.eu/eea/databrowser/?uuid=";
+EEA.WEBDAV_URL="https://sdi.eea.europa.eu/data";
+EEA.CIFS_URL="cifs://sdi.eea.europa.eu/data";
+EEA.FTPS_URL="ftps://sdi.eea.europa.eu/data";
 Ext.ux.RatingItem=undefined;
 OpenLayers.ProxyHostURL="../../proxy?url=";
 OpenLayers.ProxyHost=function(url){if(url&&url.indexOf(window.location.host)!=-1){return url
@@ -16991,8 +17496,10 @@ GeoNetwork.Util.defaultLocale="en";
 GeoNetwork.searchDefault={activeMapControlExtent:false};
 GeoNetwork.advancedFormButton=true;
 GeoNetwork.Settings.editor={defaultViewMode:"metadata"};
-GeoNetwork.Settings.mdStore=GeoNetwork.data.MetadataResultsStore;
-GeoNetwork.Settings.searchService="xml.search";
+GeoNetwork.Settings.mdStore=GeoNetwork.data.MetadataResultsFastStore;
+GeoNetwork.Settings.searchService="q";
+GeoNetwork.Settings.results={featurecolor:"white",colormap:undefined,featurecolorCSS:undefined};
+GeoNetwork.Settings.latestQuery="from=1&to=6&sortBy=changeDate&fast=index";
 GeoNetwork.MapModule=true;
 GeoNetwork.ProjectionList=[["EPSG:4326","WGS84 (lat/lon)"]];
 GeoNetwork.WMSList=[["Geoserver","http://localhost/geoserver/wms?"]];
@@ -17013,365 +17520,27 @@ GeoNetwork.map.PROJECTION="EPSG:4326";
 GeoNetwork.map.EXTENT=new OpenLayers.Bounds(-180,-90,180,90);
 GeoNetwork.map.BACKGROUND_LAYERS=[new OpenLayers.Layer.WMS("World coverage","http://gaur.eea.europa.eu/cgi-bin/mapserv?map=/var/www/natural_earth/10m_physical/base_hydro_admin.map",{layers:"ne_background",format:"image/jpeg"},{isBaseLayer:true}),new OpenLayers.Layer.WMS("World coverage","http://gaur.eea.europa.eu/cgi-bin/mapserv?map=/var/www/natural_earth/10m_physical/base_hydro_admin.map",{layers:"NE_Hydrography",format:"image/png",transparent:"true"})];
 GeoNetwork.map.MAP_OPTIONS={projection:GeoNetwork.map.PROJECTION,maxExtent:GeoNetwork.map.EXTENT,restrictedExtent:GeoNetwork.map.EXTENT,controls:[]};
-GeoNetwork.map.MAIN_MAP_OPTIONS={projection:GeoNetwork.map.PROJECTION,maxExtent:GeoNetwork.map.EXTENT,restrictedExtent:GeoNetwork.map.EXTENT,controls:[]};Ext.namespace("GeoNetwork");
-var mapInit=false;
-var activeIndex=0;
-GeoNetwork.mapApp=function(){var toolbar,toctoolbar,tocbbar,viewport;
-var tree,legendPanel,mapLateralPanel,printPanel,printProvider,printPage,pageLayer;
-var featureinfo;
-var activeNode;
-var map;
-var fixedScales;
-var featureinfolayer;
-var layerLoadingMask;
-var layers;
-var setMap=function(mapC){map=mapC
-};
-var createMap=function(mapOptions,scales){var options=mapOptions||{projection:"EPSG:4326",units:"degrees",maxExtent:new OpenLayers.Bounds(-180,-90,180,90),restrictedExtent:new OpenLayers.Bounds(-180,-90,180,90),controls:[]};
-map=new OpenLayers.Map("ol_map",options);
-fixedScales=scales
-};
-var createWmsLayer=function(name,url,params,options){map.addLayer(new OpenLayers.Layer.WMS(name,url,params,options))
-};
-var createLayer=function(olLayer){map.addLayer(olLayer)
-};
-var createDummyBaseLayer=function(){var graphic=new OpenLayers.Layer.Image("Dummy","../../../js/OpenLayers/img/blank.gif",new OpenLayers.Bounds(0,300000,300000,625000),map.getSize(),{isBaseLayer:true,displayInLayerSwitcher:false});
-map.addLayer(graphic)
-};
-var addMapControls=function(){map.addControl(new GeoNetwork.Control.ZoomWheel());
-map.addControl(new OpenLayers.Control.LoadingPanel())
-};
-var removeLayerHandler=function(node){if(node){var layer;
-layer=node.attributes.layer;
-if(layer){if(!layer.isBaseLayer){if((typeof(layer.isLoading)=="undefined")||(layer.isLoading==false)){map.removeLayer(layer);
-if(activeNode==node){activeNode=null
-}refreshTocToolbar(activeNode);
-Ext.getCmp("toctree").getSelectionModel().clearSelections()
-}}}}};
-var removeLayerHandlerContextMenu=function(){var node=Ext.getCmp("toctree").getSelectionModel().getSelectedNode();
-removeLayerHandler(node)
-};
-var wmsTimeHandler=function(node){if(node){var layer;
-layer=node.attributes.layer;
-if(layer&&layer.dimensions&&layer.dimensions.time){GeoNetwork.WindowManager.showWindow("wmstime");
-GeoNetwork.WindowManager.getWindow("wmstime").setLayer(layer)
-}}};
-var wmsTimeHandlerContextMenu=function(){var node=Ext.getCmp("toctree").getSelectionModel().getSelectedNode();
-wmsTimeHandler(node)
-};
-var stylesLayerHandler=function(node){if(node){var layer;
-layer=node.attributes.layer;
-if((layer)&&(layer.styles)&&(layer.styles.length>1)){GeoNetwork.WindowManager.showWindow("layerstyles");
-GeoNetwork.WindowManager.getWindow("layerstyles").showLayerStyles(layer)
-}}};
-var stylesLayerHandlerContextMenu=function(){var node=Ext.getCmp("toctree").getSelectionModel().getSelectedNode();
-stylesLayerHandler(node)
-};
-var metadataLayerHandler=function(node){if(node){var layer;
-layer=node.attributes.layer;
-if(layer){GeoNetwork.WindowManager.showWindow("wmsinfo");
-GeoNetwork.WindowManager.getWindow("wmsinfo").showLayerInfo(layer)
-}}};
-var metadataLayerHandlerContextMenu=function(){var node=Ext.getCmp("toctree").getSelectionModel().getSelectedNode();
-metadataLayerHandler(node)
-};
-var refreshTocToolbar=function(node){if((node)&&(node.attributes.layer)){if(node.parentNode.attributes.nodeType=="gx_baselayercontainer"){Ext.getCmp("tbRemoveButton").disable()
-}else{Ext.getCmp("tbRemoveButton").enable()
-}Ext.getCmp("tbMetadataButton").enable();
-Ext.getCmp("btnZoomToExtent").enable()
-}else{Ext.getCmp("tbRemoveButton").disable();
-Ext.getCmp("tbMetadataButton").disable();
-Ext.getCmp("btnZoomToExtent").disable()
-}};
-var createPrintPanel=function(){printProvider=new GeoExt.data.PrintProvider({method:"GET",url:GeoNetwork.map.printCapabilities,autoLoad:true});
-printPage=new GeoExt.data.PrintPage({printProvider:printProvider});
-pageLayer=new OpenLayers.Layer.Vector(OpenLayers.i18n("printLayer"),{visibility:false});
-pageLayer.addFeatures(printPage.feature);
-map.addLayer(pageLayer);
-map.events.register("moveend",map,function(){printPage.fit(this,{mode:"screen"})
-});
-printPanel=new Ext.form.FormPanel({title:OpenLayers.i18n("mf.print.print"),bodyStyle:"padding:5px",labelAlign:"top",defaults:{anchor:"100%"},items:[{xtype:"textarea",name:"comment",value:"",fieldLabel:OpenLayers.i18n("mf.print.comment"),plugins:new GeoExt.plugins.PrintPageField({printPage:printPage})},{xtype:"combo",store:printProvider.layouts,displayField:"name",fieldLabel:OpenLayers.i18n("layout"),typeAhead:true,mode:"local",triggerAction:"all",plugins:new GeoExt.plugins.PrintProviderField({printProvider:printProvider})},{xtype:"combo",store:printProvider.dpis,displayField:"name",fieldLabel:OpenLayers.i18n("mf.print.dpi"),tpl:'<tpl for="."><div class="x-combo-list-item">{name} dpi</div></tpl>',typeAhead:true,mode:"local",triggerAction:"all",plugins:new GeoExt.plugins.PrintProviderField({printProvider:printProvider}),setValue:function(v){v=parseInt(v,10)+" dpi";
-Ext.form.ComboBox.prototype.setValue.apply(this,arguments)
-}},{xtype:"combo",store:printProvider.scales,displayField:"name",fieldLabel:OpenLayers.i18n("mf.print.scale"),typeAhead:true,mode:"local",triggerAction:"all",plugins:new GeoExt.plugins.PrintPageField({printPage:printPage})},{xtype:"textfield",name:"rotation",fieldLabel:OpenLayers.i18n("mf.print.rotation"),plugins:new GeoExt.plugins.PrintPageField({printPage:printPage})}],buttons:[{text:OpenLayers.i18n("mf.print.generatingPDF"),handler:function(){printProvider.print(Ext.getCmp("mappanel"),printPage)
-}}],listeners:{beforeexpand:function(){this.setVisibility(true)
-},beforecollapse:function(){this.setVisibility(false)
-},scope:pageLayer}})
-};
-var createToolbars=function(){toctoolbar=[];
-var action=new GeoExt.Action({handler:function(){GeoNetwork.WindowManager.showWindow("addwms")
-},iconCls:"addLayer",tooltip:"Add layer"});
-toctoolbar.push(action);
-action=new GeoExt.Action({id:"tbRemoveButton",handler:function(){removeLayerHandler(activeNode)
-},iconCls:"deleteLayer",tooltip:"Remove layer"});
-toctoolbar.push(action);
-toctoolbar.push("-");
-action=new GeoExt.Action({id:"tbMetadataButton",handler:function(){metadataLayerHandler(activeNode)
-},iconCls:"wmsInfo",tooltip:"WMS Information"});
-toctoolbar.push(action);
-toolbar=[];
-action=new GeoExt.Action({control:new OpenLayers.Control.ZoomToMaxExtent(),map:map,iconCls:"zoomfull"});
-toolbar.push(action);
-toolbar.push("-");
-action=new GeoExt.Action({iconCls:"zoomlayer",id:"btnZoomToExtent",handler:function(){var node=activeNode;
-var layer;
-if(node){layer=node.attributes.layer;
-if(layer){if(layer.llbbox){var mapProj=map.getProjectionObject();
-var wgs84=new OpenLayers.Projection("WGS84");
-var minMapxy=new OpenLayers.LonLat(layer.llbbox[0],layer.llbbox[1]).transform(wgs84,mapProj);
-var maxMapxy=new OpenLayers.LonLat(layer.llbbox[2],layer.llbbox[3]).transform(wgs84,mapProj);
-var extent=new OpenLayers.Bounds();
-extent.left=minMapxy.lon;
-extent.right=maxMapxy.lon;
-extent.top=maxMapxy.lat;
-extent.bottom=minMapxy.lat;
-map.zoomToExtent(extent)
-}else{map.zoomToMaxExtent()
-}}else{Ext.MessageBox.alert(OpenLayers.i18n("zoomlayer.selectLayerTitle"),OpenLayers.i18n("zoomlayer.selectLayerText"))
-}}else{Ext.MessageBox.alert(OpenLayers.i18n("zoomlayer.selectLayerTitle"),OpenLayers.i18n("zoomlayer.selectLayerText"))
-}}});
-toolbar.push(action);
-toolbar.push("-");
-action=new GeoExt.Action({control:new OpenLayers.Control.ZoomBox(),map:map,toggleGroup:"move",allowDepress:false,iconCls:"zoomin"});
-toolbar.push(action);
-action=new GeoExt.Action({control:new OpenLayers.Control.ZoomBox({displayClass:"ZoomOut",out:true}),toggleGroup:"move",allowDepress:false,map:map,iconCls:"zoomout"});
-toolbar.push(action);
-action=new GeoExt.Action({control:new OpenLayers.Control.DragPan({isDefault:true}),toggleGroup:"move",allowDepress:false,pressed:true,map:map,iconCls:"pan"});
-toolbar.push(action);
-toolbar.push("-");
-featureinfo=new OpenLayers.Control.WMSGetFeatureInfo({drillDown:true,infoFormat:"application/vnd.ogc.gml"});
-var moveLayerToTop=function(layertomove){var idx=-1;
-for(var i=0,len=map.layers.length;
-i<len;
-i++){var layer=map.layers[i];
-if(layer!=layertomove){idx=Math.max(map.getLayerIndex(map.layers[i]),idx)
-}}if(map.getLayerIndex(layertomove)<idx){map.setLayerIndex(layertomove,idx+1)
-}};
-featureinfolayer=new OpenLayers.Layer.Vector("Feature info",{displayInLayerSwitcher:false,styleMap:new OpenLayers.StyleMap({externalGraphic:OpenLayers.Util.getImagesLocation()+"marker.png",pointRadius:12})});
-featureinfo.events.on({getfeatureinfo:function(evt){var lonlat=map.getLonLatFromViewPortPx(evt.xy);
-var point=new OpenLayers.Geometry.Point(lonlat.lon,lonlat.lat);
-featureinfolayer.destroyFeatures();
-featureinfolayer.addFeatures(new OpenLayers.Feature.Vector(point));
-moveLayerToTop(featureinfolayer);
-GeoNetwork.WindowManager.showWindow("featureinfo");
-GeoNetwork.WindowManager.getWindow("featureinfo").setMap(map);
-GeoNetwork.WindowManager.getWindow("featureinfo").setFeatures(evt.features)
-},deactivate:function(){featureinfolayer.destroyFeatures()
-}});
-action=new GeoExt.Action({control:featureinfo,toggleGroup:"move",allowDepress:false,pressed:false,map:map,iconCls:"query"});
-toolbar.push(action);
-toolbar.push("-");
-ctrl=new OpenLayers.Control.NavigationHistory();
-map.addControl(ctrl);
-action=new GeoExt.Action({control:ctrl.previous,disabled:true,map:map,iconCls:"back"});
-toolbar.push(action);
-action=new GeoExt.Action({control:ctrl.next,disabled:true,map:map,iconCls:"next"});
-toolbar.push(action);
-toolbar.push("-");
-action=new GeoExt.Action({iconCls:"savewmc",handler:function(){GeoNetwork.WMCManager.saveContext(map)
-}});
-toolbar.push(action);
-action=new GeoExt.Action({iconCls:"loadwmc",handler:function(){GeoNetwork.WindowManager.showWindow("loadwmc")
-}});
-toolbar.push(action);
-toolbar.push("->");
-toolbar.push({xtype:"gn_projectionselector",projections:GeoNetwork.ProjectionList,fieldLabel:OpenLayers.i18n("projectionTitle"),map:map})
-};
-var createMapOverlay=function(){var scaleLinePanel=new Ext.Panel({cls:"olControlScaleLine overlay-element overlay-scaleline",border:false});
-scaleLinePanel.on("render",function(){var scaleLine=new OpenLayers.Control.ScaleLine({div:scaleLinePanel.body.dom});
-map.addControl(scaleLine);
-scaleLine.activate()
-},this);
-var zoomStore;
-if(fixedScales&&fixedScales.length>0){var zooms=[];
-var scales=fixedScales;
-var units=map.baseLayer.units;
-for(var i=scales.length-1;
-i>=0;
-i--){var scale=scales[i];
-zooms.push({level:i,resolution:OpenLayers.Util.getResolutionFromScale(scale,units),scale:scale})
-}zoomStore=new GeoExt.data.ScaleStore({});
-zoomStore.loadData(zooms)
-}else{zoomStore=new GeoExt.data.ScaleStore({map:map})
-}var zoomSelector=new Ext.form.ComboBox({emptyText:"Zoom level",tpl:'<tpl for="."><div class="x-combo-list-item">1 : {[parseInt(values.scale)]}</div></tpl>',editable:false,triggerAction:"all",mode:"local",store:zoomStore,width:110});
-zoomSelector.on("click",function(evt){evt.stopEvent()
-});
-zoomSelector.on("mousedown",function(evt){evt.stopEvent()
-});
-zoomSelector.on("select",function(combo,record,index){map.zoomTo(record.data.level)
-},this);
-var zoomSelectorWrapper=new Ext.Panel({items:[zoomSelector],cls:"overlay-element overlay-scalechooser",border:false});
-map.events.register("zoomend",this,function(){var scale=zoomStore.queryBy(function(record){return map.getZoom()==record.data.level
-});
-if(scale.length>0){scale=scale.items[0];
-zoomSelector.setValue("1 : "+parseInt(scale.data.scale,10))
-}else{if(!zoomSelector.rendered){return
-}zoomSelector.clearValue()
-}});
-var mapOverlay=new Ext.Panel({cls:"map-overlay",items:[scaleLinePanel,zoomSelectorWrapper]});
-mapOverlay.on("afterlayout",function(){scaleLinePanel.body.dom.style.position="relative";
-scaleLinePanel.body.dom.style.display="inline";
-mapOverlay.getEl().on("click",function(x){x.stopEvent()
-});
-mapOverlay.getEl().on("mousedown",function(x){x.stopEvent()
-})
-},this);
-return mapOverlay
-};
-var createMeasureControl=function(handlerType,title){var styleMap=new OpenLayers.StyleMap({"default":new OpenLayers.Style(null,{rules:[new OpenLayers.Rule({symbolizer:{Point:{pointRadius:4,graphicName:"square",fillColor:"white",fillOpacity:1,strokeWidth:1,strokeOpacity:1,strokeColor:"#333333"},Line:{strokeWidth:3,strokeOpacity:1,strokeColor:"#666666",strokeDashstyle:"dash"},Polygon:{strokeWidth:2,strokeOpacity:1,strokeColor:"#666666",fillColor:"white",fillOpacity:0.3}}})]})});
-var cleanup=function(){if(measureToolTip){measureToolTip.destroy()
-}};
-var makeString=function(metricData){var metric=metricData.measure;
-var metricUnit=metricData.units;
-measureControl.displaySystem="english";
-var englishData=metricData.geometry.CLASS_NAME.indexOf("LineString")>-1?measureControl.getBestLength(metricData.geometry):measureControl.getBestArea(metricData.geometry);
-var english=englishData[0];
-var englishUnit=englishData[1];
-measureControl.displaySystem="metric";
-var dim=metricData.order==2?"<sup>2</sup>":"";
-return metric.toFixed(2)+" "+metricUnit+dim+"<br>"+english.toFixed(2)+" "+englishUnit+dim
-};
-var measureToolTip;
-var measureControl=new OpenLayers.Control.Measure(handlerType,{persist:true,handlerOptions:{layerOptions:{styleMap:styleMap}},eventListeners:{measurepartial:function(event){cleanup();
-measureToolTip=new Ext.ToolTip({html:makeString(event),title:title,autoHide:false,closable:true,draggable:false,mouseOffset:[0,0],showDelay:1,listeners:{hide:cleanup}});
-if(event.measure>0){var px=measureControl.handler.lastUp;
-var p0=Ext.getCmp("mappanel").getPosition();
-measureToolTip.targetXY=[p0[0]+px.x,p0[1]+px.y];
-measureToolTip.show()
-}},measure:function(event){cleanup();
-measureToolTip=new Ext.ToolTip({target:Ext.getBody(),html:makeString(event),title:title,autoHide:false,closable:true,draggable:false,mouseOffset:[0,0],showDelay:1,listeners:{hide:function(){measureControl.cancel();
-cleanup()
-}}})
-},deactivate:cleanup,scope:this}});
-return measureControl
-};
-var createTree=function(){var treeConfig=new OpenLayers.Format.JSON().write([{nodeType:"gx_baselayercontainer"},{nodeType:"gx_overlaylayercontainer",expanded:true,loader:{baseAttrs:{radioGroup:"foo",slider:"layeropacityslider",uiProvider:"layernodeui"}}}],true);
-var LayerNodeUI=Ext.extend(GeoExt.tree.LayerNodeUI,new GeoExt.tree.TreeNodeUIEventMixin());
-tree=new Ext.tree.TreePanel({title:OpenLayers.i18n("layerTree"),id:"toctree",enableDD:true,loader:new Ext.tree.TreeLoader({applyLoader:false,uiProviders:{layernodeui:LayerNodeUI}}),plugins:[new GeoExt.plugins.TreeNodeRadioButton({listeners:{radiochange:function(node){activeNode=node
-}}}),new GeoExt.tree.LayerOpacitySliderPlugin({listeners:{opacityslide:function(node,value){}}})],root:{nodeType:"async",children:Ext.decode(treeConfig)},listeners:{contextmenu:function(node,e){if((node.attributes.nodeType!="gx_overlaylayercontainer")&&(node.attributes.nodeType!="gx_baselayercontainer")){node.select();
-var c=node.getOwnerTree().contextMenu;
-if(node.parentNode.attributes.nodeType=="gx_baselayercontainer"){c.items.get("removeMenu").disable()
-}else{c.items.get("removeMenu").enable()
-}c.items.get("addMenu").hide();
-c.contextNode=node;
-c.showAt(e.getXY())
-}else{if(node.attributes.nodeType=="gx_overlaylayercontainer"){node.select();
-c=node.getOwnerTree().contextMenu;
-c.items.get("addMenu").show();
-c.items.get("removeMenu").hide();
-c.items.get("metadataMenu").hide();
-c.contextNode=node;
-c.showAt(e.getXY())
-}}},scope:this},contextMenu:new Ext.menu.Menu({items:[{text:"Add layer",id:"addMenu",handler:function(){GeoNetwork.WindowManager.showWindow("addwms")
-}},{text:OpenLayers.i18n("removeButtonText"),id:"removeMenu",handler:removeLayerHandlerContextMenu},{text:"WMS information",id:"metadataMenu",handler:metadataLayerHandlerContextMenu}]}),tbar:toctoolbar,rootVisible:false,lines:false,border:false,region:"center"})
-};
-var createLegendPanel=function(){legendPanel=new GeoExt.LegendPanel({defaults:{labelCls:"mylabel",style:"padding:5px"},title:"Legend",height:200,autoScroll:true,split:true,collapsible:true,collapsed:true,border:false,region:"south"})
-};
-var createViewport=function(){createToolbars();
-createTree();
-createLegendPanel();
-createPrintPanel();
-var mapOverlay=createMapOverlay();
-var accordion=new Ext.Panel({region:"center",border:false,layout:"accordion",deferredRender:false,items:[tree,printPanel]});
-viewport=new Ext.Panel({layout:"border",border:false,items:[{region:"east",xtype:"panel",collapsible:true,collapsed:true,collapseMode:"mini",split:true,border:false,width:170,minSize:170,maxSize:300,layout:"border",items:[accordion,legendPanel]},{region:"center",layout:"fit",frame:false,border:false,margins:"0 0 0 0",items:[{id:"mappanel",xtype:"gx_mappanel",map:map,tbar:toolbar,border:false,center:[155000,463000],zoom:2,items:[mapOverlay]}]}]});
-Ext.getCmp("toctree").on({click:function(node){if(node.ui.radio){node.ui.radio.checked=true;
-node.ui.fireEvent("radiochange",node)
-}refreshTocToolbar(node)
-},scope:this});
-Ext.getCmp("toctree").on("nodedragover",function(evt){if((evt.dropNode.parentNode.attributes.nodeType=="gx_baselayercontainer")||(evt.target.attributes.nodeType=="gx_baselayercontainer")||(evt.target.parentNode.attributes.nodeType=="gx_baselayercontainer")||(evt.target.parentNode==evt.tree.root)){evt.cancel=true
-}});
-refreshTocToolbar(activeNode)
-};
-var processLayersSuccess=function(response){layerLoadingMask.hide();
-var parser=new OpenLayers.Format.WMSCapabilities();
-var caps=parser.read(response.responseXML||response.responseText);
-if(caps.capability){var accessContraints=caps.service.accessContraints;
-if((accessContraints)&&(accessContraints.toLowerCase()!="none")&&(accessContraints!="-")){var disclaimerWindow=new GeoNetwork.DisclaimerWindow({disclaimer:accessContraints});
-disclaimerWindow.show();
-disclaimerWindow=null
-}if(map){for(var i=0,len=layers.length;
-i<len;
-i++){var name=layers[i][0];
-var url=layers[i][1];
-var layer=layers[i][2];
-var metadata_id=layers[i][3];
-var ol_layer=new OpenLayers.Layer.WMS(name,url,{layers:layer,format:"image/png",transparent:"TRUE",version:caps.version,language:GeoNetwork.OGCUtil.getLanguage()},{queryable:true,singleTile:true,ratio:1,buffer:0,transitionEffect:"resize",metadata_id:metadata_id});
-if(!GeoNetwork.OGCUtil.layerExistsInMap(ol_layer,map)){ol_layer.events.on({loadstart:function(){this.isLoading=true
-}});
-ol_layer.events.on({loadend:function(){this.isLoading=false
-}});
-var layerCap=getLayer(caps,caps.capability.layers,ol_layer);
-if(layerCap){ol_layer.queryable=layerCap.queryable;
-ol_layer.name=layerCap.title||ol_layer.name;
-ol_layer.llbbox=layerCap.llbbox;
-ol_layer.styles=layerCap.styles;
-ol_layer.dimensions=layerCap.dimensions
-}map.addLayer(ol_layer)
-}}}}};
-var processLayersFailure=function(response){layerLoadingMask.hide();
-Ext.MessageBox.alert(OpenLayers.i18n("loadLayer.error.title"),OpenLayers.i18n("loadLayer.error.message"))
-};
-var getLayer=function(caps,caplayers,layer){var findedLayer=null;
-for(var i=0,len=caplayers.length;
-i<len;
-++i){var lr=caplayers[i];
-try{var layerName=lr.name.split(",");
-if(layerName.indexOf(layer.params.LAYERS)!=-1){findedLayer=lr;
-break
-}}catch(e){}if(typeof(lr.childLayers)!="undefined"){findedLayer=getLayer(caps,lr.childLayers,layer);
-if(findedLayer!==null){break
-}}}return findedLayer
-};
-return{init:function(layers,mapOptions,fixedScales){createMap(mapOptions,fixedScales);
-for(var i=0;
-i<layers.length;
-i++){createLayer(layers[i].clone())
-}GeoExt.MapPanel.guess=function(){return Ext.getCmp("mappanel")
-};
-createViewport();
-addMapControls();
-GeoNetwork.WindowManager.registerWindow("addwms",GeoNetwork.AddWmsLayerWindow,{map:map,id:"addwms"});
-GeoNetwork.WindowManager.registerWindow("wmsinfo",GeoNetwork.WmsLayerMetadataWindow,{map:map,id:"wmsinfo"});
-GeoNetwork.WindowManager.registerWindow("loadwmc",GeoNetwork.LoadWmcWindow,{map:map,id:"loadwmc"});
-GeoNetwork.WindowManager.registerWindow("featureinfo",GeoNetwork.FeatureInfoWindow,{map:map,id:"featureinfo",control:featureinfo});
-map.addLayer(featureinfolayer)
-},addWMSLayer:function(layerList){if(layerList.length===0){return
-}var onlineResource=layerList[0][1];
-if(layerList[0][2]==""){GeoNetwork.WindowManager.showWindow("addwms");
-var panel=Ext.getCmp(GeoNetwork.WindowManager.getWindow("addwms").browserPanel.id);
-panel.setURL(onlineResource);
-return
-}layerLoadingMask=new Ext.LoadMask(map.div,{msg:OpenLayers.Lang.translate("loadLayer.loadingMessage")});
-layerLoadingMask.show();
-layers=layerList;
-var params={service:"WMS",request:"GetCapabilities",version:"1.1.1"};
-var paramString=OpenLayers.Util.getParameterString(params);
-var separator=(onlineResource.indexOf("?")>-1)?"&":"?";
-onlineResource+=separator+paramString;
-var req=OpenLayers.Request.GET({url:onlineResource,success:processLayersSuccess,failure:processLayersFailure,timeout:10000})
-},getViewport:function(){return viewport
-},refreshViewport:function(){Ext.get("west_panel").setWidth(westPanelWidth);
-viewport.doLayout()
-},getMap:function(){return map
-}}
-};function initShortcut(){var searchConfig=[{key:"f",ctrl:true,shift:true,stopEvent:true,label:OpenLayers.i18n("focusOnAny"),fn:function(){var e=Ext.get("E_any");
+GeoNetwork.map.MAIN_MAP_OPTIONS={projection:GeoNetwork.map.PROJECTION,maxExtent:GeoNetwork.map.EXTENT,restrictedExtent:GeoNetwork.map.EXTENT,controls:[]};function initShortcut(){var searchConfig=[{key:"f",ctrl:true,shift:true,stopEvent:true,label:OpenLayers.i18n("focusOnAny"),fn:function(){var e=Ext.get("E_any_OR_identifier");
 e.highlight();
 e.dom.focus(true)
-}},{key:"s",ctrl:true,shift:true,stopEvent:true,label:OpenLayers.i18n("runSearch"),fn:function(){var e=Ext.getCmp("searchBt");
+}},{key:"s",ctrl:true,shift:true,stopEvent:true,label:OpenLayers.i18n("runSearch"),fn:function(){var e=Ext.getCmp("searchForm");
 e.getEl().fadeIn();
-e.fireEvent("click")
+e.fireEvent("search")
 }},{key:Ext.EventObject.LEFT,keyLabel:"LEFT",ctrl:true,shift:true,stopEvent:true,label:OpenLayers.i18n("previousPage"),fn:function(){Ext.getCmp("previousBt").handler()
 }},{key:Ext.EventObject.RIGHT,keyLabel:"RIGHT",ctrl:true,shift:true,stopEvent:true,label:OpenLayers.i18n("nextPage"),fn:function(){Ext.getCmp("nextBt").handler()
 }},{key:Ext.EventObject.UP,keyLabel:"UP",ctrl:true,shift:true,stopEvent:true,label:OpenLayers.i18n("upInPage"),fn:function(){catalogue.resultsView.getEl().scroll("t",170,true)
 }},{key:Ext.EventObject.DOWN,keyLabel:"DOWN",ctrl:true,shift:true,stopEvent:true,label:OpenLayers.i18n("downInPage"),fn:function(){catalogue.resultsView.getEl().scroll("b",170,true)
 }},{key:"d",ctrl:true,shift:true,stopEvent:true,label:OpenLayers.i18n("hideSearchForm"),fn:function(){var r=Ext.getCmp("west");
 r.toggleCollapse()
-}},{key:"r",ctrl:true,shift:true,label:OpenLayers.i18n("resetSearchForm"),fn:function(){var e=Ext.getCmp("resetBt");
+}},{key:"r",ctrl:true,shift:true,label:OpenLayers.i18n("resetSearchForm"),fn:function(){var e=Ext.getCmp("searchForm");
 e.getEl().fadeIn();
-e.fireEvent("click")
+e.fireEvent("reset")
 }},{key:"v",ctrl:true,shift:true,stopEvent:true,label:OpenLayers.i18n("switchMode"),fn:function(){app.switchMode(null,true)
 }},{key:"l",ctrl:true,shift:true,stopEvent:true,label:OpenLayers.i18n("focusOnLogin"),fn:function(){var e=Ext.get("username");
-e.highlight();
+if(e.isVisible()){e.highlight();
 e.dom.focus(true)
+}else{catalogue.logout()
+}}},{key:"a",ctrl:true,shift:true,stopEvent:true,label:OpenLayers.i18n("openAdmin"),fn:function(){catalogue.admin()
 }},{key:"i",ctrl:true,shift:true,stopEvent:true,label:OpenLayers.i18n("displayInfoPanel"),fn:function(){var infoPanel=Ext.getCmp("infoPanel");
 var resultsPanel=Ext.getCmp("resultsPanel");
 if(resultsPanel.isVisible()){resultsPanel.hide()
@@ -17391,19 +17560,22 @@ i++){var c=searchConfig[i];
 help+="<tr><td>"+(c.ctrl===true?'<span class="label">&lt;Ctrl&gt;</span> + ':"")+(c.shift===true?'<span class="label">&lt;Shift&gt;</span> + ':"")+'<span class="label">'+(c.keyLabel?c.keyLabel:c.key)+"</span>:</td><td>"+c.label+"</td></tr>"
 }var html="<table><tbody><tr><td>"+help+"</td></tr></tbody></table>";
 Ext.DomHelper.insertHtml("afterEnd",helpEl,html)
-}var formMap=new Ext.KeyMap("searchForm",[{key:[10,13],fn:function(){Ext.getCmp("searchBt").fireEvent("click")
+}var formMap=new Ext.KeyMap("searchForm",[{key:[10,13],fn:function(){Ext.getCmp("searchForm").fireEvent("search")
 }}]);
 formMap.enable()
 };Ext.namespace("GeoNetwork");
+GeoNetwork.lang.en.webdavLink="WebDAV (Web-based Distributed Authoring and Versioning) link";
+GeoNetwork.lang.en.cifsLink="CIFS (Common Internet File System) link";
+GeoNetwork.lang.en.ftpsLink="FTPS link";
 EEA.Templates=Ext.extend(Ext.XTemplate,{compiled:false,disableFormats:false,catalogue:null,sortOrder:0,abstractMaxSize:50,xmlTplMarkup:['<?xml version="1.0" encoding="UTF-8"?>','<node id="{id}" type="{type}">',"<site>","<name>{site_name}</name>",'<tpl if="values.site_ogctype">',"<ogctype>{site_ogctype}</ogctype>","</tpl>",'<tpl if="values.site_url">',"<url>{site_url}</url>","</tpl>",'<tpl if="values.site_icon">',"<icon>{site_icon}</icon>","</tpl>",'<tpl if="values.site_account_use">',"<account>","<use>{site_account_use}</use>","<username>{site_account_username}</username>","<password>{site_account_password}</password>","</account>","</tpl>","</site>","<options>",'<tpl if="values.options_every">',"<every>{options_every}</every>","</tpl>",'<tpl if="values.options_onerunonly">',"<oneRunOnly>{options_onerunonly}</oneRunOnly>","</tpl>",'<tpl if="values.options_lang">',"<lang>{options_lang}</lang>","</tpl>",'<tpl if="values.options_topic">',"<topic>{options_topic}</topic>","</tpl>",'<tpl if="values.options_createthumbnails">',"<createThumbnails>{options_createthumbnails}</createThumbnails>","</tpl>",'<tpl if="values.options_uselayer">',"<useLayer>{options_uselayer}</useLayer>","</tpl>",'<tpl if="values.options_uselayermd">',"<useLayerMd>{options_uselayermd}</useLayerMd>","</tpl>",'<tpl if="values.options_datasetcategory">',"<datasetcategory>{options_datasetcategory}</datasetcategory>","</tpl>","</options>","<content>","</content>","<privileges>","</privileges>",'<group id="1">','<operation name="view" />','<operation name="dynamic" />',"</group>","<categories>","</categories>",'<tpl if="values.info_result_total">',"</tpl>","</node>"],initComponent:function(){GeoNetwork.Templates.superclass.initComponent.call(this)
 },getHarvesterTemplate:function(){return new Ext.XTemplate(this.xmlTplMarkup)
 }});
 EEA.Templates.TITLE='<h1><input type="checkbox" <tpl if="selected==\'true\'">checked="true"</tpl> class="selector" onclick="javascript:app.getCatalogue().metadataSelect((this.checked?\'add\':\'remove\'), [\'{uuid}\']);"/><a href="#" onclick="javascript:app.getCatalogue().metadataShow(\'{uuid}\');return false;">{title}</a><span class="md-action-menu"> - <a rel="mdMenu">'+OpenLayers.i18n("mdMenu")+"</a></span></h1>";
 EEA.Templates.RATING_TPL='<tpl if="isharvested==\'n\' || harvestertype==\'geonetwork\'"><div class="rating"><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'1\'">checked="true"</tpl> value="1"/><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'2\'">checked="true"</tpl> value="2"/><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'3\'">checked="true"</tpl> value="3"/><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'4\'">checked="true"</tpl> value="4"/><input type="radio" name="rating{[xindex]}" <tpl if="rating==\'5\'">checked="true"</tpl> value="5"/></div></tpl>';
 EEA.Templates.LOGO='<div class="md-logo"><img src="{[app.getCatalogue().URL]}/images/logos/{source}.gif"/></div>';
-EEA.Templates.SIMPLE=new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="md md-simple" id="md{uuid}" title="{abstract}">','<table><tr><td style="width:30px;">',GeoNetwork.Templates.LOGO,'</td><td id="{uuid}">',GeoNetwork.Templates.TITLE,'<span class="subject"><tpl for="subject">','{value}{[xindex==xcount?"":", "]}',"</tpl></span>","</td></tr></table>","</li>","</tpl>","</ul>");
+EEA.Templates.SIMPLE=new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="md md-simple" id="md{uuid}" title="{abstract}">','<table><tr><td style="width:30px;">',GeoNetwork.Templates.LOGO,'</td><td id="{uuid}">',GeoNetwork.Templates.TITLE,'<tpl if="subject">','<span class="subject"><tpl for="subject">','{value}{[xindex==xcount?"":", "]}',"</tpl></span>","</tpl>","</td></tr></table>","</li>","</tpl>","</ul>");
 EEA.Templates.THUMBNAIL=new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="md md-thumbnail" id="md{uuid}">','<div class="md-wrap" id="{uuid}" title="{abstract}">',GeoNetwork.Templates.TITLE,'<div class="thumbnail">','<tpl if="thumbnail">','<a rel="lightbox" href="{thumbnail}"><img src="{thumbnail}" alt="Thumbnail"/></a>',"</tpl>","<tpl if=\"thumbnail==''\"></tpl>","</div>",'<tpl for="links">',"<tpl if=\"values.type == 'application/vnd.ogc.wms_xml'\">","<a href=\"#\" class=\"md-mn addLayer\" title=\"{title}\" alt=\"{title}\" onclick=\"app.switchMode('1', true);app.getIMap().addWMSLayer([['{title}', '{href}', '{name}', '{id}']]);\">&nbsp;</a>","</tpl>","</tpl>","</div>","</li>","</tpl>","</ul>");
-EEA.Templates.FULL=new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="md md-full">',"<table><tr>",'<td class="left">',EEA.Templates.LOGO,"</td>",'<td id="{uuid}">',EEA.Templates.TITLE,'<p class="abstract">{[values.abstract.substring(0, 350)]} ...</p>','<p class="subject"><tpl for="subject">','{value}{[xindex==xcount?"":", "]}',"</tpl></p>",'<div class="md-links">','<tpl for="links">',"<tpl if=\"values.type == 'application/vnd.ogc.wms_xml' || values.type == 'OGC:WMS'\">",'<a href="#" class="md-mn addLayer" title="'+OpenLayers.i18n("addToMap")+" {title}\" alt=\"Add layer to map\" onclick=\"app.switchMode('1', true);app.getIMap().addWMSLayer([['{[escape(values.title)]}', '{href}', '{name}', '{id}']]);\">&nbsp;</a>","</tpl>","<tpl if=\"values.type == 'application/vnd.google-earth.kml+xml'\">",'<a href="{href}" class="md-mn md-mn-kml" title="'+OpenLayers.i18n("viewKml")+' {title}" alt="Open kml">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'application/zip' || values.type == 'application/x-compressed'\">",'<a href="{href}" class="md-mn md-mn-zip" title="'+OpenLayers.i18n("downloadLink")+' {title}" alt="Download">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'text/html'\">",'<a href="{href}" class="md-mn md-mn-www" title="'+OpenLayers.i18n("webLink")+' {title}" alt="Web link" target="_blank">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'EEA:FILEPATH'\">",'<a href="'+EEA.WEBDAV_URL+'{href}" class="md-mn md-mn-download" title="'+OpenLayers.i18n("webdavLink")+' {title}" alt="EEA webdav link" target="_blank">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'EEA:FILEPATH'\">",'<a href="'+EEA.CIFS_URL+'{href}" class="md-mn md-mn-zip" title="'+OpenLayers.i18n("cifsLink")+' {title}" alt="EEA cifs link" target="_blank">&nbsp;</a>',"</tpl>","</tpl>",'<tpl if="this.hasDownloadLinks(values.links)">','<a href="#" onclick="app.getCatalogue().metadataPrepareDownload({id});" class="md-mn downloadAllIcon" title="'+OpenLayers.i18n("prepareDownload")+'" alt="download">&nbsp;</a>',"</tpl>",'<tpl if="this.hasEEALinks(values.links)">','<a href="'+EEA.MAPVIEWER_URL+'{uuid}" class="md-mn addLayer" title="'+OpenLayers.i18n("addToMap")+' {title}" alt="EEA link" target="_blank">&nbsp;</a>',"</tpl>","</div>",'</td><td class="thumb">','<div class="thumbnail">','<tpl if="thumbnail">','<a rel="lightbox" href="{thumbnail}"><img src="{thumbnail}" alt="Thumbnail"/></a>',"</tpl>","<tpl if=\"thumbnail==''\"></tpl>","</div>",'</td><td class="icon">','<div class="md-mn valid-{valid}" title="'+OpenLayers.i18n("validityInfo"),'<tpl for="valid_details">',"{values.type}: ","<tpl if=\"values.valid == '1'\">"+OpenLayers.i18n("valid")+"</tpl>","<tpl if=\"values.valid == '0'\">"+OpenLayers.i18n("notValid")+"</tpl>","<tpl if=\"values.valid == '-1'\">"+OpenLayers.i18n("notDetermined")+"</tpl>","<tpl if=\"values.ratio != ''\"> ({values.ratio}) </tpl> - ","</tpl>",'">&nbsp;</div>','</td><td class="icon" title="'+OpenLayers.i18n("metadataCategories")+'">','<tpl for="category">','<div class="md-mn cat-{value}" title="{value}">&nbsp;</div>',"</tpl>","</td></tr></table>",'<div class="md-contact">','<tpl for="contact">',"<tpl if=\"applies=='resource'\">",'<span title="{role} - {applies}"><tpl if="values.logo !== undefined ">','<img src="{logo}" class="orgLogo"/>',"</tpl>","{name}&nbsp;&nbsp;</span>","</tpl>","</tpl>","<tpl if=\"edit=='true' && isharvested!='y'\">",'<br/><span class="md-mn md-mn-user" title="'+OpenLayers.i18n("ownerName")+'">{ownername} ('+OpenLayers.i18n("lastUpdate")+"{[values.changedate.split('T')[0]]})</span>","</tpl>","</div>","</li>","</tpl>","</ul>",{hasDownloadLinks:function(values){var i;
+EEA.Templates.FULL=new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="md md-full">',"<table><tr>",'<td class="left">',EEA.Templates.LOGO,"</td>",'<td id="{uuid}">',EEA.Templates.TITLE,'<p class="abstract">{[values.abstract.substring(0, 350)]} ...</p>','<tpl if="subject">','<p class="subject"><tpl for="subject">','{value}{[xindex==xcount?"":", "]}',"</tpl></p>","</tpl>",'<div class="md-links">','<tpl for="links">',"<tpl if=\"values.type == 'application/vnd.ogc.wms_xml' || values.type == 'OGC:WMS'\">",'<a href="#" class="md-mn addLayer" title="'+OpenLayers.i18n("addToMap")+" {title}\" alt=\"Add layer to map\" onclick=\"app.switchMode('1', true);app.getIMap().addWMSLayer([['{[escape(values.title)]}', '{href}', '{name}', '{id}']]);\">&nbsp;</a>","</tpl>","<tpl if=\"values.type == 'application/vnd.google-earth.kml+xml'\">",'<a href="{href}" class="md-mn md-mn-kml" title="'+OpenLayers.i18n("viewKml")+' {title}" alt="Open kml">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'application/zip' || values.type == 'application/x-compressed'\">",'<a href="{href}" class="md-mn md-mn-zip" title="'+OpenLayers.i18n("downloadLink")+' {title}" alt="Download">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'text/html'\">",'<a href="{href}" class="md-mn md-mn-www" title="'+OpenLayers.i18n("webLink")+' {title}" alt="Web link" target="_blank">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'EEA:FILEPATH' || values.type == 'EEA:FOLDERPATH'\">",'<a href="'+EEA.WEBDAV_URL+'{href}" class="md-mn md-mn-download with-tooltip" target="_blank" title="'+OpenLayers.i18n("webdavLink")+' {title}" alt="EEA webdav link" target="_blank">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'EEA:FILEPATH' || values.type == 'EEA:FOLDERPATH'\">",'<a href="'+EEA.CIFS_URL+'{href}" class="md-mn md-mn-zip with-tooltip" target="_blank" title="'+OpenLayers.i18n("cifsLink")+' {title}" alt="EEA cifs link" target="_blank">&nbsp;</a>',"</tpl>","<tpl if=\"values.type == 'EEA:FILEPATH' || values.type == 'EEA:FOLDERPATH'\">",'<a href="'+EEA.FTPS_URL+'{href}" class="md-mn md-mn-ftps with-tooltip" target="_blank" title="'+OpenLayers.i18n("ftpsLink")+' {title}" alt="EEA ftps link" target="_blank">&nbsp;</a>',"</tpl>","</tpl>",'<tpl if="this.hasDownloadLinks(values.links)">','<a href="#" onclick="app.getCatalogue().metadataPrepareDownload({id});" class="md-mn downloadAllIcon" title="'+OpenLayers.i18n("prepareDownload")+'" alt="download">&nbsp;</a>',"</tpl>",'<tpl if="this.hasEEALinks(values.links)">','<a href="'+EEA.MAPVIEWER_URL+'{uuid}" class="md-mn addLayer" target="_blank" title="'+OpenLayers.i18n("addToMap")+' {title}" alt="EEA link" target="_blank">&nbsp;</a>',"</tpl>","</div>",'</td><td class="thumb">','<div class="thumbnail">','<tpl if="thumbnail">','<a rel="lightbox" href="{thumbnail}"><img src="{thumbnail}" alt="Thumbnail"/></a>',"</tpl>","<tpl if=\"thumbnail==''\"></tpl>","</div>",'</td><td class="icon">','<div class="md-mn valid-{valid}" title="'+OpenLayers.i18n("validityInfo"),'<tpl for="valid_details">',"{values.type}: ","<tpl if=\"values.valid == '1'\">"+OpenLayers.i18n("valid")+"</tpl>","<tpl if=\"values.valid == '0'\">"+OpenLayers.i18n("notValid")+"</tpl>","<tpl if=\"values.valid == '-1'\">"+OpenLayers.i18n("notDetermined")+"</tpl>","<tpl if=\"values.ratio != ''\"> ({values.ratio}) </tpl> - ","</tpl>",'">&nbsp;</div>','</td><td class="icon" title="'+OpenLayers.i18n("metadataCategories")+'">','<tpl for="category">','<div class="md-mn cat-{value}" title="{value}">&nbsp;</div>',"</tpl>","</td></tr></table>",'<div class="relation" title="'+OpenLayers.i18n("relateddatasets")+'"><span></span><ul id="md-relation-{id}"></ul></div>','<div class="md-contact">','<tpl for="contact">',"<tpl if=\"applies=='resource'\">",'<span title="{role} - {applies}"><tpl if="values.logo !== undefined && values.logo !== \'\'">','<img src="{logo}" class="orgLogo"/>',"</tpl>","{name}&nbsp;&nbsp;</span>","</tpl>","</tpl>","<tpl if=\"edit=='true' && isharvested!='y'\">",'<br/><span class="md-mn md-mn-user" title="'+OpenLayers.i18n("ownerName")+'">{ownername} ('+OpenLayers.i18n("lastUpdate")+"{[values.changedate.split('T')[0]]})</span>","</tpl>","</div>","</li>","</tpl>","</ul>",{hasDownloadLinks:function(values){var i;
 for(i=0;
 i<values.length;
 i++){if(values[i].type==="application/x-compressed"){return true
@@ -17411,8 +17583,9 @@ i++){if(values[i].type==="application/x-compressed"){return true
 },hasEEALinks:function(values){var i;
 for(i=0;
 i<values.length;
-i++){if(values[i].type==="EEA:FILEPATH"&&(values[i].href.indexOf(".mdb")==-1&&values[i].href.indexOf(".gdb")==-1)){return true
-}}return false
+i++){if(values[i].type==="EEA:DBPG"){return true
+}else{if(values[i].type==="EEA:FILEPATH"&&(values[i].href.indexOf(".mdb")==-1&&values[i].href.indexOf(".gdb")==-1)){return true
+}}}return false
 }});Ext.namespace("GeoNetwork");
 var catalogue;
 var app;
@@ -17420,20 +17593,34 @@ GeoNetwork.app=function(){var geonetworkUrl;
 var searching=false;
 var editorWindow;
 var editorPanel;
+var cookie;
 var urlParameters={};
 var catalogue;
 var iMap,searchForm,resultsPanel,metadataResultsView,tBar,bBar,mainTagCloudViewPanel,tagCloudViewPanel,infoPanel,visualizationModeInitialized=false;
 function createModeSwitcher(){var ms={xtype:"radiogroup",id:"ms",hidden:!GeoNetwork.MapModule,items:[{name:"mode",ctCls:"mn-main",boxLabel:OpenLayers.i18n("discovery"),id:"discoveryMode",width:110,inputValue:0,checked:true},{name:"mode",ctCls:"mn-main",width:140,boxLabel:OpenLayers.i18n("visualization"),id:"visualizationMode",inputValue:1}],listeners:{change:function(rg,checked){app.switchMode(checked.getGroupValue(),false)
 }}};
 return new Ext.form.FormPanel({renderTo:"mode-form",border:false,layout:"hbox",items:ms})
-}function initMap(){iMap=new GeoNetwork.mapApp();
-iMap.init(GeoNetwork.map.BACKGROUND_LAYERS,GeoNetwork.map.MAIN_MAP_OPTIONS);
-metadataResultsView.addMap(iMap.getMap());
-visualizationModeInitialized=true
-}function createLanguageSwitcher(lang){return new Ext.form.FormPanel({renderTo:"lang-form",width:80,border:false,layout:"hbox",hidden:GeoNetwork.Util.locales.length===1?true:false,items:[new Ext.form.ComboBox({mode:"local",triggerAction:"all",width:80,store:new Ext.data.ArrayStore({idIndex:0,fields:["id","name"],data:GeoNetwork.Util.locales}),valueField:"id",displayField:"name",value:lang,listeners:{select:function(cb,record,idx){window.location.replace("?hl="+cb.getValue())
+}function createLanguageSwitcher(lang){return new Ext.form.FormPanel({renderTo:"lang-form",width:80,border:false,layout:"hbox",hidden:GeoNetwork.Util.locales.length===1?true:false,items:[new Ext.form.ComboBox({mode:"local",triggerAction:"all",width:80,store:new Ext.data.ArrayStore({idIndex:2,fields:["id","name","id2"],data:GeoNetwork.Util.locales}),valueField:"id2",displayField:"name",value:lang,listeners:{select:function(cb,record,idx){window.location.replace("?hl="+cb.getValue())
 }}})]})
 }function createLoginForm(){var loginForm=new GeoNetwork.LoginForm({renderTo:"login-form",catalogue:catalogue,width:300,layout:"form"});
-catalogue.on("afterBadLogin",loginAlert,this)
+catalogue.on("afterBadLogin",loginAlert,this);
+catalogue.on("afterLogin",function(){var cookie=Ext.state.Manager.getProvider();
+cookie.set("user",catalogue.identifiedUser)
+});
+catalogue.on("afterLogout",function(){var cookie=Ext.state.Manager.getProvider();
+cookie.set("user",undefined)
+});
+var cookie=Ext.state.Manager.getProvider();
+var user=cookie.get("user");
+if(user){catalogue.identifiedUser=user;
+loginForm.login(catalogue,true)
+}}function createLatestUpdate(){var latestView=new GeoNetwork.MetadataResultsView({catalogue:catalogue,height:500,autoScroll:true,tpl:EEA.Templates.THUMBNAIL});
+var latestStore=GeoNetwork.Settings.mdStore();
+latestView.setStore(latestStore);
+latestStore.on("load",function(){Ext.ux.Lightbox.register("a[rel^=lightbox]")
+});
+new Ext.Panel({border:false,bodyCssClass:"md-view",items:latestView,renderTo:"latest"});
+catalogue.kvpSearch(GeoNetwork.Settings.latestQuery,null,null,null,true,latestView.getStore())
 }function loginAlert(cat,user){Ext.Msg.show({title:"Login",msg:"Login failed. Check your username and password.",icon:Ext.MessageBox.ERROR,buttons:Ext.MessageBox.OK})
 }function createSearchForm(){var advancedCriteria=[];
 var services=catalogue.services;
@@ -17450,11 +17637,16 @@ var validField=GeoNetwork.util.SearchFormTools.getValidField(true);
 var spatialTypes=GeoNetwork.util.SearchFormTools.getSpatialRepresentationTypeField([["grid",OpenLayers.i18n("grid")],["textTabled",OpenLayers.i18n("textTable")],["vector",OpenLayers.i18n("vector")]],true);
 var denominatorField=GeoNetwork.util.SearchFormTools.getScaleDenominatorField(true);
 var typeCodeList=GeoNetwork.util.SearchFormTools.getTypesField(null,true);
-advancedCriteria.push(themekeyField,orgNameField,typeCodeList,when,spatialTypes,denominatorField,idField,catalogueField,groupField,metadataTypeField,validField);
+var ownerField=new Ext.form.TextField({name:"E__owner",hidden:true});
+var isHarvestedField=new Ext.form.TextField({name:"E__isHarvested",hidden:true});
+advancedCriteria.push(themekeyField,orgNameField,typeCodeList,when,spatialTypes,denominatorField,idField,catalogueField,groupField,metadataTypeField,validField,ownerField,isHarvestedField);
 var adv={xtype:"fieldset",title:OpenLayers.i18n("advancedSearchOptions"),autoHeight:true,autoWidth:true,collapsible:true,collapsed:(urlParameters.advanced?false:true),defaultType:"checkbox",defaults:{width:160},items:advancedCriteria};
-var inspire={xtype:"fieldset",title:OpenLayers.i18n("inspireSearchOptions"),autoHeight:true,autoWidth:true,collapsible:true,collapsed:(urlParameters.inspire?false:true),defaultType:"checkbox",defaults:{width:160},items:GeoNetwork.util.INSPIRESearchFormTools.getINSPIREFields(catalogue.services,true)};
+var inspire={xtype:"fieldset",title:OpenLayers.i18n("inspireSearchOptions"),autoHeight:true,autoWidth:true,collapsible:true,collapsed:(urlParameters.inspire?false:true),defaultType:"checkbox",defaults:{width:160},items:GeoNetwork.util.INSPIRESearchFormTools.getINSPIREFields(catalogue.services,true,{withAnnex:true,withRelated:true,withTheme:true})};
 var formItems=[];
-formItems.push(GeoNetwork.util.SearchFormTools.getSimpleFormFields(catalogue.services,GeoNetwork.map.BACKGROUND_LAYERS,GeoNetwork.map.MAP_OPTIONS,false,GeoNetwork.searchDefault.activeMapControlExtent),inspire,adv);
+var any_or_id=new GeoNetwork.form.OpenSearchSuggestionTextField({hideLabel:true,width:285,minChars:2,loadingText:"...",hideTrigger:true,url:services.opensearchSuggest,name:"E_any_OR_identifier"});
+var mapField=GeoNetwork.util.SearchFormTools.getSimpleMap(GeoNetwork.map.BACKGROUND_LAYERS,GeoNetwork.map.MAP_OPTIONS,GeoNetwork.searchDefault.activeMapControlExtent,{width:290},false);
+var opts=GeoNetwork.util.SearchFormTools.getOptions(catalogue.services);
+formItems.push(any_or_id,mapField,opts,inspire,adv);
 var adminFields=[groupField,metadataTypeField,validField];
 Ext.each(adminFields,function(item){item.setVisible(false)
 });
@@ -17464,18 +17656,21 @@ catalogue.on("afterLogin",function(){Ext.each(adminFields,function(item){item.se
 catalogue.on("afterLogout",function(){Ext.each(adminFields,function(item){item.setVisible(false)
 })
 });
-return new Ext.FormPanel({id:"searchForm",renderTo:"search-form",border:false,padding:5,defaults:{width:180},listeners:{afterrender:function(){}},items:formItems,buttons:[{tooltip:OpenLayers.i18n("resetSearchForm"),id:"resetBt",icon:"../../apps/images/default/cross.png",listeners:{click:function(){Ext.getCmp("searchForm").getForm().reset()
-}}},{text:OpenLayers.i18n("search"),id:"searchBt",icon:"../../apps/js/GeoNetwork/resources/images/default/find.png",iconAlign:"right",listeners:{click:function(){if(Ext.getCmp("geometryMap")){metadataResultsView.addMap(Ext.getCmp("geometryMap").map,true)
-}var any=Ext.get("E_any");
+return new GeoNetwork.SearchFormPanel({id:"searchForm",stateId:"s",renderTo:"search-form",border:false,searchCb:function(){if(metadataResultsView&&Ext.getCmp("geometryMap")){metadataResultsView.addMap(Ext.getCmp("geometryMap").map,true)
+}var any=Ext.get("E_any_OR_identifier");
 if(any){if(any.getValue()===OpenLayers.i18n("fullTextSearch")){any.setValue("")
 }}catalogue.startRecord=1;
 search()
-}}}]})
+},padding:5,defaults:{width:180},items:formItems})
+}function loadCallback(el,success,response,options){if(success){createLatestUpdate()
+}else{Ext.get("infoPanel").getUpdater().update({url:"home_en.html"})
+}}function createInfoPanel(){return new Ext.Panel({border:true,id:"infoPanel",baseCls:"md-info",autoWidth:true,renderTo:"infoContent",autoLoad:{url:"home_"+catalogue.LANG+".html",callback:loadCallback,scope:this,loadScripts:false}})
 }function createHelpPanel(){return new Ext.Panel({border:false,frame:false,baseCls:"none",id:"helpPanel",autoWidth:true,renderTo:"shortcut",autoLoad:{url:"help_"+catalogue.LANG+".html",callback:initShortcut,scope:this,loadScripts:false}})
 }function search(){searching=true;
 catalogue.search("searchForm",app.loadResults,null,catalogue.startRecord,true);
-var resultsPanel=Ext.getCmp("resultsPanel"),tagCloudPanel=Ext.getCmp("tagCloudPanel");
-if(!resultsPanel.isVisible()){resultsPanel.show()
+var infoPanel=Ext.getCmp("infoPanel"),resultsPanel=Ext.getCmp("resultsPanel"),tagCloudPanel=Ext.getCmp("tagCloudPanel");
+if(infoPanel.isVisible()){infoPanel.hide()
+}if(!resultsPanel.isVisible()){resultsPanel.show()
 }if(!tagCloudPanel.isVisible()){tagCloudPanel.show()
 }}function createBBar(){var previousAction=new Ext.Action({id:"previousBt",text:"&lt;&lt;",handler:function(){var from=catalogue.startRecord-parseInt(Ext.getCmp("E_hitsperpage").getValue(),10);
 if(from>0){catalogue.startRecord=from;
@@ -17485,16 +17680,20 @@ var nextAction=new Ext.Action({id:"nextBt",text:"&gt;&gt;",handler:function(){ca
 search()
 },scope:this});
 return new Ext.Toolbar({items:[previousAction,"|",nextAction,"|",{xtype:"tbtext",text:"",id:"info"}]})
-}function createResultsPanel(){metadataResultsView=new GeoNetwork.MetadataResultsView({catalogue:catalogue,autoScroll:true,autoHeight:true,tpl:EEA.Templates.FULL,templates:{SIMPLE:EEA.Templates.SIMPLE,THUMBNAIL:EEA.Templates.THUMBNAIL,FULL:EEA.Templates.FULL}});
+}function createResultsPanel(permalinkProvider){metadataResultsView=new GeoNetwork.MetadataResultsView({catalogue:catalogue,autoScroll:true,autoHeight:true,displayContextualMenu:false,displaySerieMembers:true,tpl:EEA.Templates.FULL,templates:{SIMPLE:EEA.Templates.SIMPLE,THUMBNAIL:EEA.Templates.THUMBNAIL,FULL:EEA.Templates.FULL},featurecolor:GeoNetwork.Settings.results.featurecolor,colormap:GeoNetwork.Settings.results.colormap,featurecolorCSS:GeoNetwork.Settings.results.featurecolorCSS});
 catalogue.resultsView=metadataResultsView;
-tBar=new GeoNetwork.MetadataResultsToolbar({catalogue:catalogue,searchBtCmp:Ext.getCmp("searchBt"),sortByCmp:Ext.getCmp("E_sortBy"),metadataResultsView:metadataResultsView});
+tBar=new GeoNetwork.MetadataResultsToolbar({catalogue:catalogue,searchBtCmp:Ext.getCmp("searchBt"),sortByCmp:Ext.getCmp("E_sortBy"),metadataResultsView:metadataResultsView,permalinkProvider:permalinkProvider});
 bBar=createBBar();
 resultPanel=new Ext.Panel({id:"resultsPanel",renderTo:"region-content",border:false,hidden:true,autoHeight:true,bodyCssClass:"md-view",layout:"fit",tbar:tBar,items:metadataResultsView,bbar:bBar});
 return resultPanel
-}function createTagCloud(){var tagCloudView=new GeoNetwork.TagCloudView({catalogue:catalogue,tpl:new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="tag-cloud">','<a href="#" onclick="javascript:catalogue.kvpSearch(\'fast=false&summaryOnly=0&from=1&to=20&hitsPerPage=20&themekey={value}\', null, null, null);" alt="{value}" title="{count} records">{value} ({count} records)</a>',"</li>","</tpl>","</ul>")});
+}function createTagCloud(){var tagCloudView=new GeoNetwork.TagCloudView({catalogue:catalogue,tpl:new Ext.XTemplate("<ul>",'<tpl for=".">','<li class="tag-cloud">','<a href="#" onclick="javascript:catalogue.kvpSearch(\'fast=index&summaryOnly=0&from=1&to=20&hitsPerPage=20&themekey={value}\', null, null, null);" alt="{value}" title="{count} records">{value} ({count} records)</a>',"</li>","</tpl>","</ul>")});
 return new Ext.Panel({id:"tagCloudPanel",renderTo:"tag-cloud",layout:"fit",border:false,hidden:true,autoHeight:true,baseCls:"md-view",items:tagCloudView})
+}function show(uuid,record,url,maximized,width,height){var win=new GeoNetwork.view.ViewWindow({serviceUrl:url,lang:this.lang,currTab:GeoNetwork.defaultViewMode||"simple",printDefaultForTabs:GeoNetwork.printDefaultForTabs||false,catalogue:catalogue,maximized:maximized||false,metadataUuid:uuid,record:record,resultsView:catalogue.resultsView});
+win.getPanel().on("aftermetadataload",app.registerTooltipLinks,this);
+win.show(this.resultsView);
+win.alignTo(Ext.getBody(),"tr-tr")
 }function edit(metadataId,create,group,child){if(!this.editorWindow){this.editorPanel=new GeoNetwork.editor.EditorPanel({defaultViewMode:GeoNetwork.Settings.editor.defaultViewMode,catalogue:catalogue,xlinkOptions:{CONTACT:true}});
-this.editorWindow=new Ext.Window({tools:[{id:"newwindow",qtip:OpenLayers.i18n("newWindow"),handler:function(e,toolEl,panel,tc){window.open(GeoNetwork.Util.getBaseUrl(location.href)+"#edit="+metadataId);
+this.editorWindow=new Ext.Window({tools:[{id:"newwindow",qtip:OpenLayers.i18n("newWindow"),handler:function(e,toolEl,panel,tc){window.open(GeoNetwork.Util.getBaseUrl(location.href)+"#edit="+panel.getComponent("editorPanel").metadataId);
 panel.hide()
 },scope:this}],title:OpenLayers.i18n("mdEditor"),id:"editorWindow",layout:"fit",modal:false,items:this.editorPanel,closeAction:"hide",collapsible:true,collapsed:false,maximizable:true,maximized:true,resizable:true,width:980,height:800});
 this.editorPanel.setContainer(this.editorWindow);
@@ -17503,48 +17702,72 @@ this.editorPanel.on("editorClosed",function(){Ext.getCmp("searchBt").fireEvent("
 }if(metadataId){this.editorWindow.show();
 this.editorWindow.maximize();
 this.editorPanel.init(metadataId,create,group,child)
-}}function createHeader(){new Ext.Panel({border:false,frame:false,baseCls:"none",autoWidth:true,renderTo:"header",autoLoad:{url:"http://www.eea.europa.eu/"+catalogue.LANG+"/getHeader",loadScripts:false}});
-return new Ext.Panel({border:false,frame:false,baseCls:"none",autoWidth:true,renderTo:"footer",autoLoad:{url:"http://www.eea.europa.eu/"+catalogue.LANG+"/getFooter",loadScripts:false}})
-}return{init:function(){geonetworkUrl=GeoNetwork.URL||window.location.href.match(/(http.*\/.*)\/eea\/search.*/,"")[1];
+}}function createHeader(){var info=catalogue.getInfo();
+document.title=info.name;
+Ext.get("parent-fieldname-title").dom.innerHTML=info.name
+}return{registerTooltipLinks:function(){var links=Ext.query("a.with-tooltip",this.dom);
+Ext.each(links,function(item){var el=Ext.get(item);
+var href=el.getAttribute("href");
+var f=function(){if(!Ext.get(href)){var title=el.getAttribute("title");
+var id=href;
+if(href.indexOf("cifs://")!=-1){href=href.replace(/\//g,"\\");
+href=href.replace(/cifs:/,"")
+}var t=new Ext.ToolTip({id:id,target:el,title:title,anchor:"top",closable:true,dismissDelay:3000,hideDelay:4000,html:'<span><a target="_blank" href="'+href+'">Open in new window</a> or copy link below<br/><input type="text" value="'+href+'" size="32"/></span>',listeners:{show:function(){var input=Ext.query("input",Ext.get(href).dom);
+if(input&&input.length===1){if(!Ext.isIE8){input[0].select()
+}}},hide:function(){Ext.getCmp(this)&&Ext.getCmp(this).destroy()
+},scope:this}});
+if(!t.isVisible()){t.setVisible(true)
+}}else{}};
+el.on("mouseover",f,this)
+})
+},init:function(){geonetworkUrl=GeoNetwork.URL||window.location.href.match(/(http.*\/.*)\/eea\/search.*/,"")[1];
 urlParameters=GeoNetwork.Util.getParameters(location.href);
 var lang=GeoNetwork.Util.getCatalogueLang(urlParameters.hl||GeoNetwork.defaultLocale);
 if(urlParameters.extent){urlParameters.bounds=new OpenLayers.Bounds(urlParameters.extent[0],urlParameters.extent[1],urlParameters.extent[2],urlParameters.extent[3])
-}Ext.getDom("searchLb").innerHTML=OpenLayers.i18n("search");
-Ext.getDom("loginLb").innerHTML=OpenLayers.i18n("login");
-catalogue=new GeoNetwork.Catalogue({statusBarId:"info",lang:lang,hostUrl:geonetworkUrl,mdOverlayedCmpId:"resultsPanel",adminAppUrl:geonetworkUrl+"/srv/"+lang+"/admin",metadataStore:GeoNetwork.Settings.mdStore(),metadataCSWStore:GeoNetwork.data.MetadataCSWResultsStore(),summaryStore:GeoNetwork.data.MetadataSummaryStore(),editMode:2,metadataEditFn:edit});
+}cookie=new Ext.state.CookieProvider({expires:new Date(new Date().getTime()+(1000*60*60*24*365))});
+Ext.state.Manager.setProvider(cookie);
+Ext.getDom("searchLb").innerHTML=OpenLayers.i18n("search");
+Ext.getDom("loginLb").innerHTML="Admin login";
+catalogue=new GeoNetwork.Catalogue({statusBarId:"info",lang:lang,hostUrl:geonetworkUrl,mdOverlayedCmpId:"resultsPanel",adminAppUrl:geonetworkUrl+"/srv/"+lang+"/admin",metadataStore:GeoNetwork.Settings.mdStore(),metadataCSWStore:GeoNetwork.data.MetadataCSWResultsStore(),summaryStore:GeoNetwork.data.MetadataSummaryStore(),editMode:2,metadataEditFn:edit,metadataShowFn:show});
+var permalinkProvider=new GeoExt.state.PermalinkProvider({encodeType:false});
+Ext.state.Manager.setProvider(permalinkProvider);
 createHeader();
 catalogue.setServiceUrl("xmlSearch",GeoNetwork.Settings.searchService);
+resultsPanel=createResultsPanel(permalinkProvider);
 searchForm=createSearchForm();
 createLanguageSwitcher(lang);
 createLoginForm();
 createTagCloud();
 edit();
-resultsPanel=createResultsPanel();
 createHelpPanel();
-GeoNetwork.util.SearchTools.populateFormFromParams(searchForm,urlParameters);
-if(urlParameters.search!==undefined){Ext.getCmp("searchBt").fireEvent("click")
-}if(urlParameters.edit!==undefined&&urlParameters.edit!==""){catalogue.metadataEdit(urlParameters.edit)
+infoPanel=createInfoPanel();
+if(urlParameters.edit!==undefined&&urlParameters.edit!==""){catalogue.metadataEdit(urlParameters.edit)
 }if(urlParameters.create!==undefined){resultPanel.getTopToolbar().createMetadataAction.fireEvent("click")
 }if(urlParameters.uuid!==undefined){catalogue.metadataShow(urlParameters.uuid,false)
 }else{if(urlParameters.id!==undefined){catalogue.metadataShowById(urlParameters.id,true)
-}}Ext.get("E_any").setWidth(285);
-Ext.get("E_any").setHeight(28);
+}}Ext.get("E_any_OR_identifier").setWidth(285);
+Ext.get("E_any_OR_identifier").setHeight(28);
 if(GeoNetwork.searchDefault.activeMapControlExtent){Ext.getCmp("geometryMap").setExtent()
 }if(urlParameters.bounds){Ext.getCmp("geometryMap").map.zoomToExtent(urlParameters.bounds)
 }var events=["afterDelete","afterRating","afterLogout","afterLogin"];
-Ext.each(events,function(e){catalogue.on(e,function(){if(searching===true){Ext.getCmp("searchBt").fireEvent("click")
+Ext.each(events,function(e){catalogue.on(e,function(){if(searching===true){searchForm.fireEvent("search")
 }})
-})
-},getCatalogue:function(){return catalogue
+});
+if(urlParameters.s_search!==undefined){setTimeout(function(){searchForm.fireEvent("search")
+},500)
+}},getCatalogue:function(){return catalogue
 },loadResults:function(response){Ext.getCmp("previousBt").setDisabled(catalogue.startRecord===1);
 Ext.getCmp("nextBt").setDisabled(catalogue.startRecord+parseInt(Ext.getCmp("E_hitsperpage").getValue(),10)>catalogue.metadataStore.totalLength);
 if(Ext.getCmp("E_sortBy").getValue()){Ext.getCmp("sortByToolBar").setValue(Ext.getCmp("E_sortBy").getValue()+"#"+Ext.getCmp("sortOrder").getValue())
 }else{Ext.getCmp("sortByToolBar").setValue(Ext.getCmp("E_sortBy").getValue())
-}Ext.ux.Lightbox.register("a[rel^=lightbox]")
+}Ext.ux.Lightbox.register("a[rel^=lightbox]");
+app.registerTooltipLinks.call(Ext.get("resultsPanel"))
 }}
 };
-Ext.onReady(function(){var lang=/hl=([a-z]{2})/.exec(location.href);
+document.namespaces;
+Ext.onReady(function(){var lang=/hl=([a-z]{3})/.exec(location.href);
 GeoNetwork.Util.setLang(lang&&lang[1],"..");
+GeoNetwork.lang.en.login="Admin login";
 Ext.QuickTips.init();
 setTimeout(function(){Ext.get("loading").remove();
 Ext.get("loading-mask").fadeOut({remove:true})
@@ -17552,5 +17775,5 @@ Ext.get("loading-mask").fadeOut({remove:true})
 app=new GeoNetwork.app();
 app.init();
 catalogue=app.getCatalogue();
-Ext.getDom("E_any").focus(true)
+Ext.getDom("E_any_OR_identifier").focus(true)
 });

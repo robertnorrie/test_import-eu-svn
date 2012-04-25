@@ -44,6 +44,8 @@ ul li.tag-cloud {
   width: 180px !important;
   height: 180px !important;
 }*/
+
+
 #portal-globalnav li {
-  float: left;
+  float: left !important;
 }
