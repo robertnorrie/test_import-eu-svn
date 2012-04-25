@@ -207,6 +207,7 @@ EEA.Templates.FULL = new Ext.XTemplate(
                     '<div class="md-links">',
                     // FIXME : this call require the catalogue to be named catalogue, static call ?
                     // FIXME : ref to app
+                        '<a href="?uuid={uuid}" class="md-mn mdLinkIcon" title="' + OpenLayers.i18n('permalink') + ' {title}" alt="Metadata permalink" target="_blank">&nbsp;</a>',
                         '<tpl for="links">',
                             '<tpl if="values.type == \'application/vnd.ogc.wms_xml\' || values.type == \'OGC:WMS\'">',
                                 '<a href="#" class="md-mn addLayer" title="' + OpenLayers.i18n('addToMap') + ' {title}" alt="Add layer to map" onclick="app.switchMode(\'1\', true);app.getIMap().addWMSLayer([[\'{[escape(values.title)]}\', \'{href}\', \'{name}\', \'{id}\']]);">&nbsp;</a>',
@@ -224,11 +225,11 @@ EEA.Templates.FULL = new Ext.XTemplate(
 //                                '<a href="' + EEA.MAPVIEWER_URL + '{uuid}" class="md-mn addLayer" title="' + OpenLayers.i18n('addToMap') + ' {title}" alt="EEA link" target="_blank">&nbsp;</a>',
 //                            '</tpl>',
                             '<tpl if="values.type == \'EEA:FILEPATH\' || values.type == \'EEA:FOLDERPATH\'">',
-                            	'<a href="' + EEA.WEBDAV_URL + '{href}" class="md-mn md-mn-download with-tooltip" target="_blank" title="' + OpenLayers.i18n('webdavLink') + ' {title}" alt="EEA webdav link" target="_blank">&nbsp;</a>',
+                            	'<a href="' + EEA.WEBDAV_URL + '{href}" class="md-mn md-mn-webdav with-tooltip" target="_blank" title="' + OpenLayers.i18n('webdavLink') + ' {title}" alt="EEA webdav link" target="_blank">&nbsp;</a>',
 	                        '</tpl>',
 	                        '<tpl if="values.type == \'EEA:FILEPATH\' || values.type == \'EEA:FOLDERPATH\'">',
 		                    // replace / by \ TODO
-	                        '<a href="' + EEA.CIFS_URL + '{href}" class="md-mn md-mn-zip with-tooltip" target="_blank" title="' + OpenLayers.i18n('cifsLink') + ' {title}" alt="EEA cifs link" target="_blank">&nbsp;</a>',
+	                        '<a href="' + EEA.CIFS_URL + '{href}" class="md-mn md-mn-cifs with-tooltip" target="_blank" title="' + OpenLayers.i18n('cifsLink') + ' {title}" alt="EEA cifs link" target="_blank">&nbsp;</a>',
 		                    '</tpl>',
 		                    '<tpl if="values.type == \'EEA:FILEPATH\' || values.type == \'EEA:FOLDERPATH\'">',
                                 '<a href="' + EEA.FTPS_URL + '{href}" class="md-mn md-mn-ftps with-tooltip" target="_blank" title="' + OpenLayers.i18n('ftpsLink') + ' {title}" alt="EEA ftps link" target="_blank">&nbsp;</a>',

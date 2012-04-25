@@ -209,6 +209,12 @@ table.related * a:hover,
 .md-mn-reset {
   background-image : url(../../../apps/images/default/cross.png);
 }
+.md-mn-cifs {
+  background-image : url(../images/server_go.png);
+}
+.md-mn-webdav {
+  background-image : url(../images/ipod_cast.png);
+}
 .md-mn-kml {
   background-image : url(../../../apps/images/default/google-earth-link.png);
 }
@@ -240,7 +246,10 @@ table.related * a:hover,
   background-image : url(../../../apps/images/default/application_view_tile.png) !important;
 }
 .linkIcon {
-  background-image : url(../../../apps/images/default/link.png) !important;
+  background-image : url(../images/page_white_world.png) !important;
+}
+.mdLinkIcon {
+  background-image : url(../images/script.png) !important;
 }
 .addVector {
   background-image : url(../../../apps/images/default/vector_add.png) !important;

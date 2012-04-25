@@ -13,7 +13,7 @@ function initShortcut(){
         stopEvent: true,
         label: OpenLayers.i18n('focusOnAny'),
         fn: function(){
-        	var e = Ext.get('E_any');
+            var e = Ext.get('E_any_OR_identifier');
             e.highlight();
             e.dom.focus(true);
         }
@@ -24,9 +24,9 @@ function initShortcut(){
         stopEvent: true,
         label: OpenLayers.i18n('runSearch'),
         fn: function(){
-            var e = Ext.getCmp('searchBt');
+            var e = Ext.getCmp('searchForm');
             e.getEl().fadeIn();
-            e.fireEvent('click');
+            e.fireEvent('search');
         }
     }, {
         key: Ext.EventObject.LEFT,
@@ -36,7 +36,7 @@ function initShortcut(){
         stopEvent: true,
         label: OpenLayers.i18n('previousPage'),
         fn: function(){
-        	Ext.getCmp('previousBt').handler();
+            Ext.getCmp('previousBt').handler();
         }
     }, {
         key: Ext.EventObject.RIGHT,
@@ -46,7 +46,7 @@ function initShortcut(){
         stopEvent: true,
         label: OpenLayers.i18n('nextPage'),
         fn: function(){
-        	Ext.getCmp('nextBt').handler();
+            Ext.getCmp('nextBt').handler();
         }
     }, {
         key: Ext.EventObject.UP,
@@ -56,7 +56,7 @@ function initShortcut(){
         stopEvent: true,
         label: OpenLayers.i18n('upInPage'),
         fn: function(){
-        	catalogue.resultsView.getEl().scroll('t', 170, true);
+            catalogue.resultsView.getEl().scroll('t', 170, true);
         }
     }, {
         key: Ext.EventObject.DOWN,
@@ -66,7 +66,7 @@ function initShortcut(){
         stopEvent: true,
         label: OpenLayers.i18n('downInPage'),
         fn: function(){
-        	catalogue.resultsView.getEl().scroll('b', 170, true);
+            catalogue.resultsView.getEl().scroll('b', 170, true);
         }
     }, {
         key: "d",
@@ -84,9 +84,9 @@ function initShortcut(){
         shift: true,
         label: OpenLayers.i18n('resetSearchForm'),
         fn: function(){
-            var e = Ext.getCmp('resetBt');
+            var e = Ext.getCmp('searchForm');
             e.getEl().fadeIn();
-            e.fireEvent('click');
+            e.fireEvent('reset');
         }
     }, {
         key: "v",
@@ -180,7 +180,7 @@ function initShortcut(){
     var formMap = new Ext.KeyMap("searchForm", [{
         key: [10, 13],
         fn: function(){
-            Ext.getCmp('searchBt').fireEvent('click');
+            Ext.getCmp('searchForm').fireEvent('search');
         }
     }]);
     
